@@ -1,42 +1,23 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+// import { Link } from "gatsby"
+import * as React from "react"
+import { HeaderFixedContainer } from "../styling/layouts/components/header"
+import { FlexContainer } from "../styling/layouts/inner/index"
+import Logo from "../styling/logo/index"
+import { NavItemsLarge } from "../styling/navbar/index"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import useViewportInfo from "../styling/_hooks/useViewportInfo"
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Header = () => {
+  const { width } = useViewportInfo()
 
-Header.defaultProps = {
-  siteTitle: ``,
+  return (
+    <HeaderFixedContainer>
+      <FlexContainer row stretchXL centerY>
+        <Logo device="xlarge" variants="primary" />
+        {width > 1024 && <NavItemsLarge />}
+      </FlexContainer>
+    </HeaderFixedContainer>
+  )
 }
 
 export default Header
