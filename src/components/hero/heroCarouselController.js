@@ -3,35 +3,27 @@ import { useStaticQuery, graphql } from "gatsby"
 import { removeFilenameExtension } from "../../styling/utils/index"
 
 const HeroCarouselController = ({ children }) => {
-  const data1 = useStaticQuery(graphql`
-    query SiteMetadata {
-      allSite {
-        nodes {
-          siteMetadata {
-            author
+  const data = useStaticQuery(graphql`
+    query CarouselImages {
+      images: allFile(filter: { sourceInstanceName: { eq: "hero_carousel" } }) {
+        edges {
+          node {
+            relativePath
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
   `)
 
-  // query CarouselImages {
-  //   images: allFile(filter: { sourceInstanceName: { eq: "hero_carousel" } }) {
-  //     edges {
-  //       node {
-  //         relativePath
-  //         childImageSharp {
-  //           fluid {
-  //             ...GatsbyImageSharpFluid
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  console.log(data)
+
   // data?.images?.edges[xxx].node?.childImageSharp?.fluid
 
-  console.log(data1)
   // const childProps = data?.images?.edges.map((image, index) => {
   //   // image {
   //   //   node: {

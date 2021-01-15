@@ -1,16 +1,29 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    localEnv: process.env.NODE_ENV,
+    title: `Lojas Gaucha`,
+    description: `Bem vindo na Loja Gaucha, por 15 anos, procuramos soluções para sua casa ao melhor preço.`,
+    author: `lanzoni.nicola@gmail.com`,
+    officePhone: `46991564002`,
+    whatsAppContacts: [
+      { fullName: "Mara", wnumber: "46991564002" },
+      { fullName: "Nicola", wnumber: "46991564002" },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `hero_carousel`,
+        path: `${__dirname}/src/images/hero_carousel/mobile`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/images/global`,
       },
     },
     `gatsby-transformer-sharp`,
