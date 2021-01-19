@@ -2,15 +2,16 @@ import * as React from "react"
 import { ThemeContext } from "styled-components"
 import { FlexContainer } from "../layouts/inner"
 
-function CarouselCardShadow() {
+function CarouselCardShadow({ ...props }) {
   const themeContext = React.useContext(ThemeContext)
 
-  const layoutCard = themeContext?.layout?.style?.carousel?.card?.default
+  const layoutCard =
+    themeContext?.layout?.style?.carousel?.hero_carousel?.card?.default
 
   return (
-    <FlexContainer hAuto centerX centerY>
+    <FlexContainer hAuto centerX centerY pl="30" pr="30" h="30%" {...props}>
       <svg
-        width={310}
+        width={"100%"}
         height={34}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,12 +32,8 @@ function CarouselCardShadow() {
             y2={17}
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={layoutCard?.shadow?.color} />
-            <stop
-              offset={1}
-              stopColor={layoutCard?.shadow?.color}
-              stopOpacity={0}
-            />
+            <stop stopColor="#E7E7E9" />
+            <stop offset={1} stopColor="#E7E7E9" stopOpacity={0} />
           </linearGradient>
         </defs>
       </svg>

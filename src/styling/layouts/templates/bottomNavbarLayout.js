@@ -9,7 +9,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import NavItemsMobile from "../../../../navbar/mobile/navbarItems-mobile"
+import NavItemsMobile from "../../navbar/mobile/navbarItems-mobile"
 
 const StyledBottomNavbarLayout = styled.div`
   max-height: ${({ vh }) => `${vh}px`};

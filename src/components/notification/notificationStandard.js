@@ -7,7 +7,7 @@ import { Box } from "../../styling/shape/index"
 
 const NotificationStandard = () => {
   return (
-    <FlexContainer row stretchXM w100>
+    <FlexContainer row stretchXL w100>
       <FlexContainer row centerY wAuto>
         <SVGIcon name="clock" color={colorsTheme("blue")} />
         <SmallText

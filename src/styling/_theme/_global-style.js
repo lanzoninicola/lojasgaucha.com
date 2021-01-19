@@ -31,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     font: 112.5%/1.45em georgia, serif, sans-serif;
     box-sizing: border-box;
     overflow-y: scroll;
+    
   }
   body {
     margin: 0;

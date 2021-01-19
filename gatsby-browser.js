@@ -5,3 +5,9 @@
  */
 
 // You can delete this file if you're not using it
+
+import "@fontsource/manrope/300.css"
+import "@fontsource/manrope/400.css"
+import "@fontsource/poppins/300.css"
+import "@fontsource/poppins/400.css"
+import "@fontsource/poppins/600.css"

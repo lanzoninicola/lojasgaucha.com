@@ -1,4 +1,5 @@
 import carouselTheme from "./layouts/carouselTheme"
+import { getCSSRelativeUnits, composeCSSValue } from "../layouts/utils/CSSUnit"
 
 const STYLE = "style"
 const CONFIG = "config"
@@ -11,15 +12,15 @@ function layoutTheme() {
     },
     config: {
       global: {
-        CSSUnits: {
-          default: "px",
-          values: ["px", "rem", "em", "vh"],
-        },
+        CSSUnits: getCSSRelativeUnits(),
       },
       carousel: carouselTheme(CONFIG),
     },
     data: {
       carousel: carouselTheme(DATA),
+    },
+    utils: {
+      composeCSSValue: () => composeCSSValue(),
     },
   }
 

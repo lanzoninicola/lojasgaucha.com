@@ -11,6 +11,10 @@ import isArray from "./isArray"
 import isNotArray from "./isNotArray"
 import isFunction from "./isFunction"
 import removeFilenameExtension from "./removeFilenameExtension"
+import isNotString from "./isNotString"
+import isString from "./isString"
+import splitWords from "./splitWords"
+import splitWordChar from "./splitWordChar"
 
 export {
   left,
@@ -26,4 +30,8 @@ export {
   isNotArray,
   isFunction,
   removeFilenameExtension,
+  isNotString,
+  isString,
+  splitWords,
+  splitWordChar,
 }

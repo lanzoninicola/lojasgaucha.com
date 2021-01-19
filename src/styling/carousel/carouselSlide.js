@@ -1,9 +1,5 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { ThemeContext } from "styled-components"
 import { FlexMotionContainer } from "../layouts/inner/index"
-// import CarouselSlideCard from "./carouselSlideCard"
-import CarouselSlideCardShadow from "./carouselCardShadow"
 
 // const enterAnimation = {
 //   hidden: { opacity: 0 },
@@ -21,30 +17,24 @@ import CarouselSlideCardShadow from "./carouselCardShadow"
 //   exit: {},
 // }
 
-const CarouselSlide = ({ children }) => {
-  const themeContext = React.useContext(ThemeContext)
-  const showCardShadow =
-    themeContext?.layout?.config?.carousel?.card?.shadow?.visible
-
+const CarouselSlide = ({ children, ...props }) => {
   return (
     <>
       <FlexMotionContainer
-        id="carousel-slide"
         row
         w100
         left
         hAuto
         overflowAuto
         stretchX
-        p="20px"
-        $style={{
+        style={{
           scrollSnapType: "x mandatory",
-          scrollbarWidth: "none",
+          scrollBehavior: "smooth",
         }}
+        {...props}
       >
         {children}
       </FlexMotionContainer>
-      {showCardShadow && <CarouselSlideCardShadow />}
     </>
   )
 }

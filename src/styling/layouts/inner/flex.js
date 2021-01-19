@@ -4,17 +4,13 @@ import { motion } from "framer-motion"
 
 import { useDOMInfo } from "../../_hooks/useDOM"
 
-import {
-  stringToArray,
-  arrayToString,
-  right,
-  isNotIncluded,
-  isFunction,
-} from "../../utils/index"
+import { right, isNotIncluded, isFunction } from "../../utils/index"
 
 import DOMNodeInspect from "../utils/DOMNodeInspect/DOMNodeInspect"
+import { Space } from "."
 
 const Flex = styled.div`
+  ${Space}
   display: flex;
   justify-content: ${({
     left,
@@ -109,164 +105,6 @@ const Flex = styled.div`
     if (direction === "column") return `column` // it will deprecated
     return `column`
   }};
-  margin-left: ${({ theme, ml, marginLeft }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (ml || marginLeft) {
-      const marginProp = ml ?? marginLeft
-      const inputCSSUnit = right(marginProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  margin-right: ${({ theme, mr, marginRight }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (mr || marginRight) {
-      const marginProp = mr ?? marginRight
-      const inputCSSUnit = right(marginProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  margin-bottom: ${({ theme, mb, marginBottom }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (mb || marginBottom) {
-      const marginProp = mb ?? marginBottom
-      const inputCSSUnit = right(marginProp, 2)
-
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
-    }
-
-    // return null
-  }};
-  margin-top: ${({ theme, mt, marginTop }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (mt || marginTop) {
-      const marginProp = mt ?? marginTop
-      const inputCSSUnit = right(marginProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  margin: ${({ theme, m, margin }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (m || margin) {
-      const marginProp = m ?? margin
-      const marginArray = stringToArray(marginProp, " ")
-
-      let newMarginArray = marginArray.map(marginValue => {
-        const inputCSSUnit = right(marginValue, 2)
-        if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-          return `${marginValue}${defaultCSSUnit}`
-        }
-      })
-
-      return arrayToString(newMarginArray)
-    }
-
-    return null
-  }};
-  padding-left: ${({ theme, pl, paddingLeft }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (pl || paddingLeft) {
-      const paddingProp = pl ?? paddingLeft
-      const inputCSSUnit = right(paddingProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  padding-right: ${({ theme, pr, paddingRight }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (pr || paddingRight) {
-      const paddingProp = pr ?? paddingRight
-      const inputCSSUnit = right(paddingProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  padding-bottom: ${({ theme, pb, paddingBottom }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (pb || paddingBottom) {
-      const paddingProp = pb ?? paddingBottom
-      const inputCSSUnit = right(paddingProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  padding-top: ${({ theme, pt, paddingTop }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    if (pt || paddingTop) {
-      const paddingProp = pt ?? paddingTop
-      const inputCSSUnit = right(paddingProp, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
-    }
-
-    return null
-  }};
-  padding: ${({ theme, p, padding }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    // TODO: bug. Reproduce using the prop " p="20px" " in a flex container
-
-    if (p || padding) {
-      const paddingProp = p ?? padding
-      const paddingArray = stringToArray(paddingProp, " ")
-
-      let newPaddingArray = paddingArray.map(paddingValue => {
-        const inputCSSUnit = right(paddingValue, 2)
-        // console.log(inputCSSUnit)
-        if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-          return `${paddingValue}${defaultCSSUnit}`
-        } else {
-          return `${paddingValue}`
-        }
-      })
-      return arrayToString(newPaddingArray)
-    }
-
-    return null
-  }};
-
   ${props => props.$style ?? {}}
 `
 
