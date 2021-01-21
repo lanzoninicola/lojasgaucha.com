@@ -15,6 +15,8 @@ import isNotString from "./isNotString"
 import isString from "./isString"
 import splitWords from "./splitWords"
 import splitWordChar from "./splitWordChar"
+import isNotNumber from "./isNotNumber"
+import isNumber from "./isNumber"
 
 export {
   left,
@@ -34,4 +36,6 @@ export {
   isString,
   splitWords,
   splitWordChar,
+  isNotNumber,
+  isNumber,
 }

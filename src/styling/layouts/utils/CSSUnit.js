@@ -1,5 +1,10 @@
 import CSSRelativeUnits from "../config/CSSRelativeUnits"
-import { isIncluded, isNotString } from "../../utils/index"
+import {
+  isIncluded,
+  isNotNumber,
+  isNumber,
+  isNotString,
+} from "../../utils/index"
 
 const CSSUnits = CSSRelativeUnits.values
 const defaultCSSUnit = CSSRelativeUnits.default
@@ -8,14 +13,31 @@ export function getCSSRelativeUnits() {
   return CSSRelativeUnits
 }
 
-function grabCSSUnit(CSSpropertyValue) {
-  return CSSpropertyValue.match(/[%vhrempx]/gi)?.join("")
+/**
+ * @param {string|number} CSSPropertyValue
+ */
+function grabCSSUnit(CSSPropertyValue) {
+  if (isNumber(CSSPropertyValue)) {
+    CSSPropertyValue = CSSPropertyValue.toString()
+  }
+
+  return CSSPropertyValue.match(/[%vhrempx]/gi)?.join("")
 }
 
-function grabNumberValue(CSSpropertyValue) {
-  return CSSpropertyValue.match(/[0-9]+/g)?.join("")
+/**
+ * @param {string|number} CSSPropertyValue
+ */
+function grabNumberValue(CSSPropertyValue) {
+  if (isNumber(CSSPropertyValue)) {
+    CSSPropertyValue = CSSPropertyValue.toString()
+  }
+
+  return CSSPropertyValue.match(/[0-9]+/g)?.join("")
 }
 
+/**
+ * @param {string} shouldCSSUnit
+ */
 function matchCSSUnit(shouldCSSUnit) {
   if (isIncluded(shouldCSSUnit, CSSUnits)) {
     return true
@@ -24,24 +46,24 @@ function matchCSSUnit(shouldCSSUnit) {
 }
 
 /**
- * CSSpropertyValue is the value assigned to the CSS property by the user .
+ * CSSPropertyValue is the value assigned to the CSS property by the user .
  * It could contains or not the CSS unit
- * @param {string} CSSpropertyValue
+ * @param {string|number} CSSPropertyValue
  */
-export function composeCSSValue(CSSpropertyValue) {
-  if (CSSpropertyValue === undefined) {
-    return CSSpropertyValue
+export function composeCSSValue(CSSPropertyValue) {
+  if (CSSPropertyValue === undefined) {
+    return CSSPropertyValue
   }
 
-  if (isNotString(CSSpropertyValue)) {
+  if (isNotString(CSSPropertyValue) && isNotNumber(CSSPropertyValue)) {
     console.error(
-      `isMatchWithCSSRelativeUnit() - The value of CSS Property used must be a string and not ${typeof CSSpropertyValue}`
+      `composeCSSValue() - The value of CSS Property used must be a string or number and not ${typeof CSSPropertyValue}`
     )
-    return CSSpropertyValue
+    return CSSPropertyValue
   }
 
-  const grabbedCSSUnit = grabCSSUnit(CSSpropertyValue)
-  const grabbedValue = grabNumberValue(CSSpropertyValue)
+  const grabbedCSSUnit = grabCSSUnit(CSSPropertyValue)
+  const grabbedValue = grabNumberValue(CSSPropertyValue)
   const isMatchCSSUnit = matchCSSUnit(grabbedCSSUnit)
 
   // if user passed a number value with a CSSUnit that doesn't exist
@@ -59,6 +81,6 @@ export function composeCSSValue(CSSpropertyValue) {
   // if user passed a number value with a CSSUnit that exist
   if (isMatchCSSUnit) {
     // console.log("composeCSSValue 3", `${grabbedValue}${defaultCSSUnit}`)
-    return `${CSSpropertyValue}`
+    return `${CSSPropertyValue}`
   }
 }
