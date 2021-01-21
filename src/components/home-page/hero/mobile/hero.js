@@ -1,8 +1,8 @@
 import * as React from "react"
 
-import { Strip, GridContainer } from "../../../styling/layouts/inner"
+import { Strip, GridContainer } from "../../../../styling/layouts/inner"
 
-import useViewportInfo from "../../../styling/_hooks/useViewportInfo"
+import useViewportInfo from "../../../../styling/_hooks/useViewportInfo"
 
 import HeroHeadline from "./hero-headline"
 import HeroAmbientes from "./hero-ambientes"

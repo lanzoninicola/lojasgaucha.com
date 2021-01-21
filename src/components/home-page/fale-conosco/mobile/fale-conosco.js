@@ -2,11 +2,11 @@ import * as React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { FlexContainer, GridContainer } from "../../../styling/layouts/inner"
-import { Title, Text } from "../../../styling/typography/index"
-import { NavDiv } from "../../../styling/navigation/index"
+import { FlexContainer, GridContainer } from "../../../../styling/layouts/inner"
+import { Title, Text } from "../../../../styling/typography/index"
+import { NavDiv } from "../../../../styling/navigation/index"
 
-import { ModalCard, ModalCardIcon } from "../../other/index"
+import { ModalCard, ModalCardIcon } from "../../../other/index"
 
 const StyledFaleConoscoInner = styled.div`
   height: 100%;

@@ -7,7 +7,13 @@ const Typeface = css`
   font-family: ${({ theme, variant }) => theme.typography[variant].family};
   font-style: normal;
   font-weight: ${({ weight }) => weight};
-  text-transform: ${({ capitalize }) => capitalize ?? null};
+  text-transform: ${({ capitalize, uppercase, lowercase }) => {
+    if (capitalize) return capitalize
+    if (uppercase) return `uppercase`
+    if (lowercase) return `lowercase`
+
+    return null
+  }};
   letter-spacing: ${({ ls }) => ls ?? null};
   color: ${({ theme, color }) => {
     let isHEXColor = color.substring(0, 1) === "#"

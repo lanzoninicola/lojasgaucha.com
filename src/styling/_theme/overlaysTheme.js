@@ -2,7 +2,7 @@ import * as React from "react"
 
 import colorsTheme from "./colorsTheme"
 import BottomSheet from "../overlays/bottomSheet"
-import FaleConoscoForm from "../../components/fale-conosco/mobile/fale-conosco-form"
+import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"
 
 const overlaysTheme = () => {
   return {

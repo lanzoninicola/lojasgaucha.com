@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { Space } from "../layouts/inner/index"
+import { FlexContainer, Space } from "../layouts/inner/index"
 import { Title } from "../typography"
 import colorsTheme from "../_theme/colorsTheme"
 
@@ -15,10 +15,23 @@ const StyledImageTitle = styled.div`
   background: ${({ bg }) => {
     if (bg) return bg
 
-    return colorsTheme("black")
+    return null
   }};
-  height: auto;
-  width: auto;
+  height: ${({ theme, h, height, fluid }) => {
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    if (h ?? height) return composeCSSValue(h) ?? composeCSSValue(height)
+    if (fluid) return `auto`
+
+    return `auto`
+  }};
+  width: ${({ theme, w, width, fluid }) => {
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    if (w) return composeCSSValue(w)
+    if (width) return composeCSSValue(width)
+    if (fluid) return `auto`
+
+    return `auto`
+  }};
   position: absolute;
   top: ${({ topLeft, topRight, center, bottomCenter }) => {
     console.log("imageTitle - center", center)
@@ -54,19 +67,24 @@ const StyledImageTitle = styled.div`
   ${({ $style }) => $style ?? {}}
 `
 
-const ImageTitle = ({ children, bg, ...props }) => {
+const ImageTitle = ({ children, bg, text, uppercase, lowercase, ...props }) => {
   return (
-    <StyledImageTitle padding="8 4 8 4" bg={bg} {...props}>
-      <Title as="h4" color={colorsTheme("white")}>
+    <StyledImageTitle padding="4 4 4 4" bg={bg} {...props}>
+      <FlexContainer row centerX centerY>
+        <Title as="h4" color={colorsTheme("white")} uppercase lowercase>
+          {text}
+        </Title>
         {children}
-      </Title>
+      </FlexContainer>
     </StyledImageTitle>
   )
 }
 
 ImageTitle.propTypes = {
   bg: PropTypes.string,
-  color: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  uppercase: PropTypes.bool,
+  lowercase: PropTypes.bool,
 }
 
 export default ImageTitle

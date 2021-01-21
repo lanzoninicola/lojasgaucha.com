@@ -7,8 +7,9 @@ import useResponsiveSize from "../_hooks/useResponsiveSize"
 const SmallText = styled.div`
   ${Typeface}
   font-size: ${({ theme, variant, size, debug }) => {
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
     if (size && !size?.min) {
-      return `${size}px`
+      return `${composeCSSValue(size)}`
     }
 
     return useResponsiveSize(
@@ -25,9 +26,15 @@ const SmallText = styled.div`
       }
     )
   }};
-  line-height: ${({ theme, variant, lineHeight }) => {
+  line-height: ${({ theme, variant, lh, lineHeight }) => {
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+
+    if (lh && !lh?.min) {
+      return `${composeCSSValue(lh)}`
+    }
+
     if (lineHeight && !lineHeight?.min) {
-      return `${lineHeight}px`
+      return `${composeCSSValue(lineHeight)}`
     }
 
     useResponsiveSize({

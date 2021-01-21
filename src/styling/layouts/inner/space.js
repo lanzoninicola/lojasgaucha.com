@@ -7,10 +7,9 @@ import {
   isNotString,
 } from "../../utils/index"
 
-import { composeCSSRelativeUnit } from "../utils/CSSUnit"
-
 const Space = css`
   margin-left: ${({ theme, ml, marginLeft }) => {
+    // const composeCSSValue = theme?.layouts?.utils?.composeCSSValue
     const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
     const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
 

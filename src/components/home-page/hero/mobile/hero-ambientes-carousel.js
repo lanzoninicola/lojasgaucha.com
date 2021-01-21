@@ -1,14 +1,14 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import CarouselSlide from "../../../styling/carousel/carouselSlide"
-import ImageQL from "../../../styling/Images/ImageQL"
-import CarouselSlideCard from "../../../styling/carousel/carouselSlideCard"
-import NavLink from "../../../styling/navigation/navLink"
+import ImageQL from "../../../../styling/Images/ImageQL"
+import NavLink from "../../../../styling/navigation/navLink"
 
-import { removeFilenameExtension } from "../../../styling/utils/index"
-import ImageTitle from "../../../styling/Images/imageTitle"
-import colorsTheme from "../../../styling/_theme/colorsTheme"
+import CarouselSlide from "../../../../styling/carousel/carouselSlide"
+import HeroAmbientesCarouselImageText from "./hero-ambientes-carousel-imageText"
+import CarouselSlideCard from "../../../../styling/carousel/carouselSlideCard"
+
+import { removeFilenameExtension } from "../../../../styling/utils/index"
 
 const HeroAmbientesCarousel = () => {
   const data = useStaticQuery(graphql`
@@ -28,6 +28,8 @@ const HeroAmbientesCarousel = () => {
     }
   `)
 
+  const ambientes = [""]
+
   const carouselData = data?.images?.edges.map((image, index) => {
     // image {
     //   node: {
@@ -42,6 +44,7 @@ const HeroAmbientesCarousel = () => {
       switch (filename) {
         case "roupeiros":
           return {
+            name: "cabinet",
             alt: "Escolha os nossos produtos para seu quarto",
             title: "Nossa linha de produtos para seu quarto",
             to: {
@@ -51,6 +54,7 @@ const HeroAmbientesCarousel = () => {
           }
         case "cozinha":
           return {
+            name: "cozinha",
             alt: "Escolha os nossos produtos para sua nova cozinha",
             title: "Nossa linha de produtos para sua nova cozinha",
             to: {
@@ -60,6 +64,7 @@ const HeroAmbientesCarousel = () => {
           }
         case "quarto":
           return {
+            name: "quarto",
             alt: "Escolha os nossos produtos para seu quarto",
             title: "Nossa linha de produtos para seu quarto",
             to: {
@@ -69,6 +74,7 @@ const HeroAmbientesCarousel = () => {
           }
         case "salaestar":
           return {
+            name: "sala da estar",
             alt: "Escolha os nossos produtos para sua sala de estar",
             title: "Nossa linha de produtos para sua sala de estar",
             to: {
@@ -110,12 +116,7 @@ const HeroAmbientesCarousel = () => {
                 }}
               ></ImageQL>
             </NavLink>
-            <ImageTitle
-              bottomCenter
-              bg={colorsTheme("orange", { colorUnit: "rgba", opacity: "0.7" })}
-            >
-              Prova di scrittura
-            </ImageTitle>
+            <HeroAmbientesCarouselImageText text={itemData?.name} />
           </CarouselSlideCard>
         )
       })}

@@ -9,9 +9,7 @@ import { SmallText } from "../typography/index"
 import SVGIcon from "../icons/SVGIcon"
 import colorsTheme from "../_theme/colorsTheme"
 
-const NavItemIcon = styled.div`
-  margin-bottom: 2px;
-`
+const NavItemIcon = styled.div``
 const NavItemText = styled.div``
 
 const NavbarItem = ({ item, layoutConfig }) => {
@@ -34,6 +32,7 @@ const NavbarItem = ({ item, layoutConfig }) => {
                 ? colorsTheme("white")
                 : layoutConfig?.items?.icons?.colors?.default
             }
+            mb="8"
           />
         </NavItemIcon>
       )}

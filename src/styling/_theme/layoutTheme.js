@@ -20,7 +20,7 @@ function layoutTheme() {
       carousel: carouselTheme(DATA),
     },
     utils: {
-      composeCSSValue: () => composeCSSValue(),
+      composeCSSValue: prop => composeCSSValue(prop),
     },
   }
 

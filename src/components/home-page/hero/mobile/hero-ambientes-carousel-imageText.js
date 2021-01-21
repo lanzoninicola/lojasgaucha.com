@@ -1,0 +1,30 @@
+import * as React from "react"
+import PropTypes from "prop-types"
+import ImageTitle from "../../../../styling/Images/imageTitle"
+import colorsTheme from "../../../../styling/_theme/colorsTheme"
+import SVGIcon from "../../../../styling/icons/SVGIcon"
+
+const HeroAmbientesCarouselImageText = ({ text }) => {
+  return (
+    <ImageTitle
+      bottomCenter
+      text={text}
+      uppercase
+      bg={colorsTheme("orange", { colorUnit: "rgba", opacity: "0.7" })}
+      w="60%"
+    >
+      <SVGIcon
+        name="ARROW_RIGHT"
+        size="24"
+        color={colorsTheme("white")}
+        pl="8"
+      />
+    </ImageTitle>
+  )
+}
+
+HeroAmbientesCarouselImageText.propTypes = {
+  text: PropTypes.string.isRequired,
+}
+
+export default HeroAmbientesCarouselImageText

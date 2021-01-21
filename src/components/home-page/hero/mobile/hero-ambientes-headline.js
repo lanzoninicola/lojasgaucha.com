@@ -1,11 +1,11 @@
 import * as React from "react"
 
-import { FlexContainer } from "../../../styling/layouts/inner"
-import { SmallText } from "../../../styling/typography/index"
-import { NavLink } from "../../../styling/navigation/index"
-import SVGIcon from "../../../styling/icons/SVGIcon"
+import { FlexContainer } from "../../../../styling/layouts/inner"
+import { SmallText } from "../../../../styling/typography/index"
+import { NavLink } from "../../../../styling/navigation/index"
+import SVGIcon from "../../../../styling/icons/SVGIcon"
 
-import colorsTheme from "../../../styling/_theme/colorsTheme"
+import colorsTheme from "../../../../styling/_theme/colorsTheme"
 
 const HeroAmbientesHeadline = () => {
   return (
@@ -13,7 +13,7 @@ const HeroAmbientesHeadline = () => {
       <SmallText
         weight="600"
         size="14"
-        lh="16"
+        lh="18"
         color="orange"
         capitalize="uppercase"
         $style={{
@@ -30,7 +30,7 @@ const HeroAmbientesHeadline = () => {
         $style={{}}
       >
         <FlexContainer column centerY>
-          <SVGIcon name="view_all" color={colorsTheme("orange")} />
+          <SVGIcon name="view_all" color={colorsTheme("orange")} mb="4" />
           <SmallText
             weight="600"
             size="12"

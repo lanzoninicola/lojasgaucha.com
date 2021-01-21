@@ -1,22 +1,26 @@
 import * as React from "react"
+import styled from "styled-components"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
+import { FlexContainer, Space } from "../layouts/inner"
 
-function SVGIcon({ name, size, color }) {
+function SVGIcon({ name, size, color, ...props }) {
   const themeContext = React.useContext(ThemeContext)
 
   const SVGPath = themeContext.icons.catalog[name.toUpperCase()][size]
   // const iconColor = typeof color === "function" ? color : colorsTheme(color)
 
   return (
-    <svg
-      width={size} // icons are always equal width and height
-      height={size} // icons are always equal width and height
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path fillRule="evenodd" clipRule="evenodd" d={SVGPath} fill={color} />
-    </svg>
+    <FlexContainer centerX centerY {...props}>
+      <svg
+        width={size} // icons are always equal width and height
+        height={size} // icons are always equal width and height
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path fillRule="evenodd" clipRule="evenodd" d={SVGPath} fill={color} />
+      </svg>
+    </FlexContainer>
   )
 }
 

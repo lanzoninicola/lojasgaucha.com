@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Hero from "../components/hero/mobile/hero"
+import Hero from "../components/home-page/hero/mobile/hero"
 import BannerNotification from "../components/notification/bannerNotification"
 
 const IndexPage = () => {

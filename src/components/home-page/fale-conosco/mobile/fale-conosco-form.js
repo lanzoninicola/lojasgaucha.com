@@ -1,10 +1,10 @@
 import * as React from "react"
 import styled from "styled-components"
-import { FlexContainer } from "../../../styling/layouts/inner"
-import { Title, Text, SmallText } from "../../../styling/typography"
+import { FlexContainer } from "../../../../styling/layouts/inner"
+import { Title, Text, SmallText } from "../../../../styling/typography"
 
 import { useForm } from "react-hook-form"
-import colorsTheme from "../../../styling/_theme/colorsTheme"
+import colorsTheme from "../../../../styling/_theme/colorsTheme"
 
 const StyledForm = styled.form``
 const StyledLabel = styled.label``

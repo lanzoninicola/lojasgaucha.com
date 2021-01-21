@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { FlexContainer } from "../../../styling/layouts/inner"
-import { Title } from "../../../styling/typography/index"
+import { FlexContainer } from "../../../../styling/layouts/inner"
+import { Title } from "../../../../styling/typography/index"
 
 const HeroHeadline = () => {
   return (
