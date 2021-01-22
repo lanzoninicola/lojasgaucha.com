@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import { FlexContainer, GridContainer } from "../layouts/inner/index"
+import { FlexContainer } from "../layouts/inner/index"
 import SVGIcon from "../icons/SVGIcon"
 import colorsTheme from "../_theme/colorsTheme"
 import { SmallText } from "../typography/index"
@@ -72,17 +72,17 @@ const BottomSheet = ({ modalKey, isShown, hideModal, children }) => {
           // On Tap - Navigation
           type: "spring",
           delay: 0,
-          stiffness: 300,
-          damping: 80,
+          stiffness: 500,
+          damping: 60,
           mass: 1,
         }}
       >
-        <GridContainer id="bottomSheet" gap="10px" rows="1fr 0.15fr" h100>
-          {/* <FlexContainer id="bottomSheet" column w100 stretchXM> */}
+        {/* <GridContainer gap="10px" rows="1fr 0.15fr" h100> */}
+        <FlexContainer id="bottomSheet" column w100 stretchXS>
           {children}
           <CloseBottomSheet modalKey={modalKey} hideModal={hideModal} />
-          {/* </FlexContainer> */}
-        </GridContainer>
+        </FlexContainer>
+        {/* </GridContainer> */}
       </StyledBottomSheet>
     </>
   )

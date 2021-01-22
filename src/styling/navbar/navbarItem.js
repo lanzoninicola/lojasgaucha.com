@@ -16,8 +16,6 @@ const NavbarItem = ({ item, layoutConfig }) => {
   const modalContext = React.useContext(ModalContext)
   const { isShown } = modalContext
 
-  console.log(layoutConfig?.items?.labels?.lineHeight)
-
   return (
     <FlexContainer column centerY centerX h100>
       {layoutConfig?.items?.icons?.show && (
@@ -52,7 +50,7 @@ const NavbarItem = ({ item, layoutConfig }) => {
                 ? colorsTheme("white")
                 : layoutConfig?.items?.icons?.colors?.default
             }
-            size={layoutConfig?.items?.labels?.size}
+            size={{ min: 10, max: 12 }}
             lineHeight={layoutConfig?.items?.labels?.lineHeight}
             align="center"
             capitalize={layoutConfig?.items?.labels?.capitalize}

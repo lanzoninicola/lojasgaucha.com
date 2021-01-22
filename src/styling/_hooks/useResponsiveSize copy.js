@@ -7,10 +7,15 @@ export default function useResponsiveSize(
   { min = 0, max = 0 },
   options = { unit: "px", debug: { fired: false, message: "" } }
 ) {
-  const { width } = useViewportInfo()
+  const { width, height } = useViewportInfo()
   const themeContext = React.useContext(ThemeContext)
-  // const minAspectRatio = 1.78 // Aspect Ratio of iPhone 5 320w 568h
-  // const currentAspecRatio = (height / width).toFixed(2)
+  const minAspectRatio = 1.78 // Aspect Ratio of iPhone 5 320w 568h
+  const currentAspecRatio = (height / width).toFixed(2)
+
+  min = parseInt(min)
+  max = parseInt(max)
+  width = parseInt(width)
+  height = parseInt(height)
 
   let resultSize = 0
 

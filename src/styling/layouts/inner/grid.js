@@ -12,6 +12,8 @@ import {
 
 import { useDOMInfo } from "../../_hooks/useDOM"
 
+import { composeCSSValue } from "../utils/CSSUnit"
+
 // https://stackoverflow.com/questions/56651064/changing-tag-type-when-ealignXtending-component-in-styled-components
 
 const Grid = css`
@@ -29,7 +31,7 @@ const Grid = css`
     if (bottom) return `end`
     if (stretchY) return `stretch`
   }};
-  gap: ${({ gap }) => gap ?? null};
+  gap: ${({ gap }) => composeCSSValue(gap) ?? null};
 `
 
 Grid.defaultProps = {

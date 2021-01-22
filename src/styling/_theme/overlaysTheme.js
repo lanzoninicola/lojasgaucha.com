@@ -2,6 +2,7 @@ import * as React from "react"
 
 import colorsTheme from "./colorsTheme"
 import BottomSheet from "../overlays/bottomSheet"
+import FaleConosco from "../../components/home-page/fale-conosco/mobile/fale-conosco"
 import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"
 
 const overlaysTheme = () => {
@@ -32,7 +33,12 @@ const overlaysTheme = () => {
     modals: {
       ModalFaleConosco: props => (
         <BottomSheet {...props}>
-          {/* <FaleConosco /> */}
+          <FaleConosco />
+          {/* <FaleConoscoForm /> */}
+        </BottomSheet>
+      ),
+      ModalFaleConoscoForm: props => (
+        <BottomSheet {...props}>
           <FaleConoscoForm />
         </BottomSheet>
       ),

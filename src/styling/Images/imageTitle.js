@@ -34,7 +34,6 @@ const StyledImageTitle = styled.div`
   }};
   position: absolute;
   top: ${({ topLeft, topRight, center, bottomCenter }) => {
-    console.log("imageTitle - center", center)
     if (topLeft || topRight) return `8px`
     if (center) return `50%`
     if (bottomCenter) return `85%`
@@ -71,7 +70,13 @@ const ImageTitle = ({ children, bg, text, uppercase, lowercase, ...props }) => {
   return (
     <StyledImageTitle padding="4 4 4 4" bg={bg} {...props}>
       <FlexContainer row centerX centerY>
-        <Title as="h4" color={colorsTheme("white")} uppercase lowercase>
+        <Title
+          as="h4"
+          size={{ min: 16, max: 20 }}
+          color={colorsTheme("white")}
+          uppercase
+          lowercase
+        >
           {text}
         </Title>
         {children}

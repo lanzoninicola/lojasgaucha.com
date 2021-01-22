@@ -1,74 +1,79 @@
 import { css } from "styled-components"
-import {
-  stringToArray,
-  arrayToString,
-  right,
-  isNotIncluded,
-  isNotString,
-} from "../../utils/index"
+import { stringToArray, arrayToString, isNotString } from "../../utils/index"
+
+import useResponsiveSize from "../../_hooks/useResponsiveSize"
 
 const Space = css`
   margin-left: ${({ theme, ml, marginLeft }) => {
-    // const composeCSSValue = theme?.layouts?.utils?.composeCSSValue
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const marginProp = ml ?? marginLeft
 
-    if (ml || marginLeft) {
-      const marginProp = ml ?? marginLeft
-      const inputCSSUnit = marginProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
+    if (marginProp && !marginProp?.min) {
+      return composeCSSValue(marginProp)
+    }
+
+    if (marginProp && marginProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(marginProp?.min),
+        max: composeCSSValue(marginProp?.max),
+      })
     }
 
     return null
   }};
   margin-right: ${({ theme, mr, marginRight }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const marginProp = mr ?? marginRight
 
-    if (mr || marginRight) {
-      const marginProp = mr ?? marginRight
-      const inputCSSUnit = marginProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
+    if (marginProp && !marginProp?.min) {
+      return composeCSSValue(marginProp)
+    }
+
+    if (marginProp && marginProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(marginProp?.min),
+        max: composeCSSValue(marginProp?.max),
+      })
     }
 
     return null
   }};
   margin-bottom: ${({ theme, mb, marginBottom }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const marginProp = mb ?? marginBottom
 
-    if (mb || marginBottom) {
-      const marginProp = mb ?? marginBottom
-      const inputCSSUnit = marginProp.match(/[%vhrempx]/gi)?.join("")
-
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
+    if (marginProp && !marginProp?.min) {
+      return composeCSSValue(marginProp)
     }
 
-    // return null
+    if (marginProp && marginProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(marginProp?.min),
+        max: composeCSSValue(marginProp?.max),
+      })
+    }
+
+    return null
   }};
   margin-top: ${({ theme, mt, marginTop }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const marginProp = mt ?? marginTop
 
-    if (mt || marginTop) {
-      const marginProp = mt ?? marginTop
-      const inputCSSUnit = marginProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${marginProp}${defaultCSSUnit}`
-      }
+    if (marginProp && !marginProp?.min) {
+      return composeCSSValue(marginProp)
+    }
+
+    if (marginProp && marginProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(marginProp?.min),
+        max: composeCSSValue(marginProp?.max),
+      })
     }
 
     return null
   }};
   margin: ${({ theme, m, margin }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
 
     if (m || margin) {
       const marginProp = m ?? margin
@@ -83,10 +88,7 @@ const Space = css`
       const marginArray = stringToArray(marginProp, " ")
 
       let newMarginArray = marginArray.map(marginValue => {
-        const inputCSSUnit = marginValue.match(/[%vhrempx]/gi)?.join("")
-        if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-          return `${marginValue}${defaultCSSUnit}`
-        }
+        return composeCSSValue(marginValue)
       })
 
       return arrayToString(newMarginArray)
@@ -95,66 +97,75 @@ const Space = css`
     return null
   }};
   padding-left: ${({ theme, pl, paddingLeft }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const paddingProp = pl ?? paddingLeft
 
-    if (pl || paddingLeft) {
-      const paddingProp = pl ?? paddingLeft
-      const inputCSSUnit = paddingProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
+    if (paddingProp && !paddingProp?.min) {
+      return composeCSSValue(paddingProp)
+    }
+
+    if (paddingProp && paddingProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(paddingProp?.min),
+        max: composeCSSValue(paddingProp?.max),
+      })
     }
 
     return null
   }};
   padding-right: ${({ theme, pr, paddingRight }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const paddingProp = pr ?? paddingRight
 
-    if (pr || paddingRight) {
-      const paddingProp = pr ?? paddingRight
-      const inputCSSUnit = paddingProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
+    if (paddingProp && !paddingProp?.min) {
+      return composeCSSValue(paddingProp)
+    }
+
+    if (paddingProp && paddingProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(paddingProp?.min),
+        max: composeCSSValue(paddingProp?.max),
+      })
     }
 
     return null
   }};
   padding-bottom: ${({ theme, pb, paddingBottom }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const paddingProp = pb ?? paddingBottom
 
-    if (pb || paddingBottom) {
-      const paddingProp = pb ?? paddingBottom
-      const inputCSSUnit = paddingProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
+    if (paddingProp && !paddingProp?.min) {
+      return composeCSSValue(paddingProp)
+    }
+
+    if (paddingProp && paddingProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(paddingProp?.min),
+        max: composeCSSValue(paddingProp?.max),
+      })
     }
 
     return null
   }};
   padding-top: ${({ theme, pt, paddingTop }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+    const paddingProp = pt ?? paddingTop
 
-    if (pt || paddingTop) {
-      const paddingProp = pt ?? paddingTop
-      const inputCSSUnit = paddingProp.match(/[%vhrempx]/gi)?.join("")
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${paddingProp}${defaultCSSUnit}`
-      }
+    if (paddingProp && !paddingProp?.min) {
+      return composeCSSValue(paddingProp)
+    }
+
+    if (paddingProp && paddingProp?.min) {
+      return useResponsiveSize({
+        min: composeCSSValue(paddingProp?.min),
+        max: composeCSSValue(paddingProp?.max),
+      })
     }
 
     return null
   }};
   padding: ${({ theme, p, padding }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
-    // TODO: bug. Reproduce using the prop " p="20px" " in a flex container
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
 
     if (p || padding) {
       const paddingProp = p ?? padding
@@ -169,13 +180,7 @@ const Space = css`
       const paddingArray = stringToArray(paddingProp, " ")
 
       let newPaddingArray = paddingArray.map(paddingValue => {
-        const inputCSSUnit = paddingValue.match(/[%vhrempx]/gi)?.join("")
-        // console.log(inputCSSUnit)
-        if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-          return `${paddingValue}${defaultCSSUnit}`
-        } else {
-          return `${paddingValue}`
-        }
+        return composeCSSValue(paddingValue)
       })
       return arrayToString(newPaddingArray)
     }

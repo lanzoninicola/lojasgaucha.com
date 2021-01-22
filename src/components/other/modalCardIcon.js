@@ -1,10 +1,10 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { FlexContainer } from "../../styling/layouts/inner"
 import SVGIcon from "../../styling/icons/SVGIcon"
 
 const StyledModalCardIcon = styled.div`
+  position: relative;
   width: 40px;
   height: 40px;
   background: ${({ theme }) =>
@@ -16,9 +16,17 @@ const StyledModalCardIcon = styled.div`
 const ModalCardIcon = ({ name, size, color }) => {
   return (
     <StyledModalCardIcon>
-      <FlexContainer centerX centerY>
-        <SVGIcon name={name} size={size ?? "24"} color={color ?? "white"} />
-      </FlexContainer>
+      <SVGIcon
+        name={name}
+        size={size ?? "24"}
+        color={color ?? "white"}
+        $style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      />
     </StyledModalCardIcon>
   )
 }

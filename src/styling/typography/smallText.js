@@ -12,19 +12,14 @@ const SmallText = styled.div`
       return `${composeCSSValue(size)}`
     }
 
-    return useResponsiveSize(
-      {
-        min: size?.min || theme.typography[variant].small.minFontSize,
-        max: size?.max || theme.typography[variant].small.maxFontSize,
-      },
-      {
-        unit: "px",
-        // debug: {
-        //   fired: debug !== "" ? true : false,
-        //   message: debug !== "" ? debug : false,
-        // },
-      }
-    )
+    return useResponsiveSize({
+      min:
+        composeCSSValue(size?.min) ||
+        theme.typography[variant].small.minFontSize,
+      max:
+        composeCSSValue(size?.max) ||
+        theme.typography[variant].small.maxFontSize,
+    })
   }};
   line-height: ${({ theme, variant, lh, lineHeight }) => {
     const composeCSSValue = theme?.layout?.utils?.composeCSSValue
@@ -38,8 +33,8 @@ const SmallText = styled.div`
     }
 
     useResponsiveSize({
-      min: theme.typography[variant].small.minLineHeight,
-      max: theme.typography[variant].small.maxLineHeight,
+      min: composeCSSValue(theme.typography[variant].small.minLineHeight),
+      max: composeCSSValue(theme.typography[variant].small.maxLineHeight),
     })
   }};
   ${props => props.$style ?? {}}

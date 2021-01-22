@@ -109,7 +109,7 @@ const navbarTheme = () => {
               borderTop: `4px solid ${colorsTheme("green")}`,
             },
             tap: {
-              scale: 1.5,
+              scale: 1.3,
               borderTop: `4px solid ${colorsTheme("green")}`,
             },
           },

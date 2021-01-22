@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { FlexContainer, GridContainer } from "../../../../styling/layouts/inner"
 import { Title, Text } from "../../../../styling/typography/index"
-import { NavDiv } from "../../../../styling/navigation/index"
+import { NavDiv, NavModal } from "../../../../styling/navigation/index"
 
 import { ModalCard, ModalCardIcon } from "../../../other/index"
 
@@ -39,14 +39,22 @@ const FaleConosco = () => {
   // per selezionare la persona con cui parlare
 
   return (
-    <GridContainer rows=".25fr .25fr 1fr" stretchX h100>
-      <Title as="h2" align="center" color="orange" weight="400" mt="30px">
-        Fale Conosco
-      </Title>
-      <Text variant="secondary" weight="300" align="center" pl="16px" pr="16px">
-        Você precisa de ajuda? Deseja saber a disponibilidade de um produto? O
-        qualquer outra coisa que possa ser de ajuda nas sua compras.
-      </Text>
+    <GridContainer rows=".25fr 1fr" gap="16" stretchX h100>
+      <div>
+        <Title
+          as="h2"
+          align="center"
+          color="orange"
+          weight="400"
+          mt={{ min: "15px", max: "30px" }}
+        >
+          Fale Conosco
+        </Title>
+        <Text variant="secondary" weight="300" align="center">
+          Você precisa de ajuda? Deseja saber a disponibilidade de um produto? O
+          qualquer outra coisa que possa ser de ajuda nas sua compras.
+        </Text>
+      </div>
       <StyledFaleConoscoInner>
         <FlexContainer>
           <Title as="h4" weight="400" color="orange">
@@ -70,11 +78,11 @@ const FaleConosco = () => {
           <Title as="h4" weight="400" color="orange" mt="36px">
             O pode escrever
           </Title>
-          <NavDiv to={{ type: "modal", value: () => {} }}>
+          <NavModal to={{ type: "modal", value: "ModalFaleConoscoForm" }}>
             <ModalCard title="DEIXA UM MENSAGEM">
               <ModalCardIcon name="MAIL" />
             </ModalCard>
-          </NavDiv>
+          </NavModal>
         </FlexContainer>
       </StyledFaleConoscoInner>
     </GridContainer>
