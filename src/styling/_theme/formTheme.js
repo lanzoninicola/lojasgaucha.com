@@ -11,7 +11,7 @@ const formTheme = () => {
         variants: {
           firebase: {
             fontFamily: '"Poppins", sans-serif',
-            size: "18px",
+            size: "16px",
             lineHeight: "36px",
             capitalize: "lowercase",
           },
@@ -27,8 +27,8 @@ const formTheme = () => {
         variants: {
           firebase: {
             fontFamily: '"Poppins", sans-serif',
-            size: "20px",
-            lineHeight: "28px",
+            size: "16px",
+            lineHeight: "24px",
             capitalize: "lowercase",
           },
         },

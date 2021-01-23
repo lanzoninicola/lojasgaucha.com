@@ -33,16 +33,16 @@ const ModalConsumer = ({
   const modalComponent = modalsCatalog[modal]
 
   React.useEffect(() => {
-    return () => {}
+    return () => {
+      if (modal && modalsCatalog === undefined) {
+        throw new Error("A modals catalog has not been defined")
+      }
+
+      if (typeof modal == "string" && modalsCatalog[modal] === undefined) {
+        throw new Error(`No modal was found with the name provided: ${modal}`)
+      }
+    }
   }, [])
-
-  if (modal && modalsCatalog === undefined) {
-    throw new Error("A modals catalog has not been defined")
-  }
-
-  if (typeof modal == "string" && modalsCatalog[modal] === undefined) {
-    throw new Error(`No modal was found with the name provided: ${modal}`)
-  }
 
   // 2021-06-1 This component run in the manner I sat up now,
   // but if I move the component to the parent it is not run as expected

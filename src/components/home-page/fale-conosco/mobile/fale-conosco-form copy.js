@@ -5,7 +5,7 @@ import { FlexContainer } from "../../../../styling/layouts/inner"
 import { Title, Text } from "../../../../styling/typography"
 import InputText from "../../../../styling/Inputs/text/inputText"
 import InputTextArea from "../../../../styling/Inputs/text/inputTextArea"
-import InputSubmit from "../../../../styling/Inputs/submit/inputSubmit"
+import inputButtonSubmit from "../../../../styling/Inputs/submit/inputButtonSubmit"
 
 import { useForm } from "react-hook-form"
 
@@ -66,7 +66,7 @@ const FaleConoscoForm = () => {
           />
         </FlexContainer>
         <FlexContainer row centerX centerY mt="24px">
-          <InputSubmit>Envia mensagem</InputSubmit>
+          <inputButtonSubmit>Envia mensagem</inputButtonSubmit>
         </FlexContainer>
       </StyledForm>
     </FlexContainer>

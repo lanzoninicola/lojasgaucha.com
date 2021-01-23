@@ -3,12 +3,10 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import { FlexContainer, GridContainer } from "../layouts/inner/index"
-import SVGIcon from "../icons/SVGIcon"
-import colorsTheme from "../_theme/colorsTheme"
-import { SmallText } from "../typography/index"
+import { GridContainer } from "../../layouts/inner/index"
+import CloseModalButton from "./closeModalButton"
 
-import useViewportInfo from "../_hooks/useViewportInfo"
+import useViewportInfo from "../../_hooks/useViewportInfo"
 
 // background: linear-gradient(
 //   180deg,
@@ -33,29 +31,7 @@ const StyledBottomSheet = styled(motion.div)`
   transform: ${({ vh }) => `translateY(${vh}px)`};
 `
 
-const StyledCloseBottomSheet = styled.div`
-  cursor: pointer;
-`
-
-const CloseBottomSheet = ({ modalKey, hideModal }) => {
-  return (
-    <StyledCloseBottomSheet>
-      <FlexContainer
-        centerX
-        centerY
-        mt="24"
-        onClick={() => hideModal(modalKey)}
-      >
-        <SVGIcon name="CIRCLE_X" size="24" color={colorsTheme("orange")} />
-        <SmallText weight="600" color="orange" mt="4px">
-          voltar
-        </SmallText>
-      </FlexContainer>
-    </StyledCloseBottomSheet>
-  )
-}
-
-const BottomSheet = ({ modalKey, isShown, hideModal, children }) => {
+const BottomSheet = ({ modalKey, hideModal, children }) => {
   const { width, height } = useViewportInfo()
 
   return (
@@ -72,15 +48,17 @@ const BottomSheet = ({ modalKey, isShown, hideModal, children }) => {
           // On Tap - Navigation
           type: "spring",
           delay: 0,
-          stiffness: 300,
-          damping: 80,
+          stiffness: 350,
+          damping: 70,
           mass: 1,
         }}
       >
         <GridContainer id="bottomSheet" gap="10px" rows="1fr 0.15fr" h100>
           {/* <FlexContainer id="bottomSheet" column w100 stretchXM> */}
           {children}
-          <CloseBottomSheet modalKey={modalKey} hideModal={hideModal} />
+
+          {/* TODO: verify to make the component below indipendent */}
+          <CloseModalButton modalKey={modalKey} hideModal={hideModal} />
           {/* </FlexContainer> */}
         </GridContainer>
       </StyledBottomSheet>

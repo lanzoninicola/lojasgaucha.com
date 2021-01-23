@@ -1,18 +1,16 @@
 import * as React from "react"
 import styled, { css } from "styled-components"
 import { Space } from "."
+import { composeCSSValue } from "../utils/CSSUnit"
 
 import {
   stringToArray,
   arrayToString,
   right,
-  isNotIncluded,
   isFunction,
 } from "../../utils/index"
 
 import { useDOMInfo } from "../../_hooks/useDOM"
-
-import { composeCSSValue } from "../utils/CSSUnit"
 
 // https://stackoverflow.com/questions/56651064/changing-tag-type-when-ealignXtending-component-in-styled-components
 
@@ -98,10 +96,7 @@ const StyledGridContainer = styled.div`
     return `repeat(auto-fit, minmax(min(40px, 100%), 1fr))`
   }};
 
-  height: ${({ theme, h, height, h100, h100v, hAuto }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
+  height: ${({ h, height, h100, h100v, hAuto }) => {
     if (h100) return `100%`
     if (h100v) return `100vh`
     if (hAuto) return `auto`
@@ -116,19 +111,12 @@ const StyledGridContainer = styled.div`
         inputValue = height()
       }
 
-      const inputCSSUnit = right(inputValue, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${inputValue}${defaultCSSUnit}`
-      }
-      return `${inputValue}`
+      return composeCSSValue(inputValue)
     }
 
     return `100%`
   }};
-  width: ${({ theme, w, width, w100, w100v, wAuto }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
+  width: ${({ w, width, w100, w100v, wAuto }) => {
     if (w100) return `100%`
     if (w100v) return `100vw`
     if (wAuto) return `auto`
@@ -143,11 +131,7 @@ const StyledGridContainer = styled.div`
         inputValue = width()
       }
 
-      const inputCSSUnit = right(inputValue, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${inputValue}${defaultCSSUnit}`
-      }
-      return `${inputValue}`
+      return composeCSSValue(inputValue)
     }
     return `100%`
   }};

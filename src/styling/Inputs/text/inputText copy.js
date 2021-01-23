@@ -22,9 +22,6 @@ const StyledInputText = styled.input`
 
     return null
   }};
-
-  padding: 0px 4px;
-
   background: transparent;
   border: 0;
   border-bottom: ${() => `1px solid ${colorsTheme("orange")}`};
@@ -32,6 +29,7 @@ const StyledInputText = styled.input`
   caret-color: ${() =>
     colorsTheme("whitegray", { colorUnit: "rgba", opacity: "0.5" })};
   transition: border 0.15s cubic-bezier(0, 0, 0.2, 1);
+  padding: 1px 2px;
   color: ${() => colorsTheme("white")};
 
   &:focus {
@@ -44,72 +42,63 @@ const StyledInputText = styled.input`
   }
 `
 
-const InputText = React.forwardRef(
-  (
-    {
-      name,
-      placeholder,
-      isRequired,
-      isFocused,
-      noLabel,
-      labelText,
-      reactHookForm,
-      mt,
-      mb,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
-        {!noLabel && (
-          <InputLabel htmlFor={name} text={labelText} {...props?.labelStyle} />
-        )}
-        <StyledInputText
-          ref={e => {
-            reactHookForm.register(e, {
-              required: reactHookForm.validation.errorMessage,
-            })
-            ref.current = e
-          }}
-          type="text"
-          id={name}
-          name={name}
-          placeholder={placeholder}
-          {...props}
+const InputText = ({
+  name,
+  placeholder,
+  isRequired,
+  noLabel,
+  labelText,
+  children,
+  reactHookForm,
+  validation,
+  ...props
+}) => {
+  const { register, errors } = reactHookForm
+
+  return (
+    <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
+      {!noLabel && (
+        <InputLabel htmlFor="name" text={labelText} {...props?.labelStyle} />
+      )}
+      <StyledInputText
+        ref={register({ required: validation?.errorMessage })}
+        type="text"
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        {...props}
+      />
+      {errors[name] && (
+        <ErrorMessage
+          text={errors[name]?.message}
+          color={colorsTheme(validation?.color)}
         />
-        {reactHookForm.errors[name] && (
-          <ErrorMessage
-            text={reactHookForm.errors[name]?.message}
-            color={colorsTheme(reactHookForm.validation?.color)}
-          />
-        )}
-      </FlexContainer>
-    )
-  }
-)
+      )}
+    </FlexContainer>
+  )
+}
 
 InputText.defaultProps = {
   isRequired: false,
-  isFocused: false,
   noLabel: false,
 }
 
 InputText.propTypes = {
   name: (props, propName, componentName) => {
     if (props[propName] === undefined || props[propName] === "") {
-      return new Error(`${componentName} - "name"?<string> prop is missing.`)
+      return new Error(
+        `${componentName} - "name" prop (type "string") is missing.`
+      )
     }
   },
   isRequired: PropTypes.bool,
   noLabel: (props, propName, componentName) => {
     if (props[propName] === false && props["labelText"] === undefined) {
       return new Error(
-        `${componentName} - "labelText"?<string> prop is missing.`
+        `${componentName} - "labelText" prop (type "string") is missing.`
       )
     }
   },
-  isFocused: PropTypes.bool,
   labelText: PropTypes.string,
   labelStyle: PropTypes.object,
   reactHookForm: PropTypes.object,

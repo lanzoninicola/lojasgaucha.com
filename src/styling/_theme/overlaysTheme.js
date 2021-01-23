@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import colorsTheme from "./colorsTheme"
-import BottomSheet from "../overlays/bottomSheet"
+import BottomSheet from "../overlays/bottomSheet/bottomSheet"
 import FaleConosco from "../../components/home-page/fale-conosco/mobile/fale-conosco"
 import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"
 
@@ -34,7 +34,6 @@ const overlaysTheme = () => {
       ModalFaleConosco: props => (
         <BottomSheet {...props}>
           <FaleConosco />
-          {/* <FaleConoscoForm /> */}
         </BottomSheet>
       ),
       ModalFaleConoscoForm: props => (

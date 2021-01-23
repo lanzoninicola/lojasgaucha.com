@@ -1,13 +1,8 @@
 import * as React from "react"
-import styled from "styled-components"
 
 import { ButtonPrimaryOrange } from "../../buttons/index"
 
-const StyledInputSubmit = styled.input`
-  margin-top: 16px;
-`
-
-const InputSubmit = ({ children, ...props }) => {
+const inputButtonSubmit = ({ children, ...props }) => {
   return (
     <ButtonPrimaryOrange as="input" type="submit" {...props}>
       {children}
@@ -15,4 +10,4 @@ const InputSubmit = ({ children, ...props }) => {
   )
 }
 
-export default InputSubmit
+export default inputButtonSubmit

@@ -2,12 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import { useDOMInfo } from "../../_hooks/useDOM"
-
-import { right, isNotIncluded, isFunction } from "../../utils/index"
-
-import DOMNodeInspect from "../utils/DOMNodeInspect/DOMNodeInspect"
 import { Space } from "."
+import { composeCSSValue } from "../utils/CSSUnit"
+
+import { isFunction } from "../../utils/index"
+
+import { useDOMInfo } from "../../_hooks/useDOM"
+import DOMNodeInspect from "../utils/DOMNodeInspect/DOMNodeInspect"
 
 const Flex = styled.div`
   ${Space}
@@ -39,10 +40,7 @@ const Flex = styled.div`
     if (noWrap) return `nowrap`
     return "nowrap"
   }};
-  height: ${({ theme, h, height, h100, h100v, hAuto, ...props }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
+  height: ${({ h, height, h100, h100v, hAuto }) => {
     if (h100) return `100%`
     if (h100v) return `100vh`
     if (hAuto) return `auto`
@@ -57,19 +55,12 @@ const Flex = styled.div`
         inputValue = height()
       }
 
-      const inputCSSUnit = right(inputValue, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${inputValue}${defaultCSSUnit}`
-      }
-      return `${inputValue}`
+      return composeCSSValue(inputValue)
     }
 
     return `auto`
   }};
-  width: ${({ theme, w, width, w100, w100v, wAuto }) => {
-    const CSSUnits = theme?.layout?.config?.global?.CSSUnits?.values
-    const defaultCSSUnit = theme?.layout?.config?.global?.CSSUnits?.default
-
+  width: ${({ w, width, w100, w100v, wAuto }) => {
     if (w100) return `100%`
     if (w100v) return `100vw`
     if (wAuto) return `auto`
@@ -84,11 +75,7 @@ const Flex = styled.div`
         inputValue = width()
       }
 
-      const inputCSSUnit = right(inputValue, 2)
-      if (isNotIncluded(inputCSSUnit, CSSUnits)) {
-        return `${inputValue}${defaultCSSUnit}`
-      }
-      return `${inputValue}`
+      return composeCSSValue(inputValue)
     }
 
     return `auto`

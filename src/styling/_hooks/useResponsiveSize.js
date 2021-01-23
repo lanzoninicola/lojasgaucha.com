@@ -3,6 +3,8 @@ import { ThemeContext } from "styled-components"
 
 import useViewportInfo from "../_hooks/useViewportInfo"
 
+//TODO using combineCSSValues function to cover also other units, not only PX
+
 export default function useResponsiveSize(
   { min = 0, max = 0 },
   options = { unit: "px", debug: { fired: false, message: "" } }

@@ -12,10 +12,16 @@ const StyledInputTextArea = styled.textarea`
   width: 100%;
   font-family: ${({ theme }) =>
     theme?.form?.layout?.textArea?.variants?.firebase?.fontFamily};
-  font-size: ${({ theme }) =>
-    theme?.form?.layout?.textArea?.variants?.firebase?.size};
+  font-size: ${({ theme, fontSize }) => {
+    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+
+    if (fontSize) return composeCSSValue(fontSize)
+
+    return theme?.form?.layout?.textArea?.variants?.firebase?.size
+  }};
   line-height: ${({ theme }) =>
     theme?.form?.layout?.textArea?.variants?.firebase?.lineHeight};
+  padding: 0px 4px;
   color: ${() => colorsTheme("white")};
   border: 0;
   border-bottom: ${() => `1px solid ${colorsTheme("orange")}`};
@@ -33,66 +39,75 @@ const StyledInputTextArea = styled.textarea`
   }
 `
 
-const InputTextArea = ({
-  name,
-  isRequired,
-  placeholder,
-  noLabel,
-  labelText,
-  children,
-  reactHookForm,
-  validation,
-  ...props
-}) => {
-  const { register, errors } = reactHookForm
-
-  return (
-    <FlexContainer hAuto wAuto mt="16">
-      {!noLabel && (
-        <InputLabel htmlFor="name" text={labelText} {...props?.labelStyle} />
-      )}
-      <StyledInputTextArea
-        ref={register({ required: validation?.errorMessage })}
-        type="text"
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        {...props}
-      />
-      {errors[name] && (
-        <ErrorMessage
-          text={errors[name]?.message}
-          color={colorsTheme(validation?.color)}
+const InputTextArea = React.forwardRef(
+  (
+    {
+      name,
+      placeholder,
+      isRequired,
+      isFocused,
+      noLabel,
+      labelText,
+      reactHookForm,
+      mt,
+      mb,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
+        {!noLabel && (
+          <InputLabel htmlFor={name} text={labelText} {...props?.labelStyle} />
+        )}
+        <StyledInputTextArea
+          ref={e => {
+            reactHookForm.register(e, {
+              required: reactHookForm.validation.errorMessage,
+            })
+            ref.current = e // you can still assign to ref
+          }}
+          type="text"
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          {...props}
         />
-      )}
-    </FlexContainer>
-  )
-}
+        {reactHookForm.errors[name] && (
+          <ErrorMessage
+            text={reactHookForm.errors[name]?.message}
+            color={colorsTheme(reactHookForm.validation?.color)}
+          />
+        )}
+      </FlexContainer>
+    )
+  }
+)
 
-InputTextArea.defaultProps = {
-  isRequired: false,
-  noLabel: false,
-}
+// InputTextArea.defaultProps = {
+//   isRequired: false,
+//   noLabel: false,
+// }
 
-InputTextArea.propTypes = {
-  name: (props, propName, componentName) => {
-    if (props[propName] === undefined || props[propName] === "") {
-      return new Error(
-        `${componentName} - "name" prop (type "string") is missing.`
-      )
-    }
-  },
-  isRequired: PropTypes.bool,
-  noLabel: (props, propName, componentName) => {
-    if (props[propName] === false && props["labelText"] === undefined) {
-      return new Error(
-        `${componentName} - "labelText" prop (type "string") is missing.`
-      )
-    }
-  },
-  labelText: PropTypes.string,
-  labelStyle: PropTypes.object,
-  reactHookForm: PropTypes.object,
-}
+// InputTextArea.propTypes = {
+//   name: (props, propName, componentName) => {
+//     if (props[propName] === undefined || props[propName] === "") {
+//       return new Error(
+//         `${componentName} - "name" prop (type "string") is missing.`
+//       )
+//     }
+//   },
+//   isRequired: PropTypes.bool,
+//   noLabel: (props, propName, componentName) => {
+//     if (props[propName] === false && props["labelText"] === undefined) {
+//       return new Error(
+//         `${componentName} - "labelText" prop (type "string") is missing.`
+//       )
+//     }
+//   },
+//   labelText: PropTypes.string,
+//   labelStyle: PropTypes.object,
+//   reactHookForm: PropTypes.object,
+// }
 
 export default InputTextArea
