@@ -31,19 +31,28 @@ const overlaysTheme = () => {
       },
     },
     modals: {
-      ModalFaleConosco: props => (
-        <BottomSheet {...props}>
-          <FaleConosco />
-        </BottomSheet>
-      ),
-      ModalFaleConoscoForm: props => (
-        <BottomSheet {...props}>
-          <FaleConoscoForm />
-        </BottomSheet>
-      ),
-      ModalAmbientes: props => <BottomSheet {...props} />,
-      ModalMap: props => <BottomSheet {...props} />,
-      ModalAgendamento: () => {},
+      navbar: {
+        ModalFaleConosco: props => (
+          <BottomSheet {...props}>
+            <FaleConosco />
+          </BottomSheet>
+        ),
+
+        ModalAmbientes: props => (
+          <BottomSheet {...props}>
+            <FaleConoscoForm />
+          </BottomSheet>
+        ),
+        ModalMap: props => <BottomSheet {...props} />,
+        ModalAgendamento: () => {},
+      },
+      faleConosco: {
+        ModalFaleConoscoForm: props => (
+          <BottomSheet {...props}>
+            <FaleConoscoForm />
+          </BottomSheet>
+        ),
+      },
     },
   }
 }

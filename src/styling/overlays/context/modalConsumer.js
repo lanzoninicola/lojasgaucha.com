@@ -1,14 +1,16 @@
 /**
- *  The Modal Consumer adds to each child component
- *  the "onClick" event that let opens a Modal Component.
+ *  The Modal Consumer dispatch below items to the child component caller:
+ *  - the onClick event with the functions to show or toggle the modal
+ *  - the Modal functional component to render by the ModalProvider
  *
- *  Each child component opens a specific Modal,
- *  this specification is described inside the "modalsCatalog" object
+ *  Each child component opens a specific Modal functional component,
+ *  The Modal functional component is described inside the "modalsCatalog" object
+ *  that is stored inside Styled Theme Context or passed via props
  *
  *  The "modalsCatalog"'s shape is:
  *  {
- *    <modal_name><string>: () => <specific_modalComponent><React.Component>
- *    <modal_name><string>: () => <specific_modalComponent><React.Component>
+ *    moduleName<string>?modal_name?<string>: () => functionalComponent?<React.Component>
+ *    moduleName<string>?modal_name?<string>: () => functionalComponent?<React.Component>
  *    ...
  *  }
  *
@@ -21,16 +23,23 @@ import ModalContext from "./modalContext"
 
 const ModalConsumer = ({
   modalsCatalog,
+  from,
   modal,
-  action = "show",
+  renderOption = { action: "show" },
   children,
   ...props
 }) => {
-  // From the theme I will grab the name of modals that corresponding to the nav-items
+  // The styled-theme contains all the modals to render organized per modules from they are called
   const themeContext = React.useContext(ThemeContext)
+  // I took the required functions from the context provider to dispatch the actions to the component that will calls the modal
+  // the function to hide the modal is dispatched to the Modal functional component by the ModalProvider
   const { showModal, toggleModal } = React.useContext(ModalContext)
+  // If the styled-theme doesn't exists I expect that user provided it via props
   modalsCatalog = modalsCatalog ?? themeContext?.modal?.modals
-  const modalComponent = modalsCatalog[modal]
+  // Below, the functional component that will renders the modal
+  const modalComponent = modalsCatalog[from][modal]
+
+  console.log(modalsCatalog, from, modal, renderOption)
 
   React.useEffect(() => {
     return () => {
@@ -38,7 +47,10 @@ const ModalConsumer = ({
         throw new Error("A modals catalog has not been defined")
       }
 
-      if (typeof modal == "string" && modalsCatalog[modal] === undefined) {
+      if (
+        typeof modal == "string" &&
+        modalsCatalog[from][modal] === undefined
+      ) {
         throw new Error(`No modal was found with the name provided: ${modal}`)
       }
     }
@@ -50,13 +62,15 @@ const ModalConsumer = ({
   return React.Children.map(children, child => {
     return React.cloneElement(child, {
       onClick: () => {
-        if (action === "show") {
+        if (renderOption?.action === "show") {
           return showModal(modalComponent)
         }
-        if (action === "toggle") {
-          return toggleModal(modalComponent)
+        if (renderOption?.action === "toggle") {
+          return toggleModal(modalComponent, from)
         }
       },
+      showModal: () => showModal(modalComponent),
+      toggleModal: () => toggleModal(modalComponent),
     })
   })
 }
@@ -73,7 +87,6 @@ ModalConsumer.propTypes = {
       }
 
       Object.values(modalsCatalogObject).map(modalValue => {
-        console.log(modalValue, typeof modalValue)
         if (typeof modalValue !== "function") {
           console.log("inside if !function")
           return new Error(
@@ -103,7 +116,9 @@ ModalConsumer.propTypes = {
       }
     }
   },
-  action: PropTypes.oneOf(["show", "toggle"]),
+  renderOption: PropTypes.shape({
+    action: PropTypes.string,
+  }),
 }
 
 export default ModalConsumer

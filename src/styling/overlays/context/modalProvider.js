@@ -5,6 +5,7 @@ let ModalProvider = ({ children }) => {
   // The "modals" state object tracked the modals component showed in the UI
   const [modalKey, setKey] = React.useState(0)
   const [modals, setModals] = React.useState({})
+  const [modalsQueue, setModalsQueue] = React.useState([])
   const [isShown, setIsShown] = React.useState(false)
 
   React.useEffect(
@@ -25,6 +26,41 @@ let ModalProvider = ({ children }) => {
     })
   }
 
+  function addModalToQueue(key) {
+    setModalsQueue(modalsQueue => {
+      let nextModalsQueue = [...modalsQueue]
+      nextModalsQueue.push(key)
+      return nextModalsQueue
+    })
+  }
+
+  function removeModalFromQueue(key) {
+    setModalsQueue(modalsQueue => {
+      const nextModalsQueue = [...modalsQueue]
+      const index = nextModalsQueue.indexOf(parseInt(key))
+      if (index > -1) {
+        nextModalsQueue.splice(index, 1)
+      }
+      return nextModalsQueue
+    })
+  }
+
+  function removeAllModalsFromQueue() {
+    setModalsQueue(modalsQueue => {
+      const nextModalsQueue = [...modalsQueue]
+      nextModalsQueue = []
+      return nextModalsQueue
+    })
+  }
+
+  function isModalShown(modal) {
+    return (
+      Object.values(modals).filter(
+        modalComponentState => modalComponentState === modal
+      ).length !== 0
+    )
+  }
+
   const showModal = modalComponent => {
     if (modalComponent === undefined) {
       return new Error(
@@ -38,17 +74,13 @@ let ModalProvider = ({ children }) => {
       )
     }
 
-    const isModalExist =
-      Object.values(modals).filter(
-        modalComponentState => modalComponentState === modalComponent
-      ).length !== 0
-
-    if (!isModalExist) {
+    if (!isModalShown(modalComponent)) {
       generateNewModalKey()
-      setModals({
-        ...modals,
-        [modalKey]: modalComponent,
+      setModals(modals => {
+        let nextModals = { ...modals, [modalKey]: modalComponent }
+        return nextModals
       })
+      addModalToQueue(modalKey)
       setIsShown(true)
     }
   }
@@ -58,38 +90,49 @@ let ModalProvider = ({ children }) => {
       if (!modals[modalKey]) {
         return modals
       }
-      const newModals = { ...modals }
-      delete newModals[modalKey]
-      return newModals
+      const nextModals = { ...modals }
+      delete nextModals[modalKey]
+      return nextModals
     })
+
+    removeModalFromQueue(modalKey)
+
     setIsShown(false)
   }
 
   const closeAllModals = () => {
     setModals(() => {
-      const newModals = {}
-      return newModals
+      const nextModals = {}
+      return nextModals
     })
+
+    removeAllModalsFromQueue()
+
     setIsShown(false)
   }
 
   const toggleModal = modalComponent => {
-    let newModals = {}
-
-    generateNewModalKey()
-    newModals = {
-      ...newModals,
-      [modalKey]: modalComponent,
+    if (!isModalShown(modalComponent)) {
+      showModal(modalComponent)
     }
 
-    console.log(isShown)
+    const lastModalOpened = modalsQueue[modalsQueue.length - 1]
 
-    setModals(newModals)
+    if (lastModalOpened !== undefined) {
+      hideModal(lastModalOpened)
+    }
+
     setIsShown(true)
   }
 
   // Update data to store inside the context
-  const contextValue = { showModal, hideModal, toggleModal, isShown }
+  const contextValue = {
+    showModal,
+    hideModal,
+    toggleModal,
+    modalsQueue,
+    isShown,
+  }
 
   return (
     <ModalContext.Provider value={contextValue}>
@@ -104,7 +147,7 @@ let ModalProvider = ({ children }) => {
               isShown={isShown}
               // modalName={modalName}
               hideModal={hideModal}
-              toggleModal={toggleModal}
+              // toggleModal={toggleModal}
             />
           )
         })}

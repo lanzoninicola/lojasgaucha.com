@@ -14,14 +14,19 @@ import ModalConsumer from "../overlays/context/modalConsumer"
 const StyledNavModal = styled(motion.div)`
   cursor: pointer;
 `
-const NavModal = ({ to, children, ...props }) => {
+const NavModal = ({ to, modalOptions, module, children, ...props }) => {
   const themeContext = React.useContext(ThemeContext)
   const framerMotion =
     themeContext?.navbar?.mobile?.layout?.effects?.framerMotion
 
   return (
     <>
-      <ModalConsumer modal={to?.value} action="toggle">
+      <ModalConsumer
+        modal={to?.value}
+        // action={modalOptions?.action ?? "show"}
+        // module={module}
+        {...props}
+      >
         <StyledNavModal
           variants={framerMotion}
           whileHover="hover"
@@ -37,6 +42,7 @@ const NavModal = ({ to, children, ...props }) => {
 
 NavModal.propTypes = {
   children: PropTypes.node.isRequired,
+  from: PropTypes.string.isRequired,
   to: (props, propName, componentName) => {
     const toObject = props[propName]
 

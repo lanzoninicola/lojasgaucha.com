@@ -59,7 +59,9 @@ const NavItemsMobile = () => {
           return (
             <NavModal
               key={index}
+              from="navbar"
               to={{ type, value }}
+              renderOption={{ action: "toggle" }}
               hoverEffects={hoverEffects}
             >
               {navbarItem}

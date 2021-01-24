@@ -78,7 +78,10 @@ const FaleConosco = () => {
           <Title as="h4" weight="400" color="orange" mt="36px">
             O pode escrever
           </Title>
-          <NavModal to={{ type: "modal", value: "ModalFaleConoscoForm" }}>
+          <NavModal
+            from="faleConosco"
+            to={{ type: "modal", value: "ModalFaleConoscoForm" }}
+          >
             <ModalCard title="DEIXA UM MENSAGEM">
               <ModalCardIcon name="MAIL" />
             </ModalCard>

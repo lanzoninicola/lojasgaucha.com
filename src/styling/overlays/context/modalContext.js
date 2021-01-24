@@ -10,6 +10,7 @@ const ModalContext = React.createContext({
   showModal: () => {},
   hideModal: () => {},
   toggleModal: () => {},
+  modalsQueue: [],
   isShown: false,
 })
 
