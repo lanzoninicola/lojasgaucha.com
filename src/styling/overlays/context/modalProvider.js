@@ -82,6 +82,8 @@ let ModalProvider = ({ children }) => {
       [modalKey]: modalComponent,
     }
 
+    console.log(isShown)
+
     setModals(newModals)
     setIsShown(true)
   }

@@ -1,43 +1,9 @@
 import * as React from "react"
-import styled from "styled-components"
 
 import { FlexContainer } from "../../../../styling/layouts/inner"
 import { Title } from "../../../../styling/typography/index"
+import HighlitTextLine1 from "../../../../styling/decorative/highlightText/highlight-text-line1"
 import colorsTheme from "../../../../styling/_theme/colorsTheme"
-
-const Span = styled.span`
-  position: relative;
-`
-
-const HighlightTextLine1 = styled.div`
-  position: absolute;
-  top: 60%;
-  left: 10%;
-  height: 10px;
-  width: 105%;
-  max-width: 440px;
-  margin-left: -8%;
-  transform: rotate(var(--decoration-angle-2));
-  z-index: -1;
-
-  background: ${() =>
-    colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })};
-`
-
-const HighlightTextLine2 = styled.div`
-  position: absolute;
-  top: 60%;
-  left: 10%;
-  height: 10px;
-  width: 105%;
-  max-width: 440px;
-  margin-left: -8%;
-  transform: rotate(var(--decoration-angle-2));
-  z-index: -1;
-
-  background: ${() =>
-    colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })};
-`
 
 const HeroHeadline = () => {
   return (
@@ -78,19 +44,20 @@ const HeroHeadline = () => {
         ml="2px"
         ls="1px"
         $style={{
-          // position: "relative",
           width: "280px",
         }}
       >
         por 15 anos, procuramos soluções{" "}
-        <Span>
+        <HighlitTextLine1
+          color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
+        >
           para sua casa
-          <HighlightTextLine1 />
-        </Span>
-        <Span>
+        </HighlitTextLine1>
+        <HighlitTextLine1
+          color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
+        >
           ao melhor preço
-          <HighlightTextLine2 />
-        </Span>
+        </HighlitTextLine1>
       </Title>
     </FlexContainer>
   )

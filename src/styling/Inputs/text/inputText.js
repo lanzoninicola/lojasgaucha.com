@@ -60,6 +60,12 @@ const InputText = React.forwardRef(
     },
     ref
   ) => {
+    const [focusField, setFocusField] = React.useState()
+
+    const handleFocustInputItem = e => {
+      setFocusField(e.target.name)
+    }
+
     return (
       <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
         {!noLabel && (
@@ -76,6 +82,7 @@ const InputText = React.forwardRef(
           id={name}
           name={name}
           placeholder={placeholder}
+          onFocus={handleFocustInputItem}
           {...props}
         />
         {reactHookForm.errors[name] && (
