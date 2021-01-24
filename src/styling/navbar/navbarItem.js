@@ -14,7 +14,22 @@ const NavItemText = styled.div``
 
 const NavbarItem = ({ item, layoutConfig }) => {
   const modalContext = React.useContext(ModalContext)
-  const { isShown } = modalContext
+  const [isModalShown, setIsModalShown] = React.useState(false)
+  const { modalsQueue } = modalContext
+
+  function shouldNavbarModal(modalsQueue) {
+    let result = []
+    modalsQueue.forEach(modal => {
+      if (Object.values(modal)[0] === "navbar") {
+        result.push(true)
+      }
+    })
+    return result.length > 0
+  }
+
+  React.useEffect(() => {
+    setIsModalShown(shouldNavbarModal(modalsQueue))
+  }, [modalsQueue])
 
   return (
     <FlexContainer column centerY centerX h100>
@@ -28,7 +43,7 @@ const NavbarItem = ({ item, layoutConfig }) => {
                 ? layoutConfig?.items?.icons?.colors?.spotligthed[
                     item?.spotlighted?.color
                   ]
-                : isShown
+                : isModalShown
                 ? colorsTheme("white")
                 : layoutConfig?.items?.icons?.colors?.default
             }
@@ -40,13 +55,13 @@ const NavbarItem = ({ item, layoutConfig }) => {
         <NavItemText>
           <SmallText
             variant="secondary"
-            weight={isShown ? "400" : "600"}
+            weight="800"
             color={
               item.spotlighted.yesno
                 ? layoutConfig?.items?.icons?.colors?.spotligthed[
                     item?.spotlighted?.color
                   ]
-                : isShown
+                : isModalShown
                 ? colorsTheme("white")
                 : layoutConfig?.items?.icons?.colors?.default
             }

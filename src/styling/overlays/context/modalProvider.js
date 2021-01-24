@@ -1,12 +1,22 @@
 import * as React from "react"
 import ModalContext from "./modalContext"
 
+/**
+ *
+ *  ModalProvider render the Modal functional component
+ *  provided by a component caller that is wrapped by the ModalConsumer component.
+ *
+ *  Dispatch also the following props:
+ *  - index of Modal located in the store
+ *  - hideModal function
+ *
+ */
+
 let ModalProvider = ({ children }) => {
   // The "modals" state object tracked the modals component showed in the UI
   const [modalKey, setKey] = React.useState(0)
   const [modals, setModals] = React.useState({})
   const [modalsQueue, setModalsQueue] = React.useState([])
-  const [isShown, setIsShown] = React.useState(false)
 
   React.useEffect(
     () => {
@@ -26,28 +36,37 @@ let ModalProvider = ({ children }) => {
     })
   }
 
-  function addModalToQueue(key) {
+  function addModalToQueue(key, moduleFrom) {
     setModalsQueue(modalsQueue => {
       let nextModalsQueue = [...modalsQueue]
-      nextModalsQueue.push(key)
+      const modalItem = { [key]: moduleFrom }
+      nextModalsQueue.push(modalItem)
       return nextModalsQueue
     })
   }
 
   function removeModalFromQueue(key) {
     setModalsQueue(modalsQueue => {
-      const nextModalsQueue = [...modalsQueue]
-      const index = nextModalsQueue.indexOf(parseInt(key))
-      if (index > -1) {
-        nextModalsQueue.splice(index, 1)
+      let nextModalsQueue = [...modalsQueue]
+
+      let arrIndex = null
+      nextModalsQueue.forEach((nextModal, index) => {
+        if (key === Object.keys(nextModal)[0]) {
+          arrIndex = index
+        }
+      })
+
+      if (arrIndex != null) {
+        nextModalsQueue.splice(arrIndex, 1)
       }
+
       return nextModalsQueue
     })
   }
 
   function removeAllModalsFromQueue() {
     setModalsQueue(modalsQueue => {
-      const nextModalsQueue = [...modalsQueue]
+      let nextModalsQueue = [...modalsQueue]
       nextModalsQueue = []
       return nextModalsQueue
     })
@@ -61,7 +80,7 @@ let ModalProvider = ({ children }) => {
     )
   }
 
-  const showModal = modalComponent => {
+  const showModal = (modalComponent, moduleFrom) => {
     if (modalComponent === undefined) {
       return new Error(
         `showModal() function - modalComponent parameter is undefined`
@@ -80,24 +99,20 @@ let ModalProvider = ({ children }) => {
         let nextModals = { ...modals, [modalKey]: modalComponent }
         return nextModals
       })
-      addModalToQueue(modalKey)
-      setIsShown(true)
+      addModalToQueue(modalKey, moduleFrom)
     }
   }
 
-  const hideModal = modalKey => {
+  const hideModal = key => {
     setModals(modals => {
-      if (!modals[modalKey]) {
+      if (!modals[key]) {
         return modals
       }
       const nextModals = { ...modals }
-      delete nextModals[modalKey]
+      delete nextModals[key]
       return nextModals
     })
-
-    removeModalFromQueue(modalKey)
-
-    setIsShown(false)
+    removeModalFromQueue(key)
   }
 
   const closeAllModals = () => {
@@ -107,22 +122,19 @@ let ModalProvider = ({ children }) => {
     })
 
     removeAllModalsFromQueue()
-
-    setIsShown(false)
   }
 
-  const toggleModal = modalComponent => {
+  const toggleModal = (modalComponent, moduleFrom) => {
     if (!isModalShown(modalComponent)) {
-      showModal(modalComponent)
+      showModal(modalComponent, moduleFrom)
     }
 
     const lastModalOpened = modalsQueue[modalsQueue.length - 1]
 
     if (lastModalOpened !== undefined) {
-      hideModal(lastModalOpened)
+      const modalKey = Object.keys(lastModalOpened)[0]
+      hideModal(modalKey)
     }
-
-    setIsShown(true)
   }
 
   // Update data to store inside the context
@@ -131,7 +143,6 @@ let ModalProvider = ({ children }) => {
     hideModal,
     toggleModal,
     modalsQueue,
-    isShown,
   }
 
   return (
@@ -144,10 +155,7 @@ let ModalProvider = ({ children }) => {
             <ModalRendered
               key={modalKey}
               modalKey={modalKey}
-              isShown={isShown}
-              // modalName={modalName}
-              hideModal={hideModal}
-              // toggleModal={toggleModal}
+              hideModal={() => hideModal(modalKey)}
             />
           )
         })}

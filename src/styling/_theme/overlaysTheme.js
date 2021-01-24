@@ -37,7 +37,6 @@ const overlaysTheme = () => {
             <FaleConosco />
           </BottomSheet>
         ),
-
         ModalAmbientes: props => (
           <BottomSheet {...props}>
             <FaleConoscoForm />

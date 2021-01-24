@@ -1,5 +1,5 @@
 /**
- *  The Modal Consumer dispatch below items to the child component caller:
+ *  ModalConsumer dispatch below items to the modal caller:
  *  - the onClick event with the functions to show or toggle the modal
  *  - the Modal functional component to render by the ModalProvider
  *
@@ -39,8 +39,6 @@ const ModalConsumer = ({
   // Below, the functional component that will renders the modal
   const modalComponent = modalsCatalog[from][modal]
 
-  console.log(modalsCatalog, from, modal, renderOption)
-
   React.useEffect(() => {
     return () => {
       if (modal && modalsCatalog === undefined) {
@@ -54,7 +52,7 @@ const ModalConsumer = ({
         throw new Error(`No modal was found with the name provided: ${modal}`)
       }
     }
-  }, [])
+  }, [from, modal])
 
   // 2021-06-1 This component run in the manner I sat up now,
   // but if I move the component to the parent it is not run as expected
@@ -63,14 +61,14 @@ const ModalConsumer = ({
     return React.cloneElement(child, {
       onClick: () => {
         if (renderOption?.action === "show") {
-          return showModal(modalComponent)
+          return showModal(modalComponent, from)
         }
         if (renderOption?.action === "toggle") {
           return toggleModal(modalComponent, from)
         }
       },
-      showModal: () => showModal(modalComponent),
-      toggleModal: () => toggleModal(modalComponent),
+      showModal: () => showModal(modalComponent, from),
+      toggleModal: () => toggleModal(modalComponent, from),
     })
   })
 }
