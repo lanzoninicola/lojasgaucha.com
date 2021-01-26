@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 
-import SVGIcon from "../../icons/SVGIcon"
+import SVGIcon from "@icons/SVGIcon"
 
 const NavItemIcon = ({ icon, color, spotlighted }) => {
   const themeContext = React.useContext(ThemeContext)

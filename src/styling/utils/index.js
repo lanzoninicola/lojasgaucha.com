@@ -17,6 +17,7 @@ import splitWords from "./splitWords"
 import splitWordChar from "./splitWordChar"
 import isNotNumber from "./isNotNumber"
 import isNumber from "./isNumber"
+import { error, warn, log } from "./consoleMsg"
 
 export {
   left,
@@ -38,4 +39,7 @@ export {
   splitWordChar,
   isNotNumber,
   isNumber,
+  error,
+  warn,
+  log,
 }

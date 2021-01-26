@@ -3,28 +3,30 @@ import styled from "styled-components"
 
 import { NavbarContainerGridStretch } from "./container/index"
 
-const StyledBottomNavbar = styled(NavbarContainerGridStretch)`
+const StyledBottomGridNavbar = styled(NavbarContainerGridStretch)`
   position: fixed;
   bottom: 0px;
   z-index: 999;
 
   background: ${({ theme }) => theme?.navbar?.mobile?.layout?.background};
+
+  ${({ $style }) => $style ?? {}}
 `
 
-const BottomNavbar = ({ columns, h, height, children, ...props }) => {
+const BottomGridNavbar = ({ columns, h, height, children, ...props }) => {
   return (
-    <StyledBottomNavbar
-      id="StyledBottomNavbar"
+    <StyledBottomGridNavbar
+      id="StyledBottomGridNavbar"
       height={h ?? height}
       columns={columns}
       {...props}
     >
       {children}
-    </StyledBottomNavbar>
+    </StyledBottomGridNavbar>
   )
 }
 
-BottomNavbar.propTypes = {
+BottomGridNavbar.propTypes = {
   columns: (props, propName, componentName) => {
     if (
       props[propName] === undefined ||
@@ -43,4 +45,4 @@ BottomNavbar.propTypes = {
   },
 }
 
-export default BottomNavbar
+export default BottomGridNavbar

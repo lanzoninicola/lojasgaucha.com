@@ -1,12 +1,12 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 
-import { FlexContainer } from "../../layouts/inner"
+import { FlexContainer } from "@layouts/index"
 
 import NavItemIcon from "./navItemIcon"
 import NavItemText from "./navItemText"
 
-import { NavLink, NavDiv, NavModal, NavAnchor } from "../../navigation/index"
+import { NavLink, NavDiv, NavModal, NavAnchor } from "@navigation/index"
 
 const NavbarItem = ({ item, hideIcon, hideText, iconColor, textColor }) => {
   const navbarItem = (
@@ -92,7 +92,6 @@ NavbarItem.propTypes = {
       )
     }
 
-    console.log(props[propName])
     if (!props[propName]["to"].hasOwnProperty("type")) {
       return new Error(
         `

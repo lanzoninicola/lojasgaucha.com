@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 
-import { SmallText } from "../../typography/index"
+import { SmallText } from "@typography/index"
 
 const NavItemText = ({ color, spotlighted, children }) => {
   const themeContext = React.useContext(ThemeContext)

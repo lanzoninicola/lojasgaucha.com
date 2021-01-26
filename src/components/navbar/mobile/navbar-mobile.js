@@ -1,24 +1,18 @@
 import * as React from "react"
 
-import { ThemeContext } from "styled-components"
-import BottomNavbar from "../../../styling/navbar/bottomNavbar"
-import NavbarItems from "../../../styling/navbar/items/navbarItems"
+import BottomGridNavbar from "@navbar/bottomGridNavbar"
+import NavbarItems from "@navbar/items/navbarItems"
 
 import NavbarItemMobile from "./navbarItem-mobile"
 
 const NavbarMobile = () => {
-  const themeContext = React.useContext(ThemeContext)
-
-  const itemList = themeContext?.navbar?.mobile?.items
-  const columnsGrid = itemList.map(item => "1fr").join(" ")
-
   return (
-    <BottomNavbar columns={columnsGrid} h="70px">
+    <BottomGridNavbar columns="1fr 1fr 1fr 1fr 1fr" h="70px">
       <NavbarItems
-        items={itemList}
+        module="website"
         NavItemComponent={props => <NavbarItemMobile {...props} />}
       />
-    </BottomNavbar>
+    </BottomGridNavbar>
   )
 }
 

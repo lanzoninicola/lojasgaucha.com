@@ -108,17 +108,6 @@ NavbarContainerGridStretch.propTypes = {
       )
     }
   },
-  wAuto: (props, propName, componentName) => {
-    if (props[propName]) {
-      console.error(
-        `${componentName} - A "${propName}" value has been passed as props. 
-        
-        Per default this component takes the 100% of the containing block. 
-        
-        You can pass only the "height" size.`
-      )
-    }
-  },
   h: (props, propName, componentName) => {
     if (
       (props[propName] === undefined || props[propName] === null) &&

@@ -7,7 +7,7 @@ import iconsTheme from "./iconsTheme"
 import typographyTheme from "./typographyTheme"
 import colorsTheme from "./colorsTheme"
 import buttonTheme from "./buttonsTheme"
-import navbarTheme from "./navbarTheme"
+import navbarTheme from "./navbarTheme/navbarTheme"
 import overlaysTheme from "./overlaysTheme"
 import formTheme from "./formTheme"
 
