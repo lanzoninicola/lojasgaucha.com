@@ -1,14 +1,11 @@
 import * as React from "react"
 import styled, { css } from "styled-components"
 import { Space } from "."
+import { Size } from "."
+
 import { composeCSSValue } from "../utils/CSSUnit"
 
-import {
-  stringToArray,
-  arrayToString,
-  right,
-  isFunction,
-} from "../../utils/index"
+import { stringToArray, arrayToString, right } from "../../utils/index"
 
 import { useDOMInfo } from "../../_hooks/useDOM"
 
@@ -16,6 +13,7 @@ import { useDOMInfo } from "../../_hooks/useDOM"
 
 const Grid = css`
   ${Space}
+  ${Size}
   display: grid;
   justify-items: ${({ left, centerX, right, stretchX }) => {
     if (left) return `start`
@@ -96,45 +94,6 @@ const StyledGridContainer = styled.div`
     return `repeat(auto-fit, minmax(min(40px, 100%), 1fr))`
   }};
 
-  height: ${({ h, height, h100, h100v, hAuto }) => {
-    if (h100) return `100%`
-    if (h100v) return `100vh`
-    if (hAuto) return `auto`
-    if (h || height) {
-      let inputValue = h ?? height
-
-      if (isFunction(h)) {
-        inputValue = h()
-      }
-
-      if (isFunction(height)) {
-        inputValue = height()
-      }
-
-      return composeCSSValue(inputValue)
-    }
-
-    return `100%`
-  }};
-  width: ${({ w, width, w100, w100v, wAuto }) => {
-    if (w100) return `100%`
-    if (w100v) return `100vw`
-    if (wAuto) return `auto`
-    if (w || width) {
-      let inputValue = w ?? width
-
-      if (isFunction(w)) {
-        inputValue = w()
-      }
-
-      if (isFunction(width)) {
-        inputValue = width()
-      }
-
-      return composeCSSValue(inputValue)
-    }
-    return `100%`
-  }};
   ${props => props.$style ?? {}}
 `
 

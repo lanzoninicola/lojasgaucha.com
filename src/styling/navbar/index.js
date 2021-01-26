@@ -1,4 +1,3 @@
-import NavItemsLarge from "./large/navbarItems-large"
-import NavItemsMobile from "./mobile/navbarItems-mobile"
+import BottomNavbar from "./bottomNavbar"
 
-export { NavItemsLarge, NavItemsMobile }
+export { BottomNavbar }

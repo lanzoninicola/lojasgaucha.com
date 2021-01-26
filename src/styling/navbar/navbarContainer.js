@@ -4,7 +4,7 @@ import { FlexContainer } from "../layouts/inner"
 
 const NavbarContainer = ({ children, width, ...props }) => {
   return (
-    <FlexContainer as="nav" row stretchXM centerY width={width}>
+    <FlexContainer as="nav" row stretchXM centerY w={width}>
       {children}
     </FlexContainer>
   )

@@ -11,6 +11,8 @@ import { ThemeContext } from "styled-components"
 import { motion } from "framer-motion"
 
 const StyledNavAnchor = styled(motion.a)`
+  text-decoration: none;
+  cursor: pointer;
   &:link {
     text-decoration: none;
   }
@@ -20,23 +22,20 @@ const StyledNavAnchor = styled(motion.a)`
   }
 `
 
-const NavAnchor = ({ to, children }) => {
+const NavAnchor = ({ to, samePage, referrals, children }) => {
   const themeContext = React.useContext(ThemeContext)
-  const motionHover = themeContext?.navbar?.mobile?.layout?.effects?.motionHover
+  const framerMotion =
+    themeContext?.navbar?.mobile?.layout?.effects?.framerMotion
 
   return (
     <>
       <StyledNavAnchor
-        target="_blank"
         href={to?.value}
-        whileHover={{
-          scale: 1.2,
-          ...motionHover,
-        }}
-        whileTap={{
-          scale: 1.5,
-          ...motionHover,
-        }}
+        target={samePage ? null : "_blank"}
+        rel={`noopener ${referrals ? `` : `noreferrer`}`}
+        variants={framerMotion}
+        whileHover="hover"
+        whileTap="tap"
       >
         {children}
       </StyledNavAnchor>

@@ -4,6 +4,7 @@ import colorsTheme from "./colorsTheme"
 import BottomSheet from "../overlays/bottomSheet/bottomSheet"
 import FaleConosco from "../../components/home-page/fale-conosco/mobile/fale-conosco"
 import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"
+import Map from "../../components/home-page/map/mobile/map"
 
 const overlaysTheme = () => {
   return {
@@ -42,7 +43,11 @@ const overlaysTheme = () => {
             <FaleConoscoForm />
           </BottomSheet>
         ),
-        ModalMap: props => <BottomSheet {...props} />,
+        ModalMap: props => (
+          <BottomSheet {...props}>
+            <Map />
+          </BottomSheet>
+        ),
         ModalAgendamento: () => {},
       },
       faleConosco: {

@@ -41,7 +41,7 @@ const NavModal = ({ to, from, modalOptions, module, children, ...props }) => {
 }
 
 NavModal.propTypes = {
-  children: PropTypes.node.isRequired,
+  // children: PropTypes.node.isRequired,
   from: PropTypes.string.isRequired,
   to: (props, propName, componentName) => {
     const toObject = props[propName]

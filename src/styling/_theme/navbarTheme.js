@@ -33,7 +33,7 @@ const navbarTheme = () => {
       items: [
         {
           icon: "home",
-          name: "Ambientes",
+          text: "Ambientes",
           to: {
             type: "link",
             value: "/ambientes",
@@ -43,7 +43,7 @@ const navbarTheme = () => {
         },
         {
           icon: "shop",
-          name: "Sobre nós",
+          text: "Sobre nós",
           to: {
             type: "link",
             value: "/loja",
@@ -53,7 +53,7 @@ const navbarTheme = () => {
         },
         {
           icon: "pin",
-          name: "Loja fisica",
+          text: "Loja fisica",
           to: {
             type: "link",
             value: "/map",
@@ -63,7 +63,7 @@ const navbarTheme = () => {
         },
         {
           icon: "clock",
-          name: "Horarios",
+          text: "Horarios",
           to: {
             type: "link",
             value: "/horarios",
@@ -73,7 +73,7 @@ const navbarTheme = () => {
         },
         {
           icon: "calendar_dates",
-          name: "Agendamento",
+          text: "Agendamento",
           to: {
             type: "link",
             value: "/agendamento",
@@ -83,7 +83,7 @@ const navbarTheme = () => {
         },
         {
           icon: "search",
-          name: "Pesquisa",
+          text: "Pesquisa",
           to: {
             type: "link",
             value: "/loja",
@@ -116,7 +116,6 @@ const navbarTheme = () => {
         },
         items: {
           icons: {
-            show: true, // true || false
             colors: {
               default: colorsTheme("blue"),
               hovered: colorsTheme("blue"),
@@ -128,7 +127,6 @@ const navbarTheme = () => {
             size: "24",
           },
           labels: {
-            show: true, // true || false
             capitalize: "lowercase", // "lowercase" || "uppercase" || "capitalize"
             size: 12, // value in PX
             lineHeight: 12, // value in PX
@@ -145,48 +143,44 @@ const navbarTheme = () => {
       },
       items: [
         {
-          icon: "question_mark",
-          name: "Porque nós",
+          icon: "ALERT_TRIANGLE",
+          text: "Porque nós",
           to: {
             type: "modal",
             value: "ModalAmbientes",
           },
           spotlighted: { yesno: true, color: "green" },
-          focused: "enter",
         },
         {
           icon: "pin",
-          name: "Loja fisica",
+          text: "Loja fisica",
           to: {
             type: "modal",
             value: "ModalMap",
           },
           spotlighted: { yesno: false, color: "default" },
-          focused: "idle",
         },
         {
           icon: "logo_gaucha",
-          name: "home",
+          text: "home",
           to: {
             type: "link",
             value: "/",
           },
           spotlighted: { yesno: false, color: "default" },
-          focused: "idle",
         },
         {
           icon: "whatsapp",
-          name: "ajuda",
+          text: "ajuda",
           to: {
             type: "modal",
             value: "ModalFaleConosco",
           },
           spotlighted: { yesno: false, color: "default" },
-          focused: "enter",
         },
         {
           icon: "calendar_dates",
-          name: "agenda",
+          text: "agenda",
           to: {
             type: "modal",
             value: "ModalAgendamento",

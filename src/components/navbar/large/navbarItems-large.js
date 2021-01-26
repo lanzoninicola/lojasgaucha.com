@@ -3,11 +3,11 @@ import { useContext } from "react"
 
 import { ThemeContext } from "styled-components"
 
-import NavbarContainer from "../NavbarContainer"
+import NavbarContainer from "../../../styling/navbar/NavbarContainer"
 import NavbarItem from "../navbarItem"
-import { NavLink } from "../../navigation/index"
+import { NavLink } from "../../../styling/navigation/index"
 
-import useResponsiveSize from "../../_hooks/useResponsiveSize"
+import useResponsiveSize from "../../../styling/_hooks/useResponsiveSize"
 
 const NavItemsLarge = () => {
   const themeContext = useContext(ThemeContext)

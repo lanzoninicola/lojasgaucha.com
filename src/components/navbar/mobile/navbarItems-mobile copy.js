@@ -3,15 +3,21 @@ import styled from "styled-components"
 
 import { ThemeContext } from "styled-components"
 
-import { GridContainer } from "../../layouts/inner/index"
-import NavbarItem from "../navbarItem"
-import { NavLink, NavDiv, NavModal, NavAnchor } from "../../navigation/index"
+import { GridContainer } from "../../../styling/layouts/inner/index"
+import NavbarItem from "../../../styling/navbar/item/navbarItem"
+import {
+  NavLink,
+  NavDiv,
+  NavModal,
+  NavAnchor,
+} from "../../../styling/navigation/index"
 
-const NavbarItemsMobileBottom = styled(GridContainer)`
+import NavbarContainerGridStretch from "../../../styling/navbar/components/container/navbarContainerGridStretch"
+
+const NavbarItemsMobileBottom = styled(NavbarContainerGridStretch)`
   position: fixed;
   bottom: 0px;
   z-index: 999;
-  padding-bottom: 5px;
 
   background: ${({ theme }) => theme?.navbar?.mobile?.layout?.background};
 `
@@ -25,8 +31,7 @@ const NavItemsMobile = () => {
   return (
     <NavbarItemsMobileBottom
       id="navbarMobileBottom"
-      height="65px"
-      vw100
+      height="70px"
       columns="1fr 1fr 1fr 1fr 1fr"
     >
       {itemList.map((item, index) => {

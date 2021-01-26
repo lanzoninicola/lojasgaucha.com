@@ -9,6 +9,9 @@ module.exports = {
       { fullName: "Mara", wnumber: "46991564002" },
       { fullName: "Nicola", wnumber: "46991564002" },
     ],
+    maps: {
+      locationName: "LOJAS+GAÚCHA+-+Gazzoni+Eletromóveis+Ltda",
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

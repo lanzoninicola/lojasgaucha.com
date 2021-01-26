@@ -10,7 +10,7 @@ const FaleConoscoFormHeader = ({ submissionStatus }) => {
           <Title
             as="h2"
             color="orange"
-            weight="400"
+            weight="700"
             mt={{ min: "15px", max: "30px" }}
             mb="8"
           >
@@ -27,7 +27,7 @@ const FaleConoscoFormHeader = ({ submissionStatus }) => {
           <Title
             as="h2"
             color="orange"
-            weight="400"
+            weight="700"
             mt={{ min: "15px", max: "30px" }}
             mb="8"
           >

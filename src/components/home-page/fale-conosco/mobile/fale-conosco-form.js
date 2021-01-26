@@ -1,12 +1,8 @@
 import * as React from "react"
-import styled from "styled-components"
 
 import { GridContainer } from "../../../../styling/layouts/inner"
-import SVGIcon from "../../../../styling/icons/SVGIcon"
 
-import { useForm } from "react-hook-form"
-
-import FaleConoscoFormHeader from "./fale-conosco-form-header"
+import FaleConoscoFormHeader from "./fale-conosco-form-headline"
 import FaleConoscoFormContactInfo from "./fale-conosco-form-contactInfo"
 import FaleConoscoFormMessage from "./fale-conosco-form-message"
 

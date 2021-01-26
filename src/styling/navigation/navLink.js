@@ -24,19 +24,15 @@ const StyledLink = styled(motion.custom(Link))`
 
 const NavLink = ({ to, children }) => {
   const themeContext = React.useContext(ThemeContext)
-  const motionHover = themeContext?.navbar?.mobile?.layout?.effects?.motionHover
+  const framerMotion =
+    themeContext?.navbar?.mobile?.layout?.effects?.framerMotion
 
   return (
     <StyledLink
       to={to?.value}
-      // whileHover={{
-      //   scale: 1.2,
-      //   ...motionHover,
-      // }}
-      // whileTap={{
-      //   scale: 1.5,
-      //   ...motionHover,
-      // }}
+      // variants={framerMotion}
+      // whileHover="hover"
+      // whileTap="tap"
     >
       {children}
     </StyledLink>

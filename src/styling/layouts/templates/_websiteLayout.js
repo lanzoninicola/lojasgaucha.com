@@ -8,6 +8,7 @@ import { PancakeLayout, BottomNavbarLayout } from "./index"
 
 import useViewportInfo from "../../_hooks/useViewportInfo"
 import ModalProvider from "../../overlays/context/modalProvider"
+import NavbarMobile from "../../../components/navbar/mobile/navbar-mobile"
 
 const WebsiteLayout = ({ children }) => {
   const { height, width } = useViewportInfo()
@@ -22,7 +23,11 @@ const WebsiteLayout = ({ children }) => {
         {/* layout for screen < 1024px */}
         {/* {width < 1024 && <BottomNavbarLayout>{children}</BottomNavbarLayout>} */}
         {width < 1024 && (
-          <BottomNavbarLayout vh={height} vw={width}>
+          <BottomNavbarLayout
+            vh={height}
+            vw={width}
+            Navbar={() => <NavbarMobile />}
+          >
             {children}
           </BottomNavbarLayout>
         )}

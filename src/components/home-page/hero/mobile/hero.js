@@ -19,7 +19,7 @@ const Hero = () => {
         h={() => height - bannerHeight - navbarBottomHeight}
         column
       >
-        <GridContainer rows="0.25fr 1fr" columns="1fr">
+        <GridContainer rows="0.25fr 1fr" columns="1fr" h100>
           <HeroHeadline />
           <HeroAmbientes />
         </GridContainer>

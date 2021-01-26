@@ -37,10 +37,10 @@ const typographyTheme = () => {
         maxLineHeight: 20,
       },
       body: {
-        minFontSize: 16,
+        minFontSize: 15,
         maxFontSize: 18,
         minLineHeight: 18,
-        maxLineHeight: 20,
+        maxLineHeight: 21,
       },
       small: {
         minFontSize: 12,
@@ -82,10 +82,10 @@ const typographyTheme = () => {
         maxLineHeight: 18,
       },
       body: {
-        minFontSize: 16,
+        minFontSize: 15,
         maxFontSize: 18,
         minLineHeight: 18,
-        maxLineHeight: 20,
+        maxLineHeight: 21,
       },
       small: {
         minFontSize: 13,

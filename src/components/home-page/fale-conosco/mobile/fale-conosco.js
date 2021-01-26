@@ -6,7 +6,7 @@ import { FlexContainer, GridContainer } from "../../../../styling/layouts/inner"
 import { Title, Text } from "../../../../styling/typography/index"
 import { NavDiv, NavModal } from "../../../../styling/navigation/index"
 
-import { ModalCard, ModalCardIcon } from "../../../other/index"
+import { ModalCard, ModalCardIcon } from "../../../styling/index"
 
 const StyledFaleConoscoInner = styled.div`
   height: 100%;
@@ -40,21 +40,21 @@ const FaleConosco = () => {
 
   return (
     <GridContainer rows=".25fr 1fr" gap="16" stretchX h100>
-      <div>
+      <FlexContainer columns left>
         <Title
           as="h2"
-          align="center"
           color="orange"
-          weight="400"
+          weight="700"
           mt={{ min: "15px", max: "30px" }}
+          mb="8"
         >
           Fale Conosco
         </Title>
-        <Text variant="secondary" weight="300" align="center">
+        <Text variant="secondary" weight="300">
           Você precisa de ajuda? Deseja saber a disponibilidade de um produto? O
           qualquer outra coisa que possa ser de ajuda nas sua compras.
         </Text>
-      </div>
+      </FlexContainer>
       <StyledFaleConoscoInner>
         <FlexContainer>
           <Title as="h4" weight="400" color="orange">
