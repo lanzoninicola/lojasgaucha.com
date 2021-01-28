@@ -10,7 +10,7 @@ export default function websiteNavItems() {
       spotlighted: { yesno: true, color: "green" },
     },
     {
-      icon: "pin",
+      icon: "PIN",
       text: "Loja fisica",
       to: {
         type: "modal",
@@ -19,7 +19,7 @@ export default function websiteNavItems() {
       spotlighted: { yesno: false, color: "default" },
     },
     {
-      icon: "logo_gaucha",
+      icon: "LOGO_GAUCHA",
       text: "home",
       to: {
         type: "link",
@@ -28,7 +28,7 @@ export default function websiteNavItems() {
       spotlighted: { yesno: false, color: "default" },
     },
     {
-      icon: "whatsapp",
+      icon: "WHATSAPP",
       text: "ajuda",
       to: {
         type: "modal",
@@ -37,7 +37,7 @@ export default function websiteNavItems() {
       spotlighted: { yesno: false, color: "default" },
     },
     {
-      icon: "calendar_dates",
+      icon: "CALENDAR_DATES",
       text: "agenda",
       to: {
         type: "modal",

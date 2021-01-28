@@ -1,8 +1,8 @@
 import * as React from "react"
 
-import { FlexContainer } from "../../../../styling/layouts/inner"
-import { SmallText } from "../../../../styling/typography/index"
-import { GoogleMapsNavLink } from "../../../../styling/maps/index"
+import { FlexContainer } from "@layouts/index"
+import { SmallText } from "@typography/index"
+import { MapsNavbar } from "@maps/index"
 
 const MapImageHeadline = () => {
   return (
@@ -19,7 +19,7 @@ const MapImageHeadline = () => {
       >
         Usa o seu aplicativo favorito
       </SmallText>
-      <GoogleMapsNavLink />
+      <MapsNavbar size="48" hideText stretch="8" />
     </FlexContainer>
   )
 }

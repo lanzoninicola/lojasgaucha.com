@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { NavbarContainerGridStretch } from "./container/index"
+import { NavbarContainerGridStretch } from "@navbar/index"
 
 const StyledBottomGridNavbar = styled(NavbarContainerGridStretch)`
   position: fixed;

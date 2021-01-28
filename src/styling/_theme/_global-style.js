@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 
 import breakpointsTheme from "./breakpointsTheme"
 import layoutTheme from "./layoutTheme"
-import iconsTheme from "./iconsTheme"
+import iconsTheme from "./iconsTheme/iconsTheme"
 import typographyTheme from "./typographyTheme"
 import colorsTheme from "./colorsTheme"
 import buttonTheme from "./buttonsTheme"

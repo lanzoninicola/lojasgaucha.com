@@ -1,3 +1,3 @@
-import GoogleMapsNavLink from "./MapsNavLink"
+import MapsNavbar from "./mapsNavbar"
 
-export { GoogleMapsNavLink }
+export { MapsNavbar }

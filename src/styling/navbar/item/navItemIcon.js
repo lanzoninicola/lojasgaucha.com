@@ -4,7 +4,7 @@ import { ThemeContext } from "styled-components"
 
 import SVGIcon from "@icons/SVGIcon"
 
-const NavItemIcon = ({ icon, color, spotlighted }) => {
+const NavItemIcon = ({ icon, color, spotlighted, size }) => {
   const themeContext = React.useContext(ThemeContext)
   const layoutConfig = themeContext?.navbar?.mobile?.layout
 
@@ -12,7 +12,7 @@ const NavItemIcon = ({ icon, color, spotlighted }) => {
     <>
       <SVGIcon
         name={icon}
-        size={layoutConfig?.items?.icons?.size}
+        size={size ?? layoutConfig?.items?.icons?.size}
         color={
           color
             ? color

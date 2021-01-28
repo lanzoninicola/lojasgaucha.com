@@ -18,6 +18,11 @@ import splitWordChar from "./splitWordChar"
 import isNotNumber from "./isNotNumber"
 import isNumber from "./isNumber"
 import { error, warn, log } from "./consoleMsg"
+import isObject from "./isObject"
+import isEmptyObject from "./isEmptyObject"
+import isNotEmptyObject from "./isNotEmptyObject"
+import isUndefined from "./isUndefined"
+import isNotUndefined from "./isNotUndefined"
 
 export {
   left,
@@ -42,4 +47,9 @@ export {
   error,
   warn,
   log,
+  isObject,
+  isEmptyObject,
+  isNotEmptyObject,
+  isUndefined,
+  isNotUndefined,
 }

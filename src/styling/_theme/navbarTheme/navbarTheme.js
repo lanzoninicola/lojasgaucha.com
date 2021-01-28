@@ -1,9 +1,34 @@
-import colorsTheme from "../colorsTheme"
 import websiteNavItems from "./navItems/websiteNavItems"
-import mapNavItems from "./navItems/mapNavItems"
+import mapsNavItems from "./navItems/mapsNavItems"
+import iconsTheme from "../iconsTheme/iconsTheme"
+
+import colorsTheme from "../colorsTheme"
+import { isNotUndefined, isNotEmptyObject, error } from "@utils/index"
+
+function validateNavItems(navItems) {
+  const { catalog } = iconsTheme()
+
+  Object.keys(navItems).map(itemsGroup => {
+    navItems[itemsGroup].map(itemGroup => {
+      if (itemGroup?.icon !== itemGroup?.icon.toUpperCase()) {
+        error(
+          "navbarTheme",
+          `The name of icon "${itemGroup.text}" for the navbarItems "${itemsGroup}" must be capitalize in "uppercase". Check which name it will choosed in the IconTheme`
+        )
+      }
+
+      if (catalog[itemGroup?.icon] === undefined) {
+        error(
+          "navbarTheme",
+          `The icon for the navbarItem "${itemGroup.text}" is not exists in the iconsTheme. It will give you problems when you will use the navbar React Components `
+        )
+      }
+    })
+  })
+}
 
 const navbarTheme = () => {
-  return {
+  const navbarSettings = {
     large: {
       layout: {
         width: { min: 100, max: 700 },
@@ -84,9 +109,19 @@ const navbarTheme = () => {
     },
     navItems: {
       website: websiteNavItems(),
-      map: mapNavItems(),
+      maps: mapsNavItems(),
     },
   }
+
+  const navItems = navbarSettings?.navItems
+
+  if (isNotUndefined(navItems)) {
+    if (isNotEmptyObject(navItems)) {
+      validateNavItems(navItems)
+    }
+  }
+
+  return navbarSettings
 }
 
 export default navbarTheme

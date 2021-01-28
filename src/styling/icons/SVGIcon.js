@@ -1,25 +1,40 @@
 import * as React from "react"
-import styled from "styled-components"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
-import { FlexContainer, Space } from "../layouts/inner"
+import { FlexContainer } from "@layouts/index"
+import { log } from "@utils/index"
+
+const SVGIconBlueprint = ({ sourcePath, color, size }) => {
+  return (
+    <svg
+      width={size} // icons always are equal width and height
+      height={size} // icons always are equal width and height
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fillRule="evenodd" clipRule="evenodd" d={sourcePath} fill={color} />
+    </svg>
+  )
+}
 
 function SVGIcon({ name, size, color, ...props }) {
   const themeContext = React.useContext(ThemeContext)
+  const iconName = name.toUpperCase()
+  let RenderedSVGIcon = null
 
-  const SVGPath = themeContext.icons.catalog[name.toUpperCase()][size]
-  // const iconColor = typeof color === "function" ? color : colorsTheme(color)
+  // log("SVGIcon", themeContext?.icons?.catalog[iconName])
+
+  const SVGSource = themeContext?.icons?.catalog[iconName][size]
+
+  if (typeof SVGSource === "function") {
+    RenderedSVGIcon = () => <SVGSource />
+  } else {
+    RenderedSVGIcon = props => <SVGIconBlueprint {...props} />
+  }
 
   return (
     <FlexContainer centerX centerY {...props}>
-      <svg
-        width={size} // icons are always equal width and height
-        height={size} // icons are always equal width and height
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path fillRule="evenodd" clipRule="evenodd" d={SVGPath} fill={color} />
-      </svg>
+      <RenderedSVGIcon sourcePath={SVGSource} size={size} color={color} />
     </FlexContainer>
   )
 }

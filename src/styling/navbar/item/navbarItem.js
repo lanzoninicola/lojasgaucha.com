@@ -8,13 +8,31 @@ import NavItemText from "./navItemText"
 
 import { NavLink, NavDiv, NavModal, NavAnchor } from "@navigation/index"
 
-const NavbarItem = ({ item, hideIcon, hideText, iconColor, textColor }) => {
+import { log } from "@utils/index"
+
+const NavbarItem = ({
+  item,
+  hideIcon,
+  hideText,
+  iconColor,
+  textColor,
+  size,
+  stretch,
+}) => {
   const navbarItem = (
-    <FlexContainer column centerY centerX h100>
+    <FlexContainer
+      column
+      centerY
+      centerX
+      h100
+      ml={stretch ?? null}
+      mr={stretch ?? null}
+    >
       {!hideIcon && (
         <NavItemIcon
           icon={item.icon}
           color={iconColor}
+          size={size}
           spotlighted={item.spotlighted}
         />
       )}
