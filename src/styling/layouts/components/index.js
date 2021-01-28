@@ -1,3 +1,3 @@
-import { Strip } from "./header"
+import { Strip } from "./strip"
 
 export { Strip }

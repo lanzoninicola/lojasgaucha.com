@@ -1,7 +1,7 @@
 import * as React from "react"
-import { FlexContainer } from "../../../../styling/layouts/inner"
-import { Title, Text } from "../../../../styling/typography/index"
-import colorsTheme from "../../../../styling/_theme/colorsTheme"
+import { FlexContainer } from "@layouts/index"
+import { Title, Text } from "@typography/index"
+import MapStoreAddress from "./map-storeAddress"
 
 const MapHeader = () => {
   return (
@@ -20,15 +20,7 @@ const MapHeader = () => {
           Olhe, não é muito difícil... Você conhece a praça principal em Pato
           Branco, no centro da cidade? Sim, estamos muito perto disso...
         </Text>
-        <Text variant="secondary" weight="400" color={colorsTheme("orange")}>
-          Avenida Tupi, numero 2351
-        </Text>
-        <Text variant="secondary" weight="400" color={colorsTheme("orange")}>
-          Centro, Pato Branco
-        </Text>
-        <Text variant="secondary" weight="400" color={colorsTheme("orange")}>
-          Paraná (PR)
-        </Text>
+        <MapStoreAddress />
       </>
     </FlexContainer>
   )
