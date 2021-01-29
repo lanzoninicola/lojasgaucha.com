@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
 import useResponsiveSize from "../_hooks/useResponsiveSize"
-import composeCSSValue from "../layouts/utils/CSSUnit"
+import { composeCSSValue } from "../layouts/utils/CSSUnit"
 
 const Text = styled.div`
   ${Typeface}
