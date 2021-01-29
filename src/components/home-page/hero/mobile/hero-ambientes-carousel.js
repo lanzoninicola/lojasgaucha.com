@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import ImageQL from "../../../../styling/images/ImageQL"
+import { ImageQL } from "@images/index"
 import NavLink from "../../../../styling/navigation/navLink"
 
 import CarouselSlide from "../../../../styling/carousel/carouselSlide"

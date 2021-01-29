@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
-import { isNotString } from "../utils"
+import { isNotString } from "@utils/index"
 
 //TODO:
 // adding fallback when an image is not available

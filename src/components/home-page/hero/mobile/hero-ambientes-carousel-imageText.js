@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import ImageTitle from "../../../../styling/images/imageTitle"
+import { ImageTitle } from "@images/index"
 import colorsTheme from "../../../../styling/_theme/colorsTheme"
 import SVGIcon from "../../../../styling/icons/SVGIcon"
 
