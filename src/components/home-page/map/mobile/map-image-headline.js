@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { FlexContainer } from "@layouts/index"
 import { SmallText } from "@typography/index"
-import { MapsNavbar } from "@maps/index"
+import { MapAppsNavbar } from "@maps/index"
 
 const MapImageHeadline = () => {
   return (
@@ -19,7 +19,7 @@ const MapImageHeadline = () => {
       >
         Usa o seu aplicativo favorito
       </SmallText>
-      <MapsNavbar size="48" hideText stretch="8" />
+      <MapAppsNavbar size="48" hideText stretch="8" />
     </FlexContainer>
   )
 }

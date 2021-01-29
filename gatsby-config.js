@@ -18,6 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `maps_images`,
+        path: `${__dirname}/src/images/company/maps`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `hero_carousel`,
         path: `${__dirname}/src/images/hero_carousel/mobile`,
       },

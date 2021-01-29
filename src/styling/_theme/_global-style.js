@@ -1,6 +1,7 @@
 import reset from "styled-reset"
 import { createGlobalStyle } from "styled-components"
 
+import companyTheme from "./companyTheme/companyTheme"
 import breakpointsTheme from "./breakpointsTheme"
 import layoutTheme from "./layoutTheme"
 import iconsTheme from "./iconsTheme/iconsTheme"
@@ -12,6 +13,7 @@ import overlaysTheme from "./overlaysTheme"
 import formTheme from "./formTheme"
 
 export const theme = {
+  company: companyTheme(),
   breakpoints: breakpointsTheme(),
   colors: (color, options) => colorsTheme(color, options),
   typography: typographyTheme(),

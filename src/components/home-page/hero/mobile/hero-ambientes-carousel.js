@@ -101,7 +101,8 @@ const HeroAmbientesCarousel = () => {
           <CarouselSlideCard
             id="hero-carousel-card"
             key={index}
-            p="0 40 0 40"
+            h="90%"
+            p="20 30 20 30"
             $style={{
               position: "relative",
             }}
@@ -111,6 +112,7 @@ const HeroAmbientesCarousel = () => {
                 fluid={itemData?.fluid}
                 alt={itemData?.alt}
                 title={itemData?.title}
+                shadow
                 wrapperStyle={{
                   borderRadius: 25,
                 }}

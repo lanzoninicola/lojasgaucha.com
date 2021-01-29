@@ -16,7 +16,7 @@ const MapHeader = () => {
         >
           Para chegar até nós
         </Title>
-        <Text variant="secondary" weight="300" mb="8">
+        <Text variant="secondary" weight="300" mb="8" color="white">
           Olhe, não é muito difícil... Você conhece a praça principal em Pato
           Branco, no centro da cidade? Sim, estamos muito perto disso...
         </Text>

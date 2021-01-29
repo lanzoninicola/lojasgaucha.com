@@ -6,13 +6,12 @@ import CarouselSlideCardShadow from "./carouselCardShadow"
 
 import { motion } from "framer-motion"
 import colorsTheme from "../_theme/colorsTheme"
-import { FlexMotionContainer, Space } from "../layouts/inner"
+import { FlexMotionContainer, Space, Size } from "../layouts/inner"
 
 const StyledCardWrapper = styled(motion.div)`
   ${Space}
-  width: 100%;
+  ${Size}
   min-width: 100%;
-  height: 70%;
   background: ${({ theme, bg }) => {
     return colorsTheme(bg) ?? theme?.layout?.config?.carousel?.card?.background
   }};
@@ -25,15 +24,9 @@ const StyledCardWrapper = styled(motion.div)`
 
 const CarouselSlideCard = ({ children, ...props }) => {
   return (
-    <FlexMotionContainer
-      column
-      centerX
-      stretchY
-      hAuto
-      style={{ minWidth: "100%" }}
-    >
+    <FlexMotionContainer column centerX stretchY style={{ minWidth: "100%" }}>
       <StyledCardWrapper {...props}>{children}</StyledCardWrapper>
-      <CarouselSlideCardShadow />
+      {/* <CarouselSlideCardShadow /> */}
     </FlexMotionContainer>
   )
 }

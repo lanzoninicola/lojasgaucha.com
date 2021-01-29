@@ -1,12 +1,17 @@
+import companyTheme from "../../companyTheme/companyTheme"
+
 export default function mapsNavItems() {
+  const companyMapData = companyTheme("maps")
+
+  const { placeName } = companyMapData
+
   return [
     {
       icon: "GMAPS",
       text: "Google Maps",
       to: {
         type: "anchor",
-        value:
-          "https://www.google.com/maps/search/?api=1&query=LOJAS+GAÚCHA+-+Gazzoni+Eletromóveis+Ltda",
+        value: `https://www.google.com/maps/search/?api=1&query=${placeName}`,
       },
       spotlighted: { yesno: false, color: "" },
     },
@@ -15,7 +20,7 @@ export default function mapsNavItems() {
       text: "Waze",
       to: {
         type: "anchor",
-        value: "https://waze.com/ul?q=LOJAS+GAÚCHA+-+Gazzoni+Eletromóveis+Ltda",
+        value: `https://waze.com/ul?q=${placeName}`,
       },
       spotlighted: { yesno: false, color: "" },
     },
@@ -24,8 +29,7 @@ export default function mapsNavItems() {
       text: "Apple Maps",
       to: {
         type: "anchor",
-        value:
-          "http://maps.apple.com/?q=LOJAS+GAÚCHA+-+Gazzoni+Eletromóveis+Ltda",
+        value: `http://maps.apple.com/?q=${placeName}`,
       },
       spotlighted: { yesno: false, color: "" },
     },

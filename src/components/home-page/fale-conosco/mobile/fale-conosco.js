@@ -1,10 +1,8 @@
 import * as React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-
-import { FlexContainer, GridContainer } from "../../../../styling/layouts/inner"
-import { Title, Text } from "../../../../styling/typography/index"
-import { NavDiv, NavModal } from "../../../../styling/navigation/index"
+import styled, { ThemeContext } from "styled-components"
+import { FlexContainer, GridContainer } from "@layouts/index"
+import { Title, Text } from "@typography/index"
+import { NavModal, NavAnchor } from "@navigation/index"
 
 import { ModalCard, ModalCardIcon } from "../../../styling/index"
 
@@ -19,21 +17,9 @@ const StyledFaleConoscoInner = styled.div`
 `
 
 const FaleConosco = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          whatsAppContacts {
-            fullName
-            wnumber
-          }
-        }
-      }
-    }
-  `)
-
-  const officePhone = data.site.siteMetadata?.officePhone
-  const whatsAppContacts = data.site.siteMetadata?.whatsAppContacts
+  const themeContext = React.useContext(ThemeContext)
+  const companyInfo = themeContext?.company
+  const { officePhone } = companyInfo
 
   // se i contatti di whatsapp sono più di uno aprire un'altra modal in modalità card
   // per selezionare la persona con cui parlare
@@ -50,7 +36,7 @@ const FaleConosco = () => {
         >
           Fale Conosco
         </Title>
-        <Text variant="secondary" weight="300">
+        <Text variant="secondary" weight="300" color="white">
           Você precisa de ajuda? Deseja saber a disponibilidade de um produto? O
           qualquer outra coisa que possa ser de ajuda nas sua compras.
         </Text>
@@ -60,12 +46,12 @@ const FaleConosco = () => {
           <Title as="h4" weight="400" color="orange">
             Canais rapido
           </Title>
-          <NavDiv to={{ type: "phone", value: `tel:${officePhone}` }}>
+          <NavAnchor to={{ type: "phone", value: `tel:${officePhone}` }}>
             <ModalCard title="TELEFONE">
               <ModalCardIcon name="CALL_PHONE" />
             </ModalCard>
-          </NavDiv>
-          <NavDiv
+          </NavAnchor>
+          <NavAnchor
             to={{
               type: "whatsapp",
               value: "https://api.whatsapp.com/send?1=pt_BR&phone=46991564002",
@@ -74,7 +60,7 @@ const FaleConosco = () => {
             <ModalCard title="WHATSAPP">
               <ModalCardIcon name="WHATSAPP" />
             </ModalCard>
-          </NavDiv>
+          </NavAnchor>
           <Title as="h4" weight="400" color="orange" mt="36px">
             O pode escrever
           </Title>

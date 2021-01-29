@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { FlexContainer, GridContainer } from "../../../../styling/layouts/inner"
 import MapHeader from "./map-headline"
 import MapImageHeadline from "./map-image-headline"
-import SimpleMap from "./map-image-mapImage"
+import StoreMap from "./map-image-storeMap"
 
 // TODO: integrate with GPS and showing to the user time to arrive to destination walking or car
 
@@ -24,7 +24,7 @@ const Map = () => {
       <MapHeader />
       <GridContainer rows="0.25fr 1fr" columns="1fr">
         <MapImageHeadline />
-        <SimpleMap />
+        <StoreMap />
       </GridContainer>
     </GridContainer>
   )

@@ -7,7 +7,7 @@ import colorsTheme from "../../../../styling/_theme/colorsTheme"
 
 const HeroHeadline = () => {
   return (
-    <FlexContainer column>
+    <FlexContainer column mt="20">
       <Title
         as="h1"
         weight="700"
@@ -20,7 +20,7 @@ const HeroHeadline = () => {
         mt="5px"
         capitalize="uppercase"
       >
-        Bem vindo na
+        Bem vindo a
       </Title>
       <Title
         as="h1"
@@ -36,15 +36,15 @@ const HeroHeadline = () => {
       <Title
         as="h2"
         variant="secondary"
-        size="20"
-        lh="24"
+        size="24"
+        lh="28"
         weight="600"
         color="blue"
         mb="30px"
         ml="2px"
         ls="1px"
         $style={{
-          width: "280px",
+          width: "350px",
         }}
       >
         por 15 anos, procuramos soluções{" "}
@@ -52,7 +52,7 @@ const HeroHeadline = () => {
           color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
         >
           para sua casa
-        </HighlitTextLine1>
+        </HighlitTextLine1>{" "}
         <HighlitTextLine1
           color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
         >
