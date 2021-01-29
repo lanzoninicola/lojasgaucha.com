@@ -1,5 +1,5 @@
 import WebsiteLayout from "./_websiteLayout"
-import PancakeLayout from "./PancakeLayout"
+// import PancakeLayout from "./PancakeLayout"
 import BottomNavbarLayout from "./bottomNavbarLayout"
 
-export { PancakeLayout, BottomNavbarLayout, WebsiteLayout }
+export { BottomNavbarLayout, WebsiteLayout }
