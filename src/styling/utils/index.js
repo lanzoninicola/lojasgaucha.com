@@ -23,6 +23,7 @@ import isEmptyObject from "./isEmptyObject"
 import isNotEmptyObject from "./isNotEmptyObject"
 import isUndefined from "./isUndefined"
 import isNotUndefined from "./isNotUndefined"
+import isDomAvailable from "./isDomAvailable"
 
 export {
   left,
@@ -52,4 +53,5 @@ export {
   isNotEmptyObject,
   isUndefined,
   isNotUndefined,
+  isDomAvailable,
 }

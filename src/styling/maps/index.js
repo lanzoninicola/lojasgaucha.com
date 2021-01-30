@@ -1,5 +1,5 @@
 import MapAppsNavbar from "./appsNavbar/mapAppsNavbar"
-import MapImage from "./mapImage/mapImage"
+import Map from "./mapContainer/map"
 import CompanyMarker from "./markers/companyMarker"
 
-export { MapAppsNavbar, MapImage, CompanyMarker }
+export { MapAppsNavbar, Map, CompanyMarker }

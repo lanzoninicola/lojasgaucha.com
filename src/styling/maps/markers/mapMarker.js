@@ -4,24 +4,22 @@ import { divIcon } from "leaflet"
 import { Marker } from "react-leaflet"
 import { isUndefined, isNotArray, error } from "@utils/index"
 
-const MapMarker = React.forwardRef(
-  (ref, { position, title, text, children }) => {
-    const markerIcon = divIcon({ color: "red", border: "3px solid black" })
+const MapMarker = ({ position, title, text, children }) => {
+  const markerIcon = divIcon({ color: "red", border: "3px solid black" })
 
-    console.log(position)
+  console.log(position)
 
-    return (
-      <Marker
-        icon={markerIcon ?? null}
-        position={position}
-        title={title ?? null}
-        text={text ?? null}
-      >
-        {children}
-      </Marker>
-    )
-  }
-)
+  return (
+    <Marker
+      icon={markerIcon ?? null}
+      position={position}
+      title={title ?? null}
+      text={text ?? null}
+    >
+      {children}
+    </Marker>
+  )
+}
 
 MapMarker.propTypes = {
   children: PropTypes.node.isRequired,

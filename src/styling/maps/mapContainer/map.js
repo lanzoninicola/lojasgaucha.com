@@ -2,15 +2,25 @@ import * as React from "react"
 import { ThemeContext } from "styled-components"
 import { MapContainer, TileLayer } from "react-leaflet"
 
+import { isDomAvailable } from "@utils/index"
+
 //TODO: adding "store promo" in tooltip map
 
-function MapImage({ center, children, ...props }) {
+function Map({ center, children, ...props }) {
   const themeContext = React.useContext(ThemeContext)
   const companyInfo = themeContext?.company
 
   const { maps } = companyInfo
 
   const companyCoordinates = [maps?.latitude, maps?.longitude]
+
+  if (!isDomAvailable()) {
+    return (
+      <div>
+        <p>Loading map...</p>
+      </div>
+    )
+  }
 
   return (
     <MapContainer
@@ -35,4 +45,4 @@ function MapImage({ center, children, ...props }) {
   )
 }
 
-export default MapImage
+export default Map

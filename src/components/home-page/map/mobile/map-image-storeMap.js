@@ -1,11 +1,11 @@
 import * as React from "react"
-import { MapImage, CompanyMarker } from "@maps/index"
+import { Map, CompanyMarker } from "@maps/index"
 
 function StoreMap() {
   return (
-    <MapImage>
+    <Map>
       <CompanyMarker />
-    </MapImage>
+    </Map>
   )
 }
 
