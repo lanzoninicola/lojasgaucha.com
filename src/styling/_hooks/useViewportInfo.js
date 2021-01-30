@@ -4,7 +4,11 @@ import { ThemeContext } from "styled-components"
 import { isDomAvailable } from "@utils/index"
 
 function useViewportInfo() {
-  const [viewportInfo, setviewportInfo] = React.useState()
+  const [viewportInfo, setviewportInfo] = React.useState({
+    device: null,
+    height: 0,
+    width: 0,
+  })
 
   const themeContext = React.useContext(ThemeContext)
 
