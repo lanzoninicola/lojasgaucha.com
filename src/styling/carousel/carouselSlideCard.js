@@ -22,13 +22,14 @@ import { FlexContainer, Space, Size } from "../layouts/inner"
 // `
 
 const StyledCardWrapper = styled.div`
-  ${Space}
-  ${Size}
   position: relative;
   min-width: 100%;
   border-radius: "25px";
   scroll-snap-align: center;
   margin-bottom: 20px;
+
+  padding: 20px 30px 20px 30px;
+  height: 90%;
 `
 
 const CarouselSlideCard = ({ children, ...props }) => {

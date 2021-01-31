@@ -101,8 +101,8 @@ const HeroAmbientesCarousel = () => {
           <CarouselSlideCard
             id="hero-carousel-card"
             key={index}
-            h="90%"
-            p="20 30 20 30"
+            // h="90%"
+            // p="20 30 20 30"
           >
             <NavLink to={itemData?.to}>
               <ImageQL
