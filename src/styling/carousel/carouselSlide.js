@@ -1,4 +1,5 @@
 import * as React from "react"
+import PropTypes from "prop-types"
 import { FlexMotionContainer } from "../layouts/inner/index"
 
 // const enterAnimation = {
@@ -42,5 +43,5 @@ const CarouselSlide = ({ children, ...props }) => {
 export default CarouselSlide
 
 CarouselSlide.propTypes = {
-  // items: PropTypes.array,
+  children: PropTypes.node.isRequired,
 }

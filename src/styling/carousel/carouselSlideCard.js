@@ -1,5 +1,5 @@
 import * as React from "react"
-// import PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 // import CarouselSlideCardShadow from "./carouselCardShadow"
@@ -26,12 +26,11 @@ const CarouselSlideCard = ({ children, ...props }) => {
   return (
     <FlexMotionContainer column centerX stretchY style={{ minWidth: "100%" }}>
       <StyledCardWrapper {...props}>{children}</StyledCardWrapper>
-      {/* <CarouselSlideCardShadow /> */}
     </FlexMotionContainer>
   )
 }
 export default CarouselSlideCard
 
 CarouselSlideCard.propTypes = {
-  // item: PropTypes.array,
+  children: PropTypes.node.isRequired,
 }

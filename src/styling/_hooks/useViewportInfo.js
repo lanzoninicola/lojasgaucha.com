@@ -4,6 +4,8 @@ import { ThemeContext } from "styled-components"
 import { isDomAvailable } from "@utils/index"
 import useDeepCompareEffect from "use-deep-compare-effect"
 
+// TODO: to be verified: wrapped window and document object to control behaviours
+
 function useViewportInfo() {
   const [viewportInfo, setViewportInfo] = React.useState({
     device: null,
