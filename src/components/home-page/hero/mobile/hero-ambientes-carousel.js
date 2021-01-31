@@ -103,9 +103,6 @@ const HeroAmbientesCarousel = () => {
             key={index}
             h="90%"
             p="20 30 20 30"
-            $style={{
-              position: "relative",
-            }}
           >
             <NavLink to={itemData?.to}>
               <ImageQL

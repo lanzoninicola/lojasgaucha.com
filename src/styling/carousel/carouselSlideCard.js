@@ -6,19 +6,29 @@ import styled from "styled-components"
 import colorsTheme from "../_theme/colorsTheme"
 import { FlexContainer, Space, Size } from "../layouts/inner"
 
+// const StyledCardWrapper = styled.div`
+//   ${Space}
+//   ${Size}
+//   min-width: 100%;
+//   background: ${({ theme, bg }) => {
+//     if (bg) return colorsTheme(bg)
+//     return theme?.layout?.config?.carousel?.card?.background
+//   }};
+//   border-radius: ${({ theme }) =>
+//     theme?.layout?.config?.carousel?.card?.borderRadius ?? "25px"};
+//   scroll-snap-align: center;
+//   margin-bottom: 20px;
+//   ${({ $style }) => $style ?? {}}
+// `
+
 const StyledCardWrapper = styled.div`
   ${Space}
   ${Size}
+  position: relative;
   min-width: 100%;
-  background: ${({ theme, bg }) => {
-    if (bg) return colorsTheme(bg)
-    return theme?.layout?.config?.carousel?.card?.background
-  }};
-  border-radius: ${({ theme }) =>
-    theme?.layout?.config?.carousel?.card?.borderRadius ?? "25px"};
+  border-radius: "25px";
   scroll-snap-align: center;
   margin-bottom: 20px;
-  ${({ $style }) => $style ?? {}}
 `
 
 const CarouselSlideCard = ({ children, ...props }) => {
