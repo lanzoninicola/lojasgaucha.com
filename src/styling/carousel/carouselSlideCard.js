@@ -11,7 +11,8 @@ const StyledCardWrapper = styled.div`
   ${Size}
   min-width: 100%;
   background: ${({ theme, bg }) => {
-    return colorsTheme(bg) ?? theme?.layout?.config?.carousel?.card?.background
+    if (bg) return colorsTheme(bg)
+    return theme?.layout?.config?.carousel?.card?.background
   }};
   border-radius: ${({ theme }) =>
     theme?.layout?.config?.carousel?.card?.borderRadius ?? "25px"};
