@@ -35,8 +35,8 @@ const StyledCardWrapper = styled.div`
 const CarouselSlideCard = ({ children, ...props }) => {
   return (
     <FlexContainer column centerX stretchY $style={{ minWidth: "100%" }}>
-      {/* <StyledCardWrapper {...props}>{children}</StyledCardWrapper> */}
-      <div
+      <StyledCardWrapper {...props}>{children}</StyledCardWrapper>
+      {/* <div
         style={{
           position: "relative",
           minWidth: "100%",
@@ -49,7 +49,7 @@ const CarouselSlideCard = ({ children, ...props }) => {
         }}
       >
         {children}
-      </div>
+      </div> */}
     </FlexContainer>
   )
 }
