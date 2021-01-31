@@ -2,9 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-// import CarouselSlideCardShadow from "./carouselCardShadow"
-
-import { motion } from "framer-motion"
+// import { motion } from "framer-motion"
 import colorsTheme from "../_theme/colorsTheme"
 import { FlexContainer, Space, Size } from "../layouts/inner"
 
@@ -24,7 +22,7 @@ const StyledCardWrapper = styled.div`
 
 const CarouselSlideCard = ({ children, ...props }) => {
   return (
-    <FlexContainer column centerX stretchY style={{ minWidth: "100%" }}>
+    <FlexContainer column centerX stretchY $style={{ minWidth: "100%" }}>
       <StyledCardWrapper {...props}>{children}</StyledCardWrapper>
     </FlexContainer>
   )
