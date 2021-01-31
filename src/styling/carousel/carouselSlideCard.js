@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 import { motion } from "framer-motion"
 import colorsTheme from "../_theme/colorsTheme"
-import { FlexMotionContainer, Space, Size } from "../layouts/inner"
+import { FlexContainer, Space, Size } from "../layouts/inner"
 
 const StyledCardWrapper = styled(motion.div)`
   ${Space}
@@ -24,9 +24,9 @@ const StyledCardWrapper = styled(motion.div)`
 
 const CarouselSlideCard = ({ children, ...props }) => {
   return (
-    <FlexMotionContainer column centerX stretchY style={{ minWidth: "100%" }}>
+    <FlexContainer column centerX stretchY style={{ minWidth: "100%" }}>
       <StyledCardWrapper {...props}>{children}</StyledCardWrapper>
-    </FlexMotionContainer>
+    </FlexContainer>
   )
 }
 export default CarouselSlideCard
