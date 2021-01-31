@@ -25,9 +25,7 @@ const StyledCardWrapper = styled.div`
   position: relative;
   min-width: 100%;
   border-radius: 25px;
-
   margin-bottom: 20px;
-
   padding: 20px 30px 20px 30px;
   height: 90%;
 `
