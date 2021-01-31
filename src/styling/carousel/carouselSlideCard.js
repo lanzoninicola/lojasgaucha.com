@@ -24,7 +24,7 @@ import { FlexContainer, Space, Size } from "../layouts/inner"
 const StyledCardWrapper = styled.div`
   position: relative;
   min-width: 100%;
-  border-radius: "25px";
+  border-radius: 25px;
   scroll-snap-align: center;
   margin-bottom: 20px;
 
@@ -35,7 +35,21 @@ const StyledCardWrapper = styled.div`
 const CarouselSlideCard = ({ children, ...props }) => {
   return (
     <FlexContainer column centerX stretchY $style={{ minWidth: "100%" }}>
-      <StyledCardWrapper {...props}>{children}</StyledCardWrapper>
+      {/* <StyledCardWrapper {...props}>{children}</StyledCardWrapper> */}
+      <div
+        style={{
+          position: "relative",
+          minWidth: "100%",
+          borderRadius: "25px",
+          scrollSnapAlign: "center",
+          marginBottom: "20px",
+
+          padding: "20px 30px 20px 30px",
+          height: "90%",
+        }}
+      >
+        {children}
+      </div>
     </FlexContainer>
   )
 }
