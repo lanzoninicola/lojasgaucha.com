@@ -16,7 +16,7 @@ const WebsiteLayout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
       <Helmet>
         {/* https://leafletjs.com/examples/quick-start/ */}
         <link
