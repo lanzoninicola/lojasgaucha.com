@@ -2,9 +2,10 @@ import * as React from "react"
 import { debounce } from "../layouts/utils/functions"
 import { ThemeContext } from "styled-components"
 import { isDomAvailable } from "@utils/index"
+import useDeepCompareEffect from "use-deep-compare-effect"
 
 function useViewportInfo() {
-  const [viewportInfo, setviewportInfo] = React.useState({
+  const [viewportInfo, setViewportInfo] = React.useState({
     device: null,
     height: 0,
     width: 0,
@@ -12,9 +13,9 @@ function useViewportInfo() {
 
   const themeContext = React.useContext(ThemeContext)
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     if (isDomAvailable) {
-      setviewportInfo({
+      setViewportInfo({
         device: "mobile",
         height: window.innerHeight,
         width: window.innerWidth,
@@ -47,7 +48,7 @@ function useViewportInfo() {
           device = breakpoints?.xxlarge?.device
         }
 
-        setviewportInfo({
+        setViewportInfo({
           device: device,
           height: window.innerHeight,
           width: window.innerWidth,
@@ -58,7 +59,7 @@ function useViewportInfo() {
         window.removeEventListener("resize", debouncedHandleResize)
       }
     }
-  })
+  }, [{ viewportInfo }])
 
   return viewportInfo
 }

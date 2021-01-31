@@ -2,7 +2,7 @@ import * as React from "react"
 // import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import CarouselSlideCardShadow from "./carouselCardShadow"
+// import CarouselSlideCardShadow from "./carouselCardShadow"
 
 import { motion } from "framer-motion"
 import colorsTheme from "../_theme/colorsTheme"

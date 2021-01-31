@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
-import { error, log } from "@utils/index"
+import { error } from "@utils/index"
 import NavbarItem from "../item/navbarItem"
 
 const NavbarItems = ({ module, NavItemComponent, ...props }) => {

@@ -84,30 +84,30 @@ const InputTextArea = React.forwardRef(
   }
 )
 
-// InputTextArea.defaultProps = {
-//   isRequired: false,
-//   noLabel: false,
-// }
+InputTextArea.defaultProps = {
+  isRequired: false,
+  noLabel: false,
+}
 
-// InputTextArea.propTypes = {
-//   name: (props, propName, componentName) => {
-//     if (props[propName] === undefined || props[propName] === "") {
-//       return new Error(
-//         `${componentName} - "name" prop (type "string") is missing.`
-//       )
-//     }
-//   },
-//   isRequired: PropTypes.bool,
-//   noLabel: (props, propName, componentName) => {
-//     if (props[propName] === false && props["labelText"] === undefined) {
-//       return new Error(
-//         `${componentName} - "labelText" prop (type "string") is missing.`
-//       )
-//     }
-//   },
-//   labelText: PropTypes.string,
-//   labelStyle: PropTypes.object,
-//   reactHookForm: PropTypes.object,
-// }
+InputTextArea.propTypes = {
+  name: (props, propName, componentName) => {
+    if (props[propName] === undefined || props[propName] === "") {
+      return new Error(
+        `${componentName} - "${propName}" prop (type "string") is missing.`
+      )
+    }
+  },
+  isRequired: PropTypes.bool,
+  noLabel: (props, propName, componentName) => {
+    if (props[propName] === false && props["labelText"] === undefined) {
+      return new Error(
+        `${componentName} - "${propName}" prop (type "string") is missing.`
+      )
+    }
+  },
+  labelText: PropTypes.string,
+  labelStyle: PropTypes.object,
+  reactHookForm: PropTypes.object,
+}
 
 export default InputTextArea

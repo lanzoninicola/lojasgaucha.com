@@ -28,7 +28,7 @@ const HeroAmbientesCarousel = () => {
     }
   `)
 
-  const ambientes = [""]
+  // const ambientes = [""]
 
   const carouselData = data?.images?.edges.map((image, index) => {
     // image {

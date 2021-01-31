@@ -4,7 +4,6 @@ import { Tooltip } from "react-leaflet"
 
 import CompanyTooltip from "../markerTooltips/companyTooltip"
 import MapMarker from "./mapMarker"
-import { Marker } from "react-leaflet"
 
 // TODO: manage company multiple addresses
 // TODO: passing adress data to CompanyTooltip

@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { ThemeContext } from "styled-components"
+// import { ThemeContext } from "styled-components"
 import { motion } from "framer-motion"
 
 import { Link } from "gatsby"
@@ -23,9 +23,9 @@ const StyledLink = styled(motion.custom(Link))`
 `
 
 const NavLink = ({ to, children }) => {
-  const themeContext = React.useContext(ThemeContext)
-  const framerMotion =
-    themeContext?.navbar?.mobile?.layout?.effects?.framerMotion
+  // const themeContext = React.useContext(ThemeContext)
+  // const framerMotion =
+  //   themeContext?.navbar?.mobile?.layout?.effects?.framerMotion
 
   return (
     <StyledLink

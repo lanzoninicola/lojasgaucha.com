@@ -5,8 +5,8 @@ import { FlexContainer } from "../layouts/inner"
 function CarouselCardShadow({ ...props }) {
   const themeContext = React.useContext(ThemeContext)
 
-  const layoutCard =
-    themeContext?.layout?.style?.carousel?.hero_carousel?.card?.default
+  // const layoutCard =
+  //   themeContext?.layout?.style?.carousel?.hero_carousel?.card?.default
 
   return (
     <FlexContainer hAuto centerX centerY pl="30" pr="30" h="30%" {...props}>

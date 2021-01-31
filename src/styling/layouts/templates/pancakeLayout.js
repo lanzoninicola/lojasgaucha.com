@@ -11,10 +11,10 @@
  */
 
 import * as React from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 
-import { PancakeStack } from "../inner/index"
-import { HeaderFixedContainer } from "../components/index"
+// import { PancakeStack } from "../inner/index"
+// import { HeaderFixedContainer } from "../components/index"
 
 const PancakeLayout = ({ children }) => {
   return (
