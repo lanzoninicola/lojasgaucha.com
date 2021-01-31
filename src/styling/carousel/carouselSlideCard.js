@@ -48,8 +48,6 @@ const CarouselSlideCard = ({ children, ...props }) => {
       >
         {children}
       </div> */}
-      {console.log("FlexContainer", FlexContainer)}
-      {console.log("StyledCardWrapper", StyledCardWrapper)}
     </FlexContainer>
   )
 }
