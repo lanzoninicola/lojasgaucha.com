@@ -9,6 +9,7 @@ import { FlexContainer, Space, Size } from "../layouts/inner"
 const StyledCardWrapper = styled.div`
   ${Space}
   ${Size}
+  position: relative;
   min-width: 100%;
   background: ${({ theme, bg }) => {
     if (bg) return colorsTheme(bg)

@@ -40,19 +40,18 @@ function useViewportInfo() {
         }
       }
 
-      const nextViewportInfo = { ...viewportInfo }
-      nextViewportInfo.device = detectDevice(window.innerWidth)
-      nextViewportInfo.height = window.innerHeight
-      nextViewportInfo.width = window.innerWidth
-
-      setViewportInfo(nextViewportInfo)
-
-      const debouncedHandleResize = debounce(function handleResize() {
+      function nextViewportInfo() {
         const nextViewportInfo = { ...viewportInfo }
         nextViewportInfo.device = detectDevice(window.innerWidth)
         nextViewportInfo.height = window.innerHeight
         nextViewportInfo.width = window.innerWidth
-        setViewportInfo(nextViewportInfo)
+        return nextViewportInfo
+      }
+
+      setViewportInfo(nextViewportInfo())
+
+      const debouncedHandleResize = debounce(function handleResize() {
+        setViewportInfo(nextViewportInfo())
       }, 100)
       window.addEventListener("resize", debouncedHandleResize)
       return _ => {
