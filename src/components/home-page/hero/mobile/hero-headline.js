@@ -31,7 +31,7 @@ const HeroHeadline = () => {
         lh="38px"
         mb="4px"
       >
-        LOJAS GAUCHA
+        LOJAS GAUCHAAA
       </Title>
       <Title
         as="h2"
