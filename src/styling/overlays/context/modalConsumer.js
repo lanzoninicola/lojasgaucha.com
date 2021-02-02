@@ -20,6 +20,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 import ModalContext from "./modalContext"
+import useDeepCompareEffect from "use-deep-compare-effect"
 
 const ModalConsumer = ({
   modalsCatalog,
@@ -39,7 +40,7 @@ const ModalConsumer = ({
   // Below, the functional component that will renders the modal
   const modalComponent = modalsCatalog[from][modal]
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     return () => {
       if (modal && modalsCatalog === undefined) {
         throw new Error("A modals catalog has not been defined")
@@ -52,7 +53,7 @@ const ModalConsumer = ({
         throw new Error(`No modal was found with the name provided: ${modal}`)
       }
     }
-  }, [from, modal])
+  }, [modalsCatalog, from, modal])
 
   // 2021-06-1 This component run in the manner I sat up now,
   // but if I move the component to the parent it is not run as expected
@@ -84,9 +85,8 @@ ModalConsumer.propTypes = {
         )
       }
 
-      Object.values(modalsCatalogObject).map(modalValue => {
+      Object.values(modalsCatalogObject).forEach(modalValue => {
         if (typeof modalValue !== "function") {
-          console.log("inside if !function")
           return new Error(
             `modalConsumer - PropTypes error: Invalid prop "${propName}" supplied to "${componentName}". The value of "${propName}" must be a function that returns a React Component`
           )

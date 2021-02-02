@@ -18,16 +18,9 @@ let ModalProvider = ({ children }) => {
   const [modals, setModals] = React.useState({})
   const [modalsQueue, setModalsQueue] = React.useState([])
 
-  React.useEffect(
-    () => {
-      return () => {
-        // If the component is unmounted I will reset the modals state
-        closeAllModals()
-      }
-    },
-    // Pay attention to the dependency-list. When you unmount this component, all modals will close
-    []
-  )
+  React.useEffect(() => {
+    return () => closeAllModals
+  })
 
   function generateNewModalKey() {
     setKey(() => {
