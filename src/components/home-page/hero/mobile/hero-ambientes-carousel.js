@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import ImageQL from "../../../../styling/Images/ImageQL"
+import { ImageQL } from "@images/index"
 import NavLink from "../../../../styling/navigation/navLink"
 
 import CarouselSlide from "../../../../styling/carousel/carouselSlide"
@@ -28,7 +28,7 @@ const HeroAmbientesCarousel = () => {
     }
   `)
 
-  const ambientes = [""]
+  // const ambientes = [""]
 
   const carouselData = data?.images?.edges.map((image, index) => {
     // image {
@@ -101,22 +101,21 @@ const HeroAmbientesCarousel = () => {
           <CarouselSlideCard
             id="hero-carousel-card"
             key={index}
-            p="0 40 0 40"
-            $style={{
-              position: "relative",
-            }}
+            h="90%"
+            p="20 30 20 30"
           >
             <NavLink to={itemData?.to}>
               <ImageQL
                 fluid={itemData?.fluid}
                 alt={itemData?.alt}
                 title={itemData?.title}
+                shadow
                 wrapperStyle={{
                   borderRadius: 25,
                 }}
               ></ImageQL>
+              <HeroAmbientesCarouselImageText text={itemData?.name} />
             </NavLink>
-            <HeroAmbientesCarouselImageText text={itemData?.name} />
           </CarouselSlideCard>
         )
       })}

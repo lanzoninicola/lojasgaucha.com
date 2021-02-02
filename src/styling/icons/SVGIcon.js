@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 import { FlexContainer } from "@layouts/index"
-import { log } from "@utils/index"
+// import { log } from "@utils/index"
 
 const SVGIconBlueprint = ({ sourcePath, color, size }) => {
   return (

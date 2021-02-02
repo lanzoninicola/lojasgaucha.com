@@ -18,6 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `maps_images`,
+        path: `${__dirname}/src/images/company/maps`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `hero_carousel`,
         path: `${__dirname}/src/images/hero_carousel/mobile`,
       },
@@ -43,6 +50,14 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-plugin-react-leaflet",
+      options: {
+        linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
+      },
+    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

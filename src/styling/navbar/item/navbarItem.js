@@ -8,8 +8,6 @@ import NavItemText from "./navItemText"
 
 import { NavLink, NavDiv, NavModal, NavAnchor } from "@navigation/index"
 
-import { log } from "@utils/index"
-
 const NavbarItem = ({
   item,
   hideIcon,

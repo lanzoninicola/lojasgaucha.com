@@ -1,55 +1,64 @@
 import * as React from "react"
 import { debounce } from "../layouts/utils/functions"
 import { ThemeContext } from "styled-components"
+import { isDomAvailable } from "@utils/index"
+import useDeepCompareEffect from "use-deep-compare-effect"
+
+// TODO: to be verified: wrapped window and document object to control behaviours
 
 function useViewportInfo() {
-  const [viewportInfo, setviewportInfo] = React.useState({
+  const [viewportInfo, setViewportInfo] = React.useState({
     device: "mobile",
-    height: window.innerHeight,
-    width: window.innerWidth,
+    height: 568,
+    width: 320,
   })
 
   const themeContext = React.useContext(ThemeContext)
 
-  React.useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
-      let device = "laptop"
+  useDeepCompareEffect(() => {
+    if (isDomAvailable()) {
+      function detectDevice(width) {
+        const breakpoints = themeContext?.breakpoints
+        if (width >= breakpoints?.small?.width) {
+          return breakpoints?.small?.device
+        }
 
-      const breakpoints = themeContext?.breakpoints
+        if (width >= breakpoints?.medium?.width) {
+          return breakpoints?.medium?.device
+        }
 
-      // console.log(window.innerWidth)
+        if (width >= breakpoints?.large?.width) {
+          return breakpoints?.large?.device
+        }
 
-      if (window.innerWidth >= breakpoints?.small?.width) {
-        device = breakpoints?.small?.device
+        if (width >= breakpoints?.xlarge?.width) {
+          return breakpoints?.xlarge?.device
+        }
+
+        if (width >= breakpoints?.xxlarge?.width) {
+          return breakpoints?.xxlarge?.device
+        }
       }
 
-      if (window.innerWidth >= breakpoints?.medium?.width) {
-        device = breakpoints?.medium?.device
+      function nextViewportInfo() {
+        const nextViewportInfo = { ...viewportInfo }
+        nextViewportInfo.device = detectDevice(window.innerWidth)
+        nextViewportInfo.height = window.innerHeight
+        nextViewportInfo.width = window.innerWidth
+        return nextViewportInfo
       }
 
-      if (window.innerWidth >= breakpoints?.large?.width) {
-        device = breakpoints?.large?.device
-      }
+      setViewportInfo(nextViewportInfo())
 
-      if (window.innerWidth >= breakpoints?.xlarge?.width) {
-        device = breakpoints?.xlarge?.device
+      const debouncedHandleResize = debounce(function handleResize() {
+        setViewportInfo(nextViewportInfo())
+      }, 100)
+      window.addEventListener("resize", debouncedHandleResize)
+      return _ => {
+        window.removeEventListener("resize", debouncedHandleResize)
       }
-
-      if (window.innerWidth >= breakpoints?.xxlarge?.width) {
-        device = breakpoints?.xxlarge?.device
-      }
-
-      setviewportInfo({
-        device: device,
-        height: window.innerHeight,
-        width: window.innerWidth,
-      })
-    }, 200)
-    window.addEventListener("resize", debouncedHandleResize)
-    return _ => {
-      window.removeEventListener("resize", debouncedHandleResize)
     }
-  })
+  }, [{ viewportInfo }])
 
   return viewportInfo
 }

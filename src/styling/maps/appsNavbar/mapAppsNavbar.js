@@ -1,7 +1,7 @@
 import * as React from "react"
 import { NavbarContainerFlexAuto, NavbarItems } from "@navbar/index"
 
-const MapsNavbar = props => {
+const MapAppsNavbar = props => {
   return (
     <NavbarContainerFlexAuto {...props}>
       <NavbarItems module="maps" {...props} />
@@ -9,4 +9,4 @@ const MapsNavbar = props => {
   )
 }
 
-export default MapsNavbar
+export default MapAppsNavbar

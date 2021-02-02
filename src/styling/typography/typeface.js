@@ -11,7 +11,7 @@ const Typeface = css`
 
     return `normal`
   }};
-  font-weight: ${({ weight }) => weight};
+  font-weight: ${({ weight }) => weight ?? "400"};
   text-transform: ${({ capitalize, uppercase, lowercase }) => {
     if (capitalize) return capitalize
     if (uppercase) return `uppercase`
