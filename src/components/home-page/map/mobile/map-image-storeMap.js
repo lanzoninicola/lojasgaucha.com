@@ -3,7 +3,7 @@ import { Map, CompanyMarker } from "@maps/index"
 
 function StoreMap() {
   return (
-    <Map>
+    <Map center={[-26.212, -52.67]} zoom={14}>
       <CompanyMarker />
     </Map>
   )

@@ -7,7 +7,7 @@ import { isDomAvailable } from "@utils/index"
 
 //TODO: adding "store promo" in tooltip map
 
-function Map({ center, children, ...props }) {
+function Map({ center, zoom, children, ...props }) {
   const themeContext = React.useContext(ThemeContext)
   const companyInfo = themeContext?.company
 
@@ -25,8 +25,8 @@ function Map({ center, children, ...props }) {
 
   return (
     <MapContainer
-      center={companyLocation}
-      zoom={14}
+      center={center}
+      zoom={zoom}
       minZoom={1}
       maxZoom={18}
       attributionControl={true}
@@ -47,7 +47,8 @@ function Map({ center, children, ...props }) {
 }
 
 Map.propTypes = {
-  center: PropTypes.array,
+  center: PropTypes.array.isRequired,
+  zoom: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired,
 }
 
