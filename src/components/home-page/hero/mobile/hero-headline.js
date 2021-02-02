@@ -20,7 +20,7 @@ const HeroHeadline = () => {
         mt="5px"
         capitalize="uppercase"
       >
-        Bem vindo a
+        Bem vindo na
       </Title>
       <Title
         as="h1"
