@@ -33,7 +33,7 @@ const FaleConoscoFormHeader = ({ submissionStatus }) => {
           >
             Só mais um minutinho...
           </Title>
-          <Text variant="secondary" weight="300">
+          <Text variant="secondary" weight="300" color="white">
             Digite seu nome e endereço de e-mail para que possamos responder a
             suas perguntas o solicitações.
           </Text>

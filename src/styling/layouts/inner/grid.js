@@ -59,7 +59,9 @@ const parseGridTemplateValues = (values = "") => {
       }
       return value
     }
+    return ""
   })
+
   return arrayToString(parsedRowsPropArray, " ")
 }
 

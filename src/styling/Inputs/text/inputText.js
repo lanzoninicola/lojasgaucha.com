@@ -60,11 +60,12 @@ const InputText = React.forwardRef(
     },
     ref
   ) => {
-    const [focusField, setFocusField] = React.useState()
+    // TODO: make the focus run
+    // const [focusField, setFocusField] = React.useState()
 
-    const handleFocustInputItem = e => {
-      setFocusField(e.target.name)
-    }
+    // const handleFocustInputItem = e => {
+    //   setFocusField(e.target.name)
+    // }
 
     return (
       <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
@@ -82,7 +83,7 @@ const InputText = React.forwardRef(
           id={name}
           name={name}
           placeholder={placeholder}
-          onFocus={handleFocustInputItem}
+          // onFocus={handleFocustInputItem}
           {...props}
         />
         {reactHookForm.errors[name] && (

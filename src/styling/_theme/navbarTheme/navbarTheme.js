@@ -8,8 +8,8 @@ import { isNotUndefined, isNotEmptyObject, error } from "@utils/index"
 function validateNavItems(navItems) {
   const { catalog } = iconsTheme()
 
-  Object.keys(navItems).map(itemsGroup => {
-    navItems[itemsGroup].map(itemGroup => {
+  Object.keys(navItems).forEach(itemsGroup => {
+    navItems[itemsGroup].forEach(itemGroup => {
       if (itemGroup?.icon !== itemGroup?.icon.toUpperCase()) {
         error(
           "navbarTheme",

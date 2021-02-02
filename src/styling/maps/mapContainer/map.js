@@ -1,20 +1,12 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { ThemeContext } from "styled-components"
 import { MapContainer, TileLayer } from "react-leaflet"
 
 import { isDomAvailable } from "@utils/index"
 
 //TODO: adding "store promo" in tooltip map
 
-function Map({ center, zoom, children, ...props }) {
-  const themeContext = React.useContext(ThemeContext)
-  const companyInfo = themeContext?.company
-
-  const { maps } = companyInfo
-
-  const companyLocation = [maps?.latitude, maps?.longitude]
-
+function Map({ center, zoom, children }) {
   if (!isDomAvailable()) {
     return (
       <div>
