@@ -1,4 +1,5 @@
 import * as React from "react"
+import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 import { MapContainer, TileLayer } from "react-leaflet"
 
@@ -12,7 +13,7 @@ function Map({ center, children, ...props }) {
 
   const { maps } = companyInfo
 
-  const companyCoordinates = [maps?.latitude, maps?.longitude]
+  const companyLocation = [maps?.latitude, maps?.longitude]
 
   if (!isDomAvailable()) {
     return (
@@ -24,8 +25,8 @@ function Map({ center, children, ...props }) {
 
   return (
     <MapContainer
-      center={center ?? companyCoordinates}
-      zoom={15}
+      center={companyLocation}
+      zoom={14}
       minZoom={1}
       maxZoom={18}
       attributionControl={true}
@@ -43,6 +44,11 @@ function Map({ center, children, ...props }) {
       {children}
     </MapContainer>
   )
+}
+
+Map.propTypes = {
+  center: PropTypes.array,
+  children: PropTypes.node.isRequired,
 }
 
 export default Map

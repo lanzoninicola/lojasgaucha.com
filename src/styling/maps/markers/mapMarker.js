@@ -1,17 +1,15 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { divIcon } from "leaflet"
+// import { divIcon } from "leaflet"
 import { Marker } from "react-leaflet"
 import { isUndefined, isNotArray, error } from "@utils/index"
 
 const MapMarker = ({ position, title, text, children }) => {
-  const markerIcon = divIcon({ color: "red", border: "3px solid black" })
-
-  console.log(position)
+  // const markerIcon = divIcon({ color: "red", border: "3px solid black" })
 
   return (
     <Marker
-      icon={markerIcon ?? null}
+      // icon={markerIcon ?? null} // TODO: this doesn't work https://leafletjs.com/reference-1.7.1.html#divicon-option
       position={position}
       title={title ?? null}
       text={text ?? null}

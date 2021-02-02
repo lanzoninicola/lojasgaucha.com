@@ -12,8 +12,6 @@ const Hero = () => {
   const bannerHeight = 50
   const navbarBottomHeight = 65
 
-  console.log("hero", height)
-
   return (
     <>
       <Strip
