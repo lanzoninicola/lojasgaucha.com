@@ -49,10 +49,11 @@ export const useDOMInfo = () => {
   const ref = React.useRef()
 
   React.useEffect(() => {
-    if (ref.current?.id) {
-      const nodeId = ref.current.id
-      const nodeHeight = ref.current.offsetHeight ?? null
-      const nodeWidth = ref.current.offsetWidth ?? null
+    const refNode = ref.current
+    if (refNode?.id) {
+      const nodeId = refNode.id
+      const nodeHeight = refNode.offsetHeight ?? null
+      const nodeWidth = refNode.offsetWidth ?? null
 
       DOMElementsInfoStore().dispatch({
         type: "ADDING_NODE_INFO",
@@ -65,8 +66,8 @@ export const useDOMInfo = () => {
     }
 
     return () => {
-      if (ref.current?.id) {
-        const nodeId = ref.current.id
+      if (refNode?.id) {
+        const nodeId = refNode.id
 
         DOMElementsInfoStore().dispatch({
           type: "REMOVE_NODE_INFO",
