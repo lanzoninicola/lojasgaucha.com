@@ -20,7 +20,7 @@ const HeroHeadline = () => {
         mt="5px"
         capitalize="uppercase"
       >
-        Bem vindo nafdsafda
+        Bem vindo a
       </Title>
       <Title
         as="h1"
@@ -31,7 +31,7 @@ const HeroHeadline = () => {
         lh="38px"
         mb="4px"
       >
-        LOJAS GAUCHAAA
+        LOJAS GAUCHA
       </Title>
       <Title
         as="h2"
