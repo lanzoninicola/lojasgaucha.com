@@ -6,6 +6,7 @@ import { Space } from "."
 import { Size } from "."
 
 import { useDOMInfo } from "../../_hooks/useDOM"
+// import { isUndefined, warn } from "../../utils"
 // import DOMNodeInspect from "../utils/DOMNodeInspect/DOMNodeInspect"
 
 const Flex = styled.div`
@@ -72,6 +73,24 @@ Flex.defaultProps = {
 
 export const FlexContainer = ({ children, ...props }) => {
   const ref = useDOMInfo()
+
+  /**
+  This is not always true
+
+  if (props?.centerX && isUndefined(props?.h100)) {
+      warn(
+        "FlexContainer",
+        '"centerX" prop requires also "h100" prop for flex container'
+      )
+  }
+
+  if (props?.centerY && isUndefined(props?.w100) {
+      warn(
+        "FlexContainer",
+        '"centerY" prop requires also "w100" prop for flex container'
+      )
+  }
+ */
 
   return (
     <>

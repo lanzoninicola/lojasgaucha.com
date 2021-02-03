@@ -5,6 +5,7 @@ import BottomSheet from "../overlays/bottomSheet/bottomSheet"
 import FaleConosco from "../../components/home-page/fale-conosco/mobile/fale-conosco"
 import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"
 import Map from "../../components/home-page/map/mobile/map"
+import Institutional from "../../components/home-page/institutional/institutional"
 
 const overlaysTheme = () => {
   return {
@@ -48,7 +49,16 @@ const overlaysTheme = () => {
             <Map />
           </BottomSheet>
         ),
-        ModalAgendamento: () => {},
+        ModalInstitutional: props => (
+          <BottomSheet {...props}>
+            <Institutional />
+          </BottomSheet>
+        ),
+        ModalAgendamento: props => (
+          <BottomSheet {...props}>
+            <Institutional />
+          </BottomSheet>
+        ),
       },
       faleConosco: {
         ModalFaleConoscoForm: props => (

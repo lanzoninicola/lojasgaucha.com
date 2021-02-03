@@ -5,7 +5,7 @@ export default function websiteNavItems() {
       text: "Porque nós",
       to: {
         type: "modal",
-        value: "ModalAmbientes",
+        value: "ModalInstitutional",
       },
       spotlighted: { yesno: true, color: "green" },
     },

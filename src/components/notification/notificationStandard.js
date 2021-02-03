@@ -19,20 +19,16 @@ const NotificationStandard = () => {
           11:30
         </SmallText>
       </FlexContainer>
-      <FlexContainer row centerY wAuto>
-        <Box bg="blue">
-          <FlexContainer row centerY>
-            <SmallText
-              weight="400"
-              variant="secondary"
-              color={colorsTheme("white")}
-              size="12"
-            >
-              A loja està aberta. Aproveite!
-            </SmallText>
-          </FlexContainer>
-        </Box>
-      </FlexContainer>
+      <Box bg="blue" opacity="0.9">
+        <SmallText
+          weight="400"
+          variant="secondary"
+          color={colorsTheme("white")}
+          size="12"
+        >
+          A loja està aberta. Aproveite!
+        </SmallText>
+      </Box>
     </FlexContainer>
   )
 }
