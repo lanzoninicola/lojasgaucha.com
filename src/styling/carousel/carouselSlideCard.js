@@ -6,6 +6,8 @@ import styled from "styled-components"
 import colorsTheme from "../_theme/colorsTheme"
 import { FlexContainer, Space, Size } from "../layouts/inner"
 
+// TODO: view if this component can be replaced by "ImageCard" component
+
 const StyledCardWrapper = styled.div`
   ${Space}
   ${Size}

@@ -34,6 +34,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@overlays": path.resolve(__dirname, "src/styling/overlays/"),
         "@shape": path.resolve(__dirname, "src/styling/shape/"),
         "@typography": path.resolve(__dirname, "src/styling/typography/"),
+        "@cards": path.resolve(__dirname, "src/styling/cards/"),
         "@theme": path.resolve(__dirname, "src/styling/_theme/"),
         "@utils": path.resolve(__dirname, "src/styling/utils/"),
       },

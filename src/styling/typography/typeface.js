@@ -2,6 +2,7 @@ import { css } from "styled-components"
 import PropTypes from "prop-types"
 
 import { Space } from "../layouts/inner"
+import { log } from "../utils"
 
 const Typeface = css`
   ${Space}
@@ -21,10 +22,12 @@ const Typeface = css`
   }};
   letter-spacing: ${({ ls }) => ls ?? null};
   color: ${({ theme, color }) => {
-    let isHEXColor = color.substring(0, 1) === "#"
+    if (typeof color === "string") {
+      let isHEXColor = color.substring(0, 1) === "#"
 
-    if (isHEXColor) {
-      return color
+      if (isHEXColor) {
+        return color
+      }
     }
 
     return theme.colors(color)
@@ -40,4 +43,5 @@ Typeface.defaultProps = {
 
 Typeface.propTypes = {
   variant: PropTypes.string,
+  color: PropTypes.string,
 }

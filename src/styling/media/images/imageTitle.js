@@ -66,16 +66,24 @@ const StyledImageTitle = styled.div`
   ${({ $style }) => $style ?? {}}
 `
 
-const ImageTitle = ({ children, bg, text, uppercase, lowercase, ...props }) => {
+const ImageTitle = ({
+  children,
+  bg,
+  text,
+  color,
+  uppercase,
+  lowercase,
+  ...props
+}) => {
   return (
     <StyledImageTitle padding="4 4 4 4" bg={bg} {...props}>
       <FlexContainer row centerX centerY>
         <Title
           as="h4"
           size={{ min: 16, max: 20 }}
-          color={colorsTheme("white")}
-          uppercase
-          lowercase
+          color={colorsTheme(color) ?? colorsTheme("black")}
+          uppercase={uppercase ?? null}
+          lowercase={lowercase ?? null}
         >
           {text}
         </Title>
@@ -88,6 +96,7 @@ const ImageTitle = ({ children, bg, text, uppercase, lowercase, ...props }) => {
 ImageTitle.propTypes = {
   bg: PropTypes.string,
   text: PropTypes.string.isRequired,
+  color: PropTypes.string,
   uppercase: PropTypes.bool,
   lowercase: PropTypes.bool,
 }

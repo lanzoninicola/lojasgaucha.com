@@ -18,8 +18,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `istitutional_images`,
+        path: `${__dirname}/src/images/company/istitutional`,
+      },
+    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `istitutional_large_images`,
+    //     path: `${__dirname}/src/images/company/istitutional/large`,
+    //   },
+    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `maps_images`,
-        path: `${__dirname}/src/images/company/maps`,
+        path: `${__dirname}/src/images/company/maps/mobile`,
       },
     },
     {

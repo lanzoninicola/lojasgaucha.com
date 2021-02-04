@@ -32,7 +32,7 @@ const CompanyTooltip = ({ shortName }) => {
         wrapperStyle={{
           borderRadius: 10,
         }}
-      ></ImageQL>
+      />
       <Title
         weight="600"
         variant="secondary"

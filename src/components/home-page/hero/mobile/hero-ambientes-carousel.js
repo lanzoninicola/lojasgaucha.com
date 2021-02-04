@@ -113,7 +113,7 @@ const HeroAmbientesCarousel = () => {
                 wrapperStyle={{
                   borderRadius: 25,
                 }}
-              ></ImageQL>
+              />
               <HeroAmbientesCarouselImageText text={itemData?.name} />
             </NavLink>
           </CarouselSlideCard>

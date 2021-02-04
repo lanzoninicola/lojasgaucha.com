@@ -43,9 +43,7 @@ const ImageQL = ({
         width: "100%",
       }}
       {...props}
-    >
-      {children}
-    </Img>
+    />
   )
 }
 
