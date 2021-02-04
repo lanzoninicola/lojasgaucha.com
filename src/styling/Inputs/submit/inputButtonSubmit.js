@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { ButtonPrimaryOrange } from "../../buttons/index"
 
-const inputButtonSubmit = ({ children, ...props }) => {
+const InputButtonSubmit = ({ children, ...props }) => {
   return (
     <ButtonPrimaryOrange as="input" type="submit" {...props}>
       {children}
@@ -10,4 +10,4 @@ const inputButtonSubmit = ({ children, ...props }) => {
   )
 }
 
-export default inputButtonSubmit
+export default InputButtonSubmit

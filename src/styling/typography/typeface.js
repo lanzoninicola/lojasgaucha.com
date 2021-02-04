@@ -1,7 +1,7 @@
 import { css } from "styled-components"
 import PropTypes from "prop-types"
 
-import { Space } from "../layouts/inner"
+import { Space } from "../layouts"
 import { log } from "../utils"
 
 const Typeface = css`

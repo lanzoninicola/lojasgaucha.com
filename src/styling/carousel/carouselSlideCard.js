@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 // import { motion } from "framer-motion"
 import colorsTheme from "../_theme/colorsTheme"
-import { FlexContainer, Space, Size } from "../layouts/inner"
+import { FlexContainer, Space, Size } from "@layouts/index"
 
 // TODO: view if this component can be replaced by "ImageCard" component
 

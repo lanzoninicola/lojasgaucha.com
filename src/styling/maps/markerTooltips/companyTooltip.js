@@ -1,5 +1,5 @@
 import * as React from "react"
-import { FlexContainer } from "../../layouts/inner"
+import { FlexContainer } from "@layouts/index"
 import { useStaticQuery, graphql } from "gatsby"
 import { ImageQL } from "@images/index"
 import { Title } from "../../typography"

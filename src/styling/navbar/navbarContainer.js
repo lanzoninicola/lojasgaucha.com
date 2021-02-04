@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { FlexContainer } from "../layouts/inner"
+import { FlexContainer } from "@layouts/index"
 
 const NavbarContainer = ({ children, width, ...props }) => {
   return (

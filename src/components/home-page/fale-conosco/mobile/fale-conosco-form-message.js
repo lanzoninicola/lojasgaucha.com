@@ -1,10 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { GridContainer } from "../../../../styling/layouts/inner"
-import InputTextArea from "../../../../styling/Inputs/text/inputTextArea"
-
-import InputIconSubmit from "../../../../styling/Inputs/submit/inputIconSubmit"
+import { GridContainer } from "@layouts/index"
+import { InputTextArea, InputIconSubmit } from "@inputs/index"
 
 import { useForm } from "react-hook-form"
 

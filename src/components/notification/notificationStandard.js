@@ -1,9 +1,9 @@
 import * as React from "react"
-import { FlexContainer } from "../../styling/layouts/inner/index"
-import { SmallText } from "../../styling/typography"
-import colorsTheme from "../../styling/_theme/colorsTheme"
-import SVGIcon from "../../styling/icons/SVGIcon"
-import { Box } from "../../styling/shape/index"
+import { FlexContainer } from "@layouts/index"
+import { SmallText } from "@typography/index"
+import { colorsTheme } from "@theme/index"
+import { SVGIcon } from "@icons/index"
+import { Box } from "@shape/index"
 
 const NotificationStandard = () => {
   return (

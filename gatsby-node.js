@@ -24,7 +24,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@icons": path.resolve(__dirname, "src/styling/icons/"),
         "@images": path.resolve(__dirname, "src/styling/media/images"),
         "@inputs": path.resolve(__dirname, "src/styling/inputs/"),
-        "@layouts": path.resolve(__dirname, "src/styling/layouts/inner/"),
+        "@layouts": path.resolve(__dirname, "src/styling/layouts/"),
         "@templates": path.resolve(__dirname, "src/styling/layouts/templates/"),
         "@layoutUtils": path.resolve(__dirname, "src/styling/layouts/utils/"),
         "@logo": path.resolve(__dirname, "src/styling/logo/"),

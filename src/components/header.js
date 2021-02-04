@@ -1,7 +1,7 @@
 // import { Link } from "gatsby"
 import * as React from "react"
 import { HeaderFixedContainer } from "../styling/layouts/header/header"
-import { FlexContainer } from "../styling/layouts/inner/index"
+import { FlexContainer } from "@layouts/index"
 import Logo from "../styling/logo/index"
 import { NavItemsLarge } from "../styling/navbar/index"
 

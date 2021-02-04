@@ -24,7 +24,7 @@ const Line1 = styled.div`
   }};
 `
 
-const HighlitTextLine1 = ({ color, children }) => {
+const HighlightTextLine1 = ({ color, children }) => {
   return (
     <>
       <Span>
@@ -35,9 +35,9 @@ const HighlitTextLine1 = ({ color, children }) => {
   )
 }
 
-HighlitTextLine1.propTypes = {
+HighlightTextLine1.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string.isRequired,
 }
 
-export default HighlitTextLine1
+export default HighlightTextLine1

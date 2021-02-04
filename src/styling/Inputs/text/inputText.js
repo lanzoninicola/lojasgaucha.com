@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import colorsTheme from "../../_theme/colorsTheme"
 import InputLabel from "../inputLabel"
-import { FlexContainer, Space } from "../../layouts/inner/index"
+import { FlexContainer, Space } from "@layouts/index"
 
 import ErrorMessage from "../errors/errorMessage"
 

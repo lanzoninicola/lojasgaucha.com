@@ -1,9 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { FlexContainer, GridContainer } from "../../../../styling/layouts/inner"
-import InputText from "../../../../styling/Inputs/text/inputText"
-import InputIconSubmit from "../../../../styling/Inputs/submit/inputIconSubmit"
+import { FlexContainer, GridContainer } from "@layouts/index"
+import { InputText, InputIconSubmit } from "@inputs/index"
 
 import { useForm } from "react-hook-form"
 

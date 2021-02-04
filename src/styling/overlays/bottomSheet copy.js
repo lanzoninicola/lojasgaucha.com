@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import { FlexContainer } from "../layouts/inner/index"
+import { FlexContainer } from "@layouts/index"
 import SVGIcon from "../icons/SVGIcon"
 import colorsTheme from "../_theme/colorsTheme"
 import { SmallText } from "../typography/index"

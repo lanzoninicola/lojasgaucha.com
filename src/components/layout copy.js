@@ -13,7 +13,7 @@ import { ThemeProvider } from "styled-components"
 import { GlobalStyle, theme } from "../styling/_theme/_global-style"
 
 import Header from "./header"
-import { PancakeStack } from "../styling/layouts/inner/index"
+import { PancakeStack } from "@layouts/index"
 
 import useViewportInfo from "../styling/_hooks/useViewportInfo"
 import { NavItemsMobile } from "../styling/navbar/index"

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { GridContainer } from "../../../../styling/layouts/inner"
+import { GridContainer } from "@layouts/index"
 import HeroAmbientesHeadline from "./hero-ambientes-headline"
 import HeroAmbientesCarousel from "./hero-ambientes-carousel"
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 // import styled from "styled-components"
 
-import { GridContainer } from "../../../../styling/layouts/inner"
+import { GridContainer } from "@layouts/index"
 import MapHeader from "./map-headline"
 import MapImageHeadline from "./map-image-headline"
 import StoreMap from "./map-image-storeMap"

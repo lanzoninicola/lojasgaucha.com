@@ -1,11 +1,11 @@
 import * as React from "react"
 import styled, { css } from "styled-components"
-import { Space } from "."
-import { Size } from "."
+import { Space } from "@layouts/index"
+import { Size } from "@layouts/index"
 
-import { composeCSSValue } from "../utils/CSSUnit"
+import { composeCSSValue } from "@layouts/index"
 
-import { stringToArray, arrayToString, right } from "../../utils/index"
+import { stringToArray, arrayToString, right } from "@utils/index"
 
 import { useDOMInfo } from "../../_hooks/useDOM"
 

@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { FlexMotionContainer } from "../layouts/inner/index"
+import { FlexMotionContainer } from "@layouts/index"
 
 // const enterAnimation = {
 //   hidden: { opacity: 0 },

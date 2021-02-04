@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import { Space } from "."
-import { Size } from "."
+import { Space } from "@layouts/index"
+import { Size } from "@layouts/index"
 
 import { useDOMInfo } from "../../_hooks/useDOM"
 // import { isUndefined, warn } from "../../utils"

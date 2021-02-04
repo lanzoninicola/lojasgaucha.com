@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { GridContainer } from "../../layouts/inner/index"
+import { GridContainer } from "@layouts/index"
 
 /**
  *    Unlike the "navbarContainerFlexStretch" component

@@ -1,11 +1,11 @@
 import * as React from "react"
 
-import { FlexContainer } from "../../../../styling/layouts/inner"
-import { SmallText } from "../../../../styling/typography/index"
-import { NavLink } from "../../../../styling/navigation/index"
-import SVGIcon from "../../../../styling/icons/SVGIcon"
+import { FlexContainer } from "@layouts/index"
+import { SmallText } from "@typography/index"
+import { NavLink } from "@navigation/index"
+import { SVGIcon } from "@icons/index"
 
-import colorsTheme from "../../../../styling/_theme/colorsTheme"
+import colorsTheme from "@theme/index"
 
 const HeroAmbientesHeadline = () => {
   return (

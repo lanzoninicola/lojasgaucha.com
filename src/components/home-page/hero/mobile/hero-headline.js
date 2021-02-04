@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import { FlexContainer } from "../../../../styling/layouts/inner"
-import { Title } from "../../../../styling/typography/index"
-import HighlitTextLine1 from "../../../../styling/decorative/highlightText/highlight-text-line1"
-import colorsTheme from "../../../../styling/_theme/colorsTheme"
+import { FlexContainer } from "@layouts/index"
+import { Title } from "@typography/index"
+import { HighlightTextLine1 } from "@decorative/index"
+import { colorsTheme } from "@theme/index"
 
 const HeroHeadline = () => {
   return (
@@ -48,16 +48,16 @@ const HeroHeadline = () => {
         }}
       >
         por 15 anos, procuramos soluções{" "}
-        <HighlitTextLine1
+        <HighlightTextLine1
           color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
         >
           para sua casa
-        </HighlitTextLine1>{" "}
-        <HighlitTextLine1
+        </HighlightTextLine1>{" "}
+        <HighlightTextLine1
           color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
         >
           ao melhor preço
-        </HighlitTextLine1>
+        </HighlightTextLine1>
       </Title>
     </FlexContainer>
   )

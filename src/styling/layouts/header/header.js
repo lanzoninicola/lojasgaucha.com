@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { FlexContainer } from "../inner/index"
+import { FlexContainer } from "@layouts/index"
 // import useResponsiveSize from "../../_hooks/useResponsiveSize"
 
 const Header = styled(FlexContainer)`

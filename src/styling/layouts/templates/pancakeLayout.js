@@ -13,7 +13,7 @@
 import * as React from "react"
 // import PropTypes from "prop-types"
 
-// import { PancakeStack } from "../inner/index"
+// import { PancakeStack } from "@layouts/index"
 // import { HeaderFixedContainer } from "../components/index"
 
 const PancakeLayout = ({ children }) => {

@@ -1,6 +1,6 @@
 import * as React from "react"
-import { FlexContainer } from "../../../../styling/layouts/inner"
-import { Title, Text } from "../../../../styling/typography/index"
+import { FlexContainer } from "@layouts/index"
+import { Title, Text } from "@typography/index"
 
 const FaleConoscoFormHeader = ({ submissionStatus }) => {
   return (

@@ -1,7 +1,8 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import useViewportInfo from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "@hooks/index"
+import { composeCSSUnit } from "@layouts/index"
 
 //TODO using combineCSSValues function to cover also other units, not only PX
 
@@ -9,14 +10,14 @@ export default function useResponsiveFont(
   { min = 0, max = 0 },
   options = { unit: "px", debug: { fired: false, message: "" } }
 ) {
-  const { width } = useViewportInfo()
+  const { width, diagonal } = useViewportInfo()
   const themeContext = React.useContext(ThemeContext)
   // const minAspectRatio = 1.78 // Aspect Ratio of iPhone 5 320w 568h
   // const currentAspecRatio = (height / width).toFixed(2)
 
   let resultSize = 0
 
-  if (width <= themeContext.breakpoints.small.width) {
+  if (width <= themeContext.breakpoints.xxsmall.width) {
     resultSize = `${parseInt(min)}${options.unit ? options.unit : ""}`
     return resultSize
   }

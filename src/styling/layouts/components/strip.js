@@ -1,5 +1,5 @@
 import * as React from "react"
-import { FlexContainer } from "../inner/index"
+import { FlexContainer } from "@layouts/index"
 
 /**
  *  A strip is a component that spans the width of the screen with a full-width look

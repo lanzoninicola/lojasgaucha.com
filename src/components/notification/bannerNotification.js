@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Strip } from "../../styling/layouts/inner/index"
+import { Strip } from "@layouts/index"
 
 import NotificationStandard from "./notificationStandard"
 

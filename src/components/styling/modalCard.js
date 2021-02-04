@@ -1,8 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { FlexContainer } from "../../styling/layouts/inner"
-import { Title } from "../../styling/typography/index"
+import { FlexContainer } from "@layouts/index"
+import { Title } from "@typography/index"
 
 const StyledModalCard = styled.div`
   height: 70px;

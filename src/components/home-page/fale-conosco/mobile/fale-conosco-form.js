@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { GridContainer } from "../../../../styling/layouts/inner"
+import { GridContainer } from "@layouts/index"
 
 import FaleConoscoFormHeader from "./fale-conosco-form-headline"
 import FaleConoscoFormContactInfo from "./fale-conosco-form-contactInfo"

@@ -1,6 +1,6 @@
 import * as React from "react"
 // import { ThemeContext } from "styled-components"
-import { FlexContainer } from "../layouts/inner"
+import { FlexContainer } from "@layouts/index"
 
 function CarouselCardShadow({ ...props }) {
   // const themeContext = React.useContext(ThemeContext)

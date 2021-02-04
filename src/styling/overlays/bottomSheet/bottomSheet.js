@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import { GridContainer } from "../../layouts/inner/index"
+import { GridContainer } from "@layouts/index"
 import CloseModalButton from "./closeModalButton"
 
 import useViewportInfo from "../../_hooks/useViewportInfo"
