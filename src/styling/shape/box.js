@@ -1,10 +1,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import colorsTheme from "../../styling/_theme/colorsTheme"
-import { Size, FlexContainer } from "@layouts/index"
+import { colorsTheme } from "@theme/index"
+import { Size, FlexContainer, composeCSSValue } from "@layouts/index"
 import { isUndefined, warn } from "@utils/index"
-import { composeCSSValue } from "../layouts/utils/CSSUnit"
 
 const StyledBox = styled.div`
   ${Size}

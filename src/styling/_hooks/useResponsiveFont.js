@@ -2,7 +2,7 @@ import * as React from "react"
 import { ThemeContext } from "styled-components"
 
 import { useViewportInfo } from "@hooks/index"
-import { composeCSSUnit } from "@layouts/index"
+import { composeCSSValue } from "@layouts/index"
 
 //TODO using combineCSSValues function to cover also other units, not only PX
 
@@ -18,12 +18,12 @@ export default function useResponsiveFont(
   let resultSize = 0
 
   if (width <= themeContext.breakpoints.xxsmall.width) {
-    resultSize = `${parseInt(min)}${options.unit ? options.unit : ""}`
+    resultSize = composeCSSValue(min)
     return resultSize
   }
 
   if (parseInt(width) > parseInt(themeContext.breakpoints.xlarge.width)) {
-    resultSize = `${parseInt(max)}${options.unit ? options.unit : ""}`
+    resultSize = composeCSSValue(max)
     return resultSize
   }
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import colorsTheme from "../../_theme/colorsTheme"
+import { colorsTheme } from "@theme/index"
 import InputLabel from "../inputLabel"
 import { FlexContainer, Space } from "@layouts/index"
 

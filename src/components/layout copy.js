@@ -15,7 +15,7 @@ import { GlobalStyle, theme } from "../styling/_theme/_global-style"
 import Header from "./header"
 import { PancakeStack } from "@layouts/index"
 
-import useViewportInfo from "../styling/_hooks/useViewportInfo"
+import { useViewportInfo } from "../styling/_hooks/useViewportInfo"
 import { NavItemsMobile } from "../styling/navbar/index"
 import ModalProvider from "../styling/overlays/context/ModalProvider"
 

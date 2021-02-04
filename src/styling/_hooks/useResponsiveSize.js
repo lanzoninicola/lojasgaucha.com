@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import useViewportInfo from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "@hooks/index"
 
 //TODO using combineCSSValues function to cover also other units, not only PX
 

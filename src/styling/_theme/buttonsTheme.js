@@ -1,4 +1,4 @@
-import colorsTheme from "./colorsTheme"
+import { colorsTheme } from "@theme/index"
 
 const buttonTheme = () => {
   return {

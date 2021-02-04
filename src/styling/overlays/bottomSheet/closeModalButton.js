@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import { FlexContainer } from "@layouts/index"
-import SVGIcon from "../../icons/SVGIcon"
-import colorsTheme from "../../_theme/colorsTheme"
-import { SmallText } from "../../typography/index"
+import { SVGIcon } from "@icons/index"
+import { colorsTheme } from "@theme/index"
+import { SmallText } from "@typography/index"
 
 const StyledCloseModalButton = styled.div`
   cursor: pointer;

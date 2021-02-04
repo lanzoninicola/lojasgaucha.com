@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { GridContainer } from "@layouts/index"
 import CloseModalButton from "./closeModalButton"
 
-import useViewportInfo from "../../_hooks/useViewportInfo"
+import { useViewportInfo } from "@hooks/index"
 
 // background: linear-gradient(
 //   180deg,

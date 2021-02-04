@@ -7,8 +7,8 @@ import DOMNodeCSSClassesList from "./DOMNodeCSSClassesList"
 import DOMNodeInspectContent from "./DOMNodeInspectContent"
 import useDOMInspect from "./useDOMInspect"
 
-import colorsTheme from "../../../_theme/colorsTheme"
-import useViewportInfo from "../../../_hooks/useViewportInfo"
+import { colorsTheme } from "@theme/index"
+import { useViewportInfo } from "@hooks/index"
 
 const StyledDOMNodeInspect = styled(motion.div)`
   max-width: 400px;

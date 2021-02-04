@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import SVGIcon from "../../icons/SVGIcon"
-import { SmallText } from "../../typography"
+import { SVGIcon } from "@icons/index"
+import { SmallText } from "@typography/index"
 import { FlexContainer } from "@layouts/index"
 
 const ErrorMessage = ({ text, color }) => {

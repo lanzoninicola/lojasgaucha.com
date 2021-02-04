@@ -4,11 +4,11 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 import { FlexContainer } from "@layouts/index"
-import SVGIcon from "../icons/SVGIcon"
-import colorsTheme from "../_theme/colorsTheme"
+import { SVGIcon } from "@icons/index"
+import { colorsTheme } from "@theme/index"
 import { SmallText } from "../typography/index"
 
-import useViewportInfo from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "../_hooks/useViewportInfo"
 
 // background: linear-gradient(
 //   180deg,

@@ -5,10 +5,10 @@ import { Helmet } from "react-helmet"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyle, theme } from "../../_theme/_global-style"
 
-import { PancakeLayout, BottomNavbarLayout } from "./index"
+import { PancakeLayout, BottomNavbarLayout } from "@templates/index"
 
-import useViewportInfo from "../../_hooks/useViewportInfo"
-import ModalProvider from "../../overlays/context/modalProvider"
+import { useViewportInfo } from "@hooks/index"
+import { ModalProvider } from "@overlays/index"
 import NavbarMobile from "../../../components/navbar/mobile/navbar-mobile"
 
 const WebsiteLayout = ({ children }) => {

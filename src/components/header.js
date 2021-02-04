@@ -5,7 +5,7 @@ import { FlexContainer } from "@layouts/index"
 import Logo from "../styling/logo/index"
 import { NavItemsLarge } from "../styling/navbar/index"
 
-import useViewportInfo from "../styling/_hooks/useViewportInfo"
+import { useViewportInfo } from "../styling/_hooks/useViewportInfo"
 
 const Header = () => {
   const { width } = useViewportInfo()

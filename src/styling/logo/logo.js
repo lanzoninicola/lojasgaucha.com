@@ -6,7 +6,7 @@ import { BlueLogo as BlueLogoMobile } from "./variants/mobile/bluelogo"
 import { OrangeLogo as OrangeLogoMobile } from "./variants/mobile/orangelogo"
 
 import { Link } from "gatsby"
-import useViewportInfo from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "../_hooks/useViewportInfo"
 
 const Logo = ({ variants }) => {
   const { device } = useViewportInfo()

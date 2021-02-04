@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import useViewportInfo from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "../_hooks/useViewportInfo"
 
 export default function useResponsiveSize(
   { min = 0, max = 0 },

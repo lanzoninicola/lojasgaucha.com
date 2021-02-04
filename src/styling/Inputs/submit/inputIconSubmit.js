@@ -1,8 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import SVGIcon from "../../icons/SVGIcon"
-import colorsTheme from "../../_theme/colorsTheme"
+import { SVGIcon } from "@icons/index"
+import { colorsTheme } from "@theme/index"
 
 const ButtonBackground = styled.button`
   position: relative;

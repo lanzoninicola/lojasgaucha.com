@@ -2,7 +2,7 @@ import websiteNavItems from "./navItems/websiteNavItems"
 import mapsNavItems from "./navItems/mapsNavItems"
 import iconsTheme from "../iconsTheme/iconsTheme"
 
-import colorsTheme from "../colorsTheme"
+import { colorsTheme } from "@theme/index"
 import { isNotUndefined, isNotEmptyObject, error } from "@utils/index"
 
 function validateNavItems(navItems) {

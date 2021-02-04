@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { FlexContainer, Space } from "@layouts/index"
 import { Title } from "@typography/index"
-import colorsTheme from "@theme/colorsTheme"
+import { colorsTheme } from "@theme/index"
 
 /**
  *  Positions:

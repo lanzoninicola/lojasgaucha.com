@@ -1,8 +1,8 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { ImageTitle } from "@images/index"
-import colorsTheme from "../../../../styling/_theme/colorsTheme"
-import SVGIcon from "../../../../styling/icons/SVGIcon"
+import { colorsTheme } from "@theme/index"
+import { SVGIcon } from "@icons/index"
 
 const HeroAmbientesCarouselImageText = ({ text }) => {
   return (

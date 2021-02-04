@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import SVGIcon from "../../styling/icons/SVGIcon"
+import { SVGIcon } from "@icons/index"
 
 const StyledModalCardIcon = styled.div`
   position: relative;

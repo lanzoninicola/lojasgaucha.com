@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 import { SmallText } from "../../typography/index"
 
-import useViewportInfo from "../../_hooks/useViewportInfo"
+import { useViewportInfo } from "@hooks/index"
 
 const StyledDOMViewportInfo = styled(motion.div)`
   width: 65px;

@@ -2,8 +2,8 @@ import * as React from "react"
 import { FlexContainer } from "@layouts/index"
 import { useStaticQuery, graphql } from "gatsby"
 import { ImageQL } from "@images/index"
-import { Title } from "../../typography"
-import colorsTheme from "../../_theme/colorsTheme"
+import { Title } from "@typography/index"
+import { colorsTheme } from "@theme/index"
 
 const CompanyTooltip = ({ shortName }) => {
   const data = useStaticQuery(graphql`
