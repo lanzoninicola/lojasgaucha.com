@@ -29,8 +29,6 @@ const InstitutionalServices = () => {
     }
   `)
 
-  console.log(data.images.edges) // array
-
   return (
     <GridContainer rows=".25fr 1fr" gap="8" stretchX h100>
       <Title
