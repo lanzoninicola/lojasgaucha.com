@@ -46,7 +46,6 @@ const InstitutionalServices = () => {
           const label = removeFilenameExtension(
             image?.node?.childImageSharp?.fluid?.originalName
           )
-          console.log(label)
           return (
             <ImageCard
               key={index}

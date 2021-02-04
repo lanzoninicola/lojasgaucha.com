@@ -7,13 +7,14 @@ import useDeepCompareEffect from "use-deep-compare-effect"
 // TODO: to be verified: wrapped window and document object to control behaviours
 
 function useViewportInfo() {
+  const themeContext = React.useContext(ThemeContext)
+  const breakpoints = themeContext?.breakpoints
+
   const [viewportInfo, setViewportInfo] = React.useState({
     device: "mobile",
     height: 568,
     width: 320,
   })
-
-  const themeContext = React.useContext(ThemeContext)
 
   useDeepCompareEffect(() => {
     if (isDomAvailable()) {

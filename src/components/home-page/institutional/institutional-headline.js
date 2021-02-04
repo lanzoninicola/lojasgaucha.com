@@ -15,7 +15,12 @@ const InstitutionalHeader = () => {
         >
           Porque nós
         </Title>
-        <Text variant="secondary" weight="300" color="white">
+        <Text
+          variant="secondary"
+          weight="300"
+          color="white"
+          size={{ min: "10px", max: "15px" }} //////// SONO QUI !!!!!!!!
+        >
           Lojas Gaucha é uma empresa familiar que se esforça todos os dias para
           oferecer soluções de móveis para a casa, aos melhores preços, às
           famílias de nossa região.

@@ -16,7 +16,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         "@app": path.resolve(__dirname, "src/"),
         "@styling": path.resolve(__dirname, "src/styling/"),
-        "@hooks": path.resolve(__dirname, "src/styling/hooks/"),
+        "@hooks": path.resolve(__dirname, "src/styling/_hooks/"),
         "@buttons": path.resolve(__dirname, "src/styling/buttons/"),
         "@carousel": path.resolve(__dirname, "src/styling/carousel/"),
         "@decorative": path.resolve(__dirname, "src/styling/decorative/"),

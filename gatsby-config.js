@@ -22,13 +22,6 @@ module.exports = {
         path: `${__dirname}/src/images/company/istitutional`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `istitutional_large_images`,
-    //     path: `${__dirname}/src/images/company/istitutional/large`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
