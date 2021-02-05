@@ -7,8 +7,10 @@ const typographyTheme = () => {
     primary: {
       family: '"Manrope", sans-serif',
       h1: {
-        fontSize: { mobile: 38, tablet: 49, laptop: 49 },
-        lineHeight: { mobile: 41, tablet: 52, laptop: 52 },
+        minFontSize: 38,
+        maxFontSize: 48,
+        minLineHeight: 40,
+        maxLineHeight: 50,
       },
       h2: {
         minFontSize: 17,

@@ -19,7 +19,10 @@ import * as React from "react"
 const PancakeLayout = ({ children }) => {
   return (
     // 2021-01-29 to solve building error in Gatsby cloud
-    <div>Hello World</div>
+    <>
+      <div>Hello World</div>
+      {children}
+    </>
     // <PancakeStack>
     //   <HeaderFixedContainer />
     //   {children}

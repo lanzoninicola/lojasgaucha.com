@@ -2,8 +2,8 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
-import useResponsiveSize from "../_hooks/useResponsiveSize"
-import { composeCSSValue } from "../layouts/utils/CSSUnit"
+import { useResponsiveSize, useResponsiveFont } from "@hooks/index"
+import { composeCSSValue } from "@layouts/index"
 
 const Text = styled.div`
   ${Typeface}
@@ -12,13 +12,13 @@ const Text = styled.div`
       return `${composeCSSValue(size)}`
     }
 
-    return useResponsiveSize({
+    return useResponsiveFont({
       min: size?.min || theme.typography[variant].body.minFontSize,
       max: size?.max || theme.typography[variant].body.maxFontSize,
     })
   }};
   line-height: ${({ theme, variant }) =>
-    useResponsiveSize({
+    useResponsiveFont({
       min: theme.typography[variant].body.minLineHeight,
       max: theme.typography[variant].body.maxLineHeight,
     })};

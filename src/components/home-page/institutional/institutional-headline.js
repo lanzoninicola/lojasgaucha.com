@@ -10,7 +10,7 @@ const InstitutionalHeader = () => {
           as="h2"
           color="orange"
           weight="700"
-          mt={{ min: "15px", max: "30px" }}
+          // mt={{ min: "15px", max: "30px" }}
           mb="8"
         >
           Porque nós
@@ -19,7 +19,7 @@ const InstitutionalHeader = () => {
           variant="secondary"
           weight="300"
           color="white"
-          size={{ min: "10px", max: "15px" }} //////// SONO QUI !!!!!!!!
+          // size={{ min: 12, max: 15 }} //////// SONO QUI !!!!!!!!
         >
           Lojas Gaucha é uma empresa familiar que se esforça todos os dias para
           oferecer soluções de móveis para a casa, aos melhores preços, às

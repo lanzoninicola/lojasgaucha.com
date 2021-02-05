@@ -1,21 +1,18 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import { useViewportInfo } from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "@hooks/index"
+
+//TODO using combineCSSValues function to cover also other units, not only PX
 
 export default function useResponsiveSize(
   { min = 0, max = 0 },
   options = { unit: "px", debug: { fired: false, message: "" } }
 ) {
-  const { width, height } = useViewportInfo()
+  const { width } = useViewportInfo()
   const themeContext = React.useContext(ThemeContext)
-  const minAspectRatio = 1.78 // Aspect Ratio of iPhone 5 320w 568h
-  const currentAspecRatio = (height / width).toFixed(2)
-
-  min = parseInt(min)
-  max = parseInt(max)
-  width = parseInt(width)
-  height = parseInt(height)
+  // const minAspectRatio = 1.78 // Aspect Ratio of iPhone 5 320w 568h
+  // const currentAspecRatio = (height / width).toFixed(2)
 
   let resultSize = 0
 

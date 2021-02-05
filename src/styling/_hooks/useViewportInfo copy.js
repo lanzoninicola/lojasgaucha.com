@@ -13,8 +13,7 @@ function useViewportInfo() {
   const breakpoints = themeContext?.breakpoints
 
   const [viewportInfo, setViewportInfo] = React.useState({
-    device: "mobile",
-    size: "mobile-small",
+    device: "mobile-small",
     height: 568,
     width: 320,
     diagonal: 651.94,
@@ -25,27 +24,18 @@ function useViewportInfo() {
       function detectDevice(width, height) {
         const deviceDetected = {
           device: viewportInfo.device,
-          size: viewportInfo.size,
-          currentDiagonal: viewportInfo.diagonal,
+          diagonal: viewportInfo.diagonal,
         }
         if (isNotUndefined(breakpoints)) {
-          const devices = breakpoints["viewportDevices"]
-          const currentDiagonal = Math.round(
-            Math.sqrt(width * width + height * height)
-          )
-
-          // TODO: It might be improved maybe normalizing the breakpoint data with flat data-structure and avoiding double looping
-          Object.keys(devices).forEach(device => {
-            Object.keys(devices[device]).forEach(size => {
-              if (
-                currentDiagonal >= Math.round(devices[device][size].diagonal)
-              ) {
-                deviceDetected.device = device
-                deviceDetected.size = devices[device][size].name
-                deviceDetected.currentDiagonal = currentDiagonal
-                return deviceDetected
-              }
-            })
+          Object.keys(breakpoints).forEach(name => {
+            if (
+              width >= breakpoints[name].width &&
+              height >= breakpoints[name].height
+            ) {
+              deviceDetected.device = breakpoints[name].device
+              deviceDetected.diagonal = breakpoints[name].diagonal
+              return deviceDetected
+            }
           })
         }
         return deviceDetected
@@ -55,15 +45,11 @@ function useViewportInfo() {
         const nextViewportInfo = { ...viewportInfo }
         const viewportWidth = window.innerWidth
         const viewportHeight = window.innerHeight
-        const { device, size, currentDiagonal } = detectDevice(
-          viewportWidth,
-          viewportHeight
-        )
+        const { device, diagonal } = detectDevice(viewportWidth, viewportHeight)
         nextViewportInfo.device = device
-        nextViewportInfo.size = size
         nextViewportInfo.height = viewportHeight
         nextViewportInfo.width = viewportWidth
-        nextViewportInfo.diagonal = currentDiagonal
+        nextViewportInfo.diagonal = diagonal
         return nextViewportInfo
       }
 

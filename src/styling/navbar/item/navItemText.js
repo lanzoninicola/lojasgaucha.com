@@ -12,7 +12,7 @@ const NavItemText = ({ color, spotlighted, children }) => {
     <>
       <SmallText
         variant="secondary"
-        weight="800"
+        weight="600"
         color={
           color
             ? color
@@ -22,7 +22,7 @@ const NavItemText = ({ color, spotlighted, children }) => {
               ]
             : layoutConfig?.items?.icons?.colors?.default
         }
-        size={{ min: 10, max: 12 }}
+        // size={{ min: 10, max: 12 }}
         lineHeight={layoutConfig?.items?.labels?.lineHeight}
         align="center"
         capitalize={layoutConfig?.items?.labels?.capitalize}

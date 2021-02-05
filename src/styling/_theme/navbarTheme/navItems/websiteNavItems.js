@@ -1,13 +1,13 @@
 export default function websiteNavItems() {
   return [
     {
-      icon: "ALERT_TRIANGLE",
-      text: "Porque nós",
+      icon: "WHATSAPP",
+      text: "ajuda",
       to: {
         type: "modal",
-        value: "ModalInstitutional",
+        value: "ModalFaleConosco",
       },
-      spotlighted: { yesno: true, color: "green" },
+      spotlighted: { yesno: false, color: "default" },
     },
     {
       icon: "PIN",
@@ -27,14 +27,15 @@ export default function websiteNavItems() {
       },
       spotlighted: { yesno: false, color: "default" },
     },
+
     {
-      icon: "WHATSAPP",
-      text: "ajuda",
+      icon: "ALERT_TRIANGLE",
+      text: "Porque nós",
       to: {
         type: "modal",
-        value: "ModalFaleConosco",
+        value: "ModalInstitutional",
       },
-      spotlighted: { yesno: false, color: "default" },
+      spotlighted: { yesno: true, color: "green" },
     },
     {
       icon: "CALENDAR_DATES",

@@ -17,20 +17,13 @@ const StyledTitle = styled.div`
     }
 
     return useResponsiveSize(
-      {
-        min:
-          size?.min || theme.typography[variant][as.toLowerCase()].minFontSize,
-        max:
-          size?.max || theme.typography[variant][as.toLowerCase()].maxFontSize,
-      },
-      {
-        unit: "px",
-        // debug: {
-        //   fired: debug !== "" ? true : false,
-        //   message: debug !== "" ? debug : false,
-        // },
-      }
+      theme.typography[variant][as.toLowerCase()].fontSize
     )
+
+    // return useResponsiveSize({
+    //   min: size?.min || theme.typography[variant][as.toLowerCase()].minFontSize,
+    //   max: size?.max || theme.typography[variant][as.toLowerCase()].maxFontSize,
+    // })
   }};
   line-height: ${({ theme, as, variant, lh }) => {
     if (isUndefined(as)) as = "h1"
