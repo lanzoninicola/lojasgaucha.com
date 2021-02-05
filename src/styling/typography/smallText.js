@@ -2,48 +2,54 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
-import useResponsiveSize from "../_hooks/useResponsiveSize"
+import { useResponsiveSize } from "@hooks/index"
+import { composeCSSValue } from "@layouts/index"
+
+import { error } from "@utils/index"
 
 const SmallText = styled.div`
   ${Typeface}
   font-size: ${({ theme, variant, size, debug }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
-    if (size && !size?.min) {
-      return `${composeCSSValue(size)}`
+    let fontSize = 0
+    size
+      ? (fontSize = composeCSSValue(size))
+      : (fontSize = theme.typography[variant]?.small?.fontSize)
+
+    const variantSelected = theme.typography[variant]
+    if (!variantSelected.hasOwnProperty("small")) {
+      error(
+        "SmallText - font-size",
+        `For the variant: "${variant}", missing the relative font-size`
+      )
+      return
     }
 
-    return useResponsiveSize({
-      min:
-        composeCSSValue(size?.min) ||
-        theme.typography[variant].small.minFontSize,
-      max:
-        composeCSSValue(size?.max) ||
-        theme.typography[variant].small.maxFontSize,
-    })
+    return useResponsiveSize(fontSize, debug)
   }};
-  line-height: ${({ theme, variant, lh, lineHeight }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  line-height: ${({ theme, variant, size, lh }) => {
+    let lineHeight = 0
+    lh
+      ? (lineHeight = composeCSSValue(lh))
+      : size // if I declared a size for the font-size
+      ? (lineHeight = parseInt(size) + 3) // I will calculate the line-height adding 3pxs
+      : (lineHeight = theme.typography[variant]?.small?.lineHeight)
 
-    if (lh && !lh?.min) {
-      return `${composeCSSValue(lh)}`
+    const variantSelected = theme.typography[variant]
+    if (!variantSelected.hasOwnProperty("small")) {
+      error(
+        "SmallText - line-height",
+        `For the variant: "${variant}", missing the relative line-height`
+      )
+      return
     }
 
-    if (lineHeight && !lineHeight?.min) {
-      return `${composeCSSValue(lineHeight)}`
-    }
-
-    useResponsiveSize({
-      min: composeCSSValue(theme.typography[variant].small.minLineHeight),
-      max: composeCSSValue(theme.typography[variant].small.maxLineHeight),
-    })
+    return useResponsiveSize(lineHeight)
   }};
   ${props => props.$style ?? {}}
 `
 
-export default SmallText
-
 SmallText.defaultProps = {
-  variant: "primary",
+  variant: "secondary",
   weight: "400",
   color: "#000000",
 }
@@ -52,3 +58,5 @@ SmallText.propTypes = {
   variant: PropTypes.string,
   weight: PropTypes.string,
 }
+
+export default SmallText

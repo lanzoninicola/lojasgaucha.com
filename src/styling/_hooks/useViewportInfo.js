@@ -4,7 +4,7 @@ import { ThemeContext } from "styled-components"
 import { isDomAvailable } from "@utils/index"
 import useDeepCompareEffect from "use-deep-compare-effect"
 
-import { isNotUndefined, log } from "@utils/index"
+import { isNotUndefined } from "@utils/index"
 
 // TODO: to be verified: wrapped window and document object to control behaviours
 

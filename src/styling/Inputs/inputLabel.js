@@ -10,10 +10,8 @@ const InputLabel = ({ htmlFor, text, labelStyle = {} }) => {
     <StyledLabel htmlFor={htmlFor ?? ""}>
       <SmallText
         weight="600"
-        variant="primary"
         color="orange"
         capitalize="uppercase"
-        size="12"
         mb="6px"
         $style={{
           letterSpacing: "1px",

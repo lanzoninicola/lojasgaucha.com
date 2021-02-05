@@ -23,22 +23,10 @@ const DOMViewportInfo = () => {
   const { width, height } = useViewportInfo()
   return (
     <StyledDOMViewportInfo>
-      <SmallText
-        variant="secondary"
-        weight="400"
-        color="white"
-        size="10"
-        pb="2px"
-      >
+      <SmallText variant="secondary" weight="400" color="white" pb="2px">
         {`Width: ${width}`}
       </SmallText>
-      <SmallText
-        variant="secondary"
-        weight="400"
-        color="white"
-        size="10"
-        pb="2px"
-      >
+      <SmallText variant="secondary" weight="400" color="white" pb="2px">
         {`Height: ${height}`}
       </SmallText>
     </StyledDOMViewportInfo>

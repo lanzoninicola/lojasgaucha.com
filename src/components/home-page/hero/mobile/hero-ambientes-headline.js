@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { FlexContainer } from "@layouts/index"
-import { SmallText } from "@typography/index"
+import { Text, SmallText } from "@typography/index"
 import { NavLink } from "@navigation/index"
 import { SVGIcon } from "@icons/index"
 
@@ -10,18 +10,16 @@ import { colorsTheme } from "@theme/index"
 const HeroAmbientesHeadline = () => {
   return (
     <FlexContainer row stretchXL centerY hAuto mb="10">
-      <SmallText
+      <Text
         weight="600"
-        size="14"
-        lh="18"
         color="orange"
         capitalize="uppercase"
         $style={{
-          width: "120px",
+          width: "140px",
         }}
       >
         Ambientes para la sua casa
-      </SmallText>
+      </Text>
       <NavLink
         to={{
           item: "link",
@@ -31,13 +29,7 @@ const HeroAmbientesHeadline = () => {
       >
         <FlexContainer column centerY>
           <SVGIcon name="view_all" color={colorsTheme("orange")} mb="4" />
-          <SmallText
-            weight="600"
-            size="12"
-            lh="14"
-            capitalize="lowercase"
-            color="orange"
-          >
+          <SmallText weight="600" capitalize="lowercase" color="orange">
             ver mais
           </SmallText>
         </FlexContainer>

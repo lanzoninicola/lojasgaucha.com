@@ -11,7 +11,7 @@ const useHover = hoverEffects => {
   const handleHoverEffect = () => {
     let newHoverEffects = {}
 
-    Object.keys(hoverEffects).map(effect => {
+    Object.keys(hoverEffects).forEach(effect => {
       newHoverEffects = {
         ...newHoverEffects,
         [effect]: hoverEffects[effect],
@@ -44,7 +44,7 @@ const useHover = hoverEffects => {
 
       removeHoverEffect()
     }
-  }, hoveredStatus)
+  }, [hoveredStatus, hoverEffects])
 
   return [ref, hoverStyle]
 }

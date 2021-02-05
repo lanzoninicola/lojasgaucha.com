@@ -1,7 +1,7 @@
 import { css } from "styled-components"
-import { stringToArray, arrayToString, isNotString } from "../../utils/index"
+import { stringToArray, arrayToString, isNotString } from "@utils/index"
 
-import useResponsiveSize from "../../_hooks/useResponsiveSize"
+import { useResponsiveSize } from "@hooks/index"
 
 const Space = css`
   margin-left: ${({ theme, ml, marginLeft }) => {

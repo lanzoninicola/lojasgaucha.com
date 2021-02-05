@@ -4,7 +4,7 @@ import StatsSmallBox from "./institutional-stats-smallbox"
 
 const StatsSmallBoxes = () => {
   return (
-    <GridContainer rows="1fr 1fr 1fr 1fr" columns="1fr" gap="8">
+    <GridContainer rows="1fr 1fr 1fr 1fr" columns="1fr" gap="4">
       <StatsSmallBox number="320" description="camas" />
       <StatsSmallBox number="320" description="camas" />
       <StatsSmallBox number="320" description="camas" />

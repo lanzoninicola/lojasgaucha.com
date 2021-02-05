@@ -22,7 +22,7 @@ const Map = () => {
   return (
     <GridContainer rows=".25fr 1fr" gap="16" stretchX h100>
       <MapHeader />
-      <GridContainer rows="0.25fr 1fr" columns="1fr">
+      <GridContainer rAuto columns="1fr" gap="16">
         <MapImageHeadline />
         <StoreMap />
       </GridContainer>

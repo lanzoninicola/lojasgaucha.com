@@ -33,12 +33,7 @@ const CompanyTooltip = ({ shortName }) => {
           borderRadius: 10,
         }}
       />
-      <Title
-        weight="600"
-        variant="secondary"
-        color={colorsTheme("orange")}
-        size="12"
-      >
+      <Title weight="600" variant="secondary" color={colorsTheme("orange")}>
         {shortName}
       </Title>
     </FlexContainer>

@@ -4,6 +4,11 @@ import styled from "styled-components"
 
 const Span = styled.span`
   position: relative;
+  white-space: ${({ newLine }) => {
+    if (newLine) return "pre-wrap"
+
+    return null
+  }};
 `
 
 const Line1 = styled.div`
@@ -24,10 +29,10 @@ const Line1 = styled.div`
   }};
 `
 
-const HighlightTextLine1 = ({ color, children }) => {
+const HighlightTextLine1 = ({ color, newLine, children }) => {
   return (
     <>
-      <Span>
+      <Span newLine={newLine}>
         {children}
         <Line1 color={color} />
       </Span>

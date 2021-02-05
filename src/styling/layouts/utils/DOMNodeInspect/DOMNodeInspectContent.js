@@ -55,7 +55,6 @@ const DOMNodeInspectContent = ({ DOMNodes = [], properties = [] }) => {
                 variant="secondary"
                 weight="400"
                 color="white"
-                size="8"
               >
                 {`${itemValue}`}
               </SmallText>

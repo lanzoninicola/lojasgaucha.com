@@ -7,13 +7,11 @@ import { Text } from "@typography/index"
 const StatsSmallBox = ({ number, description }) => {
   return (
     <Box bg="white" opacity="0.31" br="10" h100 w100>
-      <GridContainer rows="1fr" columns="1fr 1fr" centerX>
-        <Text variant="primary" color="orange" weight="700" size="28">
+      <GridContainer rows="1fr" columns="1fr 1fr" h100 w100 centerX centerY>
+        <Text color="orange" size="24">
           {number}
         </Text>
-        <Text variant="primary" color="white" weight="700" size="15">
-          {description}
-        </Text>
+        <Text color="white">{description}</Text>
       </GridContainer>
     </Box>
   )

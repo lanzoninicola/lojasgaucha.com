@@ -11,8 +11,6 @@ import { useViewportInfo } from "../_hooks/useViewportInfo"
 const Logo = ({ variants }) => {
   const { device } = useViewportInfo()
 
-  console.log(device)
-
   let RenderedLogo
 
   if (

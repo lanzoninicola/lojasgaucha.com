@@ -6,13 +6,13 @@ import { colorsTheme } from "@theme/index"
 const MapStoreAddress = () => {
   return (
     <FlexContainer columns left>
-      <Text variant="secondary" weight="400" color={colorsTheme("orange")}>
+      <Text weight="400" color={colorsTheme("orange")}>
         Avenida Tupi, numero 2351
       </Text>
-      <Text variant="secondary" weight="400" color={colorsTheme("orange")}>
+      <Text weight="400" color={colorsTheme("orange")}>
         Centro, Pato Branco
       </Text>
-      <Text variant="secondary" weight="400" color={colorsTheme("orange")}>
+      <Text weight="400" color={colorsTheme("orange")}>
         Paraná (PR)
       </Text>
     </FlexContainer>

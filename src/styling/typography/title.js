@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
 import { useResponsiveSize } from "@hooks/index"
+import { composeCSSValue } from "@layouts/index"
 
 import { isUndefined, warn, error } from "@utils/index"
 
@@ -12,35 +13,42 @@ const StyledTitle = styled.div`
   font-size: ${({ theme, as, variant, size, debug }) => {
     if (isUndefined(as)) as = "h1"
 
-    if (size && !size?.min) {
-      return `${size}px`
+    const variantSelected = theme.typography[variant]
+    if (!variantSelected.hasOwnProperty(as)) {
+      error(
+        "Title - font-size",
+        `For the variant: "${variant}", missing the relative font-size`
+      )
+      return
     }
 
-    return useResponsiveSize(
-      theme.typography[variant][as.toLowerCase()].fontSize
-    )
+    let fontSize = 0
+    size
+      ? (fontSize = composeCSSValue(size))
+      : (fontSize = variantSelected[as.toLowerCase()].fontSize)
 
-    // return useResponsiveSize({
-    //   min: size?.min || theme.typography[variant][as.toLowerCase()].minFontSize,
-    //   max: size?.max || theme.typography[variant][as.toLowerCase()].maxFontSize,
-    // })
+    return useResponsiveSize(fontSize, debug)
   }};
-  line-height: ${({ theme, as, variant, lh }) => {
+  line-height: ${({ theme, as, variant, size, lh }) => {
     if (isUndefined(as)) as = "h1"
 
-    if (lh && !lh?.min) {
-      return `${lh}px`
+    const variantSelected = theme.typography[variant]
+    if (!variantSelected.hasOwnProperty(as)) {
+      error(
+        "Title - line-height",
+        `For the variant: "${variant}", missing the relative line-height`
+      )
+      return
     }
 
-    useResponsiveSize(
-      {
-        min: theme.typography[variant][as.toLowerCase()].minLineHeight,
-        max: theme.typography[variant][as.toLowerCase()].maxLineHeight,
-      },
-      {
-        unit: "px",
-      }
-    )
+    let lineHeight = 0
+    lh
+      ? (lineHeight = composeCSSValue(lh))
+      : size // if I declared a size for the font-size
+      ? (lineHeight = parseInt(size) + 3) // I will calculate the line-height adding 3pxs
+      : (lineHeight = variantSelected[as.toLowerCase()].lineHeight)
+
+    return useResponsiveSize(lineHeight)
   }};
   ${props => props.$style ?? {}}
 `

@@ -80,7 +80,6 @@ const ImageTitle = ({
       <FlexContainer row centerX centerY>
         <Title
           as="h4"
-          size={{ min: 16, max: 20 }}
           color={colorsTheme(color) ?? colorsTheme("black")}
           uppercase={uppercase ?? null}
           lowercase={lowercase ?? null}

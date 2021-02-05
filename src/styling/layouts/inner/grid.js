@@ -3,13 +3,15 @@ import styled, { css } from "styled-components"
 import { Space } from "@layouts/index"
 import { Size } from "@layouts/index"
 
-import { composeCSSValue } from "@layouts/index"
+import { useResponsiveSize } from "@hooks/index"
 
 import { stringToArray, arrayToString, right } from "@utils/index"
 
 import { useDOMInfo } from "../../_hooks/useDOM"
 
 // https://stackoverflow.com/questions/56651064/changing-tag-type-when-ealignXtending-component-in-styled-components
+
+const DEFAULT_GAP = 16
 
 const Grid = css`
   ${Space}
@@ -27,7 +29,7 @@ const Grid = css`
     if (bottom) return `end`
     if (stretchY) return `stretch`
   }};
-  gap: ${({ gap }) => composeCSSValue(gap) ?? null};
+  gap: ${({ gap }) => useResponsiveSize(gap) ?? useResponsiveSize(DEFAULT_GAP)};
 `
 
 Grid.defaultProps = {
@@ -67,33 +69,45 @@ const parseGridTemplateValues = (values = "") => {
 
 const StyledGridContainer = styled.div`
   ${Grid}
-  grid-template-columns: ${({ columns }) => {
-    if (!typeof columns === "string") {
-      console.error(
-        `StyledGridContainer - "rows" prop must be a string and not ${typeof columns}`
-      )
-      return null
-    }
+  grid-template-columns: ${({ columns, cAuto }) => {
+    if (!cAuto) {
+      if (!typeof columns === "string") {
+        console.error(
+          `StyledGridContainer - "rows" prop must be a string and not ${typeof columns}`
+        )
+        return null
+      }
 
-    if (columns !== undefined) {
-      return parseGridTemplateValues(columns)
-    }
+      if (columns !== undefined) {
+        return parseGridTemplateValues(columns)
+      }
 
-    return `repeat(auto-fit, minmax(min(240px, 100%), 1fr))`
+      return `repeat(auto-fit, minmax(min(240px, 100%), 1fr))`
+    }
   }};
-  grid-template-rows: ${({ rows }) => {
-    if (!typeof rows === "string") {
-      console.error(
-        `StyledGridContainer - "rows" prop must be a string and not ${typeof rows}`
-      )
-      return null
-    }
+  grid-template-rows: ${({ rows, rAuto }) => {
+    if (!rAuto) {
+      if (!typeof rows === "string") {
+        console.error(
+          `StyledGridContainer - "rows" prop must be a string and not ${typeof rows}`
+        )
+        return null
+      }
 
-    if (rows !== undefined) {
-      return parseGridTemplateValues(rows)
-    }
+      if (rows !== undefined) {
+        return parseGridTemplateValues(rows)
+      }
 
-    return `repeat(auto-fit, minmax(min(40px, 100%), 1fr))`
+      return `repeat(auto-fit, minmax(min(40px, 100%), 1fr))`
+    }
+  }};
+  grid-auto-rows: ${({ rAuto }) => {
+    if (rAuto) return `minmax(min-content, max-content)`
+    return null
+  }};
+  grid-auto-columns: ${({ cAuto }) => {
+    if (cAuto) return `minmax(min-content, max-content)`
+    return null
   }};
 
   ${props => props.$style ?? {}}

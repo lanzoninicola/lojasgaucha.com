@@ -36,7 +36,7 @@ const FaleConosco = () => {
         >
           Fale Conosco
         </Title>
-        <Text variant="secondary" weight="300" color="white">
+        <Text weight="300" color="white">
           Você precisa de ajuda? Deseja saber a disponibilidade de um produto? O
           qualquer outra coisa que possa ser de ajuda nas sua compras.
         </Text>

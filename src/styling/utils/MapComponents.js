@@ -2,8 +2,6 @@ import * as React from "react"
 import PropTypes from "prop-types"
 
 const MapComponents = ({ array, RenderedComponent, ...props }) => {
-  console.log(array)
-  console.log("RenderedComponent", RenderedComponent)
   return (
     <>
       {array.map((arrayElement, index) => {

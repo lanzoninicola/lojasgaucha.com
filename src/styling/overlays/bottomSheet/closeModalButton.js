@@ -14,12 +14,7 @@ const StyledCloseModalButton = styled.div`
 const CloseModalButton = ({ modalKey, hideModal }) => {
   return (
     <StyledCloseModalButton>
-      <FlexContainer
-        centerX
-        centerY
-        mt="24"
-        onClick={() => hideModal(modalKey)}
-      >
+      <FlexContainer centerX centerY onClick={() => hideModal(modalKey)}>
         <SVGIcon name="CIRCLE_X" size="24" color={colorsTheme("orange")} />
         <SmallText weight="600" color="orange" mt="4px">
           voltar

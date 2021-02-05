@@ -18,8 +18,6 @@ const NavDiv = ({ to, children }) => {
   const themeContext = React.useContext(ThemeContext)
   const motionHover = themeContext?.navbar?.mobile?.layout?.effects?.motionHover
 
-  console.log("NavDiv", to)
-
   return (
     <StyledNavDiv
       to={to?.value}

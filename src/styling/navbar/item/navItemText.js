@@ -22,7 +22,6 @@ const NavItemText = ({ color, spotlighted, children }) => {
               ]
             : layoutConfig?.items?.icons?.colors?.default
         }
-        // size={{ min: 10, max: 12 }}
         lineHeight={layoutConfig?.items?.labels?.lineHeight}
         align="center"
         capitalize={layoutConfig?.items?.labels?.capitalize}

@@ -7,10 +7,8 @@ const Claims = () => {
   return (
     <GridContainer as="section">
       <FlexContainer column>
-        <Title is="h3" variant="primary">
-          Qualidade
-        </Title>
-        <Text is="body">
+        <Title as="h3">Qualidade</Title>
+        <Text as="body">
           Excepteur Lorem do tempor occaecat proident Lorem id. Nulla anim
           consequat commodo adipisicing aute commodo occaecat laborum veniam.
           Aliquip enim cillum adipisicing aliquip. Fugiat magna eiusmod non
@@ -18,10 +16,8 @@ const Claims = () => {
         </Text>
       </FlexContainer>
       <FlexContainer column>
-        <Title is="h3" variant="primary">
-          Validade
-        </Title>
-        <Text is="body">
+        <Title as="h3">Validade</Title>
+        <Text as="body">
           Excepteur Lorem do tempor occaecat proident Lorem id. Nulla anim
           consequat commodo adipisicing aute commodo occaecat laborum veniam.
           Aliquip enim cillum adipisicing aliquip. Fugiat magna eiusmod non
@@ -29,10 +25,8 @@ const Claims = () => {
         </Text>
       </FlexContainer>
       <FlexContainer column>
-        <Title is="h3" variant="primary">
-          Variedade
-        </Title>
-        <Text is="body">
+        <Title as="h3">Variedade</Title>
+        <Text as="body">
           Excepteur Lorem do tempor occaecat proident Lorem id. Nulla anim
           consequat commodo adipisicing aute commodo occaecat laborum veniam.
           Aliquip enim cillum adipisicing aliquip. Fugiat magna eiusmod non

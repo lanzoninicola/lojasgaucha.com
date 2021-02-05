@@ -9,7 +9,7 @@ import InstitutionalStats from "./institutional-stats"
 const Institutional = () => {
   return (
     <>
-      <GridContainer rows=".25fr 1fr" gap="8" stretchX>
+      <GridContainer rAuto gap="8" stretchX>
         <InstitutionalHeader />
         <InstitutionalStats />
       </GridContainer>

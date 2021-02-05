@@ -1,26 +1,17 @@
 import * as React from "react"
 
-import { FlexContainer } from "@layouts/index"
-import { SmallText } from "@typography/index"
+import { GridContainer } from "@layouts/index"
+import { Text } from "@typography/index"
 import { MapAppsNavbar } from "@maps/index"
 
 const MapImageHeadline = () => {
   return (
-    <FlexContainer row stretchXL centerY hAuto mb="10">
-      <SmallText
-        weight="400"
-        size="14"
-        lh="18"
-        color="white"
-        capitalize="uppercase"
-        $style={{
-          width: "120px",
-        }}
-      >
+    <GridContainer rows="1fr" columns="1fr 1fr" centerY>
+      <Text weight="400" color="white" capitalize="uppercase">
         Usa o seu aplicativo favorito
-      </SmallText>
+      </Text>
       <MapAppsNavbar size="48" hideText stretch="8" />
-    </FlexContainer>
+    </GridContainer>
   )
 }
 

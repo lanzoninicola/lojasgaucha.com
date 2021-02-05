@@ -53,7 +53,7 @@ const BottomSheet = ({ modalKey, hideModal, children }) => {
           mass: 1,
         }}
       >
-        <GridContainer id="bottomSheet" gap="10px" rows="1fr 0.15fr" h100>
+        <GridContainer id="bottomSheet" gap="16px" rAuto h100>
           {/* <FlexContainer id="bottomSheet" column w100 stretchXM> */}
           {children}
 

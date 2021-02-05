@@ -1,12 +1,11 @@
 import * as React from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import styled from "styled-components"
 
 // import { motion } from "framer-motion"
 import { colorsTheme } from "@theme/index"
-import { FlexContainer, Space, Size } from "@layouts/index"
+import { Space, Size } from "@layouts/index"
 import { ImageTitle, ImageQL } from "@images/index"
-import { log } from "../utils"
 // import {SVGIcon} from "@icons/index"
 
 const StyledImageCard = styled.div`
@@ -26,7 +25,7 @@ const StyledImageCard = styled.div`
 
 const ImageCard = ({
   card = { bg: null, br: null },
-  image = { fluid: null, ...image },
+  image = { fluid: null },
   imageLabel = {
     text: null,
     color: null,
