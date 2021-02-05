@@ -2,6 +2,8 @@ import { css } from "styled-components"
 import { composeCSSValue } from "../utils/CSSUnit"
 import { isFunction } from "../../utils/index"
 
+import { useResponsiveSize } from "@hooks/index"
+
 const Size = css`
   height: ${({ h, height, h100, h100v, hAuto }) => {
     if (h100) return `100%`
@@ -18,7 +20,7 @@ const Size = css`
         inputValue = height()
       }
 
-      return composeCSSValue(inputValue)
+      return useResponsiveSize(inputValue)
     }
 
     return `auto`
@@ -38,7 +40,7 @@ const Size = css`
         inputValue = width()
       }
 
-      return composeCSSValue(inputValue)
+      return useResponsiveSize(inputValue)
     }
 
     return `auto`

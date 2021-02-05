@@ -1,28 +1,26 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { FlexContainer } from "@layouts/index"
+import { GridContainer, Size, Space } from "@layouts/index"
 import { Title } from "@typography/index"
 
 const StyledModalCard = styled.div`
-  height: 70px;
-  width: 100%;
-  margin-top: 16px;
+  ${Size}
+  ${Space}
   border-radius: 10px;
   background: ${({ theme }) =>
     theme.colors("whitegray", { colorUnit: "rgba", opacity: 0.3 })};
-  padding: 16px;
 `
 
-const ModalCard = ({ title, children }) => {
+const ModalCard = ({ title, children, ...props }) => {
   return (
-    <StyledModalCard>
-      <FlexContainer row stretchXL centerY>
+    <StyledModalCard {...props}>
+      <GridContainer rows="1fr" columns="1fr .25fr" centerY w100 h100>
         <Title as="h5" weight="400" color="whitegray">
           {title}
         </Title>
         {children}
-      </FlexContainer>
+      </GridContainer>
     </StyledModalCard>
   )
 }

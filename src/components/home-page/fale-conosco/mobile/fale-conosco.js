@@ -4,7 +4,8 @@ import { FlexContainer, GridContainer } from "@layouts/index"
 import { Title, Text } from "@typography/index"
 import { NavModal, NavAnchor } from "@navigation/index"
 
-import { ModalCard, ModalCardIcon } from "../../../styling/index"
+import ModalCard from "./ModalCard"
+import ModalCardIcon from "./ModalCardIcon"
 
 const StyledFaleConoscoInner = styled.div`
   height: 100%;
@@ -27,13 +28,7 @@ const FaleConosco = () => {
   return (
     <GridContainer rows=".25fr 1fr" gap="16" stretchX h100>
       <FlexContainer columns left>
-        <Title
-          as="h2"
-          color="orange"
-          weight="700"
-          mt={{ min: "15px", max: "30px" }}
-          mb="8"
-        >
+        <Title as="h2" color="orange" weight="700" mt="16" mb="8">
           Fale Conosco
         </Title>
         <Text weight="300" color="white">
@@ -42,12 +37,12 @@ const FaleConosco = () => {
         </Text>
       </FlexContainer>
       <StyledFaleConoscoInner>
-        <FlexContainer>
+        <GridContainer rAuto>
           <Title as="h4" weight="400" color="orange">
             Canais rapido
           </Title>
           <NavAnchor to={{ type: "phone", value: `tel:${officePhone}` }}>
-            <ModalCard title="TELEFONE">
+            <ModalCard p="16" title="TELEFONE">
               <ModalCardIcon name="CALL_PHONE" />
             </ModalCard>
           </NavAnchor>
@@ -57,7 +52,7 @@ const FaleConosco = () => {
               value: "https://api.whatsapp.com/send?1=pt_BR&phone=46991564002",
             }}
           >
-            <ModalCard title="WHATSAPP">
+            <ModalCard p="16" title="WHATSAPP">
               <ModalCardIcon name="WHATSAPP" />
             </ModalCard>
           </NavAnchor>
@@ -68,11 +63,11 @@ const FaleConosco = () => {
             from="faleConosco"
             to={{ type: "modal", value: "ModalFaleConoscoForm" }}
           >
-            <ModalCard title="DEIXA UM MENSAGEM">
+            <ModalCard p="16" title="DEIXA UM MENSAGEM">
               <ModalCardIcon name="MAIL" />
             </ModalCard>
           </NavModal>
-        </FlexContainer>
+        </GridContainer>
       </StyledFaleConoscoInner>
     </GridContainer>
   )

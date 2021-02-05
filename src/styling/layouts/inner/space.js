@@ -4,77 +4,31 @@ import { stringToArray, arrayToString, isNotString } from "@utils/index"
 import { useResponsiveSize } from "@hooks/index"
 
 const Space = css`
-  margin-left: ${({ theme, ml, marginLeft }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  margin-left: ${({ ml, marginLeft }) => {
     const marginProp = ml ?? marginLeft
-
-    if (marginProp && !marginProp?.min) {
-      return composeCSSValue(marginProp)
-    }
-
-    if (marginProp && marginProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(marginProp?.min),
-        max: composeCSSValue(marginProp?.max),
-      })
-    }
+    if (marginProp) return useResponsiveSize(marginProp)
 
     return null
   }};
-  margin-right: ${({ theme, mr, marginRight }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  margin-right: ${({ mr, marginRight }) => {
     const marginProp = mr ?? marginRight
-
-    if (marginProp && !marginProp?.min) {
-      return composeCSSValue(marginProp)
-    }
-
-    if (marginProp && marginProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(marginProp?.min),
-        max: composeCSSValue(marginProp?.max),
-      })
-    }
+    if (marginProp) return useResponsiveSize(marginProp)
 
     return null
   }};
-  margin-bottom: ${({ theme, mb, marginBottom }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  margin-bottom: ${({ mb, marginBottom }) => {
     const marginProp = mb ?? marginBottom
-
-    if (marginProp && !marginProp?.min) {
-      return composeCSSValue(marginProp)
-    }
-
-    if (marginProp && marginProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(marginProp?.min),
-        max: composeCSSValue(marginProp?.max),
-      })
-    }
+    if (marginProp) return useResponsiveSize(marginProp)
 
     return null
   }};
-  margin-top: ${({ theme, mt, marginTop }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  margin-top: ${({ mt, marginTop }) => {
     const marginProp = mt ?? marginTop
-
-    if (marginProp && !marginProp?.min) {
-      return composeCSSValue(marginProp)
-    }
-
-    if (marginProp && marginProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(marginProp?.min),
-        max: composeCSSValue(marginProp?.max),
-      })
-    }
+    if (marginProp) return useResponsiveSize(marginProp)
 
     return null
   }};
-  margin: ${({ theme, m, margin }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
-
+  margin: ${({ m, margin }) => {
     if (m || margin) {
       const marginProp = m ?? margin
 
@@ -88,7 +42,7 @@ const Space = css`
       const marginArray = stringToArray(marginProp, " ")
 
       let newMarginArray = marginArray.map(marginValue => {
-        return composeCSSValue(marginValue)
+        return useResponsiveSize(marginValue)
       })
 
       return arrayToString(newMarginArray)
@@ -96,77 +50,31 @@ const Space = css`
 
     return null
   }};
-  padding-left: ${({ theme, pl, paddingLeft }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  padding-left: ${({ pl, paddingLeft }) => {
     const paddingProp = pl ?? paddingLeft
-
-    if (paddingProp && !paddingProp?.min) {
-      return composeCSSValue(paddingProp)
-    }
-
-    if (paddingProp && paddingProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(paddingProp?.min),
-        max: composeCSSValue(paddingProp?.max),
-      })
-    }
+    if (paddingProp) return useResponsiveSize(paddingProp)
 
     return null
   }};
-  padding-right: ${({ theme, pr, paddingRight }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  padding-right: ${({ pr, paddingRight }) => {
     const paddingProp = pr ?? paddingRight
-
-    if (paddingProp && !paddingProp?.min) {
-      return composeCSSValue(paddingProp)
-    }
-
-    if (paddingProp && paddingProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(paddingProp?.min),
-        max: composeCSSValue(paddingProp?.max),
-      })
-    }
+    if (paddingProp) return useResponsiveSize(paddingProp)
 
     return null
   }};
-  padding-bottom: ${({ theme, pb, paddingBottom }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  padding-bottom: ${({ pb, paddingBottom }) => {
     const paddingProp = pb ?? paddingBottom
-
-    if (paddingProp && !paddingProp?.min) {
-      return composeCSSValue(paddingProp)
-    }
-
-    if (paddingProp && paddingProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(paddingProp?.min),
-        max: composeCSSValue(paddingProp?.max),
-      })
-    }
+    if (paddingProp) return useResponsiveSize(paddingProp)
 
     return null
   }};
-  padding-top: ${({ theme, pt, paddingTop }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
+  padding-top: ${({ pt, paddingTop }) => {
     const paddingProp = pt ?? paddingTop
-
-    if (paddingProp && !paddingProp?.min) {
-      return composeCSSValue(paddingProp)
-    }
-
-    if (paddingProp && paddingProp?.min) {
-      return useResponsiveSize({
-        min: composeCSSValue(paddingProp?.min),
-        max: composeCSSValue(paddingProp?.max),
-      })
-    }
+    if (paddingProp) return useResponsiveSize(paddingProp)
 
     return null
   }};
-  padding: ${({ theme, p, padding }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
-
+  padding: ${({ p, padding }) => {
     if (p || padding) {
       const paddingProp = p ?? padding
 
@@ -180,7 +88,7 @@ const Space = css`
       const paddingArray = stringToArray(paddingProp, " ")
 
       let newPaddingArray = paddingArray.map(paddingValue => {
-        return composeCSSValue(paddingValue)
+        return useResponsiveSize(paddingValue)
       })
       return arrayToString(newPaddingArray)
     }

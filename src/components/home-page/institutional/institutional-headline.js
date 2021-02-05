@@ -6,13 +6,7 @@ const InstitutionalHeader = () => {
   return (
     <FlexContainer columns left>
       <>
-        <Title
-          as="h2"
-          color="orange"
-          weight="700"
-          // mt={{ min: "15px", max: "30px" }}
-          mb="8"
-        >
+        <Title as="h2" color="orange" weight="700" mb="8">
           Porque nós
         </Title>
         <Text weight="300" color="white">

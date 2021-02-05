@@ -29,7 +29,11 @@ const Grid = css`
     if (bottom) return `end`
     if (stretchY) return `stretch`
   }};
-  gap: ${({ gap }) => useResponsiveSize(gap) ?? useResponsiveSize(DEFAULT_GAP)};
+  gap: ${({ gap }) => {
+    if (gap) return useResponsiveSize(gap)
+
+    return useResponsiveSize(DEFAULT_GAP)
+  }};
 `
 
 Grid.defaultProps = {
