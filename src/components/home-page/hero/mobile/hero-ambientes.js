@@ -6,7 +6,7 @@ import HeroAmbientesCarousel from "./hero-ambientes-carousel"
 
 const HeroAmbientes = () => {
   return (
-    <GridContainer id="heroAmbientes" rows="0.1fr 1fr" columns="1" h100>
+    <GridContainer id="heroAmbientes" rows="0.1fr 1fr" columns="1">
       <HeroAmbientesHeadline />
       <HeroAmbientesCarousel />
     </GridContainer>

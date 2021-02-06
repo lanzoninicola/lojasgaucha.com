@@ -1,5 +1,4 @@
 import { css } from "styled-components"
-import { isFunction } from "@utils/index"
 
 import { useResponsiveSize } from "@hooks/index"
 

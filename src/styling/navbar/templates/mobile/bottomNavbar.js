@@ -3,9 +3,15 @@ import styled from "styled-components"
 
 import { NavbarContainerGridStretch, NavbarItems } from "@navbar/index"
 
+// const StyledBottomNavbar = styled(NavbarContainerGridStretch)`
+//   position: fixed;
+//   bottom: 0px;
+//   z-index: 999;
+//   background: ${({ theme }) => theme?.navbar?.mobile?.layout?.background};
+//   ${({ $style }) => $style ?? {}}
+// `
+
 const StyledBottomNavbar = styled(NavbarContainerGridStretch)`
-  position: fixed;
-  bottom: 0px;
   z-index: 999;
   background: ${({ theme }) => theme?.navbar?.mobile?.layout?.background};
   ${({ $style }) => $style ?? {}}

@@ -1,11 +1,7 @@
 import React from "react"
 import Flex from "./flex"
 
-import { useDOMInfo } from "../../../_hooks/useDOM"
-
 const FlexContainer = ({ children, ...props }) => {
-  const ref = useDOMInfo()
-
   /**
   This is not always true
 
@@ -26,9 +22,7 @@ const FlexContainer = ({ children, ...props }) => {
 
   return (
     <>
-      <Flex ref={ref} {...props}>
-        {children}
-      </Flex>
+      <Flex {...props}>{children}</Flex>
     </>
   )
 }

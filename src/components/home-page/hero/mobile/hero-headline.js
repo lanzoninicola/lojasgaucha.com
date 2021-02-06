@@ -16,7 +16,6 @@ const HeroHeadline = () => {
         ls="5.5px"
         ml="2px"
         mb="4px"
-        mt="5px"
         capitalize="uppercase"
       >
         Bem vindo a

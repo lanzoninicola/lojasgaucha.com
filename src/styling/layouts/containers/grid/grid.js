@@ -35,3 +35,5 @@ Grid.defaultProps = {
   left: true,
   centerY: true,
 }
+
+export default Grid

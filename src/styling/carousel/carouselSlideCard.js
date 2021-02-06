@@ -20,7 +20,6 @@ const StyledCardWrapper = styled.div`
   border-radius: ${({ theme }) =>
     theme?.layout?.config?.carousel?.card?.borderRadius ?? `25px`};
   scroll-snap-align: center;
-  margin-bottom: 20px;
   ${({ $style }) => $style ?? {}}
 `
 

@@ -9,7 +9,7 @@ import { colorsTheme } from "@theme/index"
 
 const HeroAmbientesHeadline = () => {
   return (
-    <FlexContainer row stretchXL centerY hAuto mb="10">
+    <FlexContainer row stretchXL centerY hAuto>
       <Text
         weight="600"
         color="orange"

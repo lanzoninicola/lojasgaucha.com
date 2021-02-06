@@ -1,11 +1,10 @@
 import * as React from "react"
 import styled from "styled-components"
-import { motion } from "framer-motion"
-import { SmallText } from "../../typography/index"
+import { SmallText } from "@typography/index"
 
 import { useViewportInfo } from "@hooks/index"
 
-const StyledDOMViewportInfo = styled(motion.div)`
+const StyledDOMViewportInfo = styled.div`
   width: 65px;
   z-index: 1;
   margin-top: 2px;

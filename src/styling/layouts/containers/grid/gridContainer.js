@@ -4,8 +4,6 @@ import Grid from "./grid"
 
 import { stringToArray, arrayToString, right } from "@utils/index"
 
-import { useDOMInfo } from "../../../_hooks/useDOM"
-
 /**
  *  GridContainer: let you define how many columns and rows
  *
@@ -73,13 +71,7 @@ const StyledGridContainer = styled.div`
 `
 
 const GridContainer = ({ children, ...props }) => {
-  const ref = useDOMInfo()
-
-  return (
-    <StyledGridContainer ref={ref} {...props}>
-      {children}
-    </StyledGridContainer>
-  )
+  return <StyledGridContainer {...props}>{children}</StyledGridContainer>
 }
 
 export default GridContainer

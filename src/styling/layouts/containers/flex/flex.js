@@ -1,13 +1,7 @@
-import React from "react"
 import styled from "styled-components"
-import { motion } from "framer-motion"
 
 import { Space } from "@layouts/index"
 import { Size } from "@layouts/index"
-
-import { useDOMInfo } from "../../../_hooks/useDOM"
-// import { isUndefined, warn } from "../../utils"
-// import DOMNodeInspect from "../utils/DOMNodeInspect/DOMNodeInspect"
 
 const Flex = styled.div`
   ${Space}
@@ -60,34 +54,4 @@ Flex.defaultProps = {
   overflowHide: null,
 }
 
-const FlexContainer = ({ children, ...props }) => {
-  const ref = useDOMInfo()
-
-  /**
-  This is not always true
-
-  if (props?.centerX && isUndefined(props?.h100)) {
-      warn(
-        "FlexContainer",
-        '"centerX" prop requires also "h100" prop for flex container'
-      )
-  }
-
-  if (props?.centerY && isUndefined(props?.w100) {
-      warn(
-        "FlexContainer",
-        '"centerY" prop requires also "w100" prop for flex container'
-      )
-  }
- */
-
-  return (
-    <>
-      <Flex ref={ref} {...props}>
-        {children}
-      </Flex>
-    </>
-  )
-}
-
-export default FlexContainer
+export default Flex

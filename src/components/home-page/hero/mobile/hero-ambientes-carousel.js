@@ -101,7 +101,7 @@ const HeroAmbientesCarousel = () => {
           <CarouselSlideCard
             id="hero-carousel-card"
             key={index}
-            h="90%"
+            h100
             p="20 30 20 30"
           >
             <NavLink to={itemData?.to}>
