@@ -1,8 +1,15 @@
-import Space from "./inner/space"
-import Size from "./inner/size"
-import { FlexContainer, FlexMotionContainer } from "./inner/flex"
-import { PancakeStack, GridContainer } from "./inner/grid"
-import { Strip } from "./components/strip"
+import Space from "./composition/space/space"
+import Size from "./composition/size/size"
+
+import FlexContainer from "./containers/flex/flexContainer"
+import FlexMotionContainer from "./containers/flex/flexMotionContainer"
+
+import GridContainer from "./containers/grid/gridContainer"
+import PancakeStack from "./containers/grid/pancakeStack"
+
+import HeaderFixedContainer from "./composition/header/headerFixedContainer"
+import HeaderScrollContainer from "./composition/header/headerScrollContainer"
+
 import { composeCSSValue } from "./utils/CSSUnit"
 
 export {
@@ -12,6 +19,7 @@ export {
   PancakeStack,
   GridContainer,
   FlexMotionContainer,
-  Strip,
+  HeaderFixedContainer,
+  HeaderScrollContainer,
   composeCSSValue,
 }

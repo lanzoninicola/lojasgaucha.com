@@ -1,6 +1,5 @@
 import { css } from "styled-components"
-import { composeCSSValue } from "../utils/CSSUnit"
-import { isFunction } from "../../utils/index"
+import { isFunction } from "@utils/index"
 
 import { useResponsiveSize } from "@hooks/index"
 
@@ -11,14 +10,6 @@ const Size = css`
     if (hAuto) return `auto`
     if (h || height) {
       let inputValue = h ?? height
-
-      if (isFunction(h)) {
-        inputValue = h()
-      }
-
-      if (isFunction(height)) {
-        inputValue = height()
-      }
 
       return useResponsiveSize(inputValue)
     }
@@ -31,14 +22,6 @@ const Size = css`
     if (wAuto) return `auto`
     if (w || width) {
       let inputValue = w ?? width
-
-      if (isFunction(w)) {
-        inputValue = w()
-      }
-
-      if (isFunction(width)) {
-        inputValue = width()
-      }
 
       return useResponsiveSize(inputValue)
     }

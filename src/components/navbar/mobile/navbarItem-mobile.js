@@ -3,7 +3,7 @@ import * as React from "react"
 import ModalContext from "../../../styling/overlays/context/modalContext"
 import NavbarItem from "../../../styling/navbar/item/navbarItem"
 
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 
 const NavbarItemMobile = ({ ...props }) => {
   const modalContext = React.useContext(ModalContext)

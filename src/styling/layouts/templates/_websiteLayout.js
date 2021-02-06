@@ -2,20 +2,18 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
-import { ThemeProvider } from "styled-components"
-import { GlobalStyle, theme } from "../../_theme/_global-style"
+import { GlobalStyle } from "../../_theme/_global-style"
 
 import { PancakeLayout, BottomNavbarLayout } from "@templates/index"
 
 import { useViewportInfo } from "@hooks/index"
 import { ModalProvider } from "@overlays/index"
-import NavbarMobile from "../../../components/navbar/mobile/navbar-mobile"
 
 const WebsiteLayout = ({ children }) => {
-  const { height, width } = useViewportInfo()
+  const { device } = useViewportInfo()
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <GlobalStyle />
       <Helmet>
         {/* https://leafletjs.com/examples/quick-start/ */}
@@ -28,21 +26,20 @@ const WebsiteLayout = ({ children }) => {
       </Helmet>
       <ModalProvider>
         {/* layout for screen > 1024px */}
-        {width > 1024 && <PancakeLayout>{children}</PancakeLayout>}
+        {device === "laptop" && (
+          <PancakeLayout device={device}>{children}</PancakeLayout>
+        )}
 
         {/* layout for screen < 1024px */}
         {/* {width < 1024 && <BottomNavbarLayout>{children}</BottomNavbarLayout>} */}
-        {width < 1024 && (
-          <BottomNavbarLayout
-            vh={height}
-            vw={width}
-            Navbar={() => <NavbarMobile />}
-          >
+        {device === "mobile" && (
+          // <BottomNavbarLayout h={height} w={width}>
+          <BottomNavbarLayout h100v w100v>
             {children}
           </BottomNavbarLayout>
         )}
       </ModalProvider>
-    </ThemeProvider>
+    </>
   )
 }
 

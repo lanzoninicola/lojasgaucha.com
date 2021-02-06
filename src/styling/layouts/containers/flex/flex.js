@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Space } from "@layouts/index"
 import { Size } from "@layouts/index"
 
-import { useDOMInfo } from "../../_hooks/useDOM"
+import { useDOMInfo } from "../../../_hooks/useDOM"
 // import { isUndefined, warn } from "../../utils"
 // import DOMNodeInspect from "../utils/DOMNodeInspect/DOMNodeInspect"
 
@@ -60,18 +60,7 @@ Flex.defaultProps = {
   overflowHide: null,
 }
 
-// export const FlexContainer = styled(Flex)`
-//   flex-direction: ${({ direction, row, column }) => {
-//     if (row) return `row`
-//     if (direction === "row") return `row` // it will deprecated
-//     if (column) return `column`
-//     if (direction === "column") return `column` // it will deprecated
-//     return null
-//   }};
-//   ${props => props.$style ?? {}}
-// `
-
-export const FlexContainer = ({ children, ...props }) => {
+const FlexContainer = ({ children, ...props }) => {
   const ref = useDOMInfo()
 
   /**
@@ -101,16 +90,4 @@ export const FlexContainer = ({ children, ...props }) => {
   )
 }
 
-export const FlexMotion = styled(motion.custom(Flex))``
-
-export const FlexMotionContainer = ({ children, ...props }) => {
-  const ref = useDOMInfo()
-
-  return (
-    <>
-      <FlexMotion ref={ref} {...props}>
-        {children}
-      </FlexMotion>
-    </>
-  )
-}
+export default FlexContainer
