@@ -1,4 +1,4 @@
-export default function websiteNavItems() {
+export default function websiteLaptopNavItems() {
   return [
     {
       icon: "WHATSAPP",

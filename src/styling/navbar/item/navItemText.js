@@ -3,29 +3,28 @@ import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 
 import { SmallText } from "@typography/index"
+import { isNotUndefined } from "@utils"
 
-const NavItemText = ({ color, spotlighted, children }) => {
+const NavItemText = ({ device, spotlighted, children, layout }) => {
   const themeContext = React.useContext(ThemeContext)
-  const layoutConfig = themeContext?.navbar?.mobile?.layout
+  const themeDeviceLayout = themeContext?.navbar?.layout[device].navItem
+  const themeTextLayout = themeDeviceLayout?.text
+
+  const textRenderedLayout = isNotUndefined(layout)
+    ? layout?.text
+    : themeTextLayout
 
   return (
     <>
       <SmallText
-        variant="secondary"
         weight="600"
         color={
-          color
-            ? color
-            : spotlighted.yesno
-            ? layoutConfig?.items?.icons?.colors?.spotligthed[
-                spotlighted?.color
-              ]
-            : layoutConfig?.items?.icons?.colors?.default
+          spotlighted?.yesno === true
+            ? textRenderedLayout?.color?.spotligthed[spotlighted?.color]
+            : textRenderedLayout?.color?.default
         }
-        lineHeight={layoutConfig?.items?.labels?.lineHeight}
         align="center"
-        capitalize={layoutConfig?.items?.labels?.capitalize}
-        wAuto
+        capitalize={textRenderedLayout?.capitalize}
       >
         {children}
       </SmallText>
@@ -34,9 +33,9 @@ const NavItemText = ({ color, spotlighted, children }) => {
 }
 
 NavItemText.propTypes = {
-  color: PropTypes.string,
-  spotlighted: PropTypes.object,
-  layoutConfig: PropTypes.object,
+  device: PropTypes.string.isRequired,
+  spotligthed: PropTypes.object,
+  layout: PropTypes.object,
 }
 
 export default NavItemText

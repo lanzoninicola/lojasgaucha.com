@@ -1,12 +1,15 @@
+import * as React from "react"
 import styled from "styled-components"
-import { FlexContainer } from "@layouts"
+import { FlexContainer, Size, Space } from "@layouts/index"
 
-const Header = styled(FlexContainer)`
-  height: ${({ vh }) => `${vh}px`};
-  width: ${({ vw }) => `${vw}px`};
-  padding-left: 16px;
-  padding-right: 16px;
+const StyledHeader = styled(FlexContainer)`
+  ${Size}
+  ${Space}
 `
+
+const Header = props => {
+  return <StyledHeader as="header" {...props} w100v />
+}
 
 export default Header
 

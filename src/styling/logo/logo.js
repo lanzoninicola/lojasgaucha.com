@@ -5,20 +5,15 @@ import { OrangeLogo as OrangeLogoDesktop } from "./variants/desktop/orangelogo"
 import { BlueLogo as BlueLogoMobile } from "./variants/mobile/bluelogo"
 import { OrangeLogo as OrangeLogoMobile } from "./variants/mobile/orangelogo"
 
-import { Link } from "gatsby"
-import { useViewportInfo } from "../_hooks/useViewportInfo"
+import { useViewportInfo } from "@hooks/index"
+import { NavLink } from "@navigation/index"
 
 const Logo = ({ variants }) => {
   const { device } = useViewportInfo()
 
-  let RenderedLogo
+  let RenderedLogo = null
 
-  if (
-    device === "tablet" ||
-    device === "laptop" ||
-    device === "laptopL" ||
-    device === "fourK"
-  ) {
+  if (device !== "mobile") {
     if (variants === "primary") {
       RenderedLogo = <OrangeLogoDesktop />
     }
@@ -38,7 +33,7 @@ const Logo = ({ variants }) => {
     }
   }
 
-  return <Link to="/">{RenderedLogo}</Link>
+  return <NavLink to={{ type: "link", value: "/" }}>{RenderedLogo}</NavLink>
 }
 
 Logo.defaultProps = {

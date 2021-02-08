@@ -5,12 +5,12 @@ import { Helmet } from "react-helmet"
 import { GlobalStyle } from "../../_theme/_global-style"
 
 import { PancakeLayout } from "@templates/index"
-import { HeaderFixedContainer } from "@layouts/index"
-import { BottomNavbar } from "@navbar/index"
-import NavbarItemMobile from "../../../components/navbar/mobile/navbarItem-mobile"
-
 import { useViewportInfo } from "@hooks/index"
 import { ModalProvider } from "@overlays/index"
+
+import Header from "../../../components/header/header"
+import BannerNotification from "../../../components/notification/bannerNotification"
+import NavbarItemsMobile from "../../../components/navbar/mobile/navbarItems-mobile"
 
 const WebsiteLayout = ({ children }) => {
   const { device } = useViewportInfo()
@@ -31,7 +31,7 @@ const WebsiteLayout = ({ children }) => {
         {/* layout for screen > 1024px */}
         {device === "laptop" && (
           <PancakeLayout>
-            <HeaderFixedContainer />
+            <Header />
             {children}
             {/* Footer */}
           </PancakeLayout>
@@ -40,8 +40,9 @@ const WebsiteLayout = ({ children }) => {
         {/* layout for screen < 1024px */}
         {device === "mobile" && (
           <PancakeLayout h100v w100v>
+            <BannerNotification />
             {children}
-            <BottomNavbar NavItemComponent={NavbarItemMobile} />
+            <NavbarItemsMobile />
           </PancakeLayout>
         )}
       </ModalProvider>

@@ -2,6 +2,8 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { FlexContainer } from "@layouts/index"
 
+import { error } from "@utils"
+
 /**
  *    Unlike the "NavbarContainerGridStretch" component
  *    the space between the children elements is controlled by Flex style
@@ -45,8 +47,9 @@ NavbarContainerFlexStretch.propTypes = {
   children: PropTypes.node.isRequired,
   w: (props, propName, componentName) => {
     if (props[propName]) {
-      console.error(
-        `${componentName} - A "${propName}" value has been passed as props. 
+      error(
+        `${componentName}`,
+        `A "${propName}" value has been passed as props. 
         
         Per default this component takes the 100% of the containing block. 
         
@@ -54,12 +57,14 @@ NavbarContainerFlexStretch.propTypes = {
         
         `
       )
+      return
     }
   },
   width: (props, propName, componentName) => {
     if (props[propName]) {
-      console.error(
-        `${componentName} - A "${propName}" value has been passed as props. 
+      error(
+        `${componentName}`,
+        `A "${propName}" value has been passed as props. 
         
         Per default this component takes the 100% of the containing block. 
         
@@ -67,12 +72,14 @@ NavbarContainerFlexStretch.propTypes = {
         
         `
       )
+      return
     }
   },
   w100: (props, propName, componentName) => {
     if (props[propName]) {
-      console.error(
-        `${componentName} - A "${propName}" value has been passed as props. 
+      error(
+        `${componentName}`,
+        `A "${propName}" value has been passed as props. 
         
         Per default this component takes the 100% of the containing block. 
         
@@ -80,12 +87,14 @@ NavbarContainerFlexStretch.propTypes = {
         
         `
       )
+      return
     }
   },
   w100v: (props, propName, componentName) => {
     if (props[propName]) {
-      console.error(
-        `${componentName} - A "${propName}" value has been passed as props. 
+      error(
+        `${componentName}`,
+        `A "${propName}" value has been passed as props. 
         
         Per default this component takes the 100% of the containing block. 
         
@@ -93,12 +102,14 @@ NavbarContainerFlexStretch.propTypes = {
         
         `
       )
+      return
     }
   },
   wAuto: (props, propName, componentName) => {
     if (props[propName]) {
-      console.error(
-        `${componentName} - A "${propName}" value has been passed as props. 
+      error(
+        `${componentName}`,
+        `A "${propName}" value has been passed as props. 
         
         Per default this component takes the 100% of the containing block. 
         
@@ -106,6 +117,7 @@ NavbarContainerFlexStretch.propTypes = {
         
         `
       )
+      return
     }
   },
   h: (props, propName, componentName) => {
@@ -113,11 +125,13 @@ NavbarContainerFlexStretch.propTypes = {
       (props[propName] === undefined || props[propName] === null) &&
       !props["height"]
     ) {
-      console.error(
-        `${componentName} - The "${propName}" prop value is missing. 
+      error(
+        `${componentName}`,
+        `The "${propName}" prop value is missing. 
         
         You must define a value for the height of the element`
       )
+      return
     }
   },
   height: (props, propName, componentName) => {
@@ -125,11 +139,13 @@ NavbarContainerFlexStretch.propTypes = {
       (props[propName] === undefined || props[propName] === null) &&
       !props["h"]
     ) {
-      console.error(
-        `${componentName} - The "${propName}" prop value is missing. 
+      error(
+        `${componentName}`,
+        `The "${propName}" prop value is missing. 
         
         You must define a value for the height of the element`
       )
+      return
     }
   },
 }

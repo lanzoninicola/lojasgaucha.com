@@ -1,6 +1,6 @@
-import companyTheme from "../../companyTheme/companyTheme"
+import companyTheme from "../../../companyTheme/companyTheme"
 
-export default function mapsNavItems() {
+export default function mapsMobileNavItems() {
   const companyMapData = companyTheme("maps")
 
   const { placeName } = companyMapData

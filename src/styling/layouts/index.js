@@ -5,7 +5,7 @@ import FlexContainer from "./containers/flex/flexContainer"
 import FlexMotionContainer from "./containers/flex/flexMotionContainer"
 
 import GridContainer from "./containers/grid/gridContainer"
-import PancakeStack from "./containers/grid/pancakeStack"
+import PancakeStack from "./containers/grid/PancakeStack"
 
 import HeaderFixedContainer from "./composition/header/headerFixedContainer"
 import HeaderScrollContainer from "./composition/header/headerScrollContainer"

@@ -8,15 +8,7 @@ import NavItemText from "./navItemText"
 
 import { NavLink, NavDiv, NavModal, NavAnchor } from "@navigation/index"
 
-const NavbarItem = ({
-  item,
-  hideIcon,
-  hideText,
-  iconColor,
-  textColor,
-  size,
-  stretch,
-}) => {
+const NavbarItem = ({ item, layout, device, stretch, hideIcon, hideText }) => {
   const navbarItem = (
     <FlexContainer
       column
@@ -29,13 +21,17 @@ const NavbarItem = ({
       {!hideIcon && (
         <NavItemIcon
           icon={item.icon}
-          color={iconColor}
-          size={size}
+          device={device}
           spotlighted={item.spotlighted}
+          layout={layout}
         />
       )}
       {!hideText && (
-        <NavItemText color={textColor} spotlighted={item.spotlighted}>
+        <NavItemText
+          device={device}
+          spotlighted={item.spotlighted}
+          layout={layout}
+        >
           {item.text}
         </NavItemText>
       )}
@@ -151,8 +147,8 @@ NavbarItem.propTypes = {
   },
   hideIcon: PropTypes.bool,
   hideText: PropTypes.bool,
-  iconColor: PropTypes.string,
-  textColor: PropTypes.string,
+  layout: PropTypes.object,
+  device: PropTypes.string,
 }
 
 export default NavbarItem

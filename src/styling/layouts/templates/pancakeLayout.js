@@ -21,7 +21,6 @@ const PancakeLayout = ({ children, ...props }) => {
 
 PancakeLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  device: PropTypes.string.isRequired,
 }
 
 export default PancakeLayout

@@ -1,52 +1,129 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { ThemeContext } from "styled-components"
-import { error } from "@utils/index"
-import NavbarItem from "../item/navbarItem"
+/**
+ *  This component returns only the content of a navbar.
+ *  It requires a container to be rendered into the DOM
+ */
 
-const NavbarItems = ({ module, NavItemComponent, ...props }) => {
+import * as React from "react"
+import { ThemeContext } from "styled-components"
+import NavbarItem from "../item/navbarItem"
+import {
+  isObject,
+  isUndefined,
+  isFunction,
+  isNotUndefined,
+  isNotString,
+  error,
+} from "@utils/index"
+
+const NavbarItems = ({
+  module,
+  device,
+  layout, // if you want to pass a custom layout
+  NavItemComponent,
+  stretch,
+  ...props
+}) => {
   const themeContext = React.useContext(ThemeContext)
   if (themeContext?.navbar === undefined) {
     error(
       "NavbarItems",
-      `The styled-components Theme for the "navbar" module is missing`
+      `The "Styled-components Theme" for the "navbar" module is missing`
     )
     return
   }
 
-  const itemList = themeContext?.navbar?.navItems[module]
+  const itemList = themeContext?.navbar?.navItems[device][module]
+
   if (itemList === undefined || itemList?.length === 0) {
     error(
       "NavbarItems",
-      `No navitems was found for the requested module "${module}".`
+      `No navitems was found for the module requested: "${module}".`
     )
     return
   }
 
   return itemList.map((item, index) => {
-    if (NavItemComponent !== undefined) {
-      return <NavItemComponent key={index} item={item} {...props} />
+    const componentProps = {
+      key: index,
+      item: item,
+      device: device,
+      stretch: stretch,
+      layout: layout,
     }
 
-    return <NavbarItem key={index} item={item} {...props} />
+    if (NavItemComponent !== undefined) {
+      return <NavItemComponent {...componentProps} {...props} />
+    }
+
+    return <NavbarItem {...componentProps} {...props} />
   })
 }
 
 NavbarItems.propTypes = {
-  module: PropTypes.string.isRequired,
+  module: (props, propName, componentName) => {
+    if (isUndefined(props[propName])) {
+      error(
+        componentName,
+        `The "${propName}" prop is required to identify the list of item to render inside the navbar for the specific website section. 
+        That declaration is must included inside the "Navbar" Styled-component Theme (/styling/_theme/navbarTheme/navbarTheme.js - "navItems" property).`
+      )
+      return
+    }
+    if (isNotUndefined(props[propName]) && isNotString(props[propName])) {
+      error(
+        componentName,
+        `The "${propName}" prop must be a string. Please, check the configuration inside the "Navbar" Styled-component Theme (/styling/_theme/navbarTheme/navbarTheme.js - "navItems" property).`
+      )
+      return
+    }
+  },
+  device: (props, propName, componentName) => {
+    if (isUndefined(props[propName])) {
+      error(
+        componentName,
+        `The "${propName}" prop is required. Please, passing a value choosing between: "mobile", "tablet", "laptop".`
+      )
+      return
+    }
+    if (isNotUndefined(props[propName]) && isNotString(props[propName])) {
+      error(
+        componentName,
+        `The "${propName}" prop must be a string. Please, passing a value choosing between: "mobile", "tablet", "laptop".`
+      )
+      return
+    }
+  },
   NavItemComponent: (props, propName, componentName) => {
-    // if (props[propName] === undefined || props[propName] === null) {
-    //   return new Error(
-    //     `
-    //     ${componentName} - Prop "${propName}" is required with type: "React component" that renders the "NavItem".`
+    // if (
+    //   isUndefined(props[propName]) ||
+    //   props[propName] === null ||
+    //   !isFunction(props[propName])
+    // ) {
+    //   error(
+    //     componentName,
+    //     `The "${propName}" prop with type "React component" is required, that component renders the navbar.
+    //   Example:
+    //   <NavbarItems module="website" device="mobile" NavItemComponent={props => <NavbarItemMobile {...props} />}/>"`
     //   )
+    //   return
     // }
 
-    if (props[propName] && typeof props[propName] !== "function") {
-      return new Error(
-        `
-        ${componentName} - The "${propName}" prop must be a React component.`
+    if (isNotUndefined(props[propName]) && !isFunction(props[propName])) {
+      error(
+        componentName,
+        `${componentName} - The "${propName}" prop must be a React functional component.`
       )
+      return
+    }
+  },
+  // TODO: improve explanation of adding a personal layout for the icon and text of navItem component
+  layout: (props, propName, componentName) => {
+    if (isNotUndefined(props[propName]) && !isObject(props[propName])) {
+      error(
+        componentName,
+        `The prop "${propName}" must be an object. It describes the colors, text size etc... of navItem component`
+      )
+      return
     }
   },
 }

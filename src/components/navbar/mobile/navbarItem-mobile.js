@@ -5,7 +5,7 @@ import NavbarItem from "../../../styling/navbar/item/navbarItem"
 
 import { colorsTheme } from "@theme"
 
-const NavbarItemMobile = ({ ...props }) => {
+const NavbarItemMobile = props => {
   const modalContext = React.useContext(ModalContext)
   const [isModalShown, setIsModalShown] = React.useState(false)
   const { modalsQueue } = modalContext

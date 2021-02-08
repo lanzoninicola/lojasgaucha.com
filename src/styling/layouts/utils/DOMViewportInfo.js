@@ -6,7 +6,7 @@ import { useViewportInfo } from "@hooks/index"
 
 const StyledDOMViewportInfo = styled.div`
   width: 65px;
-  z-index: 1;
+  z-index: 1000;
   margin-top: 2px;
   margin-left: 2px;
   padding: 4px 4px 0px 4px;
