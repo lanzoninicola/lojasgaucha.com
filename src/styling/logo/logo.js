@@ -9,7 +9,7 @@ import { useViewportInfo } from "@hooks/index"
 import { NavLink } from "@navigation/index"
 
 const Logo = ({ variants }) => {
-  const { device } = useViewportInfo()
+  const { device } = useViewportInfo("logo")
 
   let RenderedLogo = null
 

@@ -32,7 +32,7 @@ const StyledBottomSheet = styled(motion.div)`
 `
 
 const BottomSheet = ({ modalKey, hideModal, children }) => {
-  const { width, height } = useViewportInfo()
+  const { width, height } = useViewportInfo("BottomSheet")
 
   return (
     <>

@@ -1,5 +1,5 @@
 import carouselTheme from "./layouts/carouselTheme"
-import { getCSSRelativeUnits, composeCSSValue } from "../layouts/utils/CSSUnit"
+import { getCSSRelativeUnits, composeCSSValue } from "../layouts/_utils/CSSUnit"
 
 const STYLE = "style"
 const CONFIG = "config"
