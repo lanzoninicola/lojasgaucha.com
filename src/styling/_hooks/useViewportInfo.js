@@ -1,5 +1,5 @@
 import * as React from "react"
-import { debounce } from "../layouts/_utils/functions"
+import { debounce } from "../layouts/utils/functions"
 import { ThemeContext } from "styled-components"
 import { isDomAvailable } from "@utils/index"
 import useDeepCompareEffect from "use-deep-compare-effect"

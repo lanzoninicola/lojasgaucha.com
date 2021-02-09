@@ -5,6 +5,7 @@ export default function websiteMobileNavItems() {
       text: "ajuda",
       to: {
         type: "modal",
+        module: "navbarMobile",
         value: "ModalFaleConosco",
       },
       spotlighted: { yesno: false, color: "default" },
@@ -14,6 +15,7 @@ export default function websiteMobileNavItems() {
       text: "Loja fisica",
       to: {
         type: "modal",
+        module: "navbarMobile",
         value: "ModalMap",
       },
       spotlighted: { yesno: false, color: "default" },
@@ -33,6 +35,7 @@ export default function websiteMobileNavItems() {
       text: "Porque nós",
       to: {
         type: "modal",
+        module: "navbarMobile",
         value: "ModalInstitutional",
       },
       spotlighted: { yesno: true, color: "green" },
@@ -42,6 +45,7 @@ export default function websiteMobileNavItems() {
       text: "agenda",
       to: {
         type: "modal",
+        module: "navbarMobile",
         value: "ModalAgendamento",
       },
       spotlighted: { yesno: true, color: "orange" },
