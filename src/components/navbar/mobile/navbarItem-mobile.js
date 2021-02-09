@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import useDeepCompareEffect from "use-deep-compare-effect"
+
 import ModalContext from "../../../styling/overlays/context/modalContext"
 import NavbarItem from "../../../styling/navbar/item/navbarItem"
 
@@ -13,14 +15,14 @@ const NavbarItemMobile = props => {
   function shouldNavbarModal(modalsQueue) {
     let result = []
     modalsQueue.forEach(modal => {
-      if (Object.values(modal)[0] === "navbar") {
+      if (Object.values(modal)[0] === "navbarMobile") {
         result.push(true)
       }
     })
     return result.length > 0
   }
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     setIsModalShown(shouldNavbarModal(modalsQueue))
   }, [modalsQueue])
 

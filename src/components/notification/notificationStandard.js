@@ -5,14 +5,20 @@ import { colorsTheme } from "@theme/index"
 import { Box } from "@shape/index"
 import { Clock } from "@widget/index"
 
-const NotificationStandard = () => {
+const NotificationStandard = ({ viewportInfo }) => {
+  const { device } = viewportInfo
+
   return (
-    <FlexContainer row stretchXL w100>
+    <FlexContainer
+      row
+      w100
+      stretchXM={device === "mobile" && true}
+      stretchXL={device === "laptop" && true}
+      p={device === "laptop" && "4 180 4 180"}
+    >
       <Clock />
       <Box bg="blue" opacity="0.9">
-        <Text weight="400" variant="secondary" color={colorsTheme("white")}>
-          A loja està aberta. Aproveite!
-        </Text>
+        <Text color={colorsTheme("white")}>A loja està aberta. Aproveite!</Text>
       </Box>
     </FlexContainer>
   )

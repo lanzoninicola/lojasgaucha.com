@@ -4,13 +4,13 @@ import { ThemeProvider } from "styled-components"
 import { theme } from "@theme/_global-style"
 
 import { WebsiteLayout } from "../styling/layouts/templates/index"
-import DOMViewportInfo from "../styling/layouts/utils/DOMViewportInfo"
+import DOMViewportInfo from "../styling/layouts/_utils/DOMViewportInfo"
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <WebsiteLayout>
-        <DOMViewportInfo />
+        {/* <DOMViewportInfo /> */}
         {children}
       </WebsiteLayout>
     </ThemeProvider>

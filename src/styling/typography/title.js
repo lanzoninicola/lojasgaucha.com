@@ -79,8 +79,6 @@ Title.propTypes = {
       )
     }
   },
-  minSize: PropTypes.string,
-  maxSize: PropTypes.string,
 }
 
 export default Title

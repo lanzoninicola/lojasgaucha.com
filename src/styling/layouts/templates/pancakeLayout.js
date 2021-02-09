@@ -15,8 +15,18 @@ import PropTypes from "prop-types"
 
 import { PancakeStack } from "@layouts/index"
 
-const PancakeLayout = ({ children, ...props }) => {
-  return <PancakeStack {...props}>{children}</PancakeStack>
+const PancakeLayout = ({ viewportInfo, children, ...props }) => {
+  return (
+    <PancakeStack {...props}>
+      {React.Children.map(children, child => {
+        if (child !== null) {
+          return React.cloneElement(child, {
+            viewportInfo,
+          })
+        }
+      })}
+    </PancakeStack>
+  )
 }
 
 PancakeLayout.propTypes = {

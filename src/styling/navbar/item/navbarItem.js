@@ -38,7 +38,7 @@ const NavbarItem = ({ item, layout, device, stretch, hideIcon, hideText }) => {
     </FlexContainer>
   )
 
-  const { type, value } = item?.to
+  const { type, module, value } = item?.to
 
   if (type === "link") {
     return <NavLink to={{ type, value }}>{navbarItem}</NavLink>
@@ -47,7 +47,7 @@ const NavbarItem = ({ item, layout, device, stretch, hideIcon, hideText }) => {
   if (type === "modal") {
     return (
       <NavModal
-        from="navbar"
+        from={module}
         to={{ type, value }}
         renderOption={{ action: "toggle" }}
       >
@@ -98,7 +98,7 @@ NavbarItem.propTypes = {
         `
         ${componentName} - Prop "${propName}" must be an object with a property called "to" . 
         
-        The "to" property is an object that contains the info for routing {type: "link", value: "/product"}.
+        The "to" property is an object that contains the info for routing {type: "link", module: "navbarMobile", value: "/product"}.
         
         `
       )

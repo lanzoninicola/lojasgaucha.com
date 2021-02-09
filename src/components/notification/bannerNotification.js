@@ -4,10 +4,10 @@ import { GridContainer } from "@layouts/index"
 
 import NotificationStandard from "./notificationStandard"
 
-const BannerNotification = () => {
+const BannerNotification = ({ viewportInfo }) => {
   return (
     <GridContainer id="bannerNotification" h="50">
-      <NotificationStandard />
+      <NotificationStandard viewportInfo={viewportInfo} />
     </GridContainer>
   )
 }

@@ -13,7 +13,7 @@ import BannerNotification from "../../../components/notification/bannerNotificat
 import NavbarItemsMobile from "../../../components/navbar/mobile/navbarItems-mobile"
 
 const WebsiteLayout = ({ children }) => {
-  const { device } = useViewportInfo()
+  const { device, height, width } = useViewportInfo("WebsiteLayout")
 
   return (
     <>
@@ -27,24 +27,14 @@ const WebsiteLayout = ({ children }) => {
           crossorigin=""
         />
       </Helmet>
-      <ModalProvider>
-        {/* layout for screen > 1024px */}
-        {device === "laptop" && (
-          <PancakeLayout>
-            <Header />
-            {children}
-            {/* Footer */}
-          </PancakeLayout>
-        )}
 
-        {/* layout for screen < 1024px */}
-        {device === "mobile" && (
-          <PancakeLayout h100v w100v>
-            <BannerNotification />
-            {children}
-            <NavbarItemsMobile />
-          </PancakeLayout>
-        )}
+      <ModalProvider>
+        <PancakeLayout h100v w100v viewportInfo={{ device, height, width }}>
+          {(device === "laptop" || device === "tablet") && <Header />}
+          <BannerNotification />
+          {children}
+          {device === "mobile" && <NavbarItemsMobile />}
+        </PancakeLayout>
       </ModalProvider>
     </>
   )

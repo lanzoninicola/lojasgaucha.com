@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { GridContainer } from "@layouts/index"
+import useDeepCompareEffect from "use-deep-compare-effect"
 
 import FaleConoscoFormHeader from "./fale-conosco-form-headline"
 import FaleConoscoFormContactInfo from "./fale-conosco-form-contactInfo"
@@ -17,7 +18,7 @@ const FaleConoscoForm = () => {
     formData: {},
   })
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     if (formStore.submissionStatus === "submission-completed") {
       console.log("do something with the data:", formStore.formData)
     }

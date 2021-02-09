@@ -1,5 +1,5 @@
 import * as React from "react"
-import { debounce } from "../layouts/utils/functions"
+import { debounce } from "../layouts/_utils/functions"
 import { ThemeContext } from "styled-components"
 import { isDomAvailable } from "@utils/index"
 import useDeepCompareEffect from "use-deep-compare-effect"
@@ -8,7 +8,7 @@ import { isUndefined, log, error } from "@utils/index"
 
 // TODO: to be verified: wrapped window and document object to control behaviours
 
-function useViewportInfo(debug) {
+function useViewportInfo(component = null, debug = false) {
   const themeContext = React.useContext(ThemeContext)
   const breakpoints = themeContext?.breakpoints
 
@@ -43,7 +43,6 @@ function useViewportInfo(debug) {
           currentDiagonal: viewportInfo.diagonal,
         }
 
-        // if (isNotUndefined(breakpoints)) {
         const devices = breakpoints["viewportDevices"]
         const currentDiagonal = Math.round(
           Math.sqrt(width * width + height * height)
@@ -94,11 +93,14 @@ function useViewportInfo(debug) {
       setViewportInfo(setNextViewportInfo())
 
       const debouncedHandleResize = debounce(function handleResize() {
+        console.log(`component ${component} is mounted`)
+        console.log("resize")
         // reset the viewport info when the "resize" event is fired with a delay of 100ms
         setViewportInfo(setNextViewportInfo())
       }, 100)
       window.addEventListener("resize", debouncedHandleResize)
-      return _ => {
+      return () => {
+        console.log(`component ${component} is unmounted`)
         window.removeEventListener("resize", debouncedHandleResize)
       }
     }

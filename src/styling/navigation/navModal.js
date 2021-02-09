@@ -11,9 +11,14 @@ import { motion } from "framer-motion"
 
 import ModalConsumer from "../overlays/context/modalConsumer"
 
-const StyledNavModal = styled(motion.div)`
+// const StyledNavModal = styled(motion.div)`
+//   cursor: pointer;
+// `
+
+const StyledNavModal = styled.div`
   cursor: pointer;
 `
+
 const NavModal = ({ to, from, modalOptions, module, children, ...props }) => {
   const themeContext = React.useContext(ThemeContext)
   const framerMotion =

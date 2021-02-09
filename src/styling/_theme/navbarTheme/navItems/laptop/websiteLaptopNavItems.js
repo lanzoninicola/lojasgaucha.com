@@ -1,51 +1,65 @@
+// TODO: verify when use modal type there is the module prop
+
 export default function websiteLaptopNavItems() {
   return [
     {
-      icon: "WHATSAPP",
-      text: "ajuda",
+      icon: "HOME",
+      text: "ambientes",
       to: {
-        type: "modal",
-        value: "ModalFaleConosco",
+        type: "link",
+        value: "/ambientes",
+      },
+      spotlighted: { yesno: true, color: "green" },
+    },
+    {
+      icon: "SHOP",
+      text: "sobre nós",
+      to: {
+        type: "link",
+        value: "/institutional",
       },
       spotlighted: { yesno: false, color: "default" },
     },
     {
       icon: "PIN",
-      text: "Loja fisica",
-      to: {
-        type: "modal",
-        value: "ModalMap",
-      },
-      spotlighted: { yesno: false, color: "default" },
-    },
-    {
-      icon: "LOGO_GAUCHA",
-      text: "home",
+      text: "loja",
       to: {
         type: "link",
-        value: "/",
+        value: "/maps",
       },
       spotlighted: { yesno: false, color: "default" },
     },
 
-    {
-      icon: "ALERT_TRIANGLE",
-      text: "Porque nós",
-      to: {
-        type: "modal",
-        value: "ModalInstitutional",
-      },
-      spotlighted: { yesno: true, color: "green" },
-    },
+    // {
+    //   icon: "CLOCK",
+    //   text: "Horarios",
+    //   to: {
+    //     type: "modal",
+    //     module: "navbarLaptop",
+    //     value: "ModalHorarios",
+    //   },
+    //   spotlighted: { yesno: false, color: "default" },
+    // },
     {
       icon: "CALENDAR_DATES",
-      text: "agenda",
+      text: "agendamento",
       to: {
-        type: "modal",
-        value: "ModalAgendamento",
+        type: "link",
+        value: "/agendamento",
       },
       spotlighted: { yesno: true, color: "orange" },
       focused: "idle",
     },
+    // {
+    //   icon: "SEARCH",
+    //   text: "pesquisa",
+    //   to: {
+    //     type: "modal",
+    //     module: "navbarLaptop",
+    //     value: "ModalPesquisa",
+    //   },
+    //   spotlighted: { yesno: false, color: "default" },
+    //   focused: "idle",
+    // },
   ]
 }

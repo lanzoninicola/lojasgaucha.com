@@ -13,7 +13,10 @@ const navbarLaptopLayout = () => {
         color: {
           default: colorsTheme("blue"),
           hovered: colorsTheme("blue"),
-          spotligthed: colorsTheme("orange"),
+          spotligthed: {
+            orange: colorsTheme("orange"),
+            green: colorsTheme("green"),
+          },
         },
         size: "24",
       },
@@ -25,7 +28,10 @@ const navbarLaptopLayout = () => {
         color: {
           default: colorsTheme("blue"),
           hovered: colorsTheme("blue"),
-          spotligthed: colorsTheme("orange"),
+          spotligthed: {
+            orange: colorsTheme("orange"),
+            green: colorsTheme("green"),
+          },
         },
       },
     },

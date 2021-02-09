@@ -33,7 +33,19 @@ const overlaysTheme = () => {
       },
     },
     modals: {
-      navbar: {
+      navbarLaptop: {
+        ModalHorarios: props => (
+          <BottomSheet {...props}>
+            <FaleConosco />
+          </BottomSheet>
+        ),
+        ModalPesquisa: props => (
+          <BottomSheet {...props}>
+            <FaleConoscoForm />
+          </BottomSheet>
+        ),
+      },
+      navbarMobile: {
         ModalFaleConosco: props => (
           <BottomSheet {...props}>
             <FaleConosco />

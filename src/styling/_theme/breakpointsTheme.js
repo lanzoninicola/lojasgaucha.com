@@ -43,19 +43,19 @@ const breakpointsTheme = () => {
       },
       tablet: {
         small: {
-          name: "mobile-small",
+          name: "tablet-small",
           width: 600,
           height: 1024,
           diagonal: 1186.83,
         },
         medium: {
-          name: "mobile-medium",
+          name: "tablet-medium",
           width: 768,
           height: 1024,
           diagonal: 1280,
         },
         large: {
-          name: "mobile-large",
+          name: "tablet-large",
           width: 1024,
           height: 1366,
           diagonal: 1707.2,
