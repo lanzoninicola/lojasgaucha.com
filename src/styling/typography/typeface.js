@@ -2,6 +2,8 @@ import { css } from "styled-components"
 import PropTypes from "prop-types"
 
 import { Space } from "../layouts"
+import { useResponsiveSize } from "@hooks"
+import { composeCSSValue } from "@layouts/lib/index"
 
 const Typeface = css`
   ${Space}
@@ -19,7 +21,14 @@ const Typeface = css`
 
     return null
   }};
-  letter-spacing: ${({ ls }) => ls ?? null};
+  letter-spacing: ${({ ls }) => {
+    if (ls) {
+      const letterSpacing = composeCSSValue(ls)
+      return useResponsiveSize(letterSpacing)
+    }
+
+    return null
+  }};
   color: ${({ theme, color }) => {
     if (typeof color === "string") {
       let isHEXColor = color.substring(0, 1) === "#"

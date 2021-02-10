@@ -23,6 +23,14 @@ export default function useResponsiveSize(size = {}, debug = false) {
 
   const isFixedSize = !isObject(size) && (isNumber(size) || isString(size))
 
+  log("useResponsiveSize", {
+    size,
+    typeofSize: typeof size,
+    isFixedSize,
+    currentDeviceFormFactor: currentDeviceFormFactor,
+    userSize: size[currentDeviceFormFactor],
+  })
+
   // TODO: validation of size input
   // if(!isFixedSize && isObject(size)) {
 
@@ -34,14 +42,15 @@ export default function useResponsiveSize(size = {}, debug = false) {
     (currentViewportDiagonal / viewportDiagonalDesignSpec) * USER_SIZE
   )
 
-  if (debug) {
-    log("useResponsiveSize", {
-      currentDeviceFormFactor,
-      currentViewportDiagonal,
-      viewportDiagonalDesignSpec,
-      USER_SIZE,
-      resultSize,
-    })
-  }
+  // if (debug) {
+  //   log("useResponsiveSize", {
+  //     currentDeviceFormFactor,
+  //     currentViewportDiagonal,
+  //     viewportDiagonalDesignSpec,
+  //     inputSize: size,
+  //     USER_SIZE,
+  //     resultSize,
+  //   })
+  // }
   return composeCSSValue(resultSize)
 }

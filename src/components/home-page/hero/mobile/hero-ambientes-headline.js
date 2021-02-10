@@ -15,7 +15,7 @@ const HeroAmbientesHeadline = () => {
         color="orange"
         capitalize="uppercase"
         $style={{
-          width: "140px",
+          width: "140",
         }}
       >
         Ambientes para la sua casa

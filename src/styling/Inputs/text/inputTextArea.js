@@ -2,9 +2,11 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { colorsTheme } from "@theme/index"
-import InputLabel from "../inputLabel"
 import { FlexContainer } from "@layouts/index"
 import { useResponsiveSize } from "@hooks/index"
+import { composeCSSValue } from "@layouts/lib/index"
+
+import InputLabel from "../inputLabel"
 
 import ErrorMessage from "../errors/errorMessage"
 
@@ -14,7 +16,10 @@ const StyledInputTextArea = styled.textarea`
   font-family: ${({ theme }) =>
     theme?.form?.layout?.textArea?.variants?.firebase?.fontFamily};
   font-size: ${({ theme, fontSize }) => {
-    if (fontSize) return useResponsiveSize(fontSize)
+    if (fontSize) {
+      fontSize = composeCSSValue(fontSize)
+      return useResponsiveSize(fontSize)
+    }
 
     return theme?.form?.layout?.textArea?.variants?.firebase?.size
   }};
@@ -33,7 +38,7 @@ const StyledInputTextArea = styled.textarea`
   }
 
   &::placeholder {
-    font-size: 14px;
+    font-size: ${() => useResponsiveSize("14px")};
     opacity: 0.3;
   }
 `
@@ -55,7 +60,7 @@ const InputTextArea = React.forwardRef(
     ref
   ) => {
     return (
-      <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
+      <FlexContainer hAuto wAuto mt="16" mb="16">
         {!noLabel && (
           <InputLabel htmlFor={name} text={labelText} {...props?.labelStyle} />
         )}

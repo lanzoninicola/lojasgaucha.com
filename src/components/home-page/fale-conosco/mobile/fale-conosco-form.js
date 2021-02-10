@@ -46,7 +46,7 @@ const FaleConoscoForm = () => {
         <FaleConoscoFormContactInfo handleSubmission={handleSubmission} />
       )}
       {formStore.submissionStatus === "submission-completed" && (
-        <div style={{ color: "white", fontSize: "40px" }}>
+        <div style={{ color: "white", fontSize: "40" }}>
           URRAAAA!!! HAI VINTO UNA BAMBOLINA
         </div>
       )}

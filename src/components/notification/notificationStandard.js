@@ -15,8 +15,11 @@ const NotificationStandard = () => {
       row
       w100
       stretchXM={device === "mobile" && true}
-      stretchXL={device === "laptop" && true}
-      p={device === "laptop" && "4 180 4 180"}
+      stretchXL={(device === "laptop" || device === "tablet") && true}
+      pt={{ laptop: 4, tablet: 4 }}
+      pl={{ laptop: 180, tablet: 80 }}
+      pb={{ laptop: 4, tablet: 4 }}
+      pr={{ laptop: 180, tablet: 80 }}
     >
       <Clock />
       <Box bg="blue" opacity="0.9">

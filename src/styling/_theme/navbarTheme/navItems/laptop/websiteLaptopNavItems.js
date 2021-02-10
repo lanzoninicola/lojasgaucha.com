@@ -30,16 +30,16 @@ export default function websiteLaptopNavItems() {
       spotlighted: { yesno: false, color: "default" },
     },
 
-    // {
-    //   icon: "CLOCK",
-    //   text: "Horarios",
-    //   to: {
-    //     type: "modal",
-    //     module: "navbarLaptop",
-    //     value: "ModalHorarios",
-    //   },
-    //   spotlighted: { yesno: false, color: "default" },
-    // },
+    {
+      icon: "CLOCK",
+      text: "Horarios",
+      to: {
+        type: "modal",
+        module: "navbarLaptop",
+        value: "ModalHorarios",
+      },
+      spotlighted: { yesno: false, color: "default" },
+    },
     {
       icon: "CALENDAR_DATES",
       text: "agendamento",
@@ -50,16 +50,16 @@ export default function websiteLaptopNavItems() {
       spotlighted: { yesno: true, color: "orange" },
       focused: "idle",
     },
-    // {
-    //   icon: "SEARCH",
-    //   text: "pesquisa",
-    //   to: {
-    //     type: "modal",
-    //     module: "navbarLaptop",
-    //     value: "ModalPesquisa",
-    //   },
-    //   spotlighted: { yesno: false, color: "default" },
-    //   focused: "idle",
-    // },
+    {
+      icon: "SEARCH",
+      text: "pesquisa",
+      to: {
+        type: "modal",
+        module: "navbarLaptop",
+        value: "ModalPesquisa",
+      },
+      spotlighted: { yesno: false, color: "default" },
+      focused: "idle",
+    },
   ]
 }

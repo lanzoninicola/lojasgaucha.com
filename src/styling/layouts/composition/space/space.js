@@ -1,5 +1,12 @@
 import { css } from "styled-components"
-import { stringToArray, arrayToString, isNotString } from "@utils/index"
+import {
+  stringToArray,
+  arrayToString,
+  isNotString,
+  isObject,
+  isString,
+  log,
+} from "@utils/index"
 
 import { useResponsiveSize } from "@hooks/index"
 
@@ -75,22 +82,31 @@ const Space = css`
     return null
   }};
   padding: ${({ p, padding }) => {
+    log("space", { condition: p || padding, p: p, padding: padding })
     if (p || padding) {
       const paddingProp = p ?? padding
 
-      if (isNotString(paddingProp)) {
-        console.error(
-          `The property "p" or "padding" must be a string and not ${typeof paddingProp}`
-        )
-        return null
+      //TODO: manage this.
+      if (isObject(paddingProp)) {
+        console.log(useResponsiveSize(paddingProp))
+        // Object.keys(paddingProp).forEach(prop => {
+        //   const paddingArray = stringToArray(paddingProp[prop], " ")
+
+        //   let newPaddingArray = paddingArray.map(paddingValue => {
+        //     return useResponsiveSize(paddingValue)
+        //   })
+        //   return arrayToString(newPaddingArray)
+        // })
       }
 
-      const paddingArray = stringToArray(paddingProp, " ")
+      if (isString(paddingProp)) {
+        const paddingArray = stringToArray(paddingProp, " ")
 
-      let newPaddingArray = paddingArray.map(paddingValue => {
-        return useResponsiveSize(paddingValue)
-      })
-      return arrayToString(newPaddingArray)
+        let newPaddingArray = paddingArray.map(paddingValue => {
+          return useResponsiveSize(paddingValue, true)
+        })
+        return arrayToString(newPaddingArray)
+      }
     }
 
     return null
