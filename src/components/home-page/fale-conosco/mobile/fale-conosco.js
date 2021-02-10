@@ -4,8 +4,8 @@ import { FlexContainer, GridContainer } from "@layouts/index"
 import { Title, Text } from "@typography/index"
 import { NavModal, NavAnchor } from "@navigation/index"
 
-import ModalCard from "./ModalCard"
-import ModalCardIcon from "./ModalCardIcon"
+import ModalCard from "./modalCard"
+import ModalCardIcon from "./modalCardIcon"
 
 const StyledFaleConoscoInner = styled.div`
   height: 100%;
