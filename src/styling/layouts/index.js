@@ -10,8 +10,6 @@ import PancakeStack from "./containers/grid/PancakeStack"
 import HeaderFixedContainer from "./composition/header/headerFixedContainer"
 import HeaderScrollContainer from "./composition/header/headerScrollContainer"
 
-import { composeCSSValue } from "./utils/CSSUnit"
-
 export {
   Space,
   Size,
@@ -21,5 +19,4 @@ export {
   FlexMotionContainer,
   HeaderFixedContainer,
   HeaderScrollContainer,
-  composeCSSValue,
 }

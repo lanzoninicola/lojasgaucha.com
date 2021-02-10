@@ -2,6 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { FlexContainer, Space } from "@layouts/index"
+import { composeCSSValue } from "@layouts/lib/index"
 import { Title } from "@typography/index"
 import { colorsTheme } from "@theme/index"
 
@@ -18,14 +19,12 @@ const StyledImageTitle = styled.div`
     return null
   }};
   height: ${({ theme, h, height, fluid }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
     if (h ?? height) return composeCSSValue(h) ?? composeCSSValue(height)
     if (fluid) return `auto`
 
     return `auto`
   }};
   width: ${({ theme, w, width, fluid }) => {
-    const composeCSSValue = theme?.layout?.utils?.composeCSSValue
     if (w) return composeCSSValue(w)
     if (width) return composeCSSValue(width)
     if (fluid) return `auto`

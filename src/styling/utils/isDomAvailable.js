@@ -4,10 +4,9 @@
  * @see https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/core/ExecutionEnvironment.js#L12
  */
 
-export default function isDomAvailable() {
-  return (
-    typeof window !== "undefined" &&
-    !!window.document &&
-    !!window.document.createElement
-  )
-}
+const isDomAvailable =
+  typeof window !== "undefined" &&
+  !!window.document &&
+  !!window.document.createElement
+
+export default isDomAvailable

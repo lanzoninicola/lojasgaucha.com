@@ -3,15 +3,13 @@ import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
 import { useResponsiveSize } from "@hooks/index"
-import { composeCSSValue } from "@layouts/index"
+import { composeCSSValue } from "@layouts/lib/index"
 
 import { error } from "@utils/index"
 
 const SmallText = styled.div`
   ${Typeface}
   font-size: ${({ theme, variant, size, debug }) => {
-    const { device, diagonal } = theme?.viewport
-
     let fontSize = 0
     size
       ? (fontSize = composeCSSValue(size))
@@ -26,11 +24,9 @@ const SmallText = styled.div`
       return
     }
 
-    return useResponsiveSize({ device, diagonal }, fontSize, debug)
+    return useResponsiveSize(fontSize, debug)
   }};
   line-height: ${({ theme, variant, size, lh }) => {
-    const { device, diagonal } = theme?.viewport
-
     let lineHeight = 0
     lh
       ? (lineHeight = composeCSSValue(lh))
@@ -47,7 +43,7 @@ const SmallText = styled.div`
       return
     }
 
-    return useResponsiveSize({ device, diagonal }, lineHeight)
+    return useResponsiveSize(lineHeight)
   }};
   ${props => props.$style ?? {}}
 `

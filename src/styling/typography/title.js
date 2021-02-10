@@ -4,15 +4,13 @@ import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
 import { useResponsiveSize } from "@hooks/index"
-import { composeCSSValue } from "@layouts/index"
+import { composeCSSValue } from "@layouts/lib/index"
 
 import { isUndefined, warn, error } from "@utils/index"
 
 const StyledTitle = styled.div`
   ${Typeface}
   font-size: ${({ theme, as, variant, size, debug }) => {
-    const { device, diagonal } = theme?.viewport
-
     if (isUndefined(as)) as = "h1"
 
     const variantSelected = theme.typography[variant]
@@ -29,10 +27,9 @@ const StyledTitle = styled.div`
       ? (fontSize = composeCSSValue(size))
       : (fontSize = variantSelected[as.toLowerCase()].fontSize)
 
-    return useResponsiveSize({ device, diagonal }, fontSize, debug)
+    return useResponsiveSize(fontSize, debug)
   }};
   line-height: ${({ theme, as, variant, size, lh }) => {
-    const { device, diagonal } = theme?.viewport
     if (isUndefined(as)) as = "h1"
 
     const variantSelected = theme.typography[variant]
@@ -51,7 +48,7 @@ const StyledTitle = styled.div`
       ? (lineHeight = parseInt(size) + 3) // I will calculate the line-height adding 3pxs
       : (lineHeight = variantSelected[as.toLowerCase()].lineHeight)
 
-    return useResponsiveSize({ device, diagonal }, lineHeight)
+    return useResponsiveSize(lineHeight)
   }};
   ${props => props.$style ?? {}}
 `

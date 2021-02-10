@@ -18,10 +18,10 @@ const NotificationStandard = () => {
       stretchXL={device === "laptop" && true}
       p={device === "laptop" && "4 180 4 180"}
     >
-      {/* <Clock />
+      <Clock />
       <Box bg="blue" opacity="0.9">
         <Text color={colorsTheme("white")}>A loja està aberta. Aproveite!</Text>
-      </Box> */}
+      </Box>
     </FlexContainer>
   )
 }

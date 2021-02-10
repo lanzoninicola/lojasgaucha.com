@@ -24,6 +24,7 @@ import isNotEmptyObject from "./isNotEmptyObject"
 import isUndefined from "./isUndefined"
 import isNotUndefined from "./isNotUndefined"
 import isDomAvailable from "./isDomAvailable"
+import debounce from "./debounce"
 
 export {
   left,
@@ -54,4 +55,5 @@ export {
   isUndefined,
   isNotUndefined,
   isDomAvailable,
+  debounce,
 }

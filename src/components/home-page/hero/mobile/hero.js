@@ -1,12 +1,14 @@
 import * as React from "react"
+import { ThemeContext } from "styled-components"
 
 import { GridContainer, FlexContainer } from "@layouts/index"
 
 import HeroHeadline from "../shared/hero-headline"
 import HeroAmbientes from "./hero-ambientes"
 
-const Hero = ({ viewportInfo }) => {
-  const { device } = viewportInfo
+const Hero = () => {
+  const themeContext = React.useContext(ThemeContext)
+  const { device } = themeContext?.viewport
 
   return (
     <>

@@ -1,4 +1,4 @@
-import CSSRelativeUnits from "../config/CSSRelativeUnits"
+import CSSRelativeUnits from "./CSSRelativeUnits"
 import {
   isIncluded,
   isNotNumber,
@@ -8,10 +8,6 @@ import {
 
 const CSSUnits = CSSRelativeUnits.values
 const defaultCSSUnit = CSSRelativeUnits.default
-
-export function getCSSRelativeUnits() {
-  return CSSRelativeUnits
-}
 
 /**
  * @param {string|number} CSSPropertyValue
@@ -50,7 +46,7 @@ function matchCSSUnit(shouldCSSUnit) {
  * It could contains or not the CSS unit
  * @param {string|number} CSSPropertyValue
  */
-export function composeCSSValue(CSSPropertyValue) {
+export default function composeCSSValue(CSSPropertyValue) {
   if (CSSPropertyValue === undefined) {
     return CSSPropertyValue
   }

@@ -1,5 +1,5 @@
 import carouselTheme from "./layouts/carouselTheme"
-import { getCSSRelativeUnits, composeCSSValue } from "../layouts/utils/CSSUnit"
+import { CSSRelativeUnits, composeCSSValue } from "@layouts/lib/index"
 
 const STYLE = "style"
 const CONFIG = "config"
@@ -12,7 +12,7 @@ function layoutTheme() {
     },
     config: {
       global: {
-        CSSUnits: getCSSRelativeUnits(),
+        CSSUnits: CSSRelativeUnits,
       },
       carousel: carouselTheme(CONFIG),
     },

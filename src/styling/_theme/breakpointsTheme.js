@@ -91,7 +91,7 @@ const breakpointsTheme = () => {
       },
     },
     //
-    designReference: {
+    designSpecification: {
       mobile: "large",
       tablet: "medium",
       laptop: "medium",
