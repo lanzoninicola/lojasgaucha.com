@@ -4,6 +4,7 @@ import getCurrentDevice from "./getCurrentDevice"
 import breakpointsDesignSpec from "./breakpointsDesignSpec"
 import CSSRelativeUnits from "./CSSRelativeUnits"
 import composeCSSValue from "./composeCSSValue"
+import parseGridTemplateValues from "./parseGridTemplateValues"
 
 export {
   CSSRelativeUnits,
@@ -12,4 +13,5 @@ export {
   getCurrentDiagonal,
   getCurrentDevice,
   breakpointsDesignSpec,
+  parseGridTemplateValues,
 }
