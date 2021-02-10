@@ -24,10 +24,11 @@ const Grid = css`
     if (bottom) return `end`
     if (stretchY) return `stretch`
   }};
-  gap: ${({ gap }) => {
-    if (gap) return useResponsiveSize(gap)
+  gap: ${({ theme, gap }) => {
+    const { device, diagonal } = theme?.viewport
+    if (gap) return useResponsiveSize({ device, diagonal }, gap)
 
-    return useResponsiveSize(DEFAULT_GAP)
+    return useResponsiveSize({ device, diagonal }, DEFAULT_GAP)
   }};
 `
 

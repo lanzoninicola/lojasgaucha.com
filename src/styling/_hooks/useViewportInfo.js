@@ -1,110 +1,98 @@
 import * as React from "react"
 import { debounce } from "../layouts/utils/functions"
-import { ThemeContext } from "styled-components"
+import { theme } from "@theme/_global-style"
 import { isDomAvailable } from "@utils/index"
-import useDeepCompareEffect from "use-deep-compare-effect"
-
-import { isUndefined, log, error } from "@utils/index"
 
 // TODO: to be verified: wrapped window and document object to control behaviours
 
-function useViewportInfo(component = null, debug = false) {
-  const themeContext = React.useContext(ThemeContext)
-  const breakpoints = themeContext?.breakpoints
+const HEADLESS_VIEWPORT_SIZE = { width: 0, height: 0 }
 
-  const [viewportInfo, setViewportInfo] = React.useState({
-    device: "mobile",
-    size: "mobile-small",
-    height: 568,
-    width: 320,
-    diagonal: 651.94,
+function getCurrentWindowSize() {
+  return isDomAvailable()
+    ? { width: window.innerWidth, height: window.innerHeight }
+    : HEADLESS_VIEWPORT_SIZE
+}
+
+function getCurrentDiagonal() {
+  const { width, height } = getCurrentWindowSize()
+  return { diagonal: Math.round(Math.sqrt(width * width + height * height)) }
+}
+
+function getCurrentDevice() {
+  const { diagonal } = getCurrentDiagonal()
+  const breakpoints = theme?.breakpoints
+  const devices = breakpoints["viewportDevices"]
+
+  const currentDevice = { device: null, size: 0 }
+
+  // TODO: It might be improved maybe normalizing the breakpoint data with flat data-structure and avoiding double looping
+  Object.keys(devices).forEach(device => {
+    Object.keys(devices[device]).forEach(size => {
+      if (diagonal >= Math.round(devices[device][size].diagonal)) {
+        currentDevice.device = device
+        currentDevice.size = devices[device][size].name
+        return currentDevice
+      }
+    })
   })
 
-  useDeepCompareEffect(() => {
-    if (isDomAvailable()) {
-      if (isUndefined(breakpoints)) {
-        error(
-          "useViewportInfo",
-          `breakpoints theme value is: ${breakpoints}. Attempted to call the useViewport hook outside of 'theme' context. Make sure your component is rendered inside 'ThemeProvider' component, part of 'styled-component' module`
-        )
-        return
-      }
+  return currentDevice
+}
 
-      function detectDevice(width, height) {
-        if (debug) {
-          log("useViewportInfo", {
-            message1: `${debug.component} component - detectDevice() fired}`,
-            message2: `breakpoints: ${JSON.stringify(breakpoints)}`,
-          })
-        }
-        const deviceDetected = {
-          device: viewportInfo.device,
-          size: viewportInfo.size,
-          currentDiagonal: viewportInfo.diagonal,
-        }
+function useViewportInfo() {
+  const [viewportInfo, setViewportInfo] = React.useState({
+    ...getCurrentWindowSize(),
+    ...getCurrentDiagonal(),
+    ...getCurrentDevice(),
+  })
 
-        const devices = breakpoints["viewportDevices"]
-        const currentDiagonal = Math.round(
-          Math.sqrt(width * width + height * height)
-        )
+  const updateWindowSize = React.useCallback(() => {
+    const { width, height } = getCurrentWindowSize()
+    const { diagonal } = getCurrentDiagonal()
+    const { device, size } = getCurrentDevice()
 
-        // TODO: It might be improved maybe normalizing the breakpoint data with flat data-structure and avoiding double looping
-        Object.keys(devices).forEach(device => {
-          Object.keys(devices[device]).forEach(size => {
-            if (currentDiagonal >= Math.round(devices[device][size].diagonal)) {
-              deviceDetected.device = device
-              deviceDetected.size = devices[device][size].name
-              deviceDetected.currentDiagonal = currentDiagonal
-              return deviceDetected
-            }
-          })
-        })
-        // }
-        return deviceDetected
-      }
-
-      function setNextViewportInfo() {
-        const nextViewportInfo = { ...viewportInfo }
-        const viewportWidth = window.innerWidth
-        const viewportHeight = window.innerHeight
-        const { device, size, currentDiagonal } = detectDevice(
-          viewportWidth,
-          viewportHeight
-        )
-        nextViewportInfo.device = device
-        nextViewportInfo.size = size
-        nextViewportInfo.height = viewportHeight
-        nextViewportInfo.width = viewportWidth
-        nextViewportInfo.diagonal = currentDiagonal
-
-        if (debug) {
-          log(
-            "useViewportInfo",
-            `${debug.component} component - output ${JSON.stringify(
-              nextViewportInfo
-            )}`
-          )
-        }
-        return nextViewportInfo
-      }
-
-      // set the viewportinfo object in mounting accordingly to the size of screen
-      // because it might be different from the data set on initial state
-      setViewportInfo(setNextViewportInfo())
-
-      const debouncedHandleResize = debounce(function handleResize() {
-        console.log(`component ${component} is mounted`)
-        console.log("resize")
-        // reset the viewport info when the "resize" event is fired with a delay of 100ms
-        setViewportInfo(setNextViewportInfo())
-      }, 100)
-      window.addEventListener("resize", debouncedHandleResize)
-      return () => {
-        console.log(`component ${component} is unmounted`)
-        window.removeEventListener("resize", debouncedHandleResize)
-      }
+    const nextViewportInfo = {
+      ...viewportInfo,
+      device,
+      size,
+      width,
+      height,
+      diagonal,
     }
-  }, [{ viewportInfo }])
+
+    setViewportInfo(nextViewportInfo)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const resizeStop = React.useCallback(() => {
+    if (isDomAvailable()) {
+      window.removeEventListener("resize", updateWindowSize)
+    }
+  }, [])
+
+  const resizeStart = React.useCallback(() => {
+    debounce(updateWindowSize(), 100)
+
+    if (isDomAvailable()) {
+      window.addEventListener("resize", updateWindowSize)
+    }
+  }, [updateWindowSize])
+
+  React.useEffect(() => {
+    // if (isUndefined(breakpoints)) {
+    //   error(
+    //     "useViewportInfo",
+    //     `breakpoints theme value is: ${breakpoints}. Attempted to call the useViewport hook outside of 'theme' context. Make sure your component is rendered inside 'ThemeProvider' component, part of 'styled-component' module`
+    //   )
+    //   return
+    // }
+
+    resizeStart()
+
+    return () => {
+      resizeStop()
+    }
+  }, [resizeStart, resizeStop])
 
   return viewportInfo
 }

@@ -4,31 +4,37 @@ import { stringToArray, arrayToString, isNotString } from "@utils/index"
 import { useResponsiveSize } from "@hooks/index"
 
 const Space = css`
-  margin-left: ${({ ml, marginLeft }) => {
+  margin-left: ${({ theme, ml, marginLeft }) => {
+    const { device, diagonal } = theme?.viewport
+
     const marginProp = ml ?? marginLeft
-    if (marginProp) return useResponsiveSize(marginProp)
+    if (marginProp) return useResponsiveSize({ device, diagonal }, marginProp)
 
     return null
   }};
-  margin-right: ${({ mr, marginRight }) => {
+  margin-right: ${({ theme, mr, marginRight }) => {
+    const { device, diagonal } = theme?.viewport
     const marginProp = mr ?? marginRight
-    if (marginProp) return useResponsiveSize(marginProp)
+    if (marginProp) return useResponsiveSize({ device, diagonal }, marginProp)
 
     return null
   }};
-  margin-bottom: ${({ mb, marginBottom }) => {
+  margin-bottom: ${({ theme, mb, marginBottom }) => {
+    const { device, diagonal } = theme?.viewport
     const marginProp = mb ?? marginBottom
-    if (marginProp) return useResponsiveSize(marginProp)
+    if (marginProp) return useResponsiveSize({ device, diagonal }, marginProp)
 
     return null
   }};
-  margin-top: ${({ mt, marginTop }) => {
+  margin-top: ${({ theme, mt, marginTop }) => {
+    const { device, diagonal } = theme?.viewport
     const marginProp = mt ?? marginTop
-    if (marginProp) return useResponsiveSize(marginProp)
+    if (marginProp) return useResponsiveSize({ device, diagonal }, marginProp)
 
     return null
   }};
-  margin: ${({ m, margin }) => {
+  margin: ${({ theme, m, margin }) => {
+    const { device, diagonal } = theme?.viewport
     if (m || margin) {
       const marginProp = m ?? margin
 
@@ -42,7 +48,7 @@ const Space = css`
       const marginArray = stringToArray(marginProp, " ")
 
       let newMarginArray = marginArray.map(marginValue => {
-        return useResponsiveSize(marginValue)
+        return useResponsiveSize({ device, diagonal }, marginValue)
       })
 
       return arrayToString(newMarginArray)
@@ -50,31 +56,36 @@ const Space = css`
 
     return null
   }};
-  padding-left: ${({ pl, paddingLeft }) => {
+  padding-left: ${({ theme, pl, paddingLeft }) => {
+    const { device, diagonal } = theme?.viewport
     const paddingProp = pl ?? paddingLeft
-    if (paddingProp) return useResponsiveSize(paddingProp)
+    if (paddingProp) return useResponsiveSize({ device, diagonal }, paddingProp)
 
     return null
   }};
-  padding-right: ${({ pr, paddingRight }) => {
+  padding-right: ${({ theme, pr, paddingRight }) => {
+    const { device, diagonal } = theme?.viewport
     const paddingProp = pr ?? paddingRight
-    if (paddingProp) return useResponsiveSize(paddingProp)
+    if (paddingProp) return useResponsiveSize({ device, diagonal }, paddingProp)
 
     return null
   }};
-  padding-bottom: ${({ pb, paddingBottom }) => {
+  padding-bottom: ${({ theme, pb, paddingBottom }) => {
+    const { device, diagonal } = theme?.viewport
     const paddingProp = pb ?? paddingBottom
-    if (paddingProp) return useResponsiveSize(paddingProp)
+    if (paddingProp) return useResponsiveSize({ device, diagonal }, paddingProp)
 
     return null
   }};
-  padding-top: ${({ pt, paddingTop }) => {
+  padding-top: ${({ theme, pt, paddingTop }) => {
+    const { device, diagonal } = theme?.viewport
     const paddingProp = pt ?? paddingTop
-    if (paddingProp) return useResponsiveSize(paddingProp)
+    if (paddingProp) return useResponsiveSize({ device, diagonal }, paddingProp)
 
     return null
   }};
-  padding: ${({ p, padding }) => {
+  padding: ${({ theme, p, padding }) => {
+    const { device, diagonal } = theme?.viewport
     if (p || padding) {
       const paddingProp = p ?? padding
 
@@ -88,7 +99,7 @@ const Space = css`
       const paddingArray = stringToArray(paddingProp, " ")
 
       let newPaddingArray = paddingArray.map(paddingValue => {
-        return useResponsiveSize(paddingValue)
+        return useResponsiveSize({ device, diagonal }, paddingValue)
       })
       return arrayToString(newPaddingArray)
     }

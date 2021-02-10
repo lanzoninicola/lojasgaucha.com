@@ -19,6 +19,8 @@ const WebsiteLayout = ({ children }) => {
     "WebsiteLayout"
   )
 
+  // console.log(device, size, height, width, diagonal)
+
   const nextTheme = {
     ...theme,
     viewport: { device, size, height, width, diagonal },

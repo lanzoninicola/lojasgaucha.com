@@ -10,6 +10,7 @@ import { error } from "@utils/index"
 const Text = styled.div`
   ${Typeface}
   font-size: ${({ theme, variant, size, debug }) => {
+    const { device, diagonal } = theme?.viewport
     let fontSize = 0
     size
       ? (fontSize = composeCSSValue(size))
@@ -24,9 +25,11 @@ const Text = styled.div`
       return
     }
 
-    return useResponsiveSize(fontSize, debug)
+    return useResponsiveSize({ device, diagonal }, fontSize, debug)
   }};
   line-height: ${({ theme, variant, size, lh }) => {
+    const { device, diagonal } = theme?.viewport
+
     let lineHeight = 0
     lh
       ? (lineHeight = composeCSSValue(lh))
@@ -43,7 +46,7 @@ const Text = styled.div`
       return
     }
 
-    return useResponsiveSize(lineHeight)
+    return useResponsiveSize({ device, diagonal }, lineHeight)
   }};
   ${props => props.$style ?? {}}
 `
