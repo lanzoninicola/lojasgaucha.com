@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { colorsTheme } from "@theme/index"
 import InputLabel from "../inputLabel"
 import { FlexContainer } from "@layouts/index"
-import { useResponsiveSize } from "@layouts/lib/index"
+import { useResponsiveSize } from "@hooks/index"
 
 import ErrorMessage from "../errors/errorMessage"
 

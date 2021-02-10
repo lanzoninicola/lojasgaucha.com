@@ -34,7 +34,8 @@ export default function getCurrentDevice(userBreakpoints = {}) {
     )
   }
 
-  // TODO: It might be improved maybe normalizing the breakpoint data with flat data-structure and avoiding double looping
+  // TODO: It might be improved maybe normalizing the breakpoint data
+  // with flat data-structure and avoiding double looping
   Object.keys(devices).forEach(device => {
     Object.keys(devices[device]).forEach(size => {
       if (diagonal >= Math.round(devices[device][size].diagonal)) {
@@ -44,6 +45,6 @@ export default function getCurrentDevice(userBreakpoints = {}) {
       }
     })
   })
-  console.log("getCurrentDevice", devices, currentDevice)
+
   return currentDevice
 }

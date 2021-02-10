@@ -38,7 +38,7 @@ function useViewportInfo() {
     if (isDomAvailable) {
       window.removeEventListener("resize", updateWindowSize)
     }
-  }, [])
+  }, [updateWindowSize])
 
   const resizeStart = React.useCallback(() => {
     debounce(updateWindowSize(), 100)
