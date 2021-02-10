@@ -23,13 +23,13 @@ export default function useResponsiveSize(size = {}, debug = false) {
 
   const isFixedSize = !isObject(size) && (isNumber(size) || isString(size))
 
-  log("useResponsiveSize", {
-    size,
-    typeofSize: typeof size,
-    isFixedSize,
-    currentDeviceFormFactor: currentDeviceFormFactor,
-    userSize: size[currentDeviceFormFactor],
-  })
+  // log("useResponsiveSize", {
+  //   size,
+  //   typeofSize: typeof size,
+  //   isFixedSize,
+  //   currentDeviceFormFactor: currentDeviceFormFactor,
+  //   userSize: size[currentDeviceFormFactor],
+  // })
 
   // TODO: validation of size input
   // if(!isFixedSize && isObject(size)) {

@@ -2,7 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 
 import { FlexContainer, GridContainer } from "@layouts/index"
-import { InputText, InputIconSubmit } from "@inputs/index"
+import { InputText, InputIconSubmit } from "@inputs"
 
 import { useForm } from "react-hook-form"
 
