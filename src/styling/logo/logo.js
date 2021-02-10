@@ -1,15 +1,16 @@
 import * as React from "react"
 import PropTypes from "prop-types"
+import { ThemeContext } from "styled-components"
 import { BlueLogo as BlueLogoDesktop } from "./variants/desktop/bluelogo"
 import { OrangeLogo as OrangeLogoDesktop } from "./variants/desktop/orangelogo"
 import { BlueLogo as BlueLogoMobile } from "./variants/mobile/bluelogo"
 import { OrangeLogo as OrangeLogoMobile } from "./variants/mobile/orangelogo"
 
-import { useViewportInfo } from "@hooks/index"
 import { NavLink } from "@navigation/index"
 
 const Logo = ({ variants }) => {
-  const { device } = useViewportInfo("logo")
+  const themeContext = React.useContext(ThemeContext)
+  const { device } = themeContext?.viewport
 
   let RenderedLogo = null
 

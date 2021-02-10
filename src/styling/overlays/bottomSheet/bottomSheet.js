@@ -1,12 +1,10 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled, { ThemeContext } from "styled-components"
 import { motion } from "framer-motion"
 
 import { GridContainer } from "@layouts/index"
 import CloseModalButton from "./closeModalButton"
-
-import { useViewportInfo } from "@hooks/index"
 
 // background: linear-gradient(
 //   180deg,
@@ -32,7 +30,8 @@ const StyledBottomSheet = styled(motion.div)`
 `
 
 const BottomSheet = ({ modalKey, hideModal, children }) => {
-  const { width, height } = useViewportInfo("BottomSheet")
+  const themeContext = React.useContext(ThemeContext)
+  const { width, height } = themeContext?.viewport
 
   return (
     <>

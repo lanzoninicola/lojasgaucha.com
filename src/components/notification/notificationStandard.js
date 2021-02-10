@@ -1,12 +1,14 @@
 import * as React from "react"
+import { ThemeContext } from "styled-components"
 import { FlexContainer } from "@layouts/index"
 import { Text } from "@typography/index"
 import { colorsTheme } from "@theme/index"
 import { Box } from "@shape/index"
 import { Clock } from "@widget/index"
 
-const NotificationStandard = ({ viewportInfo }) => {
-  const { device } = viewportInfo
+const NotificationStandard = () => {
+  const themeContext = React.useContext(ThemeContext)
+  const { device } = themeContext?.viewport
 
   return (
     <FlexContainer
@@ -16,10 +18,10 @@ const NotificationStandard = ({ viewportInfo }) => {
       stretchXL={device === "laptop" && true}
       p={device === "laptop" && "4 180 4 180"}
     >
-      <Clock />
+      {/* <Clock />
       <Box bg="blue" opacity="0.9">
         <Text color={colorsTheme("white")}>A loja està aberta. Aproveite!</Text>
-      </Box>
+      </Box> */}
     </FlexContainer>
   )
 }

@@ -2,6 +2,8 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 
+import { ThemeProvider } from "styled-components"
+import { theme } from "@theme/_global-style"
 import { GlobalStyle } from "../../_theme/_global-style"
 
 import { PancakeLayout } from "@templates/index"
@@ -13,29 +15,38 @@ import BannerNotification from "../../../components/notification/bannerNotificat
 import NavbarItemsMobile from "../../../components/navbar/mobile/navbarItems-mobile"
 
 const WebsiteLayout = ({ children }) => {
-  const { device, height, width } = useViewportInfo("WebsiteLayout")
+  const { device, size, height, width, diagonal } = useViewportInfo(
+    "WebsiteLayout"
+  )
+
+  const nextTheme = {
+    ...theme,
+    viewport: { device, size, height, width, diagonal },
+  }
 
   return (
     <>
-      <GlobalStyle />
-      <Helmet>
-        {/* https://leafletjs.com/examples/quick-start/ */}
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""
-        />
-      </Helmet>
+      <ThemeProvider theme={nextTheme}>
+        <GlobalStyle />
+        <Helmet>
+          {/* https://leafletjs.com/examples/quick-start/ */}
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""
+          />
+        </Helmet>
 
-      <ModalProvider>
-        <PancakeLayout h100v w100v viewportInfo={{ device, height, width }}>
-          {(device === "laptop" || device === "tablet") && <Header />}
-          <BannerNotification />
-          {children}
-          {device === "mobile" && <NavbarItemsMobile />}
-        </PancakeLayout>
-      </ModalProvider>
+        <ModalProvider>
+          <PancakeLayout h100v w100v>
+            {(device === "laptop" || device === "tablet") && <Header />}
+            <BannerNotification />
+            {children}
+            {device === "mobile" && <NavbarItemsMobile />}
+          </PancakeLayout>
+        </ModalProvider>
+      </ThemeProvider>
     </>
   )
 }

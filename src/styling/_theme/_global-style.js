@@ -23,6 +23,7 @@ export const theme = {
   navbar: navbarTheme(),
   modal: overlaysTheme(),
   form: formTheme(),
+  viewport: null,
 }
 
 export const GlobalStyle = createGlobalStyle`
