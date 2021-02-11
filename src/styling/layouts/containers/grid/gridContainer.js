@@ -37,15 +37,13 @@ const StyledGridContainer = styled.div`
       return parseGridTemplateValues(columns)
     }
 
-    const customResponsiveBreakpoint =
-      theme?.breakpoints?.responsiveGrid?.columns.width
-    const defaultResponsiveBreakpoint =
-      theme?.breakpoints?.responsiveGrid?.columns.default
+    const responsiveGridColumns = theme?.breakpoints?.responsiveGrid?.columns
+    const minColumnsWidth =
+      responsiveGridColumns.custom ?? responsiveGridColumns.default
 
-    return `repeat(auto-fit, minmax(min(${
-      composeCSSValue(customResponsiveBreakpoint) ??
-      composeCSSValue(defaultResponsiveBreakpoint)
-    }, 100%), 1fr))`
+    return `repeat(auto-fit, minmax(min(${composeCSSValue(
+      minColumnsWidth
+    )}, 100%), 1fr))`
   }};
   grid-template-rows: ${({ theme, rows, rAuto }) => {
     if (rAuto && isNotUndefined(rows)) {
@@ -68,16 +66,12 @@ const StyledGridContainer = styled.div`
       return parseGridTemplateValues(rows)
     }
 
-    const customResponsiveBreakpoint =
-      theme?.breakpoints?.responsiveGrid?.rows.height
+    const responsiveGridRows = theme?.breakpoints?.responsiveGrid?.columns
+    const minRowsWidth = responsiveGridRows.custom ?? responsiveGridRows.default
 
-    const defaultResponsiveBreakpoint =
-      theme?.breakpoints?.responsiveGrid?.rows.default
-
-    return `repeat(auto-fit, minmax(min(${
-      composeCSSValue(customResponsiveBreakpoint) ??
-      composeCSSValue(defaultResponsiveBreakpoint)
-    }, 100%), 1fr))`
+    return `repeat(auto-fit, minmax(min(${composeCSSValue(
+      minRowsWidth
+    )}, 100%), 1fr))`
   }}};
   grid-auto-rows: ${({ rAuto }) => {
     if (rAuto) return `minmax(min-content, max-content)`

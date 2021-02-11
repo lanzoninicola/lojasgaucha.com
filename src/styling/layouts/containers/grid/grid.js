@@ -29,6 +29,7 @@ const Grid = css`
 
     return useResponsiveSize(DEFAULT_GAP)
   }};
+  max-width: 100vw;
 `
 
 Grid.defaultProps = {
