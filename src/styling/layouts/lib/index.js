@@ -7,7 +7,7 @@ import composeCSSValue from "./composeCSSValue"
 import parseGridTemplateValues from "./parseGridTemplateValues"
 import getBreakpoints from "./getBreakpoints"
 import isValidBreakpoints from "./isValidBreakpoints"
-import customValuePerDevice from "./customValuePerDevice"
+import getCurrentDeviceValue from "./getCurrentDeviceValue"
 
 export {
   CSSRelativeUnits,
@@ -19,5 +19,5 @@ export {
   parseGridTemplateValues,
   getBreakpoints,
   isValidBreakpoints,
-  customValuePerDevice,
+  getCurrentDeviceValue,
 }

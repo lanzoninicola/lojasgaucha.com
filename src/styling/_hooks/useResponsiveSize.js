@@ -1,12 +1,10 @@
-import { theme } from "@theme/_global-style"
-
 import {
   composeCSSValue,
   getCurrentDiagonal,
   getCurrentDevice,
   breakpointsDesignSpec,
 } from "@layouts/lib/index"
-import { isObject, isNumber, isString, log } from "@utils/index"
+import { isObject, isNumber, isString } from "@utils/index"
 
 // SOURCE
 // https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
@@ -21,36 +19,23 @@ export default function useResponsiveSize(size = {}, debug = false) {
     currentDeviceFormFactor
   )
 
-  const isFixedSize = !isObject(size) && (isNumber(size) || isString(size))
+  let userSize = 0
 
-  // log("useResponsiveSize", {
-  //   size,
-  //   typeofSize: typeof size,
-  //   isFixedSize,
-  //   currentDeviceFormFactor: currentDeviceFormFactor,
-  //   userSize: size[currentDeviceFormFactor],
-  // })
+  const isFixedSize = isNumber(size) || isString(size)
+  const isResponsiveSize = isObject(size)
 
   // TODO: validation of size input
-  // if(!isFixedSize && isObject(size)) {
+  // if(!isFixedSize && isObject(size)) {}
 
-  // }
-
-  let USER_SIZE = isFixedSize ? parseInt(size) : size[currentDeviceFormFactor]
+  userSize = isFixedSize
+    ? parseInt(size)
+    : isResponsiveSize
+    ? size[currentDeviceFormFactor]
+    : userSize
 
   const resultSize = Math.round(
-    (currentViewportDiagonal / viewportDiagonalDesignSpec) * USER_SIZE
+    (currentViewportDiagonal / viewportDiagonalDesignSpec) * userSize
   )
 
-  // if (debug) {
-  //   log("useResponsiveSize", {
-  //     currentDeviceFormFactor,
-  //     currentViewportDiagonal,
-  //     viewportDiagonalDesignSpec,
-  //     inputSize: size,
-  //     USER_SIZE,
-  //     resultSize,
-  //   })
-  // }
   return composeCSSValue(resultSize)
 }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import { Space } from "../layouts"
 import { useResponsiveSize } from "@hooks"
-import { composeCSSValue, customValuePerDevice } from "@layouts/lib/index"
+import { composeCSSValue, getCurrentDeviceValue } from "@layouts/lib/index"
 import { isObject } from "@utils"
 
 const Typeface = css`
@@ -15,7 +15,7 @@ const Typeface = css`
     return `normal`
   }};
   font-weight: ${({ weight }) => {
-    if (isObject(weight)) return customValuePerDevice(weight)
+    if (isObject(weight)) return getCurrentDeviceValue(weight)
     if (weight) return weight
 
     return null
