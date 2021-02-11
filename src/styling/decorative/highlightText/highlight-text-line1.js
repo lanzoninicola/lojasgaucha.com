@@ -1,15 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-
-const Span = styled.span`
-  position: relative;
-  white-space: ${({ newLine }) => {
-    if (newLine) return "pre-wrap"
-
-    return null
-  }};
-`
+import { Span } from "@layouts/index"
 
 const Line1 = styled.div`
   position: absolute;

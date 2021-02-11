@@ -13,7 +13,11 @@ const Hero = () => {
   return (
     <>
       {(device === "laptop" || device === "tablet") && (
-        <GridContainer h="780" w100 pl={{ laptop: 180, tablet: 16 }}>
+        <GridContainer
+          h="780"
+          pl={{ laptop: 176, tablet: 72 }}
+          pr={{ tablet: 72 }}
+        >
           <FlexContainer column centerX>
             <HeroHeadline centerX />
           </FlexContainer>

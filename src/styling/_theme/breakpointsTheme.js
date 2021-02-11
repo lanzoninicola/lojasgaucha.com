@@ -96,6 +96,15 @@ const breakpointsTheme = () => {
       tablet: "medium",
       laptop: "medium",
     },
+    responsiveGrid: {
+      columns: {
+        default: 240,
+        width: 600, // this changes the behaviour of GridContainer component ("grid-template-columns" property)
+      },
+      rows: {
+        default: 40, // this changes the behaviour of GridContainer component ("grid-template-rows" property)
+      },
+    },
   }
 }
 

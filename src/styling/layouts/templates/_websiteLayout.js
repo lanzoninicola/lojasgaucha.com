@@ -39,14 +39,22 @@ const WebsiteLayout = ({ children }) => {
             crossorigin=""
           />
         </Helmet>
-
         <ModalProvider>
-          <PancakeLayout h100v w100v>
-            {(device === "laptop" || device === "tablet") && <Header />}
-            <BannerNotification />
-            {children}
-            {device === "mobile" && <NavbarItemsMobile />}
-          </PancakeLayout>
+          {(device === "laptop" || device === "tablet") && (
+            <PancakeLayout>
+              <Header />
+              <BannerNotification />
+              {children}
+            </PancakeLayout>
+          )}
+
+          {device === "mobile" && (
+            <PancakeLayout h100v w100v>
+              <BannerNotification />
+              {children}
+              <NavbarItemsMobile />
+            </PancakeLayout>
+          )}
         </ModalProvider>
       </ThemeProvider>
     </>

@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 
 import { Space } from "../layouts"
 import { useResponsiveSize } from "@hooks"
-import { composeCSSValue } from "@layouts/lib/index"
+import { composeCSSValue, customValuePerDevice } from "@layouts/lib/index"
+import { isObject } from "@utils"
 
 const Typeface = css`
   ${Space}
@@ -13,7 +14,12 @@ const Typeface = css`
 
     return `normal`
   }};
-  font-weight: ${({ weight }) => weight ?? "400"};
+  font-weight: ${({ weight }) => {
+    if (isObject(weight)) return customValuePerDevice(weight)
+    if (weight) return weight
+
+    return null
+  }};
   text-transform: ${({ capitalize, uppercase, lowercase }) => {
     if (capitalize) return capitalize
     if (uppercase) return `uppercase`

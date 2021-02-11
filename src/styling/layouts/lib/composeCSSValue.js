@@ -4,6 +4,7 @@ import {
   isNotNumber,
   isNumber,
   isNotString,
+  error,
 } from "../../utils/index"
 
 const CSSUnits = CSSRelativeUnits.values
@@ -52,8 +53,9 @@ export default function composeCSSValue(CSSPropertyValue) {
   }
 
   if (isNotString(CSSPropertyValue) && isNotNumber(CSSPropertyValue)) {
-    console.error(
-      `composeCSSValue() - The value of CSS Property used must be a string or number and not ${typeof CSSPropertyValue}`
+    error(
+      `composeCSSValue()`,
+      `The value of CSS Property used must be a string or number and not ${typeof CSSPropertyValue}`
     )
     return CSSPropertyValue
   }

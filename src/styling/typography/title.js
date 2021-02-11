@@ -7,6 +7,7 @@ import { useResponsiveSize } from "@hooks/index"
 import { composeCSSValue } from "@layouts/lib/index"
 
 import { isUndefined, warn, error } from "@utils/index"
+import { isObject, isNotString } from "../utils"
 
 const StyledTitle = styled.div`
   ${Typeface}
@@ -63,7 +64,14 @@ Title.defaultProps = {
 
 Title.propTypes = {
   variant: PropTypes.string,
-  weight: PropTypes.string,
+  weight: (props, propName, componentName) => {
+    if (isNotString(props[propName]) && !isObject(props[propName])) {
+      error(
+        `${componentName}`,
+        `The "${propName}" prop for the component ${componentName} must be a string or object.`
+      )
+    }
+  },
   as: (props, propName, componentName) => {
     if (typeof props[propName] !== "string") {
       error(
