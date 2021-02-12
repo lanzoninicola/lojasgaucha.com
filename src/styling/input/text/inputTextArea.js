@@ -6,7 +6,7 @@ import { FlexContainer } from "@layouts/index"
 import { useResponsiveSize } from "@hooks/index"
 import { composeCSSValue } from "@layouts/lib/index"
 
-import InputLabel from "../label/inputLabel"
+import InputLabel from "../inputLabel"
 
 import ErrorMessage from "../errors/errorMessage"
 

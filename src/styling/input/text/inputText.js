@@ -2,48 +2,49 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { colorsTheme } from "@theme/index"
-import { FlexContainer } from "@layouts/index"
-import { useResponsiveSize } from "@hooks/index"
-import { composeCSSValue } from "@layouts/lib/index"
-
-import InputLabel from "../label/inputLabel"
+import InputLabel from "../inputLabel"
+import { FlexContainer, Space } from "@layouts/index"
 
 import ErrorMessage from "../errors/errorMessage"
 
-const StyledInputTextArea = styled.textarea`
-  height: 90px;
+const StyledInputText = styled.input`
+  ${Space}
   width: 100%;
   font-family: ${({ theme }) =>
-    theme?.form?.layout?.textArea?.variants?.firebase?.fontFamily};
-  font-size: ${({ theme, fontSize }) => {
-    if (fontSize) {
-      fontSize = composeCSSValue(fontSize)
-      return useResponsiveSize(fontSize)
-    }
-
-    return theme?.form?.layout?.textArea?.variants?.firebase?.size
-  }};
+    theme?.form?.layout?.input.variants?.firebase?.fontFamily};
+  font-size: ${({ theme }) =>
+    theme?.form?.layout?.input.variants?.firebase?.size};
   line-height: ${({ theme }) =>
-    theme?.form?.layout?.textArea?.variants?.firebase?.lineHeight};
+    theme?.form?.layout?.input.variants?.firebase?.lineHeight};
+  text-transform: ${({ lowercase, uppercase }) => {
+    if (lowercase) return `lowercase`
+    if (uppercase) return `uppercase`
+
+    return null
+  }};
+
   padding: 0px 4px;
-  color: ${() => colorsTheme("white")};
+
+  background: transparent;
   border: 0;
   border-bottom: ${() => `1px solid ${colorsTheme("orange")}`};
-  background: transparent;
   border-color: ${() => colorsTheme("orange")};
-  resize: none;
+  caret-color: ${() =>
+    colorsTheme("whitegray", { colorUnit: "rgba", opacity: "0.5" })};
+  transition: border 0.15s cubic-bezier(0, 0, 0.2, 1);
+  color: ${() => colorsTheme("white")};
 
   &:focus {
     outline: none;
   }
 
   &::placeholder {
-    font-size: ${() => useResponsiveSize("14px")};
+    font-size: 14px;
     opacity: 0.3;
   }
 `
 
-const InputTextArea = React.forwardRef(
+const InputText = React.forwardRef(
   (
     {
       name,
@@ -59,22 +60,30 @@ const InputTextArea = React.forwardRef(
     },
     ref
   ) => {
+    // TODO: make the focus run
+    // const [focusField, setFocusField] = React.useState()
+
+    // const handleFocustInputItem = e => {
+    //   setFocusField(e.target.name)
+    // }
+
     return (
-      <FlexContainer hAuto wAuto mt="16" mb="16">
+      <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
         {!noLabel && (
           <InputLabel htmlFor={name} text={labelText} {...props?.labelStyle} />
         )}
-        <StyledInputTextArea
+        <StyledInputText
           ref={e => {
             reactHookForm.register(e, {
               required: reactHookForm.validation.errorMessage,
             })
-            ref.current = e // you can still assign to ref
+            ref.current = e
           }}
           type="text"
           id={name}
           name={name}
           placeholder={placeholder}
+          // onFocus={handleFocustInputItem}
           {...props}
         />
         {reactHookForm.errors[name] && (
@@ -88,30 +97,30 @@ const InputTextArea = React.forwardRef(
   }
 )
 
-InputTextArea.defaultProps = {
+InputText.defaultProps = {
   isRequired: false,
+  isFocused: false,
   noLabel: false,
 }
 
-InputTextArea.propTypes = {
+InputText.propTypes = {
   name: (props, propName, componentName) => {
     if (props[propName] === undefined || props[propName] === "") {
-      return new Error(
-        `${componentName} - "${propName}" prop (type "string") is missing.`
-      )
+      return new Error(`${componentName} - "name"?<string> prop is missing.`)
     }
   },
   isRequired: PropTypes.bool,
   noLabel: (props, propName, componentName) => {
     if (props[propName] === false && props["labelText"] === undefined) {
       return new Error(
-        `${componentName} - "${propName}" prop (type "string") is missing.`
+        `${componentName} - "labelText"?<string> prop is missing.`
       )
     }
   },
+  isFocused: PropTypes.bool,
   labelText: PropTypes.string,
   labelStyle: PropTypes.object,
   reactHookForm: PropTypes.object,
 }
 
-export default InputTextArea
+export default InputText
