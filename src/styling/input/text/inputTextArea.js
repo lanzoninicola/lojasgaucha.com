@@ -6,9 +6,7 @@ import { FlexContainer } from "@layouts/index"
 import { useResponsiveSize } from "@hooks/index"
 import { composeCSSValue } from "@layouts/lib/index"
 
-import InputLabel from "../inputLabel"
-
-import ErrorMessage from "../errors/errorMessage"
+import { ErrorMessage, InputLabel } from "../index"
 
 const StyledInputTextArea = styled.textarea`
   height: 90px;

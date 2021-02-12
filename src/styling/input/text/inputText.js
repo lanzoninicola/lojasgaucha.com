@@ -2,10 +2,9 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { colorsTheme } from "@theme/index"
-import InputLabel from "../inputLabel"
 import { FlexContainer, Space } from "@layouts/index"
 
-import ErrorMessage from "../errors/errorMessage"
+import { ErrorMessage, InputLabel } from "../index"
 
 const StyledInputText = styled.input`
   ${Space}
