@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { GridContainer } from "@layouts/index"
+import { GridFixedContainer } from "@layouts/index"
 import useDeepCompareEffect from "use-deep-compare-effect"
 
 import FaleConoscoFormHeader from "./fale-conosco-form-headline"
@@ -37,7 +37,7 @@ const FaleConoscoForm = () => {
   }
 
   return (
-    <GridContainer rows=".25fr 1fr" gap="4" stretchX h100>
+    <GridFixedContainer rows=".25fr 1fr" gap="4" stretchX h100>
       <FaleConoscoFormHeader submissionStatus={formStore.submissionStatus} />
       {formStore.submissionStatus === "message-submission" && (
         <FaleConoscoFormMessage handleSubmission={handleSubmission} />
@@ -50,7 +50,7 @@ const FaleConoscoForm = () => {
           URRAAAA!!! HAI VINTO UNA BAMBOLINA
         </div>
       )}
-    </GridContainer>
+    </GridFixedContainer>
   )
 }
 

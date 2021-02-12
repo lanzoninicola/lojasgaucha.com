@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GridContainer } from "@layouts/index"
+import { GridFixedContainer } from "@layouts/index"
 import { Title } from "@typography/index"
 import { ImageCard } from "@cards/index"
 import { useStaticQuery, graphql } from "gatsby"
@@ -30,11 +30,17 @@ const InstitutionalServices = () => {
   `)
 
   return (
-    <GridContainer rows=".25fr 1fr" gap="8" stretchX h100>
+    <GridFixedContainer rows=".25fr 1fr" gap="8" stretchX h100>
       <Title as="h2" color="orange" weight="700" mt="16" mb="8">
         Nossos serviços
       </Title>
-      <GridContainer rows="1fr" columns="1fr 1fr 1fr" gap="8" stretchX h100>
+      <GridFixedContainer
+        rows="1fr"
+        columns="1fr 1fr 1fr"
+        gap="8"
+        stretchX
+        h100
+      >
         {data?.images?.edges.map((image, index) => {
           const fluidData = image?.node?.childImageSharp?.fluid
           const label = removeFilenameExtension(
@@ -53,8 +59,8 @@ const InstitutionalServices = () => {
             />
           )
         })}
-      </GridContainer>
-    </GridContainer>
+      </GridFixedContainer>
+    </GridFixedContainer>
   )
 }
 

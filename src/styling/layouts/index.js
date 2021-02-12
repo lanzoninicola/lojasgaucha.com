@@ -4,7 +4,8 @@ import Size from "./composition/size/size"
 import FlexContainer from "./containers/flex/flexContainer"
 import FlexMotionContainer from "./containers/flex/flexMotionContainer"
 
-import GridContainer from "./containers/grid/gridContainer"
+import GridFixedContainer from "./containers/grid/gridFixedContainer"
+import GridFluidContainer from "./containers/grid/gridFluidContainer"
 import PancakeStack from "./containers/grid/pancakeStack"
 
 import Span from "./containers/span/span"
@@ -17,7 +18,8 @@ export {
   Size,
   FlexContainer,
   PancakeStack,
-  GridContainer,
+  GridFixedContainer,
+  GridFluidContainer,
   FlexMotionContainer,
   Span,
   HeaderFixedContainer,

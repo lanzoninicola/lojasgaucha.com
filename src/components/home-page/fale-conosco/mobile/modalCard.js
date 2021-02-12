@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { GridContainer, Size, Space } from "@layouts/index"
+import { GridFixedContainer, Size, Space } from "@layouts/index"
 import { Title } from "@typography/index"
 
 const StyledModalCard = styled.div`
@@ -15,12 +15,12 @@ const StyledModalCard = styled.div`
 const ModalCard = ({ title, children, ...props }) => {
   return (
     <StyledModalCard {...props}>
-      <GridContainer rows="1fr" columns="1fr .25fr" centerY w100 h100>
+      <GridFixedContainer rows="1fr" columns="1fr .25fr" centerY w100 h100>
         <Title as="h5" weight="400" color="whitegray">
           {title}
         </Title>
         {children}
-      </GridContainer>
+      </GridFixedContainer>
     </StyledModalCard>
   )
 }

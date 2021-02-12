@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled, { ThemeContext } from "styled-components"
 import { motion } from "framer-motion"
 
-import { GridContainer } from "@layouts/index"
+import { GridFixedContainer } from "@layouts/index"
 import CloseModalButton from "./closeModalButton"
 
 // background: linear-gradient(
@@ -52,14 +52,14 @@ const BottomSheet = ({ modalKey, hideModal, children }) => {
           mass: 1,
         }}
       >
-        <GridContainer id="bottomSheet" gap="16px" rAuto h100>
+        <GridFixedContainer id="bottomSheet" gap="16px" rAuto h100>
           {/* <FlexContainer id="bottomSheet" column w100 stretchXM> */}
           {children}
 
           {/* TODO: verify to make the component below indipendent */}
           <CloseModalButton modalKey={modalKey} hideModal={hideModal} />
           {/* </FlexContainer> */}
-        </GridContainer>
+        </GridFixedContainer>
       </StyledBottomSheet>
     </>
   )

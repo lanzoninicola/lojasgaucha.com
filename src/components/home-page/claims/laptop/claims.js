@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import { GridContainer, FlexContainer } from "@layouts"
+import { GridFluidContainer, FlexContainer } from "@layouts"
 import { Title, Text } from "@typography"
 import { colorsTheme } from "@theme"
 
@@ -12,7 +12,7 @@ const Claims = () => {
   return (
     <>
       {(device === "laptop" || device === "tablet") && (
-        <GridContainer
+        <GridFluidContainer
           as="section"
           // columns="1fr 1fr 1fr"
           ml={{ laptop: 176, tablet: 72 }}
@@ -47,7 +47,7 @@ const Claims = () => {
               eiusmod non eiusmod voluptate enim magna duis reprehenderit.
             </Text>
           </FlexContainer>
-        </GridContainer>
+        </GridFluidContainer>
       )}
     </>
   )

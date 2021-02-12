@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled, { ThemeContext } from "styled-components"
-import { FlexContainer, GridContainer } from "@layouts/index"
+import { FlexContainer, GridFixedContainer } from "@layouts/index"
 import { Title, Text } from "@typography/index"
 import { NavModal, NavAnchor } from "@navigation/index"
 
@@ -26,7 +26,7 @@ const FaleConosco = () => {
   // per selezionare la persona con cui parlare
 
   return (
-    <GridContainer rows=".25fr 1fr" gap="16" stretchX h100>
+    <GridFixedContainer rows=".25fr 1fr" gap="16" stretchX h100>
       <FlexContainer columns left>
         <Title as="h2" color="orange" weight="700" mt="16" mb="8">
           Fale Conosco
@@ -37,7 +37,7 @@ const FaleConosco = () => {
         </Text>
       </FlexContainer>
       <StyledFaleConoscoInner>
-        <GridContainer rAuto>
+        <GridFixedContainer rAuto>
           <Title as="h4" weight="400" color="orange">
             Canais rapido
           </Title>
@@ -67,9 +67,9 @@ const FaleConosco = () => {
               <ModalCardIcon name="MAIL" />
             </ModalCard>
           </NavModal>
-        </GridContainer>
+        </GridFixedContainer>
       </StyledFaleConoscoInner>
-    </GridContainer>
+    </GridFixedContainer>
   )
 }
 

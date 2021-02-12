@@ -1,7 +1,7 @@
 import * as React from "react"
 // import styled from "styled-components"
 
-import { GridContainer } from "@layouts/index"
+import { GridFixedContainer } from "@layouts/index"
 import MapHeader from "./map-headline"
 import MapImageHeadline from "./map-image-headline"
 import StoreMap from "./map-image-storeMap"
@@ -20,13 +20,13 @@ import StoreMap from "./map-image-storeMap"
 
 const Map = () => {
   return (
-    <GridContainer rows=".25fr 1fr" gap="16" stretchX h100>
+    <GridFixedContainer rows=".25fr 1fr" gap="16" stretchX h100>
       <MapHeader />
-      <GridContainer rAuto columns="1fr" gap="16">
+      <GridFixedContainer rAuto columns="1fr" gap="16">
         <MapImageHeadline />
         <StoreMap />
-      </GridContainer>
-    </GridContainer>
+      </GridFixedContainer>
+    </GridFixedContainer>
   )
 }
 

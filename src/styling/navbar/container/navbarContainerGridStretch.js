@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { GridContainer } from "@layouts/index"
+import { GridFixedContainer } from "@layouts/index"
 
 import { error } from "@utils"
 
@@ -30,7 +30,7 @@ const NavbarContainerGridStretch = ({
   if (wAuto) delete nextComponentProps["wAuto"]
 
   return (
-    <GridContainer
+    <GridFixedContainer
       as="nav"
       w100
       h={h ?? height}
@@ -38,7 +38,7 @@ const NavbarContainerGridStretch = ({
       {...nextComponentProps}
     >
       {children}
-    </GridContainer>
+    </GridFixedContainer>
   )
 }
 

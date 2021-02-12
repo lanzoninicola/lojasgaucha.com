@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { FlexContainer, GridContainer } from "@layouts/index"
+import { FlexContainer, GridFixedContainer } from "@layouts/index"
 import { InputText, InputIconSubmit } from "@inputs"
 
 import { useForm } from "react-hook-form"
@@ -38,7 +38,13 @@ const FaleConoscoFormContactInfo = ({ handleSubmission }) => {
           // onFocus={handleFocustInputItem}
           // mb={!focusField && `8`}
         />
-        <GridContainer columns="1fr 0.15fr" rows="1fr" hAuto centerY gap="16">
+        <GridFixedContainer
+          columns="1fr 0.15fr"
+          rows="1fr"
+          hAuto
+          centerY
+          gap="16"
+        >
           <InputText
             ref={emailRef}
             name="email"
@@ -58,7 +64,7 @@ const FaleConoscoFormContactInfo = ({ handleSubmission }) => {
             // mb={!focusField && `8`}
           />
           <InputIconSubmit bg="orange" />
-        </GridContainer>
+        </GridFixedContainer>
       </FlexContainer>
     </StyledForm>
   )

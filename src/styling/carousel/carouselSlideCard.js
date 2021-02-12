@@ -15,10 +15,10 @@ const StyledCardWrapper = styled.div`
   min-width: 100%;
   background: ${({ theme, bg }) => {
     if (bg) return colorsTheme(bg)
-    return theme?.layout?.config?.carousel?.card?.background
+    return theme?.components?.config?.carousel?.card?.background
   }};
   border-radius: ${({ theme }) =>
-    theme?.layout?.config?.carousel?.card?.borderRadius ?? `25px`};
+    theme?.components?.config?.carousel?.card?.borderRadius ?? `25px`};
   scroll-snap-align: center;
   ${({ $style }) => $style ?? {}}
 `

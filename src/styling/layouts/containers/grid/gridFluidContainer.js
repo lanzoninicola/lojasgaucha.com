@@ -22,7 +22,7 @@ const StyledGridFluidContainer = styled.div`
       )
     }
 
-    const responsiveGridColumns = theme?.breakpoints?.responsiveGrid?.columns
+    const responsiveGridColumns = theme?.layout?.grid?.responsive?.columns
     const minColumnsWidth =
       responsiveGridColumns.custom ?? responsiveGridColumns.default
 
@@ -38,7 +38,7 @@ const StyledGridFluidContainer = styled.div`
       )
     }
 
-    const responsiveGridRows = theme?.breakpoints?.responsiveGrid?.columns
+    const responsiveGridRows = theme?.layout?.grid?.responsive?.columns
     const minRowsWidth = responsiveGridRows.custom ?? responsiveGridRows.default
 
     return `repeat(auto-fit, minmax(min(${useResponsiveSize(

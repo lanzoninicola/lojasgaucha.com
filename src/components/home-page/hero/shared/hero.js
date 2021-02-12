@@ -1,7 +1,11 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import { GridContainer, FlexContainer } from "@layouts/index"
+import {
+  GridFluidContainer,
+  GridFixedContainer,
+  FlexContainer,
+} from "@layouts/index"
 
 import HeroHeadline from "./hero-headline"
 import HeroAmbientes from "../mobile/hero-ambientes"
@@ -13,7 +17,7 @@ const Hero = () => {
   return (
     <>
       {(device === "laptop" || device === "tablet") && (
-        <GridContainer
+        <GridFluidContainer
           as="section"
           h="780"
           pl={{ laptop: 176, tablet: 72 }}
@@ -34,10 +38,10 @@ const Hero = () => {
             adipisicing esse mollit duis elit fugiat. Exercitation excepteur
             deserunt et aliquip.
           </FlexContainer>
-        </GridContainer>
+        </GridFluidContainer>
       )}
       {device === "mobile" && (
-        <GridContainer
+        <GridFixedContainer
           as="section"
           rows="0.5fr 1fr"
           columns="1fr"
@@ -50,7 +54,7 @@ const Hero = () => {
             <HeroHeadline mt="20" />
           </FlexContainer>
           <HeroAmbientes />
-        </GridContainer>
+        </GridFixedContainer>
       )}
     </>
   )

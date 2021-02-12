@@ -1,25 +1,5 @@
-/**
 const breakpointsTheme = () => {
-  return {
-    xxsmall: { name: "mobileXS", width: 320, height: 568, diagonal: 651.94 }, // iphone 5
-    xsmall: { name: "mobileM", width: 375, height: 667, diagonal: 765.19 }, // iphone 6/7/8
-    small: { name: "mobile", width: 375, height: 812, diagonal: 894.41 }, // iphone X
-    medium: { name: "tablet", width: 768, height: 1024, diagonal: 1280 },
-    large: { name: "laptop", width: 1366, height: 1024, diagonal: 1707.2 },
-    xlarge: { name: "laptopL", width: 1920, height: 945, diagonal: 2202.91 },
-    xxlarge: {
-      name: "laptopL",
-      width: 2560,
-      height: 1600,
-      diagonal: 3018.87,
-    },
-    xxxlarge: { name: "fourK", width: 3840, height: 2160, diagonal: 4405.81 },
-  }
-}
- */
-
-const breakpointsTheme = () => {
-  const breakpointsTheme = {
+  let breakpointsTheme = {
     viewportDevices: {
       mobile: {
         small: {
@@ -96,36 +76,10 @@ const breakpointsTheme = () => {
       tablet: "medium",
       laptop: "medium",
     },
-    responsiveGrid: {
-      columns: {
-        default: 240,
-        width: 600, // this changes the behaviour of GridContainer component ("grid-template-columns" property)
-      },
-      rows: {
-        default: 40, // this changes the behaviour of GridContainer component ("grid-template-rows" property)
-      },
-    },
-  }
-
-  const devicesBreakpoints = breakpointsTheme.viewportDevices
-
-  const responsiveGrid = {
-    // This state for the min-width of columns
-    // below this value the browser start stacking the grid-items
-    columns: {
-      default: devicesBreakpoints.mobile.small.width,
-      custom: devicesBreakpoints.tablet.small.width,
-    },
-    // This state for the min-heifht of rows
-    rows: {
-      default: devicesBreakpoints.mobile.small.height / 4,
-      custom: undefined,
-    },
   }
 
   breakpointsTheme = {
     ...breakpointsTheme,
-    responsiveGrid,
   }
 
   return breakpointsTheme
