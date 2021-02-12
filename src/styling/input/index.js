@@ -4,4 +4,10 @@ import InputTextArea from "./text/inputTextArea"
 import InputButtonSubmit from "./submit/inputButtonSubmit"
 import InputIconSubmit from "./submit/inputIconSubmit"
 
-export { InputText, InputTextArea, InputButtonSubmit, InputIconSubmit }
+export {
+  InputText,
+  InputTextArea,
+  InputButtonSubmit,
+  InputIconSubmit,
+  InputLabel,
+}
