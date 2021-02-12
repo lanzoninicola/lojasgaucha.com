@@ -1,8 +1,21 @@
-import breakpointsTheme from "../breakpointsTheme/breakpointsTheme"
-const devicesBreakpoints = breakpointsTheme().viewportDevices
+import { breakpointsTheme } from "@theme"
+
+const _breakpointsTheme = breakpointsTheme()
+const devicesBreakpoints = _breakpointsTheme?.viewportDevices
 
 function layoutTheme() {
   const _layoutTheme = {
+    viewport: {
+      //*
+      //*   if the below propertiy is valorized it means that
+      //*   there is an highly customizable layout for a viewport
+      //*   with a diagonal lower than the indicated one.
+      //*
+      //*   if exists a single layout for all breakpoints set to "zero" the prop
+      //*
+
+      minDiagonal: 1190,
+    },
     grid: {
       gap: {
         default: { mobile: 8, tablet: 16, laptop: 16 },

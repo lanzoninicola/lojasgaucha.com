@@ -5,7 +5,7 @@ import BottomSheet from "../overlays/bottomSheet/bottomSheet"
 import FaleConosco from "../../components/home-page/fale-conosco/mobile/fale-conosco"
 import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"
 import Map from "../../components/home-page/map/mobile/map"
-import Institutional from "../../components/home-page/institutional/institutional"
+import Institutional from "../../components/home-page/institutional/shared/institutional"
 
 const overlaysTheme = () => {
   return {

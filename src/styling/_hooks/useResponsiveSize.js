@@ -4,7 +4,7 @@ import {
   getCurrentDevice,
   breakpointsDesignSpec,
 } from "@layouts/lib/index"
-import { isObject, isNumber, isString } from "@utils/index"
+import { isObject, isNumber, isString, log } from "@utils/index"
 
 // SOURCE
 // https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
@@ -36,6 +36,15 @@ export default function useResponsiveSize(size = {}, debug = false) {
   const resultSize = Math.round(
     (currentViewportDiagonal / viewportDiagonalDesignSpec) * userSize
   )
+
+  if (debug) {
+    log("useResponsiveSize", {
+      currentViewportDiagonal,
+      viewportDiagonalDesignSpec,
+      userSize,
+      resultSize,
+    })
+  }
 
   return composeCSSValue(resultSize)
 }

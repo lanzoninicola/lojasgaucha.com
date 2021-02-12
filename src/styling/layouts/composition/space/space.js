@@ -102,7 +102,7 @@ const Space = css`
         const paddingArray = stringToArray(paddingProp, " ")
 
         let newPaddingArray = paddingArray.map(paddingValue => {
-          return useResponsiveSize(paddingValue, true)
+          return useResponsiveSize(paddingValue)
         })
         return arrayToString(newPaddingArray)
       }

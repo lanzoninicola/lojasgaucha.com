@@ -9,6 +9,7 @@ import Grid from "./grid"
 const StyledPancakeStack = styled.div`
   ${Grid}
   grid-template-rows: auto minmax(0,1fr) auto;
+  gap: 0px;
   ${props => props.$style ?? {}}
 `
 

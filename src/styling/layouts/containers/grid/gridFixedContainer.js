@@ -22,8 +22,8 @@ import {
 
 const StyledGridFixedContainer = styled.div`
   ${Grid}
-  grid-template-columns: ${({ theme, columns, cAuto }) => {
-    if (isUndefined(columns)) {
+  grid-template-columns: ${({ columns, cAuto }) => {
+    if (!cAuto && isUndefined(columns)) {
       error(
         `StyledGridFixedContainer`,
         `"columns" prop is missing: ${typeof columns}. You must passing the "columns" prop in a "Fixed Grid Container"`
@@ -31,7 +31,7 @@ const StyledGridFixedContainer = styled.div`
       return
     }
 
-    if (cAuto) {
+    if (cAuto && columns) {
       warn(
         "StyledGridFixedContainer",
         `You have passed "columns" prop with "cAuto / grid-auto-columns" prop. "columns" prop will be ignored`
@@ -39,7 +39,7 @@ const StyledGridFixedContainer = styled.div`
       return null
     }
 
-    if (isNotString(columns)) {
+    if (!cAuto && isNotString(columns)) {
       error(
         `StyledGridFixedContainer`,
         `"columns" prop must be a string, instead: "${typeof columns}"`
@@ -49,8 +49,8 @@ const StyledGridFixedContainer = styled.div`
 
     return parseGridTemplateValues(columns)
   }};
-  grid-template-rows: ${({ theme, rows, rAuto }) => {
-    if (isUndefined(rows)) {
+  grid-template-rows: ${({ rows, rAuto }) => {
+    if (!rAuto && isUndefined(rows)) {
       error(
         `StyledGridFixedContainer`,
         `"rows" prop is missing: ${typeof rows}. You must passing the "rows" prop in a "Fixed Grid Container"`
@@ -58,7 +58,7 @@ const StyledGridFixedContainer = styled.div`
       return
     }
 
-    if (rAuto) {
+    if (rAuto && rows) {
       warn(
         "StyledGridFixedContainer",
         `You have passed "rows" prop with "rAuto / grid-auto-rows". "rows" prop will be ignored`
@@ -66,7 +66,7 @@ const StyledGridFixedContainer = styled.div`
       return null
     }
 
-    if (isNotString(rows)) {
+    if (!rAuto && isNotString(rows)) {
       error(
         `StyledGridFixedContainer`,
         `"rows" prop must be a string, instead: "${typeof rows}"`
