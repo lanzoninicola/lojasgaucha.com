@@ -5,7 +5,6 @@ import {
   isNotString,
   isObject,
   isString,
-  log,
 } from "@utils/index"
 
 import { useResponsiveSize } from "@hooks/index"

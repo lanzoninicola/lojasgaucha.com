@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import { GridFluidContainer, GridFixedContainer, FlexContainer } from "@layouts"
+import { GridFluidContainer, GridFixedContainer } from "@layouts"
 import { Title, Text } from "@typography"
 import { colorsTheme } from "@theme"
 import { Box } from "@shape"

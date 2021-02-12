@@ -2,15 +2,9 @@ import * as React from "react"
 import styled from "styled-components"
 import Grid from "./grid"
 
-import { parseGridTemplateValues, composeCSSValue } from "@layouts/lib/index"
+import { parseGridTemplateValues } from "@layouts/lib/index"
 
-import {
-  isNotUndefined,
-  isUndefined,
-  isNotString,
-  warn,
-  error,
-} from "@utils/index"
+import { isUndefined, isNotString, warn, error } from "@utils/index"
 
 /**
  *  GridFixedContainer options:

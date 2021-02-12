@@ -4,7 +4,6 @@ import Grid from "./grid"
 
 import { useResponsiveSize } from "@hooks"
 import { isNotUndefined, warn } from "@utils/index"
-import { colorsTheme } from "@theme"
 
 /**
  *  Fluid Grid Container:

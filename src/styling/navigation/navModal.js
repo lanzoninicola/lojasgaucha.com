@@ -11,11 +11,7 @@ import { motion } from "framer-motion"
 
 import ModalConsumer from "../overlays/context/modalConsumer"
 
-// const StyledNavModal = styled(motion.div)`
-//   cursor: pointer;
-// `
-
-const StyledNavModal = styled.div`
+const StyledNavModal = styled(motion.div)`
   cursor: pointer;
 `
 

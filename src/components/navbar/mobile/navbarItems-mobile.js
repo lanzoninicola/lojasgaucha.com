@@ -14,7 +14,13 @@ const StyledNavbarItemsMobile = styled(NavbarContainerGridStretch)`
 
 const NavbarItemsMobile = ({ children, ...props }) => {
   return (
-    <StyledNavbarItemsMobile h="70" columns="1fr 1fr 1fr 1fr 1fr" {...props}>
+    <StyledNavbarItemsMobile
+      h100
+      columns="1fr 1fr 1fr 1fr 1fr"
+      pt="4"
+      pb="4"
+      {...props}
+    >
       <NavbarItems
         module="website"
         device="mobile"

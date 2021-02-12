@@ -1,5 +1,5 @@
 import { getCurrentDevice, isValidBreakpoints } from "@layouts/lib/index"
-import { isObject, error, log } from "@utils/index"
+import { isObject, error } from "@utils/index"
 
 export default function getCurrentDeviceValue(
   values = {},

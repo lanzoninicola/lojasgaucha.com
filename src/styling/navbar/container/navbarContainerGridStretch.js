@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { GridFixedContainer } from "@layouts/index"
 
-import { error } from "@utils"
+import { isUndefined, error } from "@utils"
 
 /**
  *    Unlike the "navbarContainerFlexStretch" component
@@ -18,6 +18,9 @@ const NavbarContainerGridStretch = ({
   wAuto,
   h,
   height,
+  h100,
+  h100v,
+  hAuto,
   columns,
   ...props
 }) => {
@@ -29,11 +32,19 @@ const NavbarContainerGridStretch = ({
   if (w100v) delete nextComponentProps["w100v"]
   if (wAuto) delete nextComponentProps["wAuto"]
 
+  const _height = h ?? height ?? h100 ?? h100v ?? hAuto
+  if (isUndefined(_height)) {
+    return error(
+      `NavbarContainerGridStretch`,
+      `You must define a value for the height of the element`
+    )
+  }
+
   return (
     <GridFixedContainer
       as="nav"
       w100
-      h={h ?? height}
+      rAuto
       columns={columns}
       {...nextComponentProps}
     >
@@ -47,7 +58,7 @@ NavbarContainerGridStretch.propTypes = {
   columns: PropTypes.string.isRequired,
   w: (props, propName, componentName) => {
     if (props[propName]) {
-      error(
+      return error(
         `${componentName}`,
         `A "${propName}" value has been passed as props. 
         
@@ -57,12 +68,11 @@ NavbarContainerGridStretch.propTypes = {
         
         `
       )
-      return
     }
   },
   width: (props, propName, componentName) => {
     if (props[propName]) {
-      error(
+      return error(
         `${componentName}`,
         `A "${propName}" value has been passed as props. 
         
@@ -72,12 +82,11 @@ NavbarContainerGridStretch.propTypes = {
         
         `
       )
-      return
     }
   },
   w100: (props, propName, componentName) => {
     if (props[propName]) {
-      error(
+      return error(
         `${componentName}`,
         `A "${propName}" value has been passed as props. 
         
@@ -87,12 +96,11 @@ NavbarContainerGridStretch.propTypes = {
         
         `
       )
-      return
     }
   },
   w100v: (props, propName, componentName) => {
     if (props[propName]) {
-      error(
+      return error(
         `${componentName}`,
         `A "${propName}" value has been passed as props. 
         
@@ -102,12 +110,11 @@ NavbarContainerGridStretch.propTypes = {
         
         `
       )
-      return
     }
   },
   wAuto: (props, propName, componentName) => {
     if (props[propName]) {
-      error(
+      return error(
         `${componentName}`,
         `A "${propName}" value has been passed as props. 
         
@@ -117,37 +124,36 @@ NavbarContainerGridStretch.propTypes = {
         
         `
       )
-      return
     }
   },
-  h: (props, propName, componentName) => {
-    if (
-      (props[propName] === undefined || props[propName] === null) &&
-      !props["height"]
-    ) {
-      error(
-        `${componentName}`,
-        `The "${propName}" prop value is missing. 
-        
-        You must define a value for the height of the element`
-      )
-      return
-    }
-  },
-  height: (props, propName, componentName) => {
-    if (
-      (props[propName] === undefined || props[propName] === null) &&
-      !props["h"]
-    ) {
-      error(
-        `${componentName}`,
-        `The "${propName}" prop value is missing. 
-        
-        You must define a value for the height of the element`
-      )
-      return
-    }
-  },
+  // h: (props, propName, componentName) => {
+  //   if (
+  //     (props[propName] === undefined || props[propName] === null) &&
+  //     !props["height"]
+  //   ) {
+  //     error(
+  //       `${componentName}`,
+  //       `The "${propName}" prop value is missing.
+
+  //       You must define a value for the height of the element`
+  //     )
+  //     return
+  //   }
+  // },
+  // height: (props, propName, componentName) => {
+  //   if (
+  //     (props[propName] === undefined || props[propName] === null) &&
+  //     !props["h"]
+  //   ) {
+  //     error(
+  //       `${componentName}`,
+  //       `The "${propName}" prop value is missing.
+
+  //       You must define a value for the height of the element`
+  //     )
+  //     return
+  //   }
+  // },
 }
 
 export default NavbarContainerGridStretch

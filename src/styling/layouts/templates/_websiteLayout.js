@@ -13,7 +13,7 @@ const WebsiteLayout = ({ children }) => {
   return (
     <>
       {(device === "laptop" || device === "tablet") && (
-        <PancakeLayout>
+        <PancakeLayout gap="0">
           <Header />
           <BannerNotification />
           {children}
@@ -21,7 +21,7 @@ const WebsiteLayout = ({ children }) => {
       )}
 
       {device === "mobile" && (
-        <PancakeLayout h100v w100v>
+        <PancakeLayout h100v w100v gap="8px">
           <BannerNotification />
           {children}
           <NavbarItemsMobile />
