@@ -1,11 +1,11 @@
 import * as React from "react"
 import { GridFixedContainer } from "@layouts/index"
-import { Box } from "@shape/index"
+import { TextBox } from "@layouts"
 import { Text } from "@typography/index"
 
 const StatsBigBox = () => {
   return (
-    <Box bg="white" opacity="0.31" br="10" h100 w100>
+    <TextBox bg="white" opacity="0.31" br="10" h100 w100>
       <GridFixedContainer rAuto columns="1fr" centerY>
         <GridFixedContainer rows="1fr" columns="1fr">
           <Text color="white">Em</Text>
@@ -20,7 +20,7 @@ const StatsBigBox = () => {
           <Text color="white">entregamos</Text>
         </GridFixedContainer>
       </GridFixedContainer>
-    </Box>
+    </TextBox>
   )
 }
 

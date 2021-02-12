@@ -30,8 +30,8 @@ const typographyTheme = () => {
     secondary: {
       family: '"Poppins", sans-serif',
       body: {
-        fontSize: { mobile: 16, tablet: 18, laptop: 18 },
-        lineHeight: { mobile: 18, tablet: 21, laptop: 21 },
+        fontSize: { mobile: 16, tablet: 16, laptop: 18 },
+        lineHeight: { mobile: 18, tablet: 19, laptop: 21 },
       },
       small: {
         fontSize: { mobile: 10, tablet: 10, laptop: 13 },

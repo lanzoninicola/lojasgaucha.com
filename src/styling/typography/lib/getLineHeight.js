@@ -33,6 +33,10 @@ export default function getLineHeight(
       _lineHeight = nextDevicesLineHeight
     }
   }
+
+  if (isNumber(userLineHeight) || isString(userLineHeight))
+    _lineHeight = parseInt(userLineHeight)
+
   // line-height is atomic using a breakpoints object --> line-height size from user
   let nextDevicesLineHeight = {}
   if (isObject(userLineHeight)) {

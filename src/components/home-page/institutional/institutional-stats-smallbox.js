@@ -1,12 +1,11 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { GridFixedContainer } from "@layouts/index"
-import { Box } from "@shape/index"
+import { GridFixedContainer, TextBox } from "@layouts/index"
 import { Text } from "@typography/index"
 
 const StatsSmallBox = ({ number, description }) => {
   return (
-    <Box bg="white" opacity="0.31" br="10" h100 w100>
+    <TextBox bg="white" opacity="0.31" br="10" h100 w100>
       <GridFixedContainer
         rows="1fr"
         columns="1fr 1fr"
@@ -20,7 +19,7 @@ const StatsSmallBox = ({ number, description }) => {
         </Text>
         <Text color="white">{description}</Text>
       </GridFixedContainer>
-    </Box>
+    </TextBox>
   )
 }
 

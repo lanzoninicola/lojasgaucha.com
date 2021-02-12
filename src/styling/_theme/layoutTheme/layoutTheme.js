@@ -2,8 +2,11 @@ import breakpointsTheme from "../breakpointsTheme/breakpointsTheme"
 const devicesBreakpoints = breakpointsTheme().viewportDevices
 
 function layoutTheme() {
-  const layoutTheme = {
+  const _layoutTheme = {
     grid: {
+      gap: {
+        default: { mobile: 8, tablet: 16, laptop: 16 },
+      },
       responsive: {
         // This state for the min-width of columns
         // below this value the browser start stacking the grid-items
@@ -19,7 +22,7 @@ function layoutTheme() {
       },
     },
   }
-  return layoutTheme
+  return _layoutTheme
 }
 
 export default layoutTheme

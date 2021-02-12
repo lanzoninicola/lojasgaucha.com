@@ -1,9 +1,10 @@
 import * as React from "react"
 import { ThemeContext } from "styled-components"
 
-import { GridFluidContainer, FlexContainer } from "@layouts"
+import { GridFluidContainer, GridFixedContainer, FlexContainer } from "@layouts"
 import { Title, Text } from "@typography"
 import { colorsTheme } from "@theme"
+import { Box } from "@shape"
 
 const Claims = () => {
   const themeContext = React.useContext(ThemeContext)
@@ -14,39 +15,71 @@ const Claims = () => {
       {(device === "laptop" || device === "tablet") && (
         <GridFluidContainer
           as="section"
-          // columns="1fr 1fr 1fr"
-          ml={{ laptop: 176, tablet: 72 }}
-          mr={{ laptop: 176, tablet: 72 }}
+          pl={{ laptop: 176, tablet: 72 }}
+          pr={{ laptop: 176, tablet: 72 }}
           bg={colorsTheme("blue")}
-          gap="48"
+          centerY
+          h="300"
+          cWidth="200"
         >
-          <FlexContainer column>
-            <Title as="h3">Qualidade</Title>
-            <Text>
+          <GridFixedContainer
+            columns="1fr"
+            rows="0.25fr 1fr"
+            gap="16"
+            pl="60"
+            pr="60"
+          >
+            <GridFixedContainer columns="0.1fr 1fr" rows="1fr" centerY>
+              <Box bg="green" w="17" h="17" />
+              <Title as="h3" color="orange" ls="4" uppercase>
+                Qualidade
+              </Title>
+            </GridFixedContainer>
+            <Text color="white" weight="300" lh={{ laptop: 28 }}>
               Excepteur Lorem do tempor occaecat proident Lorem id. Nulla anim
               consequat commodo adipisicing aute commodo occaecat laborum
-              veniam. Aliquip enim cillum adipisicing aliquip. Fugiat magna
-              eiusmod non eiusmod voluptate enim magna duis reprehenderit.
+              veniam.
             </Text>
-          </FlexContainer>
-          <FlexContainer column>
-            <Title as="h3">Validade</Title>
-            <Text>
+          </GridFixedContainer>
+
+          <GridFixedContainer
+            columns="1fr"
+            rows="0.25fr 1fr"
+            gap="16"
+            pl="60"
+            pr="60"
+          >
+            <GridFixedContainer columns="0.1fr 1fr" rows="1fr" centerY>
+              <Box bg="green" w="17" h="17" />
+              <Title as="h3" color="orange" ls="4" uppercase>
+                Validade
+              </Title>
+            </GridFixedContainer>
+            <Text color="white" weight="300" lh={{ laptop: 28 }}>
               Excepteur Lorem do tempor occaecat proident Lorem id. Nulla anim
               consequat commodo adipisicing aute commodo occaecat laborum
-              veniam. Aliquip enim cillum adipisicing aliquip. Fugiat magna
-              eiusmod non eiusmod voluptate enim magna duis reprehenderit.
+              veniam.
             </Text>
-          </FlexContainer>
-          <FlexContainer column>
-            <Title as="h3">Variedade</Title>
-            <Text>
+          </GridFixedContainer>
+          <GridFixedContainer
+            columns="1fr"
+            rows="0.25fr 1fr"
+            gap="16"
+            pl="60"
+            pr="60"
+          >
+            <GridFixedContainer columns="0.1fr 1fr" rows="1fr" centerY>
+              <Box bg="green" w="17" h="17" />
+              <Title as="h3" color="orange" ls="4" uppercase>
+                Variedade
+              </Title>
+            </GridFixedContainer>
+            <Text color="white" weight="300" lh={{ laptop: 28 }}>
               Excepteur Lorem do tempor occaecat proident Lorem id. Nulla anim
               consequat commodo adipisicing aute commodo occaecat laborum
-              veniam. Aliquip enim cillum adipisicing aliquip. Fugiat magna
-              eiusmod non eiusmod voluptate enim magna duis reprehenderit.
+              veniam.
             </Text>
-          </FlexContainer>
+          </GridFixedContainer>
         </GridFluidContainer>
       )}
     </>

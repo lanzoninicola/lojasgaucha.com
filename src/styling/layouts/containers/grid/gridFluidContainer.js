@@ -4,6 +4,7 @@ import Grid from "./grid"
 
 import { useResponsiveSize } from "@hooks"
 import { isNotUndefined, warn } from "@utils/index"
+import { colorsTheme } from "@theme/index"
 
 /**
  *  Fluid Grid Container:
@@ -14,7 +15,7 @@ import { isNotUndefined, warn } from "@utils/index"
 
 const StyledGridFluidContainer = styled.div`
   ${Grid}
-  grid-template-columns: ${({ theme, columns }) => {
+  grid-template-columns: ${({ theme, columns, cWidth }) => {
     if (isNotUndefined(columns)) {
       warn(
         `StyledGridFluidContainer`,
@@ -24,7 +25,7 @@ const StyledGridFluidContainer = styled.div`
 
     const responsiveGridColumns = theme?.layout?.grid?.responsive?.columns
     const minColumnsWidth =
-      responsiveGridColumns.custom ?? responsiveGridColumns.default
+      cWidth ?? responsiveGridColumns.custom ?? responsiveGridColumns.default
 
     return `repeat(auto-fit, minmax(min(${useResponsiveSize(
       minColumnsWidth
@@ -38,13 +39,14 @@ const StyledGridFluidContainer = styled.div`
       )
     }
 
-    const responsiveGridRows = theme?.layout?.grid?.responsive?.columns
+    const responsiveGridRows = theme?.layout?.grid?.responsive?.rows
     const minRowsWidth = responsiveGridRows.custom ?? responsiveGridRows.default
 
     return `repeat(auto-fit, minmax(min(${useResponsiveSize(
       minRowsWidth
     )}, 100%), 1fr))`
   }}};
+
   ${props => props.$style ?? {}}
 `
 

@@ -6,8 +6,9 @@ import { Size, FlexContainer } from "@layouts/index"
 import { composeCSSValue } from "@layouts/lib/index"
 import { isUndefined, warn } from "@utils/index"
 
-const Box = styled.div`
+const StyledTextBox = styled.div`
   ${Size}
+  padding: ${({ p }) => p ?? `3px 10px 3px 10px`};
   background: ${({ bg, opacity }) => {
     return colorsTheme(bg, {
       colorUnit: "rgba",
@@ -20,7 +21,20 @@ const Box = styled.div`
   }};
 `
 
-Box.propTypes = {
+const TextBox = ({ bg, opacity, br, children, ...props }) => {
+  return (
+    <FlexContainer row centerY wAuto>
+      <StyledTextBox bg={bg} opacity={opacity} br={br} {...props}>
+        <FlexContainer h100 w100 centerX>
+          {children}
+        </FlexContainer>
+      </StyledTextBox>
+    </FlexContainer>
+  )
+}
+
+TextBox.propTypes = {
+  children: PropTypes.node.isRequired,
   bg: (props, propName, componentName) => {
     if (isUndefined(props[propName])) {
       warn(
@@ -33,4 +47,4 @@ Box.propTypes = {
   br: PropTypes.string,
 }
 
-export default Box
+export default TextBox

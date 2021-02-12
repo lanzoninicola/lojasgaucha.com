@@ -4,6 +4,8 @@
  * @param {object} options
  */
 
+import { isNotUndefined } from "@utils"
+
 const colorsTheme = (color, options = { colorUnit: "hex", opacity: 1 }) => {
   const colors = {
     orange: {
@@ -52,33 +54,23 @@ const colorsTheme = (color, options = { colorUnit: "hex", opacity: 1 }) => {
     },
   }
 
-  if (color !== undefined) {
-    const isColorExists =
-      Object.keys(colors).filter(colorValue => colorValue === color).length !==
-      0
+  const isColorExists = isNotUndefined(colors[color])
 
-    if (!isColorExists) {
-      return colors["black"]["hex"]
-    }
-
-    const colorUnit = options?.colorUnit.toLowerCase()
-
-    if (colorUnit === "hex") {
-      return colors[color]["hex"]
-    }
-
-    if (colorUnit === "rgb") {
-      return `rgb(${colors[color]["rgb"]}, ${options?.opacity})`
-    }
-
-    if (colorUnit === "rgba") {
-      return `rgba(${colors[color]["rgb"]}, ${options?.opacity})`
-    }
-
-    return colors[color]["hex"]
+  if (!isColorExists) {
+    return colors["black"]["hex"]
   }
 
-  return colors
+  const colorUnit = options?.colorUnit.toLowerCase()
+
+  if (colorUnit === "hex") return colors[color]["hex"]
+
+  if (colorUnit === "rgb")
+    return `rgb(${colors[color]["rgb"]}, ${options?.opacity})`
+
+  if (colorUnit === "rgba")
+    return `rgba(${colors[color]["rgb"]}, ${options?.opacity})`
+
+  return colors[color]["hex"]
 }
 
 export default colorsTheme

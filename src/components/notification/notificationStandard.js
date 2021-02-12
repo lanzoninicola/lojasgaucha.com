@@ -3,7 +3,7 @@ import { ThemeContext } from "styled-components"
 import { FlexContainer } from "@layouts/index"
 import { Text } from "@typography/index"
 import { colorsTheme } from "@theme/index"
-import { Box } from "@shape/index"
+import { TextBox } from "@layouts"
 import { Clock } from "@widget/index"
 
 const NotificationStandard = () => {
@@ -22,9 +22,9 @@ const NotificationStandard = () => {
       pr={{ laptop: 180, tablet: 80 }}
     >
       <Clock />
-      <Box bg="blue" opacity="0.9">
+      <TextBox bg="blue" opacity="0.9">
         <Text color={colorsTheme("white")}>A loja està aberta. Aproveite!</Text>
-      </Box>
+      </TextBox>
     </FlexContainer>
   )
 }

@@ -1,5 +1,5 @@
 const breakpointsTheme = () => {
-  let breakpointsTheme = {
+  let _breakpointsTheme = {
     viewportDevices: {
       mobile: {
         small: {
@@ -78,11 +78,7 @@ const breakpointsTheme = () => {
     },
   }
 
-  breakpointsTheme = {
-    ...breakpointsTheme,
-  }
-
-  return breakpointsTheme
+  return _breakpointsTheme
 }
 
 export default breakpointsTheme

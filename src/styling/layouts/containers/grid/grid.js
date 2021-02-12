@@ -3,10 +3,9 @@ import { Space } from "@layouts/index"
 import { Size } from "@layouts/index"
 
 import { useResponsiveSize } from "@hooks/index"
+import { colorsTheme } from "@theme/index"
 
 // https://stackoverflow.com/questions/56651064/changing-tag-type-when-ealignXtending-component-in-styled-components
-
-const DEFAULT_GAP = 16
 
 const Grid = css`
   ${Space}
@@ -26,10 +25,15 @@ const Grid = css`
   }};
   gap: ${({ theme, gap }) => {
     if (gap) return useResponsiveSize(gap)
+    const themeGridLayout = theme?.layout?.grid
 
-    return useResponsiveSize(DEFAULT_GAP)
+    return useResponsiveSize(themeGridLayout.gap.default)
   }};
   max-width: 100vw;
+  background: ${({ bg }) => {
+    if (bg) return bg
+    return null
+  }};
 `
 
 Grid.defaultProps = {

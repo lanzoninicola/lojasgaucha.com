@@ -10,6 +10,8 @@ import PancakeStack from "./containers/grid/pancakeStack"
 
 import Span from "./containers/span/span"
 
+import TextBox from "./containers/textBox/textBox"
+
 import HeaderFixedContainer from "./composition/header/headerFixedContainer"
 import HeaderScrollContainer from "./composition/header/headerScrollContainer"
 
@@ -22,6 +24,7 @@ export {
   GridFluidContainer,
   FlexMotionContainer,
   Span,
+  TextBox,
   HeaderFixedContainer,
   HeaderScrollContainer,
 }
