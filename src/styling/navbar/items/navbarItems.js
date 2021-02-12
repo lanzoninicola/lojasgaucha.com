@@ -9,8 +9,8 @@ import NavbarItem from "../item/navbarItem"
 import {
   isObject,
   isUndefined,
-  isFunction,
   isNotUndefined,
+  isFunction,
   isNotString,
   error,
 } from "@utils/index"
@@ -42,21 +42,26 @@ const NavbarItems = ({
     return
   }
 
-  return itemList.map((item, index) => {
-    const componentProps = {
-      key: index,
-      item: item,
-      device: device,
-      stretch: stretch,
-      layout: layout,
-    }
+  const renderComponent = () => {
+    const isCustomNavItem = isNotUndefined(NavItemComponent)
 
-    if (NavItemComponent !== undefined) {
-      return <NavItemComponent {...componentProps} {...props} />
-    }
+    return itemList.map((item, index) => {
+      const componentProps = {
+        key: index,
+        item: item,
+        device: device,
+        stretch: stretch,
+        layout: layout,
+      }
 
-    return <NavbarItem {...componentProps} {...props} />
-  })
+      if (isCustomNavItem)
+        return <NavItemComponent {...componentProps} {...props} />
+
+      return <NavbarItem {...componentProps} {...props} />
+    })
+  }
+
+  return renderComponent()
 }
 
 NavbarItems.propTypes = {

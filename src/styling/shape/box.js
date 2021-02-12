@@ -1,8 +1,7 @@
-import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { colorsTheme } from "@theme/index"
-import { Size, FlexContainer } from "@layouts/index"
+import { Size } from "@layouts/index"
 import { composeCSSValue } from "@layouts/lib/index"
 import { isUndefined, warn } from "@utils/index"
 

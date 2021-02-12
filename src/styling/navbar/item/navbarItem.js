@@ -6,65 +6,42 @@ import { FlexContainer } from "@layouts/index"
 import NavItemIcon from "./navItemIcon"
 import NavItemText from "./navItemText"
 
-import { NavLink, NavDiv, NavModal, NavAnchor } from "@navigation/index"
+import { NavigationWrapper } from "@navigation"
+import { error } from "@utils"
 
 const NavbarItem = ({ item, layout, device, stretch, hideIcon, hideText }) => {
-  const navbarItem = (
-    <FlexContainer
-      column
-      centerY
-      centerX
-      h100
-      ml={stretch ?? null}
-      mr={stretch ?? null}
-    >
-      {!hideIcon && (
-        <NavItemIcon
-          icon={item.icon}
-          device={device}
-          spotlighted={item.spotlighted}
-          layout={layout}
-        />
-      )}
-      {!hideText && (
-        <NavItemText
-          device={device}
-          spotlighted={item.spotlighted}
-          layout={layout}
-        >
-          {item.text}
-        </NavItemText>
-      )}
-    </FlexContainer>
-  )
-
   const { type, module, value } = item?.to
 
-  if (type === "link") {
-    return <NavLink to={{ type, value }}>{navbarItem}</NavLink>
-  }
-
-  if (type === "modal") {
-    return (
-      <NavModal
-        from={module}
-        to={{ type, value }}
-        renderOption={{ action: "toggle" }}
+  return (
+    <NavigationWrapper type={type} module={module} value={value}>
+      <FlexContainer
+        column
+        centerY
+        centerX
+        h100
+        ml={stretch ?? null}
+        mr={stretch ?? null}
       >
-        {navbarItem}
-      </NavModal>
-    )
-  }
-
-  if (type === "anchor") {
-    return <NavAnchor to={{ type, value }}>{navbarItem}</NavAnchor>
-  }
-
-  if (type === "component") {
-    return <NavDiv to={{ type, value }}>{navbarItem}</NavDiv>
-  }
-
-  return null
+        {!hideIcon && (
+          <NavItemIcon
+            icon={item.icon}
+            device={device}
+            spotlighted={item.spotlighted}
+            layout={layout}
+          />
+        )}
+        {!hideText && (
+          <NavItemText
+            device={device}
+            spotlighted={item.spotlighted}
+            layout={layout}
+          >
+            {item.text}
+          </NavItemText>
+        )}
+      </FlexContainer>
+    </NavigationWrapper>
+  )
 }
 
 NavbarItem.propTypes = {
@@ -72,9 +49,10 @@ NavbarItem.propTypes = {
     // icon: "ALERT_TRIANGLE", text: "Porque nós", to: {…}, spotlighted: {…}
 
     if (!props[propName].hasOwnProperty("icon")) {
-      return new Error(
+      return error(
+        `${componentName}`,
         `
-        ${componentName} - Prop "${propName}" must be an object with a property called "icon" . 
+        Prop "${propName}" must be an object with a property called "icon" . 
         
         The "icon" property contains the name of icon (from /iconsTheme.js) to render
         
@@ -83,9 +61,10 @@ NavbarItem.propTypes = {
     }
 
     if (!props[propName].hasOwnProperty("text")) {
-      return new Error(
+      return error(
+        `${componentName}`,
         `
-        ${componentName} - Prop "${propName}" must be an object with a property called "text" . 
+        Prop "${propName}" must be an object with a property called "text" . 
         
         The "text" property contains the text to render at the bottom of the icon.
         
@@ -94,9 +73,10 @@ NavbarItem.propTypes = {
     }
 
     if (!props[propName].hasOwnProperty("to")) {
-      return new Error(
+      return error(
+        `${componentName}`,
         `
-        ${componentName} - Prop "${propName}" must be an object with a property called "to" . 
+        Prop "${propName}" must be an object with a property called "to" . 
         
         The "to" property is an object that contains the info for routing {type: "link", module: "navbarMobile", value: "/product"}.
         
@@ -105,9 +85,10 @@ NavbarItem.propTypes = {
     }
 
     if (!props[propName]["to"].hasOwnProperty("type")) {
-      return new Error(
+      return error(
+        `${componentName}`,
         `
-        ${componentName} - Prop "${propName}" must be an object with a property called "type" . 
+        Prop "${propName}" must be an object with a property called "type" . 
         
         The "type" property must be a string and its value could be:
         - link
@@ -120,9 +101,10 @@ NavbarItem.propTypes = {
     }
 
     if (!props[propName]["to"].hasOwnProperty("value")) {
-      return new Error(
+      return error(
+        `${componentName}`,
         `
-        ${componentName} - Prop "${propName}" must be an object with a property called "value" . 
+        Prop "${propName}" must be an object with a property called "value" . 
         
         The "value" property must be a string and its value could be:
         - a link: an internal URL of website (eg. "/product")
@@ -135,9 +117,10 @@ NavbarItem.propTypes = {
     }
 
     if (!props[propName].hasOwnProperty("spotlighted")) {
-      return new Error(
+      return error(
+        `${componentName}`,
         `
-        ${componentName} - Prop "${propName}" must be an object with a property called "spotlighted". 
+        Prop "${propName}" must be an object with a property called "spotlighted". 
         
         The "spotlighted" is a string and defines the color of icon and text of nav-item if you want to emphasize.
         
