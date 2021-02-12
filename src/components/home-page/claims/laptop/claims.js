@@ -1,15 +1,13 @@
 import * as React from "react"
-import { ThemeContext } from "styled-components"
 
 import { GridFluidContainer, GridFixedContainer } from "@layouts"
+import { useViewportInfo } from "@hooks"
 import { Title, Text } from "@typography"
 import { colorsTheme } from "@theme"
 import { Box } from "@shape"
 
 const Claims = () => {
-  const themeContext = React.useContext(ThemeContext)
-  const { device } = themeContext?.viewport
-
+  const { device } = useViewportInfo()
   return (
     <>
       {(device === "laptop" || device === "tablet") && (

@@ -1,9 +1,5 @@
-import {
-  composeCSSValue,
-  getCurrentDiagonal,
-  getCurrentDevice,
-  breakpointsDesignSpec,
-} from "@layouts/lib/index"
+import { composeCSSValue, breakpointsDesignSpec } from "@layouts/lib/index"
+import { useViewportInfo } from "@hooks"
 import { isObject, isNumber, isString, log } from "@utils/index"
 
 // SOURCE
@@ -13,8 +9,10 @@ import { isObject, isNumber, isString, log } from "@utils/index"
 export default function useResponsiveSize(size = {}, debug = false) {
   // I can't use ThemeProvider data, some components using this function are mounted
   // before the values requested here (device, diagonal) and located in the "theme" are available
-  const { device: currentDeviceFormFactor } = getCurrentDevice()
-  const { diagonal: currentViewportDiagonal } = getCurrentDiagonal()
+  const {
+    device: currentDeviceFormFactor,
+    diagonal: currentViewportDiagonal,
+  } = useViewportInfo()
   const { diagonalSpec: viewportDiagonalDesignSpec } = breakpointsDesignSpec(
     currentDeviceFormFactor
   )

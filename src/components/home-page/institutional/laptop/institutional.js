@@ -46,13 +46,7 @@ const Institutional = () => {
               <GridFixedContainer rows="1fr 1fr 1fr" columns="1fr" gap="16">
                 <GridFixedContainer rows="1fr" columns="1fr 1fr" gap="16">
                   <GridFixedContainer rows="1fr" columns="1fr 1fr" gap="16">
-                    <Text
-                      color="blue"
-                      weight="600"
-                      size="72"
-                      align="right"
-                      debug
-                    >
+                    <Text color="blue" weight="600" size="72" align="right">
                       180
                     </Text>
                     <Text color="blue">cozinhas</Text>
