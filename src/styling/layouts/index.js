@@ -1,3 +1,6 @@
+import ViewportContext from "./viewport/viewportContext"
+import ViewportProvider from "./viewport/viewportProvider"
+
 import Space from "./composition/space/space"
 import Size from "./composition/size/size"
 
@@ -16,6 +19,8 @@ import HeaderFixedContainer from "./composition/header/headerFixedContainer"
 import HeaderScrollContainer from "./composition/header/headerScrollContainer"
 
 export {
+  ViewportContext,
+  ViewportProvider,
   Space,
   Size,
   FlexContainer,

@@ -1,4 +1,4 @@
-import { breakpointsTheme } from "@theme"
+import breakpointsTheme from "../breakpointsTheme/breakpointsTheme"
 
 const _breakpointsTheme = breakpointsTheme()
 const devicesBreakpoints = _breakpointsTheme?.viewportDevices

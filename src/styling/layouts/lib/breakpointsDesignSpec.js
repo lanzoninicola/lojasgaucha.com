@@ -1,4 +1,4 @@
-import { theme } from "@theme/_global-style"
+import { theme } from "@theme"
 
 import { isUndefined, error } from "@utils/index"
 

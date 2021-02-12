@@ -16,6 +16,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         "@app": path.resolve(__dirname, "src/"),
         "@styling": path.resolve(__dirname, "src/styling/"),
+        "@gatsby": path.resolve(__dirname, "src/styling/_gatsby"),
         "@hooks": path.resolve(__dirname, "src/styling/_hooks/"),
         "@buttons": path.resolve(__dirname, "src/styling/buttons/"),
         "@carousel": path.resolve(__dirname, "src/styling/carousel/"),
@@ -36,8 +37,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@typography": path.resolve(__dirname, "src/styling/typography/"),
         "@cards": path.resolve(__dirname, "src/styling/cards/"),
         "@widget": path.resolve(__dirname, "src/styling/widget/"),
-        "@theme": path.resolve(__dirname, "src/styling/_theme/"),
         "@utils": path.resolve(__dirname, "src/styling/utils/"),
+        "@theme": path.resolve(__dirname, "src/styling/_theme/"),
       },
     },
   })

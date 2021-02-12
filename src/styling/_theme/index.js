@@ -1,5 +1,6 @@
 import colorsTheme from "./colorsTheme"
+import { theme, GlobalStyle } from "./_globalTheme/globalTheme"
 import layoutTheme from "./layoutTheme/layoutTheme"
 import breakpointsTheme from "./breakpointsTheme/breakpointsTheme"
 
-export { colorsTheme, layoutTheme, breakpointsTheme }
+export { theme, GlobalStyle, colorsTheme, layoutTheme, breakpointsTheme }

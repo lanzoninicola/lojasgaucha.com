@@ -1,4 +1,4 @@
-import { theme } from "@theme/_global-style"
+import { theme } from "@theme"
 
 import { getCurrentDiagonal } from "@layouts/lib/index"
 import { isUndefined, error } from "@utils/index"

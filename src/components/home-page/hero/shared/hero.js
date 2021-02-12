@@ -1,5 +1,4 @@
 import * as React from "react"
-import { ThemeContext } from "styled-components"
 
 import {
   GridFluidContainer,
@@ -7,12 +6,13 @@ import {
   FlexContainer,
 } from "@layouts/index"
 
+import { useViewportInfo } from "@hooks"
+
 import HeroHeadline from "./hero-headline"
 import HeroAmbientes from "../mobile/hero-ambientes"
 
 const Hero = () => {
-  const themeContext = React.useContext(ThemeContext)
-  const { device } = themeContext?.viewport
+  const { device } = useViewportInfo()
 
   return (
     <>

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { theme } from "@theme/_global-style"
+import { theme } from "@theme"
 
 import {
   composeCSSValue,

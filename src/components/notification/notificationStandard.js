@@ -1,14 +1,13 @@
 import * as React from "react"
-import { ThemeContext } from "styled-components"
+import { useViewportInfo } from "@hooks"
 import { FlexContainer } from "@layouts/index"
 import { Text } from "@typography/index"
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 import { TextBox } from "@layouts"
 import { Clock } from "@widget/index"
 
 const NotificationStandard = () => {
-  const themeContext = React.useContext(ThemeContext)
-  const { device } = themeContext?.viewport
+  const { device } = useViewportInfo()
 
   return (
     <FlexContainer

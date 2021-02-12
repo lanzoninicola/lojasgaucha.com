@@ -5,7 +5,7 @@ import { Text, SmallText } from "@typography/index"
 import { NavLink } from "@navigation/index"
 import { SVGIcon } from "@icons/index"
 
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 
 const HeroAmbientesHeadline = () => {
   return (

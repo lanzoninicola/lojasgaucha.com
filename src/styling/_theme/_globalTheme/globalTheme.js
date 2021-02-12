@@ -1,17 +1,17 @@
 import reset from "styled-reset"
 import { createGlobalStyle } from "styled-components"
 
-import companyTheme from "./companyTheme/companyTheme"
-import breakpointsTheme from "./breakpointsTheme/breakpointsTheme"
-import layoutTheme from "./layoutTheme/layoutTheme"
-import iconsTheme from "./iconsTheme/iconsTheme"
-import typographyTheme from "./typographyTheme"
-import { colorsTheme } from "@theme/index"
-import buttonTheme from "./buttonsTheme"
-import navbarTheme from "./navbarTheme/navbarTheme"
-import overlaysTheme from "./overlaysTheme"
-import formTheme from "./formTheme"
-import componentsTheme from "./componentsTheme/componentsTheme"
+import companyTheme from "../companyTheme/companyTheme"
+import breakpointsTheme from "../breakpointsTheme/breakpointsTheme"
+import layoutTheme from "../layoutTheme/layoutTheme"
+import iconsTheme from "../iconsTheme/iconsTheme"
+import typographyTheme from "../typographyTheme"
+import { colorsTheme } from "@theme"
+import buttonTheme from "../buttonsTheme"
+import navbarTheme from "../navbarTheme/navbarTheme"
+import overlaysTheme from "../overlaysTheme"
+import formTheme from "../formTheme"
+import componentsTheme from "../componentsTheme/componentsTheme"
 
 export const theme = {
   company: companyTheme(),

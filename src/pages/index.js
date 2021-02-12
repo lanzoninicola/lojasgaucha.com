@@ -1,21 +1,27 @@
 import * as React from "react"
-import Layout from "../components/layout"
+import { ThemeContext } from "styled-components"
 import SEO from "../components/seo"
 
+import { WebsiteLayout } from "@templates"
 import Hero from "../components/home-page/hero/shared/hero"
 import Claims from "../components/home-page/claims/laptop/claims"
-import Institutional from "../components/home-page/institutional/shared/institutional"
+import Institutional from "../components/home-page/institutional/laptop/institutional"
 
 const IndexPage = () => {
+  // const themeContext = React.useContext(ThemeContext)
+  // const { device } = themeContext?.viewport
+
   return (
-    <Layout>
+    <WebsiteLayout>
       <SEO title="Home" />
       <Hero />
-      <Claims />
-      // DIVIDERE L'Institutional COMPONENT PER MOBILE E DESKTOP VERSION E
-      INSERIRE IF PER DEVICE IN QUESTA PAGINA
-      <Institutional />
-    </Layout>
+      {/* {(device === "laptop" || device === "tablet") && (
+        <>
+          <Claims />
+          <Institutional />
+        </>
+      )} */}
+    </WebsiteLayout>
   )
 }
 

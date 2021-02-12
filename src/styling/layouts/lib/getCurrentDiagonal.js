@@ -1,5 +1,5 @@
 import { getCurrentWindowSize } from "@layouts/lib/index"
-import { layoutTheme } from "@theme"
+import layoutTheme from "../../_theme/layoutTheme/layoutTheme"
 
 const _layoutTheme = layoutTheme()
 const _minDiagonal = _layoutTheme?.viewport?.minDiagonal

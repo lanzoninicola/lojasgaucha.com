@@ -3,7 +3,7 @@ import { Space } from "@layouts/index"
 import { Size } from "@layouts/index"
 
 import { useResponsiveSize } from "@hooks/index"
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 
 // https://stackoverflow.com/questions/56651064/changing-tag-type-when-ealignXtending-component-in-styled-components
 

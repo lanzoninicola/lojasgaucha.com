@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 import BottomSheet from "../overlays/bottomSheet/bottomSheet"
 import FaleConosco from "../../components/home-page/fale-conosco/mobile/fale-conosco"
 import FaleConoscoForm from "../../components/home-page/fale-conosco/mobile/fale-conosco-form"

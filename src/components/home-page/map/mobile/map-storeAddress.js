@@ -1,7 +1,7 @@
 import * as React from "react"
 import { FlexContainer } from "@layouts/index"
 import { Text } from "@typography/index"
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 
 const MapStoreAddress = () => {
   return (

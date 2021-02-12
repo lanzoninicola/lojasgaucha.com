@@ -1,4 +1,4 @@
-import { colorsTheme } from "@theme/index"
+import { colorsTheme } from "@theme"
 
 const carouselTheme = section => {
   const carouselTheme = {

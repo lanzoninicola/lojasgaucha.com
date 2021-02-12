@@ -8,6 +8,7 @@ import parseGridTemplateValues from "./parseGridTemplateValues"
 import getBreakpoints from "./getBreakpoints"
 import isValidBreakpoints from "./isValidBreakpoints"
 import getCurrentDeviceValue from "./getCurrentDeviceValue"
+import DOMViewportInfo from "./DOMViewportInfo"
 
 export {
   CSSRelativeUnits,
@@ -20,4 +21,5 @@ export {
   getBreakpoints,
   isValidBreakpoints,
   getCurrentDeviceValue,
+  DOMViewportInfo,
 }

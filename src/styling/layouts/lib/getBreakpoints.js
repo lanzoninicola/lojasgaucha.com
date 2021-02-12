@@ -1,4 +1,4 @@
-import { theme } from "@theme/_global-style"
+import { theme } from "@theme"
 import { objectKeys } from "@utils"
 
 export default function getBreakpoints() {
