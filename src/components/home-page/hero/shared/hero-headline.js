@@ -42,7 +42,7 @@ const HeroHeadline = () => {
       >
         por 15 anos, procuramos {"\n"}soluções
         <HighlightTextLine1
-          color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
+          bg={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
           h="10"
           w="105%"
           top="60%"
@@ -56,7 +56,7 @@ const HeroHeadline = () => {
         {"\n"}ao melhor preço
         {/** TODO: the line is not visible at the bottom of text 
         <HighlightTextLine1
-          color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
+          bg={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
           h="10"
           w="105%"
           newLine

@@ -2,6 +2,8 @@ import * as React from "react"
 
 import { GridFixedContainer, GridFluidContainer } from "@layouts/index"
 import { colorsTheme } from "@theme"
+import { Title } from "@typography"
+import { HighlightTextLine1 } from "@decorative"
 
 import InstitutionalStatSmall from "./institutional-stat-small"
 import InstitutionalStatBig from "./institutional-stat-big"
@@ -28,6 +30,14 @@ const Institutional = () => {
           </GridFluidContainer>
         </GridFluidContainer>
         <InstitutionalFamilias />
+
+        <Title as="h3" weight="600" size={{ laptop: 56 }} color="white" center>
+          porque de móveis,
+          <HighlightTextLine1 bg={colorsTheme("blue")}>
+            nos entendemos!
+          </HighlightTextLine1>
+        </Title>
+
         <InstitutionalCta />
       </GridFixedContainer>
     </>

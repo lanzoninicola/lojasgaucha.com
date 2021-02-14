@@ -5,7 +5,7 @@ import { ImageCard } from "@cards/index"
 import { useStaticQuery, graphql } from "gatsby"
 import { removeFilenameExtension } from "@utils/index"
 
-const InstitutionalServices = () => {
+const Services = () => {
   const data = useStaticQuery(graphql`
     query IstitutionalMobileImages {
       images: allFile(
@@ -64,4 +64,4 @@ const InstitutionalServices = () => {
   )
 }
 
-export default InstitutionalServices
+export default Services

@@ -3,7 +3,7 @@ import * as React from "react"
 import { GridFixedContainer } from "@layouts/index"
 import { SVGIcon } from "@icons"
 import { colorsTheme } from "@theme"
-import InstitutionalStatTitle from "./institutional-stat-title"
+import InstitutionalTitles from "./institutional-titles"
 import { objectKeys } from "@utils"
 
 const data = {
@@ -21,9 +21,9 @@ const InstitutionalFamilias = () => {
   return (
     <>
       <GridFixedContainer columns="1fr" rAuto centerX centerY>
-        <InstitutionalStatTitle>
+        <InstitutionalTitles>
           e fizemos muitas famílias felizes
-        </InstitutionalStatTitle>
+        </InstitutionalTitles>
         <GridFixedContainer
           columns="1fr 1fr 1fr 1fr"
           rows="1fr 1fr"

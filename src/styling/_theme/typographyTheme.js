@@ -19,12 +19,12 @@ const typographyTheme = () => {
         lineHeight: { mobile: 28, tablet: 34, laptop: 34 },
       },
       h4: {
-        fontSize: { mobile: 20, tablet: 31, laptop: 31 },
-        lineHeight: { mobile: 23, tablet: 34, laptop: 34 },
+        fontSize: { mobile: 20, tablet: 24, laptop: 24 },
+        lineHeight: { mobile: 23, tablet: 28, laptop: 28 },
       },
       h5: {
-        fontSize: { mobile: 16, tablet: 31, laptop: 31 },
-        lineHeight: { mobile: 19, tablet: 34, laptop: 34 },
+        fontSize: { mobile: 16, tablet: 18, laptop: 18 },
+        lineHeight: { mobile: 19, tablet: 21, laptop: 21 },
       },
     },
     secondary: {

@@ -10,6 +10,11 @@ const StyledSpan = styled.span`
 
     return null
   }};
+  color: ${({ color }) => {
+    if (color) return color
+
+    return null
+  }};
   ${({ $style }) => $style ?? {}}
 `
 

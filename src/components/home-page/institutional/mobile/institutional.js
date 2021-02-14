@@ -2,7 +2,7 @@ import * as React from "react"
 import { GridFixedContainer } from "@layouts/index"
 
 import InstitutionalHeader from "./institutional-headline"
-import InstitutionalServices from "./institutional-services"
+import Services from "../../services/mobile/services"
 import InstitutionalStats from "./institutional-stats"
 
 const Institutional = () => {
@@ -12,7 +12,7 @@ const Institutional = () => {
         <InstitutionalHeader />
         <InstitutionalStats />
       </GridFixedContainer>
-      <InstitutionalServices />
+      <Services />
     </>
   )
 }

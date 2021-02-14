@@ -2,14 +2,14 @@ import * as React from "react"
 
 import { GridFixedContainer } from "@layouts/index"
 
-import InstitutionalStatTitle from "./institutional-stat-title"
+import InstitutionalTitles from "./institutional-titles"
 import InstitutionalStatSmallBoxes from "./institutional-stat-small-boxes"
 
 const InstitutionalStatSmall = () => {
   return (
     <>
       <GridFixedContainer columns="1fr" rAuto centerX>
-        <InstitutionalStatTitle>nós entregamos</InstitutionalStatTitle>
+        <InstitutionalTitles>nós entregamos</InstitutionalTitles>
         <InstitutionalStatSmallBoxes />
       </GridFixedContainer>
     </>

@@ -11,21 +11,31 @@ const Line1 = styled.div`
     if (top) return top
     return "0%"
   }};
-  left: 10%;
+  left: ${({ left }) => {
+    if (left) return left
+    return "10%"
+  }};
   margin-left: -8%;
   z-index: -1;
-  background: ${({ color }) => {
-    if (color) return color
+  background: ${({ bg }) => {
+    if (bg) return bg
     return "#000000"
   }};
 `
 
-const HighlightTextLine1 = ({ color, newLine, children, ...props }) => {
+const HighlightTextLine1 = ({
+  bg,
+  color,
+  left,
+  newLine,
+  children,
+  ...props
+}) => {
   return (
     <>
-      <Span newLine={newLine}>
+      <Span newLine={newLine} color={color}>
         {children}
-        <Line1 color={color} h="75%" w="102%" wFixed {...props} />
+        <Line1 bg={bg} h="75%" w="102%" left={left} wFixed {...props} />
       </Span>
     </>
   )

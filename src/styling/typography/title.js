@@ -10,15 +10,21 @@ import { isUndefined, isObject, isNotString, warn, error } from "@utils/index"
 const StyledTitle = styled.div`
   ${Typeface}
   font-size: ${({ theme, as, variant, size, debug }) => {
-    if (isUndefined(as)) as = "h1"
+    if (isUndefined(as)) {
+      warn(
+        "Title - font-size",
+        `The prop "as" is missing. The default "h1" headline has been applied`
+      )
+
+      as = "h1"
+    }
 
     const themeVariant = theme.typography[variant]
     if (!themeVariant.hasOwnProperty(as)) {
-      error(
+      return error(
         "Title - font-size",
         `Missing related font-size for the variant: "${variant}",`
       )
-      return
     }
     const devicesFontSize = themeVariant[as.toLowerCase()].fontSize
     const _fontSize = getFontSize(size, devicesFontSize)
@@ -30,11 +36,10 @@ const StyledTitle = styled.div`
 
     const themeVariant = theme.typography[variant]
     if (!themeVariant.hasOwnProperty(as)) {
-      error(
+      return error(
         "Title - line-height",
         `Missing related line-height for the variant: "${variant}"`
       )
-      return
     }
 
     const deviceslineHeight = themeVariant[as.toLowerCase()].lineHeight
@@ -51,7 +56,7 @@ const StyledTitle = styled.div`
   ${props => props.$style ?? {}}
 `
 
-const Title = props => <StyledTitle {...props} />
+const Title = ({ ...props }) => <StyledTitle {...props} />
 
 Title.defaultProps = {
   variant: "primary",

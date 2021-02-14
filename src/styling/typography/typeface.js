@@ -46,7 +46,12 @@ const Typeface = css`
 
     return theme.colors(color)
   }};
-  text-align: ${({ align }) => align};
+  text-align: ${({ align, center }) => {
+    if (align) return align
+    if (center) return "center"
+
+    return null
+  }};
   white-space: ${({ newLine }) => {
     if (newLine) return "pre-wrap"
 
