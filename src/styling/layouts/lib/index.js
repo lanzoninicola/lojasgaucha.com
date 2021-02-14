@@ -1,5 +1,5 @@
 import getCurrentWindowSize from "./getCurrentWindowSize"
-import getCurrentDiagonal from "./getCurrentDiagonal"
+import getCurrentViewportDiagonal from "./getCurrentViewportDiagonal"
 import getCurrentDevice from "./getCurrentDevice"
 import breakpointsDesignSpec from "./breakpointsDesignSpec"
 import CSSRelativeUnits from "./CSSRelativeUnits"
@@ -14,7 +14,7 @@ export {
   CSSRelativeUnits,
   composeCSSValue,
   getCurrentWindowSize,
-  getCurrentDiagonal,
+  getCurrentViewportDiagonal,
   getCurrentDevice,
   breakpointsDesignSpec,
   parseGridTemplateValues,

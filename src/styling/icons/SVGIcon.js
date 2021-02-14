@@ -2,44 +2,31 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
 import { FlexContainer } from "@layouts/index"
+import Svg from "./Svg"
+
+import { isFunction } from "@utils"
 // import { log } from "@utils/index"
 
-const SVGIconBlueprint = ({ sourcePath, color, size }) => {
-  return (
-    <svg
-      width={size} // icons always are equal width and height
-      height={size} // icons always are equal width and height
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path fillRule="evenodd" clipRule="evenodd" d={sourcePath} fill={color} />
-    </svg>
-  )
-}
-
-function SVGIcon({ name, size, color, ...props }) {
+function SVGIcon({ name, size, color, wSVG, hSVG, ...props }) {
   const themeContext = React.useContext(ThemeContext)
+  const iconsTheme = themeContext?.icons
   const iconName = name.toUpperCase()
-  let RenderedSVGIcon = null
 
-  // log("SVGIcon", themeContext?.icons?.catalog[iconName])
+  const SVGSource = iconsTheme?.catalog[iconName][size]
 
-  const SVGSource = themeContext?.icons?.catalog[iconName][size]
+  function renderSVG(props) {
+    const isReactComponent = isFunction(SVGSource)
+    if (isReactComponent) return () => <SVGSource />
 
-  if (typeof SVGSource === "function") {
-    RenderedSVGIcon = () => <SVGSource />
-  } else {
-    RenderedSVGIcon = props => <SVGIconBlueprint {...props} />
+    return <Svg sourcePath={SVGSource} {...props} />
   }
 
   return (
     <FlexContainer centerX centerY {...props}>
-      <RenderedSVGIcon sourcePath={SVGSource} size={size} color={color} />
+      {renderSVG({ name, size, color, wSVG, hSVG, ...props })}
     </FlexContainer>
   )
 }
-
-export default SVGIcon
 
 SVGIcon.defaultProps = {
   name: "CIRCLE_X",
@@ -51,4 +38,8 @@ SVGIcon.propTypes = {
   name: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
   color: PropTypes.string,
+  wSVG: PropTypes.string,
+  hSVG: PropTypes.string,
 }
+
+export default SVGIcon

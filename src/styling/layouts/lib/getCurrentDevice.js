@@ -1,6 +1,6 @@
 import { theme } from "@theme"
 
-import { getCurrentDiagonal } from "@layouts/lib/index"
+import { getCurrentViewportDiagonal } from "@layouts/lib/index"
 import { isUndefined, error } from "@utils/index"
 
 export default function getCurrentDevice(userBreakpoints = {}) {
@@ -25,7 +25,7 @@ export default function getCurrentDevice(userBreakpoints = {}) {
   const devices = breakpoints["viewportDevices"]
 
   const currentDevice = { device: null, size: 0 }
-  const { diagonal } = getCurrentDiagonal()
+  const { diagonal } = getCurrentViewportDiagonal()
 
   if (isUndefined(diagonal) || diagonal === null) {
     error(

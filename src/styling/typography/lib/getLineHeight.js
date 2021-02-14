@@ -1,4 +1,4 @@
-import { isUndefined, isObject, isNumber, isString } from "@utils/index"
+import { isUndefined, isObject, isNumber, isString, warn } from "@utils/index"
 
 // TODO manage +3 size
 
@@ -25,9 +25,10 @@ export default function getLineHeight(
     let nextDevicesLineHeight = {}
     if (isObject(userFontSize)) {
       Object.keys(themeFontSizes).forEach(device => {
+        const deviceLineHeight = userFontSize[device] ?? themeFontSizes[device]
         nextDevicesLineHeight = {
           ...nextDevicesLineHeight,
-          [device]: userFontSize[device] + 3 ?? themeFontSizes[device],
+          [device]: parseInt(deviceLineHeight) + 3,
         }
       })
       _lineHeight = nextDevicesLineHeight
@@ -41,9 +42,11 @@ export default function getLineHeight(
   let nextDevicesLineHeight = {}
   if (isObject(userLineHeight)) {
     Object.keys(themeLineHeights).forEach(device => {
+      const deviceLineHeight =
+        userLineHeight[device] ?? themeLineHeights[device]
       nextDevicesLineHeight = {
         ...nextDevicesLineHeight,
-        [device]: userLineHeight[device] ?? themeLineHeights[device],
+        [device]: parseInt(deviceLineHeight),
       }
     })
     _lineHeight = nextDevicesLineHeight

@@ -1,9 +1,9 @@
 import * as React from "react"
 import { GridFixedContainer } from "@layouts/index"
 
-import InstitutionalHeader from "../mobile/institutional-headline"
-import InstitutionalServices from "../mobile/institutional-services"
-import InstitutionalStats from "../mobile/institutional-stats"
+import InstitutionalHeader from "./institutional-headline"
+import InstitutionalServices from "./institutional-services"
+import InstitutionalStats from "./institutional-stats"
 
 const Institutional = () => {
   return (

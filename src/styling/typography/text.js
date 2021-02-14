@@ -1,12 +1,14 @@
+import * as React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import Typeface from "./typeface"
 
 import { useResponsiveSize } from "@hooks/index"
+// import { useDimensions } from "@hooks/index"
 import { error } from "@utils/index"
 import { getFontSize, getLineHeight } from "@typography/lib"
 
-const Text = styled.div`
+const StyledText = styled.div`
   ${Typeface}
   font-size: ${({ theme, variant, size, debug }) => {
     const themeVariant = theme.typography[variant]
@@ -46,6 +48,13 @@ const Text = styled.div`
   }};
   ${props => props.$style ?? {}}
 `
+
+const Text = ({ children, ...props }) => {
+  // TODO: make responsive in relation to DOM container. Is it possible
+  // const [ref, { diagonal }] = useDimensions({ liveMeasure: true })
+
+  return <StyledText {...props}>{children}</StyledText>
+}
 
 Text.defaultProps = {
   variant: "secondary",

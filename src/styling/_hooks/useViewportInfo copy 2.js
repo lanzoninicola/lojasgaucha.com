@@ -1,7 +1,7 @@
 import * as React from "react"
 import {
   getCurrentWindowSize,
-  getCurrentDiagonal,
+  getCurrentViewportDiagonal,
   getCurrentDevice,
 } from "@layouts/lib/index"
 import { isDomAvailable, debounce } from "@utils/index"
@@ -12,13 +12,13 @@ import { isDomAvailable, debounce } from "@utils/index"
 function useViewportInfo() {
   const [viewportInfo, setViewportInfo] = React.useState({
     ...getCurrentWindowSize(),
-    ...getCurrentDiagonal(),
+    ...getCurrentViewportDiagonal(),
     ...getCurrentDevice(),
   })
 
   const updateWindowSize = React.useCallback(() => {
     const { width, height } = getCurrentWindowSize()
-    const { diagonal } = getCurrentDiagonal()
+    const { diagonal } = getCurrentViewportDiagonal()
     const { device, size } = getCurrentDevice()
 
     const nextViewportInfo = {

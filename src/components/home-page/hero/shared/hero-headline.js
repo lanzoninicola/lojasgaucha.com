@@ -38,24 +38,33 @@ const HeroHeadline = () => {
         ml="2"
         ls="1"
         size={{ laptop: 48, tablet: 48 }}
+        newLine
       >
-        por 15 anos, procuramos
-        <Span newLine>
-          {"\n"}soluções
-          <HighlightTextLine1
-            color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
-          >
-            {" "}
-            para sua casa
-          </HighlightTextLine1>
-        </Span>
-        {/** TODO: the line is not visible at the bottom of text */}
+        por 15 anos, procuramos {"\n"}soluções
         <HighlightTextLine1
           color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
+          h="10"
+          w="105%"
+          top="60%"
+          hFixed
+          wFixed
           newLine
         >
+          {" "}
+          para sua casa
+        </HighlightTextLine1>
+        {"\n"}ao melhor preço
+        {/** TODO: the line is not visible at the bottom of text 
+        <HighlightTextLine1
+          color={colorsTheme("green", { colorUnit: "rgba", opacity: 0.7 })}
+          h="10"
+          w="105%"
+          newLine
+        >
+          {" "}
           {"\n"}ao melhor preço
         </HighlightTextLine1>
+        */}
       </Title>
     </>
   )

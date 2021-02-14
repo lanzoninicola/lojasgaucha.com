@@ -47,6 +47,11 @@ const Typeface = css`
     return theme.colors(color)
   }};
   text-align: ${({ align }) => align};
+  white-space: ${({ newLine }) => {
+    if (newLine) return "pre-wrap"
+
+    return null
+  }};
 `
 
 export default Typeface

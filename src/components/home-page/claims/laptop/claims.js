@@ -24,12 +24,18 @@ const Claims = () => {
             columns="1fr"
             rows="0.25fr 1fr"
             gap="16"
-            pl="60"
-            pr="60"
+            pl={{ laptop: 60, tablet: 30 }}
+            pr={{ laptop: 60, tablet: 30 }}
           >
             <GridFixedContainer columns="0.1fr 1fr" rows="1fr" centerY>
               <Box bg="green" w="17" h="17" />
-              <Title as="h3" color="orange" ls="4" uppercase>
+              <Title
+                as="h3"
+                color="orange"
+                ls="4"
+                uppercase
+                size={{ tablet: 24 }}
+              >
                 Qualidade
               </Title>
             </GridFixedContainer>
@@ -44,8 +50,8 @@ const Claims = () => {
             columns="1fr"
             rows="0.25fr 1fr"
             gap="16"
-            pl="60"
-            pr="60"
+            pl={{ laptop: 60, tablet: 30 }}
+            pr={{ laptop: 60, tablet: 30 }}
           >
             <GridFixedContainer columns="0.1fr 1fr" rows="1fr" centerY>
               <Box bg="green" w="17" h="17" />
@@ -63,8 +69,8 @@ const Claims = () => {
             columns="1fr"
             rows="0.25fr 1fr"
             gap="16"
-            pl="60"
-            pr="60"
+            pl={{ laptop: 60, tablet: 30 }}
+            pr={{ laptop: 60, tablet: 30 }}
           >
             <GridFixedContainer columns="0.1fr 1fr" rows="1fr" centerY>
               <Box bg="green" w="17" h="17" />

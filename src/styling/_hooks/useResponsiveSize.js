@@ -6,7 +6,11 @@ import { isObject, isNumber, isString, log } from "@utils/index"
 // https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
 // https://fvsch.com/css-locks
 
-export default function useResponsiveSize(size = {}, debug = false) {
+export default function useResponsiveSize(
+  size = {},
+  debug = false
+  // userDiagonal
+) {
   // I can't use ThemeProvider data, some components using this function are mounted
   // before the values requested here (device, diagonal) and located in the "theme" are available
   const {

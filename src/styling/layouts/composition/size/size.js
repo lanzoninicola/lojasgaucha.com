@@ -31,5 +31,21 @@ const Size = css`
 
     return `auto`
   }};
+  min-width: ${({ wMin }) => {
+    if (wMin) return useResponsiveSize(wMin)
+    return null
+  }};
+  min-height: ${({ hMin }) => {
+    if (hMin) return useResponsiveSize(hMin)
+    return null
+  }};
+  max-width: ${({ wMax }) => {
+    if (wMax) return useResponsiveSize(wMax)
+    return null
+  }};
+  max-height: ${({ hMax }) => {
+    if (hMax) return useResponsiveSize(hMax)
+    return null
+  }};
 `
 export default Size
