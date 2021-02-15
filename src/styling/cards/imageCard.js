@@ -41,7 +41,7 @@ const ImageCard = ({
     // <FlexContainer column centerX stretchY h100 w100>
     <StyledImageCard h100 w100 card={card} {...props}>
       <ImageQL
-        fluid={image?.fluid}
+        data={image?.fluid}
         wrapperStyle={{
           borderRadius: card?.br ?? null,
         }}

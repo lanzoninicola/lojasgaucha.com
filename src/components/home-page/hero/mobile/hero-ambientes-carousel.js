@@ -2,13 +2,12 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { ImageQL } from "@images/index"
-import NavLink from "../../../../styling/navigation/navLink"
+import { NavLink } from "@navigation"
+import { removeFilenameExtension } from "@utils"
 
 import CarouselSlide from "../../../../styling/carousel/carouselSlide"
 import HeroAmbientesCarouselImageText from "./hero-ambientes-carousel-imageText"
 import CarouselSlideCard from "../../../../styling/carousel/carouselSlideCard"
-
-import { removeFilenameExtension } from "../../../../styling/utils/index"
 
 const HeroAmbientesCarousel = () => {
   const data = useStaticQuery(graphql`
@@ -19,7 +18,7 @@ const HeroAmbientesCarousel = () => {
             relativePath
             childImageSharp {
               fluid {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -106,7 +105,7 @@ const HeroAmbientesCarousel = () => {
           >
             <NavLink to={itemData?.to}>
               <ImageQL
-                fluid={itemData?.fluid}
+                data={itemData?.fluid}
                 alt={itemData?.alt}
                 title={itemData?.title}
                 shadow

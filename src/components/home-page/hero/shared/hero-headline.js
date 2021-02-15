@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import { Span } from "@layouts/index"
 import { Title } from "@typography/index"
 import { HighlightTextLine1 } from "@decorative/index"
 import { colorsTheme } from "@theme"

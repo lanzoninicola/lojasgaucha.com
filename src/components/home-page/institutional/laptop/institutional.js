@@ -14,6 +14,7 @@ const Institutional = () => {
   return (
     <>
       <GridFixedContainer
+        as="section"
         columns="1fr"
         rAuto
         bg={colorsTheme("orange")}
@@ -33,7 +34,7 @@ const Institutional = () => {
 
         <Title as="h3" weight="600" size={{ laptop: 56 }} color="white" center>
           porque de móveis,
-          <HighlightTextLine1 bg={colorsTheme("blue")}>
+          <HighlightTextLine1 bg={colorsTheme("blue")} h="90%">
             nos entendemos!
           </HighlightTextLine1>
         </Title>

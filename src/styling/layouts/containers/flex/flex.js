@@ -47,6 +47,12 @@ const Flex = styled.div`
     if (direction === "column") return `column` // it will deprecated
     return `column`
   }};
+  position: ${({ relative, absolute }) => {
+    if (relative) return `relative`
+    if (absolute) return `absolute`
+
+    return `relative`
+  }};
   ${props => props.$style ?? {}}
 `
 

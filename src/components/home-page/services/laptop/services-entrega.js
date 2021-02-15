@@ -4,19 +4,19 @@ import { useViewportInfo } from "@hooks"
 import { GridFluidContainer, GridFixedContainer, FlexContainer } from "@layouts"
 import { ImageQL } from "@images"
 import { Title, Text } from "@typography"
+import { colorsTheme } from "@theme"
 import { ForegroundGradient } from "@decorative"
 
-const ServicesVendedores = () => {
+const ServicesEntrega = () => {
   const { device } = useViewportInfo()
-
   const data = useStaticQuery(
     graphql`
-      query IstitutionalLaptopVendedoresImage {
+      query IstitutionalLaptopEntregaImage {
         images: allFile(
           filter: {
             sourceInstanceName: { eq: "services_images" }
             relativeDirectory: { eq: "laptop" }
-            name: { eq: "vendedores" }
+            name: { eq: "entrega" }
           }
         ) {
           edges {
@@ -36,9 +36,8 @@ const ServicesVendedores = () => {
   )
 
   return (
-    <GridFluidContainer id="services-montagem">
+    <GridFluidContainer id="services-entrega">
       <GridFixedContainer columns="1fr 1fr" rows="1fr">
-        <ImageQL data={data} />
         <GridFixedContainer columns="1fr" rows=".25fr 1fr">
           <Text
             weight="700"
@@ -47,19 +46,18 @@ const ServicesVendedores = () => {
             size={{ laptop: 180, tablet: 90 }}
             lh="100"
             ls="-0.06em"
-            left
+            right
             noWrap
             ml="-10%"
             $style={{
               zIndex: 2,
-
               // transform: "rotate(-90deg)",
               // position: "absolute",
               // left: "-10%",
               // width: "150%",
             }}
           >
-            vendedores
+            entrega
           </Text>
           <GridFixedContainer
             columns={
@@ -76,24 +74,26 @@ const ServicesVendedores = () => {
             <div></div>
             <GridFixedContainer columns="1fr" rAuto stretchXS pl="10%" pr="10%">
               <Title as="h4" color="orange" weight="700">
-                Diga olá aos nossos vendedores
+                Nós entregamos com nossos veículos
               </Title>
               <Title as="h5" color="orange">
-                Por que fazer sozinho?
+                Quanto é importante para você que seus móveis cheguem com
+                segurança? Muito né...
               </Title>
               <Text color="white">
-                Procure a ajuda de nossos especialistas que podem orientá-lo
-                sobre a melhor solução para suas necessidades.
+                Lojas Gaúcha transporta com seus próprios meios para garantir a
+                integridade de suas compras.
               </Text>
             </GridFixedContainer>
             <div></div>
           </GridFixedContainer>
         </GridFixedContainer>
+        <ImageQL data={data} />
       </GridFixedContainer>
 
-      <ForegroundGradient gradient={{ direction: "right", start: "blue" }} />
+      <ForegroundGradient gradient={{ direction: "left", start: "blue" }} />
     </GridFluidContainer>
   )
 }
 
-export default ServicesVendedores
+export default ServicesEntrega

@@ -6,17 +6,17 @@ import { ImageQL } from "@images"
 import { Title, Text } from "@typography"
 import { ForegroundGradient } from "@decorative"
 
-const ServicesVendedores = () => {
+const ServicesMontagem = () => {
   const { device } = useViewportInfo()
 
   const data = useStaticQuery(
     graphql`
-      query IstitutionalLaptopVendedoresImage {
+      query IstitutionalLaptopMontagemImage {
         images: allFile(
           filter: {
             sourceInstanceName: { eq: "services_images" }
             relativeDirectory: { eq: "laptop" }
-            name: { eq: "vendedores" }
+            name: { eq: "montagem" }
           }
         ) {
           edges {
@@ -52,14 +52,13 @@ const ServicesVendedores = () => {
             ml="-10%"
             $style={{
               zIndex: 2,
-
               // transform: "rotate(-90deg)",
               // position: "absolute",
               // left: "-10%",
               // width: "150%",
             }}
           >
-            vendedores
+            montagem
           </Text>
           <GridFixedContainer
             columns={
@@ -76,14 +75,14 @@ const ServicesVendedores = () => {
             <div></div>
             <GridFixedContainer columns="1fr" rAuto stretchXS pl="10%" pr="10%">
               <Title as="h4" color="orange" weight="700">
-                Diga olá aos nossos vendedores
+                Servico de montagem
               </Title>
               <Title as="h5" color="orange">
-                Por que fazer sozinho?
+                Por que a montagem tem que ser uma sua responsabilidade?
               </Title>
               <Text color="white">
-                Procure a ajuda de nossos especialistas que podem orientá-lo
-                sobre a melhor solução para suas necessidades.
+                Lojas Gaucha oferece o serviço com seu próprio pessoal
+                especializado. Ninguém conhece nossos móveis melhor do que nós.
               </Text>
             </GridFixedContainer>
             <div></div>
@@ -96,4 +95,4 @@ const ServicesVendedores = () => {
   )
 }
 
-export default ServicesVendedores
+export default ServicesMontagem

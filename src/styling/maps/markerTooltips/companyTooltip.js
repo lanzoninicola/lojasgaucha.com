@@ -26,7 +26,7 @@ const CompanyTooltip = ({ shortName }) => {
   return (
     <FlexContainer column h="80" w="150">
       <ImageQL
-        fluid={data?.images?.edges[0].node.childImageSharp?.fluid}
+        data={data?.images?.edges[0].node.childImageSharp?.fluid}
         ignoreAlt
         ignoreTitle
         wrapperStyle={{

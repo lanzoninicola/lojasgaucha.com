@@ -4,7 +4,6 @@ import styled from "styled-components"
 import { colorsTheme } from "@theme/index"
 import { FlexContainer } from "@layouts/index"
 import { useResponsiveSize } from "@hooks/index"
-import { composeCSSValue } from "@layouts/lib/index"
 
 import { ErrorMessage, InputLabel } from "../index"
 
@@ -14,10 +13,7 @@ const StyledInputTextArea = styled.textarea`
   font-family: ${({ theme }) =>
     theme?.form?.layout?.textArea?.variants?.firebase?.fontFamily};
   font-size: ${({ theme, fontSize }) => {
-    if (fontSize) {
-      fontSize = composeCSSValue(fontSize)
-      return useResponsiveSize(fontSize)
-    }
+    if (fontSize) return useResponsiveSize(fontSize)
 
     return theme?.form?.layout?.textArea?.variants?.firebase?.size
   }};

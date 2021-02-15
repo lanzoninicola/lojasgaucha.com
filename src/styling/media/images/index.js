@@ -1,4 +1,5 @@
-import ImageQL from "./imageQL"
-import ImageTitle from "./imageTitle"
+import ImageQL from "./imageQL/imageQL"
+import ImageTitle from "./imageTitle/imageTitle"
+import BackgroundImg from "./BackgroundImg/BackgroundImg"
 
-export { ImageQL, ImageTitle }
+export { ImageQL, ImageTitle, BackgroundImg }

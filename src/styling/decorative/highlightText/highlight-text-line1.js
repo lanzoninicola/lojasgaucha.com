@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { Size } from "@layouts"
+import Size from "../../layouts/composition/size/size"
 import { Span } from "@layouts/index"
 
 const Line1 = styled.div`
@@ -43,7 +43,10 @@ const HighlightTextLine1 = ({
 
 HighlightTextLine1.propTypes = {
   children: PropTypes.node.isRequired,
-  color: PropTypes.string.isRequired,
+  bg: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  lfet: PropTypes.string,
+  newLine: PropTypes.bool,
 }
 
 export default HighlightTextLine1

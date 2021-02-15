@@ -1,6 +1,6 @@
-import { isUndefined, isObject, isNumber, isString, warn } from "@utils/index"
+import { isUndefined, isObject, isNumber, isString } from "@utils/index"
 
-// TODO manage +3 size
+// TODO manage +5 size
 
 export default function getLineHeight(
   userLineHeight,
@@ -19,7 +19,7 @@ export default function getLineHeight(
 
     // size is not undefined --> line-height based on atomic font-size
     if (isNumber(userFontSize) || isString(userFontSize))
-      _lineHeight = parseInt(userFontSize) + 3
+      _lineHeight = parseInt(userFontSize) + 5
 
     // size is not undefined --> line-height based on font-size which is atomic using breakpoints(typeof object)
     let nextDevicesLineHeight = {}
@@ -28,7 +28,7 @@ export default function getLineHeight(
         const deviceLineHeight = userFontSize[device] ?? themeFontSizes[device]
         nextDevicesLineHeight = {
           ...nextDevicesLineHeight,
-          [device]: parseInt(deviceLineHeight) + 3,
+          [device]: parseInt(deviceLineHeight) + 5,
         }
       })
       _lineHeight = nextDevicesLineHeight

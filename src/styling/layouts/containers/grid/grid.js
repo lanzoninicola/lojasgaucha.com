@@ -28,6 +28,12 @@ const Grid = css`
 
     return useResponsiveSize(themeGridLayout.gap.default)
   }};
+  position: ${({ relative, absolute }) => {
+    if (relative) return `relative`
+    if (absolute) return `absolute`
+
+    return `relative`
+  }};
   max-width: 100vw;
   background: ${({ bg }) => {
     if (bg) return bg

@@ -22,31 +22,42 @@ export default function useResponsiveSize(
   )
 
   let userSize = 0
+  let userUnit = null
+  let resultSize = 0
 
   const isFixedSize = isNumber(size) || isString(size)
   const isResponsiveSize = isObject(size)
 
-  // TODO: validation of size input
-  // if(!isFixedSize && isObject(size)) {}
+  if (isFixedSize) {
+    const { value, unit } = composeCSSValue(size)
+    userSize = value
+    userUnit = unit
+  }
 
-  userSize = isFixedSize
-    ? parseInt(size)
-    : isResponsiveSize
-    ? size[currentDeviceFormFactor]
-    : userSize
+  if (isResponsiveSize) {
+    const responsiveSize = size[currentDeviceFormFactor] ?? 0
+    const { value, unit } = composeCSSValue(responsiveSize)
+    userSize = value
+    userUnit = unit
+  }
 
-  const resultSize = Math.round(
-    (currentViewportDiagonal / viewportDiagonalDesignSpec) * userSize
-  )
+  if (userUnit === "px" || userUnit === "PX") {
+    resultSize = Math.round(
+      (currentViewportDiagonal / viewportDiagonalDesignSpec) * userSize
+    )
+  } else {
+    resultSize = userSize
+  }
 
   if (debug) {
     log("useResponsiveSize", {
       currentViewportDiagonal,
       viewportDiagonalDesignSpec,
       userSize,
+      userUnit,
       resultSize,
     })
   }
 
-  return composeCSSValue(resultSize)
+  return `${resultSize}${userUnit}`
 }

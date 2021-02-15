@@ -10,7 +10,7 @@ const Services = () => {
     query IstitutionalMobileImages {
       images: allFile(
         filter: {
-          sourceInstanceName: { eq: "istitutional_images" }
+          sourceInstanceName: { eq: "services_images" }
           relativeDirectory: { eq: "mobile" }
         }
       ) {

@@ -16,7 +16,10 @@ const StyledTextBox = styled.div`
     })
   }};
   border-radius: ${({ br }) => {
-    if (br) return composeCSSValue(br)
+    if (br) {
+      const { value, unit } = composeCSSValue(br)
+      return `${value}${unit}`
+    }
     return null
   }};
 `

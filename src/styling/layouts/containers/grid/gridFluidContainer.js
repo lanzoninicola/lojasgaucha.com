@@ -8,7 +8,8 @@ import { isNotUndefined, warn } from "@utils/index"
 /**
  *  Fluid Grid Container:
  *
- *  The grid will respond according to the viewport and it will be responsive in a specific breackpoint
+ *  The grid will respond according to the viewport and it will be responsive in a specific breakpoint.
+ *  Create as many columns as there are children inside this container
  *
  */
 

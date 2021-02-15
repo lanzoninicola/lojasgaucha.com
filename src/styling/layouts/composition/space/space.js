@@ -3,7 +3,6 @@ import {
   stringToArray,
   arrayToString,
   isNotString,
-  isObject,
   isString,
 } from "@utils/index"
 
@@ -85,17 +84,17 @@ const Space = css`
     if (p || padding) {
       const paddingProp = p ?? padding
 
-      //TODO: manage this.
-      if (isObject(paddingProp)) {
-        // console.log(useResponsiveSize(paddingProp))
-        // Object.keys(paddingProp).forEach(prop => {
-        //   const paddingArray = stringToArray(paddingProp[prop], " ")
-        //   let newPaddingArray = paddingArray.map(paddingValue => {
-        //     return useResponsiveSize(paddingValue)
-        //   })
-        //   return arrayToString(newPaddingArray)
-        // })
-      }
+      //TODO: manage this
+      // if (isObject(paddingProp)) {
+      //   // console.log(useResponsiveSize(paddingProp))
+      //   // Object.keys(paddingProp).forEach(prop => {
+      //   //   const paddingArray = stringToArray(paddingProp[prop], " ")
+      //   //   let newPaddingArray = paddingArray.map(paddingValue => {
+      //   //     return useResponsiveSize(paddingValue)
+      //   //   })
+      //   //   return arrayToString(newPaddingArray)
+      //   // })
+      // }
 
       if (isString(paddingProp)) {
         const paddingArray = stringToArray(paddingProp, " ")

@@ -18,15 +18,24 @@ const StyledImageTitle = styled.div`
 
     return null
   }};
-  height: ${({ theme, h, height, fluid }) => {
-    if (h ?? height) return composeCSSValue(h) ?? composeCSSValue(height)
+  height: ${({ h, height, fluid }) => {
+    const _height = h ?? height
+    if (_height) {
+      const { value, unit } = composeCSSValue(_height)
+      return `${value}${unit}`
+    }
+
     if (fluid) return `auto`
 
     return `auto`
   }};
-  width: ${({ theme, w, width, fluid }) => {
-    if (w) return composeCSSValue(w)
-    if (width) return composeCSSValue(width)
+  width: ${({ w, width, fluid }) => {
+    const _width = w ?? width
+    if (w) {
+      const { value, unit } = composeCSSValue(_width)
+      return `${value}${unit}`
+    }
+
     if (fluid) return `auto`
 
     return `auto`

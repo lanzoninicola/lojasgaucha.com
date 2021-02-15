@@ -53,10 +53,12 @@ const StyledTitle = styled.div`
 
     return useResponsiveSize(_lineHeight)
   }};
-  ${props => props.$style ?? {}}
+  ${({ $style }) => $style ?? {}}
 `
 
-const Title = ({ ...props }) => <StyledTitle {...props} />
+const Title = ({ children, ...props }) => {
+  return <StyledTitle {...props}>{children}</StyledTitle>
+}
 
 Title.defaultProps = {
   variant: "primary",

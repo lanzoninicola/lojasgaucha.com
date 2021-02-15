@@ -11,7 +11,10 @@ const Size = css`
     if (h || height) {
       let inputValue = h ?? height
 
-      if (hFixed) return composeCSSValue(inputValue)
+      if (hFixed) {
+        const { value, unit } = composeCSSValue(inputValue)
+        return `${value}${unit}`
+      }
 
       return useResponsiveSize(inputValue)
     }
@@ -24,7 +27,10 @@ const Size = css`
     if (w || width) {
       let inputValue = w ?? width
 
-      if (wFixed) return composeCSSValue(inputValue)
+      if (wFixed) {
+        const { value, unit } = composeCSSValue(inputValue)
+        return `${value}${unit}`
+      }
 
       return useResponsiveSize(inputValue)
     }
