@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `maps_images`,
-        path: `${__dirname}/src/images/company/maps/mobile`,
+        path: `${__dirname}/src/images/store_map`,
       },
     },
     {

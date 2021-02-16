@@ -1,8 +1,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import styled, { ThemeContext } from "styled-components"
+import styled from "styled-components"
 import { motion } from "framer-motion"
 
+import { useViewportInfo } from "@hooks"
 import { GridFixedContainer } from "@layouts/index"
 import CloseModalButton from "./closeModalButton"
 
@@ -27,11 +28,11 @@ const StyledBottomSheet = styled(motion.div)`
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   transform: ${({ vh }) => `translateY(${vh}px)`};
+  z-index: 20;
 `
 
 const BottomSheet = ({ modalKey, hideModal, children }) => {
-  const themeContext = React.useContext(ThemeContext)
-  const { width, height } = themeContext?.viewport
+  const { width, height } = useViewportInfo()
 
   return (
     <>

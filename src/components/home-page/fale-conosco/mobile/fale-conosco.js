@@ -1,11 +1,9 @@
 import * as React from "react"
-import styled, { ThemeContext } from "styled-components"
+import styled from "styled-components"
 import { FlexContainer, GridFixedContainer } from "@layouts/index"
 import { Title, Text } from "@typography/index"
-import { NavModal, NavAnchor } from "@navigation/index"
 
-import ModalCard from "./modalCard"
-import ModalCardIcon from "./modalCardIcon"
+import FaleConoscoContactCanaisRapido from "../mobile/fale-conosco-contact-canais-rapido"
 
 const StyledFaleConoscoInner = styled.div`
   height: 100%;
@@ -18,10 +16,6 @@ const StyledFaleConoscoInner = styled.div`
 `
 
 const FaleConosco = () => {
-  const themeContext = React.useContext(ThemeContext)
-  const companyInfo = themeContext?.company
-  const { officePhone } = companyInfo
-
   // se i contatti di whatsapp sono più di uno aprire un'altra modal in modalità card
   // per selezionare la persona con cui parlare
 
@@ -37,37 +31,7 @@ const FaleConosco = () => {
         </Text>
       </FlexContainer>
       <StyledFaleConoscoInner>
-        <GridFixedContainer rAuto>
-          <Title as="h4" weight="400" color="orange">
-            Canais rapido
-          </Title>
-          <NavAnchor to={{ type: "phone", value: `tel:${officePhone}` }}>
-            <ModalCard p="16" title="TELEFONE">
-              <ModalCardIcon name="CALL_PHONE" />
-            </ModalCard>
-          </NavAnchor>
-          <NavAnchor
-            to={{
-              type: "whatsapp",
-              value: "https://api.whatsapp.com/send?1=pt_BR&phone=46991564002",
-            }}
-          >
-            <ModalCard p="16" title="WHATSAPP">
-              <ModalCardIcon name="WHATSAPP" />
-            </ModalCard>
-          </NavAnchor>
-          <Title as="h4" weight="400" color="orange" mt="36px">
-            O pode escrever
-          </Title>
-          <NavModal
-            from="faleConosco"
-            to={{ type: "modal", value: "ModalFaleConoscoForm" }}
-          >
-            <ModalCard p="16" title="DEIXA UM MENSAGEM">
-              <ModalCardIcon name="MAIL" />
-            </ModalCard>
-          </NavModal>
-        </GridFixedContainer>
+        <FaleConoscoContactCanaisRapido />
       </StyledFaleConoscoInner>
     </GridFixedContainer>
   )

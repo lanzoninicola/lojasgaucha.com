@@ -7,7 +7,7 @@ import { isDomAvailable } from "@utils/index"
 //TODO: adding "store promo" in tooltip map
 
 function Map({ center, zoom, children }) {
-  if (!isDomAvailable()) {
+  if (!isDomAvailable) {
     return (
       <div>
         <p>Loading map...</p>

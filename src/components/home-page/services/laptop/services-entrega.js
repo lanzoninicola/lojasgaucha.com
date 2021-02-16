@@ -48,6 +48,7 @@ const ServicesEntrega = () => {
             ls="-0.06em"
             right
             noWrap
+            overflowXHide={device === "tablet" ? true : false}
             ml="-10%"
             $style={{
               zIndex: 2,

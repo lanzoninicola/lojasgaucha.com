@@ -6,27 +6,36 @@ import { Title } from "@typography/index"
 import { colorsTheme } from "@theme/index"
 
 const CompanyTooltip = ({ shortName }) => {
-  const data = useStaticQuery(graphql`
-    query MapCompanyImage {
-      images: allFile(filter: { sourceInstanceName: { eq: "maps_images" } }) {
-        edges {
-          node {
-            relativePath
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+  const data = useStaticQuery(
+    graphql`
+      query StoreMapTooltipMap {
+        images: allFile(
+          filter: {
+            sourceInstanceName: { eq: "maps_images" }
+            relativeDirectory: { eq: "shared" }
+            name: { eq: "lojasGaucha_place_map" }
+          }
+        ) {
+          edges {
+            node {
+              relativePath
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                  originalName
+                }
               }
             }
           }
         }
       }
-    }
-  `)
+    `
+  )
 
   return (
     <FlexContainer column h="80" w="150">
       <ImageQL
-        data={data?.images?.edges[0].node.childImageSharp?.fluid}
+        data={data}
         ignoreAlt
         ignoreTitle
         wrapperStyle={{

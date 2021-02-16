@@ -49,6 +49,7 @@ const ServicesMontagem = () => {
             ls="-0.06em"
             left
             noWrap
+            overflowXHide={device === "tablet" ? true : false}
             ml="-10%"
             $style={{
               zIndex: 2,

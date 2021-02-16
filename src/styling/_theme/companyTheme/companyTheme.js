@@ -24,11 +24,25 @@ const companyTheme = filter => {
     //     State: "PR",
     //   },
     // ],
-    officePhone: `46991564002`,
-    whatsAppContacts: [
-      { fullName: "Mara", wnumber: "46991564002" },
-      { fullName: "Nicola", wnumber: "46991564002" },
-    ],
+    officePhone: {
+      UINumber: `(46) 3224-5152`,
+      APINumber: `46991564002`,
+    },
+    whatsApp: {
+      APIUrl: "https://api.whatsapp.com/send?1=pt_BR&phone=",
+      contacts: [
+        {
+          fullName: "Mara",
+          wAPINumber: "46991564002",
+          wUINumber: "(46) 99156-4002",
+        },
+        {
+          fullName: "Nicola",
+          wAPINumber: "46991564002",
+          wUINumber: "(46) 99156-4002",
+        },
+      ],
+    },
     maps: {
       // The "placeName" props is used to buil the external link of the MapAppsNavbar
       // Grab the exact place name from the URL after searching the place inside Google Maps website

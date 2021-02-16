@@ -50,13 +50,9 @@ const ServicesVendedores = () => {
             left
             noWrap
             ml="-10%"
+            overflowXHide={device === "tablet" ? true : false}
             $style={{
               zIndex: 2,
-
-              // transform: "rotate(-90deg)",
-              // position: "absolute",
-              // left: "-10%",
-              // width: "150%",
             }}
           >
             vendedores

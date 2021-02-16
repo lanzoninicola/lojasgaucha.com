@@ -1,7 +1,7 @@
 import * as React from "react"
 import { FlexContainer } from "@layouts/index"
 import { Title, Text } from "@typography/index"
-import MapStoreAddress from "./map-storeAddress"
+import StoreLocationAddress from "../shared/store-location-address"
 
 const MapHeader = () => {
   return (
@@ -14,7 +14,7 @@ const MapHeader = () => {
           Olhe, não é muito difícil... Você conhece a praça principal em Pato
           Branco, no centro da cidade? Sim, estamos muito perto disso...
         </Text>
-        <MapStoreAddress />
+        <StoreLocationAddress />
       </>
     </FlexContainer>
   )

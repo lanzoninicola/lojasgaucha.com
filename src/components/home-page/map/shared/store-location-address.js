@@ -3,7 +3,7 @@ import { FlexContainer } from "@layouts/index"
 import { Text } from "@typography/index"
 import { colorsTheme } from "@theme"
 
-const MapStoreAddress = () => {
+const StoreLocationAddress = () => {
   return (
     <FlexContainer columns left>
       <Text weight="400" color={colorsTheme("orange")}>
@@ -19,4 +19,4 @@ const MapStoreAddress = () => {
   )
 }
 
-export default MapStoreAddress
+export default StoreLocationAddress
