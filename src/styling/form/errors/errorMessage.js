@@ -4,19 +4,18 @@ import { SVGIcon } from "@icons/index"
 import { SmallText } from "@typography/index"
 import { FlexContainer } from "@layouts/index"
 
-const ErrorMessage = ({ text, color }) => {
+const ErrorMessage = ({ text, style }) => {
   return (
     <FlexContainer row centerY mt="8" mb="8">
       <SVGIcon name="ALERT_TRIANGLE" size="12" color="red" />
       <SmallText
         weight="400"
-        size="12"
-        variant="secondary"
-        color={color}
+        size={style?.fontSize ?? "12"}
+        color={style?.color ?? "red"}
         italic
         ml="8px"
       >
-        {text}
+        {text ?? "An error occured"}
       </SmallText>
     </FlexContainer>
   )
@@ -24,7 +23,7 @@ const ErrorMessage = ({ text, color }) => {
 
 ErrorMessage.propTypes = {
   text: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  style: PropTypes.object,
 }
 
 export default ErrorMessage

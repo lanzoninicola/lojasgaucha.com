@@ -13,7 +13,7 @@ const FaleConoscoContent = () => {
         <div></div>
         <GridFixedContainer
           columns="1fr"
-          rows="1fr 1fr"
+          rows=".5fr .5fr"
           bg={colorsTheme("orange")}
           pt="160"
           pl="160"

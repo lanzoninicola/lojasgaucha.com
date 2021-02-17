@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { GridFixedContainer } from "@layouts"
-import { Title, Text } from "@typography"
+import { Title } from "@typography"
 
 const FaleConoscoHeader = () => {
   return (

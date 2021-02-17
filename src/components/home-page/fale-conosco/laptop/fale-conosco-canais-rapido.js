@@ -10,7 +10,7 @@ import { NavAnchor } from "@navigation"
 // TODO: TELEFONO DA THEMEPROVIDER
 //          WHATSAPP MANAGING MULTI NUMBERS
 
-const FaleConoscoContactCanaisRapido = () => {
+const FaleConoscoCanaisRapido = () => {
   const themeContext = React.useContext(ThemeContext)
   const companyTheme = themeContext?.company
   const { officePhone, whatsApp } = companyTheme
@@ -65,4 +65,4 @@ const FaleConoscoContactCanaisRapido = () => {
   )
 }
 
-export default FaleConoscoContactCanaisRapido
+export default FaleConoscoCanaisRapido

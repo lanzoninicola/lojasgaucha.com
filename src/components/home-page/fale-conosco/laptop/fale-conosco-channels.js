@@ -1,25 +1,25 @@
 import * as React from "react"
 
 import { GridFixedContainer } from "@layouts"
-import FaleConoscoContactCanaisRapido from "./fale-conosco-contact-canais-rapido"
-import FaleConoscoContactForm from "./fale-conosco-contact-form"
+import FaleConoscoCanaisRapido from "./fale-conosco-canais-rapido"
+import FaleConoscoFormWrapper from "../shared/fale-conosco-form-wrapper"
 
-const FaleConoscoContactChannels = () => {
+const FaleConoscoChannels = () => {
   return (
-    <GridFixedContainer columns="1fr" rows="1fr">
+    <GridFixedContainer columns="1fr" rows="1fr" gap="40">
       <GridFixedContainer columns=".25fr 1fr .25fr" rows="1fr">
         <div></div>
         <GridFixedContainer
           columns="1fr"
-          rAuto
+          rows=".5fr .5fr"
           pt="160"
           pl="80"
           pr="80"
           pb="160"
           gap="48"
         >
-          <FaleConoscoContactCanaisRapido />
-          <FaleConoscoContactForm />
+          <FaleConoscoCanaisRapido />
+          <FaleConoscoFormWrapper />
         </GridFixedContainer>
         <div></div>
       </GridFixedContainer>
@@ -27,4 +27,4 @@ const FaleConoscoContactChannels = () => {
   )
 }
 
-export default FaleConoscoContactChannels
+export default FaleConoscoChannels

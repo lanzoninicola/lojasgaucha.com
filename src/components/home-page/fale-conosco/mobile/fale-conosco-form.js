@@ -1,8 +1,5 @@
 import * as React from "react"
 
-import { GridFixedContainer } from "@layouts/index"
-import useDeepCompareEffect from "use-deep-compare-effect"
-
 import FaleConoscoFormHeader from "./fale-conosco-form-headline"
 import FaleConoscoFormContactInfo from "./fale-conosco-form-contactInfo"
 import FaleConoscoFormMessage from "./fale-conosco-form-message"
@@ -12,46 +9,28 @@ import FaleConoscoFormMessage from "./fale-conosco-form-message"
 
 // TODO: save content in Local Storage
 
-const FaleConoscoForm = () => {
-  const [formStore, setFormStore] = React.useState({
-    submissionStatus: "message-submission",
-    formData: {},
-  })
-
-  useDeepCompareEffect(() => {
-    if (formStore.submissionStatus === "submission-completed") {
-      console.log("do something with the data:", formStore.formData)
-    }
-  }, [formStore])
-
-  const handleSubmission = (status, data) => {
-    let nextFormStore = { ...formStore }
-
-    nextFormStore.submissionStatus = status
-    console.log("pre nextFormStore", nextFormStore)
-    nextFormStore.formData = { ...nextFormStore.formData, ...data }
-
-    console.log("post nextFormStore", nextFormStore)
-
-    setFormStore(nextFormStore)
-  }
-
+const FaleConoscoMobileForm = ({ formState, handleSubmission }) => {
   return (
-    <GridFixedContainer rows=".25fr 1fr" gap="4" stretchX h100>
-      <FaleConoscoFormHeader submissionStatus={formStore.submissionStatus} />
-      {formStore.submissionStatus === "message-submission" && (
+    <>
+      <FaleConoscoFormHeader submissionStage={formState.submissionStage} />
+      {formState.submissionStage === "message-submission" && (
         <FaleConoscoFormMessage handleSubmission={handleSubmission} />
       )}
-      {formStore.submissionStatus === "contactInfo-submission" && (
+      {formState.submissionStage === "contactInfo-submission" && (
         <FaleConoscoFormContactInfo handleSubmission={handleSubmission} />
       )}
-      {formStore.submissionStatus === "submission-completed" && (
-        <div style={{ color: "white", fontSize: "40" }}>
-          URRAAAA!!! HAI VINTO UNA BAMBOLINA
-        </div>
+      {formState.submissionStage === "submission-completed" && (
+        <>
+          <div style={{ color: "white", fontSize: "40", marginBottom: "48" }}>
+            URRAAAA!!! HAI VINTO UNA BAMBOLINA
+          </div>
+          <div style={{ color: "white", fontSize: "24", marginBottom: "48" }}>
+            {JSON.stringify(formState?.formData)}
+          </div>
+        </>
       )}
-    </GridFixedContainer>
+    </>
   )
 }
 
-export default FaleConoscoForm
+export default FaleConoscoMobileForm

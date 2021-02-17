@@ -1,17 +1,11 @@
 import * as React from "react"
-import styled from "styled-components"
-
-import { GridFixedContainer } from "@layouts/index"
-import { InputTextArea, InputIconSubmit } from "@input/index"
-
 import { useForm } from "react-hook-form"
 
-// TODO: manage the focus of field
-
-const StyledForm = styled.form``
+import { GridFixedContainer } from "@layouts/index"
+import { InputIconSubmit } from "@input/index"
+import { FormTextArea, FormInnerWrapper } from "@form"
 
 const FaleConoscoFormMessage = ({ handleSubmission }) => {
-  const messageRef = React.createRef()
   const {
     register,
     errors,
@@ -20,34 +14,33 @@ const FaleConoscoFormMessage = ({ handleSubmission }) => {
     // formState: { isDirty, isSubmitting, touched, submitCount },
   } = useForm()
 
-  const onSubmit = data => {
-    handleSubmission("contactInfo-submission", data)
-  }
-
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <FormInnerWrapper
+      reactHookForm={{ handleSubmit }}
+      handleSubmission={handleSubmission}
+      submissionStage="contactInfo-submission"
+    >
       <GridFixedContainer columns="1fr 0.15fr" rows="1fr" hAuto centerY gap="4">
-        <InputTextArea
-          ref={messageRef}
+        <FormTextArea
+          variant="firebase"
           name="message"
-          labelText="SEU MENSAGEM"
+          label={{ text: "SEU MENSAGEM" }}
           placeholder="Bom dia, preciso saber..."
           isRequired
+          fontSize="16"
           reactHookForm={{
-            register: (...props) => register(...props),
+            register,
             errors,
             validation: {
               errorMessage:
                 "Opa! Parece que você não escreveu nenhuma mensagem...",
-              color: "white",
+              style: { fontSize: "12px", color: "white" },
             },
           }}
-          fontSize="16"
-          // onFocus={handleFocustInputItem}
         />
         <InputIconSubmit bg="orange" />
       </GridFixedContainer>
-    </StyledForm>
+    </FormInnerWrapper>
   )
 }
 

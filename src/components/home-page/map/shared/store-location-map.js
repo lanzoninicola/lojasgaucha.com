@@ -12,7 +12,7 @@ function StoreLocationMap() {
       rows="1fr"
       h={{ laptop: 500, tablet: 200, mobile: 200 }}
     >
-      <Map center={[-26.212, -52.67]} zoom={device === "mobile" ? "14" : "13"}>
+      <Map center={[-26.212, -52.67]} zoom={device === "mobile" ? 14 : 13}>
         <CompanyMarker />
       </Map>
     </GridFixedContainer>

@@ -7,7 +7,7 @@ import { NavModal, NavAnchor } from "@navigation/index"
 import ModalCard from "./modalCard"
 import ModalCardIcon from "./modalCardIcon"
 
-const FaleConoscoContactCanaisRapido = () => {
+const FaleConoscoCanaisRapido = () => {
   const themeContext = React.useContext(ThemeContext)
   const companyTheme = themeContext?.company
   const { officePhone, whatsApp } = companyTheme
@@ -16,7 +16,7 @@ const FaleConoscoContactCanaisRapido = () => {
   // per selezionare la persona con cui parlare
 
   return (
-    <GridFixedContainer rAuto>
+    <GridFixedContainer columns="1fr" rAuto>
       <Title as="h4" weight="400" color="orange">
         Canais rapido
       </Title>
@@ -50,4 +50,4 @@ const FaleConoscoContactCanaisRapido = () => {
   )
 }
 
-export default FaleConoscoContactCanaisRapido
+export default FaleConoscoCanaisRapido

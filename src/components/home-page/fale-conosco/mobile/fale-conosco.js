@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { FlexContainer, GridFixedContainer } from "@layouts/index"
 import { Title, Text } from "@typography/index"
 
-import FaleConoscoContactCanaisRapido from "../mobile/fale-conosco-contact-canais-rapido"
+import FaleConoscoCanaisRapido from "../mobile/fale-conosco-canais-rapido"
 
 const StyledFaleConoscoInner = styled.div`
   height: 100%;
@@ -20,8 +20,8 @@ const FaleConosco = () => {
   // per selezionare la persona con cui parlare
 
   return (
-    <GridFixedContainer rows=".25fr 1fr" gap="16" stretchX h100>
-      <FlexContainer columns left>
+    <GridFixedContainer columns="1fr" rows=".25fr 1fr" gap="16" stretchX h100>
+      <FlexContainer column left>
         <Title as="h2" color="orange" weight="700" mt="16" mb="8">
           Fale Conosco
         </Title>
@@ -31,7 +31,7 @@ const FaleConosco = () => {
         </Text>
       </FlexContainer>
       <StyledFaleConoscoInner>
-        <FaleConoscoContactCanaisRapido />
+        <FaleConoscoCanaisRapido />
       </StyledFaleConoscoInner>
     </GridFixedContainer>
   )

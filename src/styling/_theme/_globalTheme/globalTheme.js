@@ -10,7 +10,7 @@ import { colorsTheme } from "@theme"
 import buttonTheme from "../buttonsTheme"
 import navbarTheme from "../navbarTheme/navbarTheme"
 import overlaysTheme from "../overlaysTheme"
-import formTheme from "../formTheme"
+import formTheme from "../formTheme/formTheme"
 import componentsTheme from "../componentsTheme/componentsTheme"
 
 export const theme = {

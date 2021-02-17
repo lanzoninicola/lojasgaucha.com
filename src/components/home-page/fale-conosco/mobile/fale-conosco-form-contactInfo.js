@@ -1,42 +1,40 @@
 import * as React from "react"
-import styled from "styled-components"
-
-import { FlexContainer, GridFixedContainer } from "@layouts/index"
-import { InputText, InputIconSubmit } from "@input/index"
-
 import { useForm } from "react-hook-form"
 
-const StyledForm = styled.form``
+import { FlexContainer, GridFixedContainer } from "@layouts/index"
+import { InputIconSubmit } from "@input/index"
+import { FormInputText, FormInnerWrapper } from "@form"
 
 const FaleConoscoFormContactInfo = ({ handleSubmission }) => {
-  const fullNameRef = React.createRef()
-  const emailRef = React.createRef()
-
-  const { register, errors, handleSubmit } = useForm()
-
-  const onSubmit = data => {
-    handleSubmission("submission-completed", data)
-  }
+  const {
+    register,
+    errors,
+    handleSubmit,
+    // watch,
+    // formState: { isDirty, isSubmitting, touched, submitCount },
+  } = useForm()
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <FormInnerWrapper
+      reactHookForm={{ handleSubmit }}
+      handleSubmission={handleSubmission}
+      submissionStage="submission-completed"
+    >
       <FlexContainer column>
-        <InputText
-          ref={fullNameRef}
-          name="fullName"
-          labelText="SEU NOME"
+        <FormInputText
+          variant="firebase"
+          name="fullname"
+          label={{ text: "SEU NOME" }}
           placeholder="O meu nome è..."
           isRequired
           reactHookForm={{
-            register: (...props) => register(...props),
+            register,
             errors,
             validation: {
               errorMessage: "Opa! Parece que você não digitou o seu nome...",
-              color: "white",
+              style: { fontSize: "12px", color: "white" },
             },
           }}
-          // onFocus={handleFocustInputItem}
-          // mb={!focusField && `8`}
         />
         <GridFixedContainer
           columns="1fr 0.15fr"
@@ -45,28 +43,25 @@ const FaleConoscoFormContactInfo = ({ handleSubmission }) => {
           centerY
           gap="16"
         >
-          <InputText
-            ref={emailRef}
+          <FormInputText
+            variant="firebase"
             name="email"
-            labelText="SEU EMAIL"
+            label={{ text: "SEU EMAIL" }}
             placeholder="O meu email è..."
             isRequired
             reactHookForm={{
-              register: (...props) => register(...props),
+              register,
               errors,
               validation: {
-                errorMessage:
-                  "Opa! Parece que você não digitou nenhum e-mail...",
-                color: "white",
+                errorMessage: "Opa! Parece que você não digitou o seu email...",
+                style: { fontSize: "12px", color: "white" },
               },
             }}
-            // onFocus={handleFocustInputItem}
-            // mb={!focusField && `8`}
           />
           <InputIconSubmit bg="orange" />
         </GridFixedContainer>
       </FlexContainer>
-    </StyledForm>
+    </FormInnerWrapper>
   )
 }
 
