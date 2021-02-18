@@ -6,8 +6,7 @@ import useHover from "../_hooks/useHover"
 
 // TODO: make naming more generic
 // TODO: build a sort of state style (default, hover, onClick, focus) for button template
-const StyledButtonPrimaryBlue = styled.button`
-  ${ButtonBase}
+const StyledButtonPrimaryBlue = styled(ButtonBase)`
   background: ${({ theme }) => {
     return theme.button?.primary?.blue?.background.default
   }};
@@ -19,8 +18,7 @@ const StyledButtonPrimaryBlue = styled.button`
   }};
 `
 
-const StyledButtonPrimaryOrange = styled.button`
-  ${ButtonBase}
+const StyledButtonPrimaryOrange = styled(ButtonBase)`
   background: ${({ theme }) => {
     return theme.button?.primary?.orange?.background.default
   }};

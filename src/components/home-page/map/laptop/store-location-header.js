@@ -5,7 +5,7 @@ import { Title, Text } from "@typography"
 
 const StoreLocationHeader = () => {
   return (
-    <GridFixedContainer columns="1fr" rows="1fr 1fr">
+    <GridFixedContainer columns="1fr" rows=".25fr 1fr">
       <Title as="h2" color="blue" weight="700">
         Para chegar até nós
       </Title>

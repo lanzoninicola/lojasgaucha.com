@@ -1,10 +1,10 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import { SVGIcon } from "@icons/index"
-import { colorsTheme } from "@theme/index"
+import { SVGIcon } from "@icons"
+import { colorsTheme } from "@theme"
 
-const ButtonBackground = styled.button`
+const StyledSubmitIconButton = styled.button`
   position: relative;
   width: 50px;
   height: 50px;
@@ -14,9 +14,9 @@ const ButtonBackground = styled.button`
   cursor: pointer;
 `
 
-const InputIconSubmit = ({ bg, children, ...props }) => {
+const SubmitIconButton = ({ bg, children, ...props }) => {
   return (
-    <ButtonBackground bg={bg}>
+    <StyledSubmitIconButton bg={bg}>
       <SVGIcon
         name="SEND"
         color="white"
@@ -27,8 +27,8 @@ const InputIconSubmit = ({ bg, children, ...props }) => {
           transform: "translate(-50%,-50%)",
         }}
       />
-    </ButtonBackground>
+    </StyledSubmitIconButton>
   )
 }
 
-export default InputIconSubmit
+export default SubmitIconButton

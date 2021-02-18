@@ -5,6 +5,9 @@ import FormInputText from "./inputText/formInputText"
 import FormTextArea from "./textArea/formTextArea"
 import FormInnerWrapper from "./innerWrapper/formInnerWrapper"
 
+import SubmitIconButton from "./submit/SubmitIconButton"
+import SubmitButton from "./submit/SubmitButton"
+
 import ErrorMessage from "./errors/errorMessage"
 
 export {
@@ -13,4 +16,6 @@ export {
   FormInnerWrapper,
   useReactHookForm,
   ErrorMessage,
+  SubmitIconButton,
+  SubmitButton,
 }

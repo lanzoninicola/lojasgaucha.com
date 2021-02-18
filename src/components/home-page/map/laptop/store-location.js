@@ -7,7 +7,7 @@ import StoreLocationMap from "../shared/store-location-map"
 const StoreLocation = () => {
   return (
     <GridFixedContainer as="section" columns="1fr" rows="1fr" gap="0" mt="36">
-      <GridFluidContainer>
+      <GridFluidContainer gap="0">
         <StoreLocationContent />
         <StoreLocationMap />
       </GridFluidContainer>

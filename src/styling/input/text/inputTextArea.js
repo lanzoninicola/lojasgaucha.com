@@ -1,10 +1,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { ThemeContext } from "styled-components"
 
-import { colorsTheme } from "@theme/index"
-import { FlexContainer } from "@layouts/index"
-import { useResponsiveSize } from "@hooks/index"
+import { GridFixedContainer } from "@layouts/index"
 import {
   isUndefined,
   isNotUndefined,
@@ -22,33 +21,14 @@ import { InputLabel } from "../index"
 // various colors is fixed
 // font-size is fixed
 
-const StyledInputTextArea = styled.textarea`
+const BaseInputTextArea = styled.textarea`
   height: 90px;
-  width: 100%;
-  font-family: ${({ theme }) =>
-    theme?.form?.layout?.textArea?.variants?.firebase?.fontFamily};
-  font-size: ${({ theme, fontSize }) => {
-    if (fontSize) return useResponsiveSize(fontSize)
-
-    return theme?.form?.layout?.textArea?.variants?.firebase?.size
-  }};
-  line-height: ${({ theme }) =>
-    theme?.form?.layout?.textArea?.variants?.firebase?.lineHeight};
-  padding: 0px 4px;
-  color: ${() => colorsTheme("white")};
-  border: 0;
-  border-bottom: ${() => `1px solid ${colorsTheme("orange")}`};
+  padding: 4px;
   background: transparent;
-  border-color: ${() => colorsTheme("orange")};
   resize: none;
 
   &:focus {
     outline: none;
-  }
-
-  &::placeholder {
-    font-size: ${() => useResponsiveSize("14px")};
-    opacity: 0.3;
   }
 `
 
@@ -62,28 +42,44 @@ const InputTextArea = React.forwardRef(
       isFocused,
       noLabel,
       label = { text: "", style: {} },
-      reactHookForm,
-      mt,
-      mb,
       ...props
     },
     ref
   ) => {
+    const themeContext = React.useContext(ThemeContext)
+    const themeStyle = themeContext?.form?.style?.textArea
+
+    function renderInputTextArea(props) {
+      const InputTextAreaVariant = themeStyle?.[props?.variant]
+
+      const _props = {
+        type: "text",
+        id: props?.name,
+        name: props?.name,
+        placeholder: props?.placeholder,
+        ...props,
+      }
+
+      if (isUndefined(InputTextAreaVariant)) {
+        return (
+          <BaseInputTextArea
+            ref={ref}
+            // onFocus={handleFocustInputItem}
+            {..._props}
+          />
+        )
+      }
+
+      return <InputTextAreaVariant ref={ref} {..._props} />
+    }
+
     return (
-      <FlexContainer hAuto wAuto mt="16" mb="16">
+      <GridFixedContainer columns="1fr" rAuto gap="4">
         {!noLabel && (
-          <InputLabel htmlFor={name} text={label?.text} {...label?.style} />
+          <InputLabel htmlFor={name} text={label?.text} style={label?.style} />
         )}
-        <StyledInputTextArea
-          ref={ref}
-          variant={variant}
-          type="text"
-          id={name}
-          name={name}
-          placeholder={placeholder}
-          {...props}
-        />
-      </FlexContainer>
+        {renderInputTextArea({ variant, name, placeholder, ...props })}
+      </GridFixedContainer>
     )
   }
 )

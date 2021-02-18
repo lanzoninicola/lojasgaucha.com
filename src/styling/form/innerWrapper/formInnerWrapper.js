@@ -2,6 +2,8 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
+import { GridFixedContainer } from "@layouts"
+
 import {
   isUndefined,
   isNotUndefined,
@@ -19,6 +21,7 @@ const FormInnerWrapper = ({
   reactHookForm,
   handleSubmission,
   submissionStage,
+  gap,
   children,
 }) => {
   const _handleSubmit = reactHookForm?.handleSubmit
@@ -27,7 +30,13 @@ const FormInnerWrapper = ({
     handleSubmission(submissionStage, data)
   }
 
-  return <StyledForm onSubmit={_handleSubmit(onSubmit)}>{children}</StyledForm>
+  return (
+    <StyledForm onSubmit={_handleSubmit(onSubmit)}>
+      <GridFixedContainer columns="1fr" rAuto gap={gap}>
+        {children}
+      </GridFixedContainer>
+    </StyledForm>
+  )
 }
 
 FormInnerWrapper.propTypes = {

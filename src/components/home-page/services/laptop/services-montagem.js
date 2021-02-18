@@ -1,7 +1,8 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+
 import { useViewportInfo } from "@hooks"
-import { GridFluidContainer, GridFixedContainer, FlexContainer } from "@layouts"
+import { GridFluidContainer, GridFixedContainer } from "@layouts"
 import { ImageQL } from "@images"
 import { Title, Text } from "@typography"
 import { ForegroundGradient } from "@decorative"
@@ -12,7 +13,7 @@ const ServicesMontagem = () => {
   const data = useStaticQuery(
     graphql`
       query IstitutionalLaptopMontagemImage {
-        images: allFile(
+        laptop: allFile(
           filter: {
             sourceInstanceName: { eq: "services_images" }
             relativeDirectory: { eq: "laptop" }
@@ -23,8 +24,46 @@ const ServicesMontagem = () => {
             node {
               relativePath
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fluid(maxWidth: 1920, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+        tablet: allFile(
+          filter: {
+            sourceInstanceName: { eq: "services_images" }
+            relativeDirectory: { eq: "laptop" }
+            name: { eq: "montagem" }
+          }
+        ) {
+          edges {
+            node {
+              relativePath
+              childImageSharp {
+                fluid(maxWidth: 1024, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+        mobile: allFile(
+          filter: {
+            sourceInstanceName: { eq: "services_images" }
+            relativeDirectory: { eq: "laptop" }
+            name: { eq: "montagem" }
+          }
+        ) {
+          edges {
+            node {
+              relativePath
+              childImageSharp {
+                fluid(maxWidth: 375, quality: 100) {
+                  ...GatsbyImageSharpFluid
                   originalName
                 }
               }
@@ -35,8 +74,10 @@ const ServicesMontagem = () => {
     `
   )
 
+  console.log(data)
+
   return (
-    <GridFluidContainer id="services-montagem">
+    <GridFluidContainer id="services-montagem" h="650">
       <GridFixedContainer columns="1fr 1fr" rows="1fr">
         <ImageQL data={data} />
         <GridFixedContainer columns="1fr" rows=".25fr 1fr">
@@ -63,7 +104,7 @@ const ServicesMontagem = () => {
           </Text>
           <GridFixedContainer
             columns={
-              (device === "laptop" && ".5fr 1fr .5fr") ||
+              (device === "laptop" && ".25fr 1fr .25fr") ||
               (device === "tablet" && "1fr")
             }
             rows={

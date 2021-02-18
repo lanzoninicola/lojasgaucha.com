@@ -9,7 +9,7 @@ const FaleConoscoHeader = () => {
       <Title as="h2" color="blue" weight="700">
         Fale conosco
       </Title>
-      <Title as="h5" color="white">
+      <Title as="h3" color="white">
         Você precisa de ajuda? Deseja saber a disponibilidade dos produtos? O
         qualquer outra coisa que possa ser de ajuda nas sua compras.
       </Title>

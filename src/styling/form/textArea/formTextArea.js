@@ -12,7 +12,7 @@ import { ErrorMessage } from "../index"
  *    This component must be wrapped by the "FormInnerWrapper" component
  */
 
-const FormTextArea = ({ reactHookForm, name, ...props }) => {
+const FormTextArea = ({ reactHookForm, name, label, ...props }) => {
   const textAreaRef = React.createRef()
   const _register = reactHookForm?.register
   const _errors = reactHookForm?.errors
@@ -32,6 +32,7 @@ const FormTextArea = ({ reactHookForm, name, ...props }) => {
           textAreaRef.current = e // you can still assign to ref
         }}
         name={name}
+        label={label}
         {...props}
         // onFocus={handleFocustInputItem}
       />

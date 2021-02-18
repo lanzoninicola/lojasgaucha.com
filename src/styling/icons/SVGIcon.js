@@ -1,41 +1,62 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { ThemeContext } from "styled-components"
-import { FlexContainer } from "@layouts/index"
-import Svg from "./Svg"
 
+import { FlexContainer } from "@layouts/index"
+import { useViewportInfo } from "@hooks"
 import { isUndefined, isFunction, error } from "@utils"
+import { colorsTheme } from "@theme"
+import Svg from "./Svg"
+import getIconSize from "./lib/getIconSize"
+
 // import { log } from "@utils/index"
 
 function SVGIcon({ name, size, color, wSVG, hSVG, ...props }) {
   const themeContext = React.useContext(ThemeContext)
   const iconsTheme = themeContext?.icons
+  const { device: currentDevice } = useViewportInfo()
+  const iconSize = getIconSize(size, currentDevice)
   const iconName = name.toUpperCase()
-  const SVGSource = iconsTheme?.catalog[iconName][size]
+  const iconColor = typeof color === "function" ? color : colorsTheme(color)
+
+  const SVGSource = iconsTheme?.catalog?.[iconName]?.[iconSize]
 
   if (isUndefined(SVGSource)) {
     return error(
       `"SVGIcon"`,
-      `Icon with name "${iconName}" and size "${size}" not found.`
+      `Icon with name "${iconName}" and size "${iconSize}" not found.`
     )
   }
 
   const renderReactSVG = () => <SVGSource />
 
-  const renderClassicSVG = (props, sourcePath) => (
-    <Svg sourcePath={sourcePath} {...props} />
+  const renderClassicSVG = props => (
+    <Svg
+      sourcePath={props?.SVGSource}
+      size={props?.iconSize}
+      color={props?.iconColor}
+      {...props}
+    />
   )
 
   function renderSVG(props) {
-    const isReactComponent = isFunction(SVGSource)
+    const isReactComponent = isFunction(props?.SVGSource)
     if (isReactComponent) return renderReactSVG()
 
-    return renderClassicSVG(props, SVGSource)
+    return renderClassicSVG(props)
   }
 
   return (
     <FlexContainer centerX centerY {...props}>
-      {renderSVG({ name, size, color, wSVG, hSVG, ...props })}
+      {renderSVG({
+        iconName,
+        SVGSource,
+        iconSize,
+        iconColor,
+        wSVG,
+        hSVG,
+        ...props,
+      })}
     </FlexContainer>
   )
 }
@@ -48,7 +69,14 @@ SVGIcon.defaultProps = {
 
 SVGIcon.propTypes = {
   name: PropTypes.string.isRequired,
-  size: PropTypes.string,
+  size: (props, propName, componentName) => {
+    if (isUndefined(props[propName])) {
+      return error(
+        `${componentName}`,
+        `The ${propName} is required to render the icon. ${componentName} is ${props[propName]}`
+      )
+    }
+  },
   color: PropTypes.string,
   wSVG: PropTypes.string,
   hSVG: PropTypes.string,

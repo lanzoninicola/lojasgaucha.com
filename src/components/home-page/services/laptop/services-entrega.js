@@ -12,7 +12,7 @@ const ServicesEntrega = () => {
   const data = useStaticQuery(
     graphql`
       query IstitutionalLaptopEntregaImage {
-        images: allFile(
+        laptop: allFile(
           filter: {
             sourceInstanceName: { eq: "services_images" }
             relativeDirectory: { eq: "laptop" }
@@ -23,8 +23,46 @@ const ServicesEntrega = () => {
             node {
               relativePath
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fluid(maxWidth: 1920, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+        tablet: allFile(
+          filter: {
+            sourceInstanceName: { eq: "services_images" }
+            relativeDirectory: { eq: "laptop" }
+            name: { eq: "montagem" }
+          }
+        ) {
+          edges {
+            node {
+              relativePath
+              childImageSharp {
+                fluid(maxWidth: 1024, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+        mobile: allFile(
+          filter: {
+            sourceInstanceName: { eq: "services_images" }
+            relativeDirectory: { eq: "laptop" }
+            name: { eq: "montagem" }
+          }
+        ) {
+          edges {
+            node {
+              relativePath
+              childImageSharp {
+                fluid(maxWidth: 375, quality: 100) {
+                  ...GatsbyImageSharpFluid
                   originalName
                 }
               }
@@ -36,7 +74,7 @@ const ServicesEntrega = () => {
   )
 
   return (
-    <GridFluidContainer id="services-entrega">
+    <GridFluidContainer id="services-entrega" h="650">
       <GridFixedContainer columns="1fr 1fr" rows="1fr">
         <GridFixedContainer columns="1fr" rows=".25fr 1fr">
           <Text
@@ -62,7 +100,7 @@ const ServicesEntrega = () => {
           </Text>
           <GridFixedContainer
             columns={
-              (device === "laptop" && ".5fr 1fr .5fr") ||
+              (device === "laptop" && ".25fr 1fr .25fr") ||
               (device === "tablet" && "1fr")
             }
             rows={

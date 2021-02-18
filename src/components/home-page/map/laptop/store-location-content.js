@@ -35,15 +35,18 @@ const StoreLocationContent = () => {
   )
 
   return (
-    <GridFixedContainer columns="1fr" rows="1fr 1fr">
-      <GridFixedContainer columns=".25fr 1fr .25fr" rows="1fr">
-        <div></div>
-        <GridFixedContainer columns="1fr" rows="1fr 1fr">
-          <StoreLocationHeader />
-          <StoreLocationAddress />
-        </GridFixedContainer>
-        <div></div>
+    <GridFixedContainer
+      columns="1fr"
+      rows="1fr"
+      pl={{ laptop: 160, tablet: 80 }}
+      pr={{ laptop: 160, tablet: 80 }}
+      pt={{ laptop: 40, tablet: 20 }}
+    >
+      <GridFixedContainer columns="1fr" rows="1fr 1fr">
+        <StoreLocationHeader />
+        <StoreLocationAddress />
       </GridFixedContainer>
+
       {/* <GridFixedContainer columns="1fr 1fr" rAuto>
         <div></div>
         <div

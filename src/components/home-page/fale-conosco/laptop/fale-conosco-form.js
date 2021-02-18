@@ -1,8 +1,13 @@
 import * as React from "react"
 import { useForm } from "react-hook-form"
 
-import { GridFixedContainer } from "@layouts/index"
-import { FormInnerWrapper, FormInputText, FormTextArea } from "@form"
+import { GridFixedContainer, FlexContainer } from "@layouts/index"
+import {
+  FormInnerWrapper,
+  FormInputText,
+  FormTextArea,
+  SubmitButton,
+} from "@form"
 import { Title } from "@typography"
 
 const FaleConoscoLaptopForm = ({ formState, handleSubmission }) => {
@@ -11,61 +16,74 @@ const FaleConoscoLaptopForm = ({ formState, handleSubmission }) => {
   return (
     <GridFixedContainer id="fale-conosco-form" columns="1fr" rAuto>
       <Title as="h5" weight="700" color="orange" uppercase center>
-        se você não está com pressa, pode escrever aqui
+        se você não está com pressa
+      </Title>
+      <Title as="h5" weight="700" color="orange" uppercase center>
+        pode escrever aqui
       </Title>
       <FormInnerWrapper
         reactHookForm={{ handleSubmit }}
         handleSubmission={handleSubmission}
+        gap="32"
       >
-        <GridFixedContainer columns="1fr" rAuto>
-          <FormInputText
-            variant="firebase"
-            name="fullname"
-            label={{ text: "SEU NOME" }}
-            placeholder="O meu nome è..."
-            isRequired
-            reactHookForm={{
-              register,
-              errors,
-              validation: {
-                errorMessage: "Opa! Parece que você não digitou o seu nome...",
-                style: { fontSize: "12px", color: "white" },
-              },
-            }}
-          />
-          <FormInputText
-            variant="firebase"
-            name="email"
-            label={{ text: "SEU EMAIL" }}
-            placeholder="O meu email è..."
-            isRequired
-            reactHookForm={{
-              register,
-              errors,
-              validation: {
-                errorMessage: "Opa! Parece que você não digitou o seu email...",
-                style: { fontSize: "12px", color: "white" },
-              },
-            }}
-          />
-          <FormTextArea
-            variant="firebase"
-            name="message"
-            label={{ text: "SEU MENSAGEM" }}
-            placeholder="Bom dia, preciso saber..."
-            isRequired
-            fontSize="16"
-            reactHookForm={{
-              register,
-              errors,
-              validation: {
-                errorMessage:
-                  "Opa! Parece que você não escreveu nenhuma mensagem...",
-                style: { fontSize: "12px", color: "white" },
-              },
-            }}
-          />
-        </GridFixedContainer>
+        <FormInputText
+          variant="primary"
+          name="fullname"
+          label={{ text: "SEU NOME", style: { color: "blue", weight: "600" } }}
+          placeholder="O meu nome è..."
+          isRequired
+          reactHookForm={{
+            register,
+            errors,
+            validation: {
+              errorMessage: "Opa! Parece que você não digitou o seu nome...",
+              style: { color: "orange" },
+            },
+          }}
+        />
+        <FormInputText
+          variant="primary"
+          name="email"
+          label={{
+            text: "SEU EMAIL",
+            style: { color: "blue", weight: "600" },
+          }}
+          placeholder="O meu email è..."
+          isRequired
+          reactHookForm={{
+            register,
+            errors,
+            validation: {
+              errorMessage: "Opa! Parece que você não digitou o seu email...",
+              style: { color: "orange" },
+            },
+          }}
+        />
+        <FormTextArea
+          variant="primary"
+          name="message"
+          label={{
+            text: "SEU MENSAGEM",
+            style: { color: "blue", weight: "600" },
+          }}
+          placeholder="Bom dia, preciso saber..."
+          isRequired
+          fontSize="16"
+          reactHookForm={{
+            register,
+            errors,
+            validation: {
+              errorMessage:
+                "Opa! Parece que você não escreveu nenhuma mensagem...",
+              style: { color: "orange" },
+            },
+          }}
+        />
+        <FlexContainer centerX centerY>
+          <SubmitButton variant="primary" color="orange">
+            ENVIA MENSAGEM
+          </SubmitButton>
+        </FlexContainer>
       </FormInnerWrapper>
     </GridFixedContainer>
   )

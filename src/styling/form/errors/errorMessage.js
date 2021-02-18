@@ -1,22 +1,26 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { SVGIcon } from "@icons/index"
-import { SmallText } from "@typography/index"
+import { Text } from "@typography/index"
 import { FlexContainer } from "@layouts/index"
 
 const ErrorMessage = ({ text, style }) => {
   return (
     <FlexContainer row centerY mt="8" mb="8">
-      <SVGIcon name="ALERT_TRIANGLE" size="12" color="red" />
-      <SmallText
-        weight="400"
-        size={style?.fontSize ?? "12"}
+      <SVGIcon
+        name="ALERT_TRIANGLE"
+        size={{ mobile: 12, laptop: 24, tablet: 24 }}
+        color="red"
+      />
+      <Text
+        weight={style?.fontWeight}
+        size={{ mobile: 12 }}
         color={style?.color ?? "red"}
         italic
         ml="8px"
       >
         {text ?? "An error occured"}
-      </SmallText>
+      </Text>
     </FlexContainer>
   )
 }

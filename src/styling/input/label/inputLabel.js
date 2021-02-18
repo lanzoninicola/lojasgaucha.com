@@ -2,19 +2,22 @@ import * as React from "react"
 import PropTypes from "prop-types"
 
 import { Text } from "@typography"
-import { isUndefined, error } from "@utils"
+import { colorsTheme } from "@theme"
+import { isUndefined, removePropsFromObject, error } from "@utils"
 
 const InputLabel = ({ htmlFor, text, style = {} }) => {
+  const nextStyle = removePropsFromObject(style, ["weight", "color"])
+
   return (
     <Text
       as="label"
       htmlFor={htmlFor ?? ""}
-      weight="600"
-      color="orange"
+      weight={style?.weight}
+      color={colorsTheme(style?.color)}
       capitalize="uppercase"
       ls="1px"
       mb="6px"
-      $style={{ ...style }}
+      $style={nextStyle}
     >
       {text && text}
     </Text>

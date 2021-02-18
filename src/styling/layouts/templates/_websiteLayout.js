@@ -4,6 +4,7 @@ import { PancakeLayout } from "@templates/index"
 import { useViewportInfo } from "@hooks"
 
 import Header from "../../../components/header/header"
+import Footer from "../../../components/footer/footer"
 import BannerNotification from "../../../components/notification/bannerNotification"
 import NavbarItemsMobile from "../../../components/navbar/mobile/navbarItems-mobile"
 
@@ -17,6 +18,7 @@ const WebsiteLayout = ({ children }) => {
           <Header />
           <BannerNotification />
           {children}
+          <Footer />
         </PancakeLayout>
       )}
 

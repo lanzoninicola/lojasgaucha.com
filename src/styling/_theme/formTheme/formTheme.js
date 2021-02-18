@@ -1,37 +1,30 @@
+import * as React from "react"
+
+import PrimaryInputText from "./lib/inputText/PrimaryInputText"
+import FirebaseInputText from "./lib/inputText/firebaseInputText"
+import FirebaseInputTextArea from "./lib/textArea/firebaseTextArea"
+import PrimaryTextArea from "./lib/textArea/primaryTextArea"
+
 const formTheme = () => {
   return {
-    layout: {
-      input: {
-        primary: {},
+    style: {
+      inputText: {
+        primary: React.forwardRef((props, ref) => (
+          <PrimaryInputText ref={ref} {...props} />
+        )),
         secondary: {},
-        // VARIANTS is a style other than primary or secondary
-        // applied in particular situation with requirements that
-        // cannot be satisfied by the standard layout described above
-        // The name of the variants can be a fantasy name from which the inspiration comes from
-        variants: {
-          firebase: {
-            fontFamily: '"Poppins", sans-serif',
-            size: "16px",
-            lineHeight: "36px",
-            capitalize: "lowercase",
-          },
-        },
+        firebase: React.forwardRef((props, ref) => (
+          <FirebaseInputText ref={ref} {...props} />
+        )),
       },
       textArea: {
-        primary: {},
+        primary: React.forwardRef((props, ref) => (
+          <PrimaryTextArea ref={ref} {...props} />
+        )),
         secondary: {},
-        // VARIANTS is a style other than primary or secondary
-        // applied in particular situation with requirements that
-        // cannot be satisfied by the standard layout described above
-        // The name of the variants can be a fantasy name from which the inspiration comes from
-        variants: {
-          firebase: {
-            fontFamily: '"Poppins", sans-serif',
-            size: "16px",
-            lineHeight: "24px",
-            capitalize: "lowercase",
-          },
-        },
+        firebase: React.forwardRef((props, ref) => (
+          <FirebaseInputTextArea ref={ref} {...props} />
+        )),
       },
     },
   }

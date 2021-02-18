@@ -7,6 +7,7 @@ import AppleMaps48 from "./components/appleMaps48"
 import GMaps48 from "./components/gmaps48"
 import Waze48 from "./components/waze48"
 import StoreRoadSign from "./components/storeRoadSign"
+import FooterDecorative from "./components/footerDecorative"
 
 const iconsTheme = () => {
   return {
@@ -134,8 +135,10 @@ const iconsTheme = () => {
       STORE_ROAD_SIGN: {
         300: () => <StoreRoadSign />,
       },
+      FOOTER_DECORATIVE: {
+        250: () => <FooterDecorative />,
+      },
     },
-    layout: {},
   }
 }
 

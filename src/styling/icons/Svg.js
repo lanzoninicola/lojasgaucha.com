@@ -1,5 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
+import { isUndefined, isFunction, error } from "@utils"
 
 const Svg = ({ sourcePath, color, size, wSVG, hSVG }) => {
   const _height = hSVG ?? size
@@ -19,7 +20,14 @@ const Svg = ({ sourcePath, color, size, wSVG, hSVG }) => {
 
 Svg.propTypes = {
   sourcePath: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  size: (props, propName, componentName) => {
+    if (isUndefined(props[propName])) {
+      return error(
+        `${componentName}`,
+        `The ${propName} is required to render the icon. ${componentName} is ${props[propName]}`
+      )
+    }
+  },
   color: PropTypes.string,
   wSVG: PropTypes.string,
   hSVG: PropTypes.string,

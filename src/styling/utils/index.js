@@ -26,6 +26,7 @@ import isNotUndefined from "./isNotUndefined"
 import isDomAvailable from "./isDomAvailable"
 import debounce from "./debounce"
 import objectKeys from "./objectKeys"
+import removePropsFromObject from "./removePropsFromObject"
 
 export {
   left,
@@ -58,4 +59,5 @@ export {
   isDomAvailable,
   debounce,
   objectKeys,
+  removePropsFromObject,
 }

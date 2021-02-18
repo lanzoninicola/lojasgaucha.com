@@ -5,8 +5,9 @@ import ButtonBase from "./buttonBase"
 
 import useHover from "../_hooks/useHover"
 
-const StyledButtonSecondaryGreen = styled.button`
-  ${ButtonBase}
+//TODO refactor this organizing in dedicated folders
+
+const StyledButtonSecondaryGreen = styled(ButtonBase)`
   background: ${({ theme }) =>
     theme.button?.secondary?.green?.background.default};
 
@@ -16,8 +17,7 @@ const StyledButtonSecondaryGreen = styled.button`
       : theme.button?.secondary?.green?.labelColor.default};
 `
 
-const StyledButtonSecondaryYellow = styled.button`
-  ${ButtonBase}
+const StyledButtonSecondaryYellow = styled(ButtonBase)`
   background: ${({ theme }) => {
     return theme.button?.secondary?.yellow?.background.default
   }};

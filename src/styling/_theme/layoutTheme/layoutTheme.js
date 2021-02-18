@@ -25,7 +25,7 @@ function layoutTheme() {
         // below this value the browser start stacking the grid-items
         columns: {
           default: devicesBreakpoints.mobile.small.width,
-          custom: devicesBreakpoints.tablet.small.width,
+          custom: devicesBreakpoints.tablet.small.width - 10,
         },
         // This state for the min-heifht of rows
         rows: {

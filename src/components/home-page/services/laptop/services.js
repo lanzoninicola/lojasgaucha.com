@@ -11,7 +11,7 @@ const Services = () => {
     <GridFixedContainer
       as="section"
       columns="1fr"
-      rows=".5fr 1fr 1fr"
+      rows=".5fr 1fr 1fr 1fr"
       gap="0"
       mb="32"
     >

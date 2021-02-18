@@ -2,7 +2,7 @@ import * as React from "react"
 import { useForm } from "react-hook-form"
 
 import { GridFixedContainer } from "@layouts/index"
-import { InputIconSubmit } from "@input/index"
+import { SubmitIconButton } from "@form"
 import { FormTextArea, FormInnerWrapper } from "@form"
 
 const FaleConoscoFormMessage = ({ handleSubmission }) => {
@@ -38,7 +38,7 @@ const FaleConoscoFormMessage = ({ handleSubmission }) => {
             },
           }}
         />
-        <InputIconSubmit bg="orange" />
+        <SubmitIconButton bg="orange" />
       </GridFixedContainer>
     </FormInnerWrapper>
   )

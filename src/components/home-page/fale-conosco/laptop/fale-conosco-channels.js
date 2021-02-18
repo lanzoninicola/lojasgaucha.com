@@ -12,10 +12,10 @@ const FaleConoscoChannels = () => {
         <GridFixedContainer
           columns="1fr"
           rows=".5fr .5fr"
-          pt="160"
+          pt={{ laptop: 160, tablet: 80 }}
           pl="80"
           pr="80"
-          pb="160"
+          pb={{ laptop: 160, tablet: 80 }}
           gap="48"
         >
           <FaleConoscoCanaisRapido />

@@ -1,11 +1,13 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
+
+import { isNotString, error } from "@utils/index"
+import { useViewportInfo } from "@hooks"
+
 import setGatsbyFluidData from "../lib/setGatsbyFluidData"
 import resetGatsbyImageWrapperStyle from "../lib/resetGatsbyImageWrapperStyle"
 import resetGatsbyImageStyle from "../lib/resetGatsbyImageStyle"
-
-import { isNotString, error } from "@utils/index"
 
 //TODO:
 // adding fallback when an image is not available
@@ -23,9 +25,9 @@ const ImageQL = ({
   title,
   ignoreAlt,
   ignoreTitle,
-
   ...props
 }) => {
+  const { device } = useViewportInfo()
   function setWrapperStyle() {
     return {
       ...wrapperStyle,
@@ -43,7 +45,7 @@ const ImageQL = ({
 
   return (
     <Img
-      fluid={setGatsbyFluidData(data)}
+      fluid={setGatsbyFluidData(data, device)}
       style={setWrapperStyle()}
       imgStyle={setImageStyle()}
       {...props}

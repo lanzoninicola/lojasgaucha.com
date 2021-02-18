@@ -2,7 +2,7 @@ import * as React from "react"
 import { useForm } from "react-hook-form"
 
 import { FlexContainer, GridFixedContainer } from "@layouts/index"
-import { InputIconSubmit } from "@input/index"
+import { SubmitIconButton } from "@form"
 import { FormInputText, FormInnerWrapper } from "@form"
 
 const FaleConoscoFormContactInfo = ({ handleSubmission }) => {
@@ -58,7 +58,7 @@ const FaleConoscoFormContactInfo = ({ handleSubmission }) => {
               },
             }}
           />
-          <InputIconSubmit bg="orange" />
+          <SubmitIconButton bg="orange" />
         </GridFixedContainer>
       </FlexContainer>
     </FormInnerWrapper>

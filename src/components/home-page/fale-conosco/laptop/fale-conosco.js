@@ -6,8 +6,8 @@ import FaleConoscoChannels from "./fale-conosco-channels"
 
 const FaleConosco = () => {
   return (
-    <GridFixedContainer as="section" columns="1fr" rows="1fr" gap="0" mb="36">
-      <GridFluidContainer>
+    <GridFixedContainer as="section" columns="1fr" rows="1fr" gap="0">
+      <GridFluidContainer gap="0">
         <FaleConoscoContent />
         <FaleConoscoChannels />
       </GridFluidContainer>

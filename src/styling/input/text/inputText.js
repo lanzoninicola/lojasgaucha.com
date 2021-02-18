@@ -1,10 +1,10 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { ThemeContext } from "styled-components"
 
-import { colorsTheme } from "@theme/index"
-import { FlexContainer, Space } from "@layouts/index"
-import { useResponsiveSize } from "@hooks/index"
+import { GridFixedContainer } from "@layouts/index"
+
 import {
   isUndefined,
   isNotUndefined,
@@ -16,49 +16,22 @@ import {
 
 import { InputLabel } from "../index"
 
-const StyledInputText = styled.input`
-  ${Space}
-  width: 100%;
-  font-family: ${({ theme, variant }) => {
-    const themeInputVariants = theme?.form?.layout?.input.variants
-    return themeInputVariants[variant].fontFamily
-  }};
-  font-size: ${({ theme, variant }) => {
-    const themeInputVariants = theme?.form?.layout?.input.variants
-    return themeInputVariants[variant].size
-  }};
-  line-height: ${({ theme, variant }) => {
-    const themeInputVariants = theme?.form?.layout?.input.variants
-    return themeInputVariants[variant].lineHeight
-  }};
-  text-transform: ${({ lowercase, uppercase }) => {
-    if (lowercase) return `lowercase`
-    if (uppercase) return `uppercase`
+// TODO: make the focus run
+// const [focusField, setFocusField] = React.useState()
 
-    return null
-  }};
-  color: ${() => colorsTheme("white")};
+// const handleFocustInputItem = e => {
+//   setFocusField(e.target.name)
+// }
+// TODO: managing different style of input element, same as for textArea
+
+const BaseInputText = styled.input`
   background: transparent;
-  padding: 0px 4px;
-  border: 0;
-  border-bottom: ${() => `1px solid ${colorsTheme("orange")}`};
-  border-color: ${() => colorsTheme("orange")};
-  transition: border 0.15s cubic-bezier(0, 0, 0.2, 1);
-
-  caret-color: ${() =>
-    colorsTheme("whitegray", { colorUnit: "rgba", opacity: "0.5" })};
+  padding: 8px;
 
   &:focus {
     outline: none;
   }
-
-  &::placeholder {
-    font-size: ${() => useResponsiveSize("14px")};
-    opacity: 0.3;
-  }
 `
-
-// TODO: managing different style of input element, same as for textArea
 
 const InputText = React.forwardRef(
   (
@@ -70,35 +43,44 @@ const InputText = React.forwardRef(
       isFocused,
       noLabel,
       label = { text: "", style: {} },
-      mt,
-      mb,
       ...props
     },
     ref
   ) => {
-    // TODO: make the focus run
-    // const [focusField, setFocusField] = React.useState()
+    const themeContext = React.useContext(ThemeContext)
+    const themeStyle = themeContext?.form?.style?.inputText
 
-    // const handleFocustInputItem = e => {
-    //   setFocusField(e.target.name)
-    // }
+    function renderInputText(props) {
+      const InputTextVariant = themeStyle?.[props?.variant]
+
+      const _props = {
+        type: "text",
+        id: props?.name,
+        name: props?.name,
+        placeholder: props?.placeholder,
+        ...props,
+      }
+
+      if (isUndefined(InputTextVariant)) {
+        return (
+          <BaseInputText
+            ref={ref}
+            // onFocus={handleFocustInputItem}
+            {..._props}
+          />
+        )
+      }
+
+      return <InputTextVariant ref={ref} {..._props} />
+    }
 
     return (
-      <FlexContainer hAuto wAuto mt={mt ?? "16"} mb={mb ?? "16"}>
+      <GridFixedContainer columns="1fr" rAuto gap="4">
         {!noLabel && (
-          <InputLabel htmlFor={name} text={label?.text} {...label?.style} />
+          <InputLabel htmlFor={name} text={label?.text} style={label?.style} />
         )}
-        <StyledInputText
-          ref={ref}
-          variant={variant}
-          type="text"
-          id={name}
-          name={name}
-          placeholder={placeholder}
-          // onFocus={handleFocustInputItem}
-          {...props}
-        />
-      </FlexContainer>
+        {renderInputText({ variant, name, placeholder, ...props })}
+      </GridFixedContainer>
     )
   }
 )
