@@ -11,11 +11,11 @@ const navbarLaptopLayout = () => {
       icon: {
         show: true,
         color: {
-          default: colorsTheme("blue"),
-          hovered: colorsTheme("blue"),
+          default: "blue",
+          hovered: "blue",
           spotligthed: {
-            orange: colorsTheme("orange"),
-            green: colorsTheme("green"),
+            orange: "orange",
+            green: "green",
           },
         },
         size: "24",

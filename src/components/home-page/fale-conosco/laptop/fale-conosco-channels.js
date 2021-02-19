@@ -16,7 +16,7 @@ const FaleConoscoChannels = () => {
           pl="80"
           pr="80"
           pb={{ laptop: 160, tablet: 80 }}
-          gap="48"
+          gap="56"
         >
           <FaleConoscoCanaisRapido />
           <FaleConoscoFormWrapper />

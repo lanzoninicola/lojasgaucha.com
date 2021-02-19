@@ -6,7 +6,7 @@ import { SVGIcon } from "@icons"
 
 const FaleConoscoSubHeader = () => {
   return (
-    <GridFixedContainer columns="1fr" rAuto>
+    <GridFixedContainer columns=".75fr" rAuto>
       <GridFixedContainer columns="1fr .1fr" rAuto>
         <Title as="h5" color="blue" weight="700" uppercase>
           Use nossos canais para entrar em contato conosco

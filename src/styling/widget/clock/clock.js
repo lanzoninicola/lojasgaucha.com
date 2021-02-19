@@ -7,7 +7,7 @@ import { SVGIcon } from "@icons/index"
 const Clock = () => {
   return (
     <FlexContainer row centerY wAuto>
-      <SVGIcon name="clock" color={colorsTheme("blue")} />
+      <SVGIcon name="clock" color="blue" />
       <Text
         weight="600"
         variant="secondary"

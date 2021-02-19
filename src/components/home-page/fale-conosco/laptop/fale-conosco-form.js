@@ -14,13 +14,11 @@ const FaleConoscoLaptopForm = ({ formState, handleSubmission }) => {
   const { register, errors, handleSubmit } = useForm()
 
   return (
-    <GridFixedContainer id="fale-conosco-form" columns="1fr" rAuto>
+    <GridFixedContainer id="fale-conosco-form" columns="1fr" rAuto gap="32">
       <Title as="h5" weight="700" color="orange" uppercase center>
-        se você não está com pressa
+        se você não está com pressa{"\n"}pode escrever aqui
       </Title>
-      <Title as="h5" weight="700" color="orange" uppercase center>
-        pode escrever aqui
-      </Title>
+
       <FormInnerWrapper
         reactHookForm={{ handleSubmit }}
         handleSubmission={handleSubmission}

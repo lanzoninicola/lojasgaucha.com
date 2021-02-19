@@ -3,7 +3,6 @@ import styled from "styled-components"
 import Grid from "./grid"
 
 import { parseGridTemplateValues } from "@layouts/lib/index"
-
 import { isUndefined, isNotString, warn, error } from "@utils/index"
 
 /**

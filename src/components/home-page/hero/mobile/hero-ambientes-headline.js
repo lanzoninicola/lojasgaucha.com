@@ -28,7 +28,7 @@ const HeroAmbientesHeadline = () => {
         $style={{}}
       >
         <FlexContainer column centerY>
-          <SVGIcon name="view_all" color={colorsTheme("orange")} mb="4" />
+          <SVGIcon name="view_all" color="orange" mb="4" />
           <SmallText weight="600" capitalize="lowercase" color="orange">
             ver mais
           </SmallText>

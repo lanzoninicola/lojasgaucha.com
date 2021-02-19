@@ -8,6 +8,7 @@ import Institutional from "../components/home-page/institutional/laptop/institut
 import Services from "../components/home-page/services/laptop/services"
 import StoreLocation from "../components/home-page/map/laptop/store-location"
 import FaleConosco from "../components/home-page/fale-conosco/laptop/fale-conosco"
+import AmbientesCarousel from "../components/home-page/ambientes/ambientes-carousel"
 
 const IndexPage = () => {
   const { device } = useViewportInfo()
@@ -21,6 +22,7 @@ const IndexPage = () => {
           <Claims />
           <Institutional />
           <Services />
+          <AmbientesCarousel />
           <StoreLocation />
           <FaleConosco />
         </>

@@ -127,7 +127,7 @@ const ServicesEntrega = () => {
             <div></div>
           </GridFixedContainer>
         </GridFixedContainer>
-        <ImageQL data={data} />
+        <ImageQL dataWithBreakpoints={data} />
       </GridFixedContainer>
 
       <ForegroundGradient gradient={{ direction: "left", start: "blue" }} />

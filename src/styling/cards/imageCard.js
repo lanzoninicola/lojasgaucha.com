@@ -71,7 +71,7 @@ const ImageCard = ({
           <SVGIcon
             name="ARROW_RIGHT"
             size="24"
-            color={colorsTheme("white")}
+            color="white"
             pl="8"
           /> */}
       </ImageTitle>

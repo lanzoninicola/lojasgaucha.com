@@ -21,7 +21,7 @@ const ServicesHeadline = () => {
             serviços pessoalmente
           </HighlightTextLine1>
         </Title>
-        <SVGIcon name="ARROW_BOTTOM" color={colorsTheme("blue")} />
+        <SVGIcon name="ARROW_BOTTOM" color="blue" />
       </FlexContainer>
     </GridFixedContainer>
   )

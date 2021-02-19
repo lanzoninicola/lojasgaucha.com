@@ -38,7 +38,7 @@ const FaleConoscoCanaisRapido = () => {
           to={{ type: "phone", value: `tel:${officePhone?.APINumber}` }}
         >
           <GridFixedContainer columns="1fr" rAuto gap="4" centerX>
-            <SVGIcon name="CALL_PHONE" size="60" color={colorsTheme("blue")} />
+            <SVGIcon name="CALL_PHONE" size="60" color="blue" />
             <Text weight="600" color="blue" uppercase>
               telefone
             </Text>
@@ -54,7 +54,7 @@ const FaleConoscoCanaisRapido = () => {
           }}
         >
           <GridFixedContainer columns="1fr" rAuto gap="4" centerX>
-            <SVGIcon name="WHATSAPP" size="60" color={colorsTheme("blue")} />
+            <SVGIcon name="WHATSAPP" size="60" color="blue" />
             <Text weight="600" color="blue" uppercase>
               whatsapp
             </Text>

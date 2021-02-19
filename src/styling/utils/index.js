@@ -27,6 +27,7 @@ import isDomAvailable from "./isDomAvailable"
 import debounce from "./debounce"
 import objectKeys from "./objectKeys"
 import removePropsFromObject from "./removePropsFromObject"
+import randomItemFromArray from "./randomItemFromArray"
 
 export {
   left,
@@ -60,4 +61,5 @@ export {
   debounce,
   objectKeys,
   removePropsFromObject,
+  randomItemFromArray,
 }

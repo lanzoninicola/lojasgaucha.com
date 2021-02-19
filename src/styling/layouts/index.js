@@ -9,6 +9,12 @@ import FlexMotionContainer from "./containers/flex/flexMotionContainer"
 
 import GridFixedContainer from "./containers/grid/gridFixedContainer"
 import GridFluidContainer from "./containers/grid/gridFluidContainer"
+import {
+  GridMosaicContainer,
+  GridMosaicCellTall,
+  GridMosaicCellWide,
+  GridMosaicCellBase,
+} from "./containers/grid/gridMosaicContainer"
 import PancakeStack from "./containers/grid/pancakeStack"
 
 import Span from "./containers/span/span"
@@ -32,4 +38,8 @@ export {
   TextBox,
   HeaderFixedContainer,
   HeaderScrollContainer,
+  GridMosaicContainer,
+  GridMosaicCellTall,
+  GridMosaicCellWide,
+  GridMosaicCellBase,
 }

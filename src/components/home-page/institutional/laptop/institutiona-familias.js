@@ -36,7 +36,7 @@ const InstitutionalFamilias = () => {
                 key={key}
                 name={icon}
                 size={data[icon]?.size}
-                color={colorsTheme(data[icon]?.color)}
+                color={data[icon]?.color}
                 wSVG={data[icon]?.w}
                 hSVG={data[icon]?.h}
               />

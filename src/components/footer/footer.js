@@ -3,7 +3,7 @@ import * as React from "react"
 import { GridFluidContainer, GridFixedContainer, FlexContainer } from "@layouts"
 import { colorsTheme } from "@theme"
 import { SVGIcon } from "@icons"
-import { Text, Title } from "@typography"
+import { Text, Title, SmallText } from "@typography"
 import { ButtonPrimaryOrange } from "@buttons"
 import { NavLink } from "@navigation"
 
@@ -114,6 +114,12 @@ const Footer = () => {
             <div></div>
           </GridFixedContainer>
           {/** LINKS */}
+        </GridFluidContainer>
+        {/** PRIVACY */}
+        <GridFluidContainer centerY centerX>
+          <SmallText color="white" hAuto>
+            © Copyright 2021. Todos os direitos reservados.
+          </SmallText>
         </GridFluidContainer>
       </GridFixedContainer>
     </GridFixedContainer>

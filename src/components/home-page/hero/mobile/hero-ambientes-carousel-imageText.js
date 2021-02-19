@@ -13,12 +13,7 @@ const HeroAmbientesCarouselImageText = ({ text }) => {
       bg={colorsTheme("orange", { colorUnit: "rgba", opacity: "0.7" })}
       w="60%"
     >
-      <SVGIcon
-        name="ARROW_RIGHT"
-        size="24"
-        color={colorsTheme("white")}
-        pl="8"
-      />
+      <SVGIcon name="ARROW_RIGHT" size="24" color="white" pl="8" />
     </ImageTitle>
   )
 }

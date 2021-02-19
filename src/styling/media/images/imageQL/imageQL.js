@@ -2,12 +2,13 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
-import { isNotString, error } from "@utils/index"
+import { isNotString, isUndefined, isNotUndefined, error } from "@utils/index"
 import { useViewportInfo } from "@hooks"
 
 import setGatsbyFluidData from "../lib/setGatsbyFluidData"
 import resetGatsbyImageWrapperStyle from "../lib/resetGatsbyImageWrapperStyle"
 import resetGatsbyImageStyle from "../lib/resetGatsbyImageStyle"
+import HelpImageQL from "../lib/helpImageQL"
 
 //TODO:
 // adding fallback when an image is not available
@@ -17,6 +18,7 @@ const DEFAULT_BOXSHADOW =
 
 const ImageQL = ({
   children,
+  dataWithBreakpoints, // used when the data passed from the GraphQL query contains the breakpoint information (laptop, tablet, mobile)
   data,
   wrapperStyle,
   imgStyle,
@@ -25,9 +27,21 @@ const ImageQL = ({
   title,
   ignoreAlt,
   ignoreTitle,
+  help,
   ...props
 }) => {
   const { device } = useViewportInfo()
+
+  let _fluid = null
+
+  if (isNotUndefined(dataWithBreakpoints)) {
+    _fluid = setGatsbyFluidData(dataWithBreakpoints, device)
+  }
+
+  if (isNotUndefined(data)) {
+    _fluid = setGatsbyFluidData(data)
+  }
+
   function setWrapperStyle() {
     return {
       ...wrapperStyle,
@@ -44,18 +58,40 @@ const ImageQL = ({
   }
 
   return (
-    <Img
-      fluid={setGatsbyFluidData(data, device)}
-      style={setWrapperStyle()}
-      imgStyle={setImageStyle()}
-      {...props}
-    />
+    <>
+      {!help && (
+        <Img
+          fluid={_fluid}
+          style={setWrapperStyle()}
+          imgStyle={setImageStyle()}
+          {...props}
+        />
+      )}
+      {help && <HelpImageQL />}
+    </>
   )
 }
 
 ImageQL.propTypes = {
-  data: PropTypes.object,
-  fluid: PropTypes.object,
+  data: (props, propName, componentName) => {
+    if (
+      isUndefined(props[propName]) &&
+      isUndefined(props["dataWithBreakpoints"])
+    ) {
+      return error(
+        `${componentName}`,
+        `The ${propName} is required for the "${componentName}" component. The ${propName} is ${typeof propName}`
+      )
+    }
+  },
+  dataWithBreakpoints: (props, propName, componentName) => {
+    if (isUndefined(props[propName]) && isUndefined(props["data"])) {
+      return error(
+        `${componentName}`,
+        `The ${propName} is required for the "${componentName}" component. The ${propName} is ${typeof propName}`
+      )
+    }
+  },
   wrapperStyle: PropTypes.object,
   imgStyle: PropTypes.object,
   alt: function (props, propName, componentName) {

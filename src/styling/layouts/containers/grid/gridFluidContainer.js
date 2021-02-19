@@ -27,8 +27,6 @@ const StyledGridFluidContainer = styled.div`
     const minColumnsWidth =
       cWidth ?? responsiveGridColumns.custom ?? responsiveGridColumns.default
 
-    console.log(minColumnsWidth)
-
     return `repeat(auto-fit, minmax(min(${useResponsiveSize(
       minColumnsWidth
     )}, 100%), 1fr))`

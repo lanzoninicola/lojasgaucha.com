@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
+import { useViewportInfo } from "@hooks"
 import { ImageQL } from "@images/index"
 import { NavLink } from "@navigation"
 import { removeFilenameExtension } from "@utils"
@@ -10,15 +11,44 @@ import HeroAmbientesCarouselImageText from "./hero-ambientes-carousel-imageText"
 import CarouselSlideCard from "../../../../styling/carousel/carouselSlideCard"
 
 const HeroAmbientesCarousel = () => {
+  const { device } = useViewportInfo()
+
   const data = useStaticQuery(graphql`
     query CarouselImages {
-      images: allFile(filter: { sourceInstanceName: { eq: "hero_carousel" } }) {
+      laptop: allFile(filter: { sourceInstanceName: { eq: "hero_carousel" } }) {
         edges {
           node {
             relativePath
             childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_withWebp
+              fluid(maxWidth: 1920, quality: 100) {
+                ...GatsbyImageSharpFluid
+                originalName
+              }
+            }
+          }
+        }
+      }
+      tablet: allFile(filter: { sourceInstanceName: { eq: "hero_carousel" } }) {
+        edges {
+          node {
+            relativePath
+            childImageSharp {
+              fluid(maxWidth: 1024, quality: 100) {
+                ...GatsbyImageSharpFluid
+                originalName
+              }
+            }
+          }
+        }
+      }
+      mobile: allFile(filter: { sourceInstanceName: { eq: "hero_carousel" } }) {
+        edges {
+          node {
+            relativePath
+            childImageSharp {
+              fluid(maxWidth: 375, quality: 100) {
+                ...GatsbyImageSharpFluid
+                originalName
               }
             }
           }
@@ -29,16 +59,11 @@ const HeroAmbientesCarousel = () => {
 
   // const ambientes = [""]
 
-  const carouselData = data?.images?.edges.map((image, index) => {
-    // image {
-    //   node: {
-    //     childImageSharp: // info required by Gatsby to render image
-    //     relativePath: "" // here the name of ile
-    //   }
-    // }
+  const carouselData = data?.[device]?.edges.map((image, index) => {
     const fileNameNoExtension = removeFilenameExtension(
       image?.node?.relativePath
     )
+
     const carouselAddtionalData = filename => {
       switch (filename) {
         case "roupeiros":
@@ -93,6 +118,8 @@ const HeroAmbientesCarousel = () => {
     }
   })
 
+  console.log(carouselData)
+
   return (
     <CarouselSlide id="hero-carousel">
       {carouselData.map((itemData, index) => {
@@ -101,11 +128,12 @@ const HeroAmbientesCarousel = () => {
             id="hero-carousel-card"
             key={index}
             h100
-            p="20 30 20 30"
+            // p="20 30 20 30" // this is ok for mobile
+            p="80 120 80 120"
           >
             <NavLink to={itemData?.to}>
               <ImageQL
-                data={itemData?.fluid}
+                data={itemData.fluid}
                 alt={itemData?.alt}
                 title={itemData?.title}
                 shadow
