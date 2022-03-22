@@ -9,6 +9,7 @@ import { useResponsiveSize } from "@hooks/index"
 const Grid = css`
   ${Space}
   ${Size}
+
   display: grid;
   justify-items: ${({ left, centerX, right, stretchX }) => {
     if (left) return `start`
@@ -28,9 +29,11 @@ const Grid = css`
 
     return useResponsiveSize(themeGridLayout.gap.default)
   }};
-  position: ${({ relative, absolute }) => {
+  position: ${({ relative, absolute, fixed, sticky }) => {
     if (relative) return `relative`
     if (absolute) return `absolute`
+    if (fixed) return `fixed`
+    if (sticky) return `sticky`
 
     return `relative`
   }};

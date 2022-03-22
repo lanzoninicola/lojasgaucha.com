@@ -7,6 +7,7 @@ export default function breakpointsDesignSpec(
   userBreakpoints = {}
 ) {
   const breakpoints = theme?.breakpoints ?? userBreakpoints
+  const _currentDevice = currentDevice ?? theme?.breakpoints?.baseLineDevice
 
   if (isUndefined(breakpoints) || breakpoints === null) {
     error(
@@ -16,9 +17,9 @@ export default function breakpointsDesignSpec(
     return
   }
 
-  const DEVICE_SPEC = breakpoints?.designSpecification[currentDevice]
+  const DEVICE_SPEC = breakpoints?.designSpecification[_currentDevice]
   const VIEWPORT_DIAGONAL_SPEC =
-    breakpoints?.viewportDevices[currentDevice][DEVICE_SPEC].diagonal
+    breakpoints?.viewportDevices[_currentDevice][DEVICE_SPEC].diagonal
 
   return { diagonalSpec: VIEWPORT_DIAGONAL_SPEC }
 }

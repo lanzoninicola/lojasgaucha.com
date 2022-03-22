@@ -1,5 +1,6 @@
 const breakpointsTheme = () => {
   let _breakpointsTheme = {
+    baseLineDevice: "mobile",
     viewportDevices: {
       mobile: {
         small: {

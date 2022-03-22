@@ -1,9 +1,10 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import setGatsbyFluidData from "../lib/setGatsbyFluidData"
 
+import setGatsbyFluidData from "../lib/setGatsbyFluidData"
 import BackgroundImage from "gatsby-background-image"
+import { Size } from "@layouts"
 
 const BackgroundImg = ({ data, children }) => {
   return (
@@ -19,8 +20,7 @@ BackgroundImg.propTypes = {
 }
 
 const StyledBackgroundImg = styled(BackgroundImg)`
-  width: 100%;
-  height: 650px;
+  ${Size}
   background-position: bottom center;
   background-repeat: repeat-y;
   background-size: cover;

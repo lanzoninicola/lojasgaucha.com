@@ -11,6 +11,7 @@ import { useViewportInfo } from "@hooks"
 import { randomItemFromArray, objectKeys } from "@utils"
 
 import { ImageQL } from "../index"
+import mapGraphQLImageData from "../lib/mapGraphQLImageData"
 
 const _gridCellWide = props => (
   <GridMosaicCellWide {...props}>{props?.children}</GridMosaicCellWide>
@@ -27,7 +28,7 @@ const ImageMosaicGallery = ({ data = {}, ...props }) => {
 
   return (
     <GridMosaicContainer {...props}>
-      {data?.[device]?.edges.map((item, index) => {
+      {mapGraphQLImageData(data, device, (fluidData, index) => {
         const GridCellContainer = randomItemFromArray([
           _gridCellWide,
           _gridCellTall,
@@ -36,7 +37,7 @@ const ImageMosaicGallery = ({ data = {}, ...props }) => {
 
         return (
           <GridCellContainer key={index}>
-            <ImageQL data={item?.node?.childImageSharp?.fluid} />
+            <ImageQL data={fluidData} />
           </GridCellContainer>
         )
       })}

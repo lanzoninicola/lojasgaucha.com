@@ -1,29 +1,54 @@
-import { isObject, isNotUndefined, error } from "@utils"
+import { isEmptyObject, isNotUndefined, error, warn } from "@utils"
 
-export default function setGatsbyFluidData(dataSource, device) {
-  const _isObject = isObject(dataSource)
-  const hasDataBreakpointInfo = isNotUndefined(dataSource?.[device])
-  let _dataSource = {}
-
-  if (!hasDataBreakpointInfo) _dataSource = dataSource
-
-  if (hasDataBreakpointInfo) _dataSource = dataSource[device]
-
-  if (!_isObject) {
+export default function setGatsbyFluidData(
+  graphQLData = {},
+  currentDevice = ""
+) {
+  if (isEmptyObject(graphQLData)) {
     return error(
-      `setGatsbyFluidData()`,
-      `Data passed to gatsby-images must be an object`
+      `setGatsbyFluidData`,
+      `GraphQL query result returned anything. "graphQLData" param value is: ${JSON.stringify(
+        graphQLData
+      )}`
     )
   }
 
-  const isFluidData = _dataSource.hasOwnProperty("aspectRatio") ? true : false
-
-  // in case this component is used inside an iterator (map, forEach etc...)
-  if (isFluidData) return _dataSource
-
-  // in case this component is used to render a single image
-  if (_isObject) {
-    const edgesImageData = _dataSource?.edges
-    return edgesImageData[0].node?.childImageSharp?.fluid
+  if (currentDevice === "") {
+    return error(
+      `setGatsbyFluidData`,
+      `You have to pass the current device breakpoint information as second parameter of function. "currentDevice" param value is: ${JSON.stringify(
+        currentDevice
+      )}`
+    )
   }
+
+  /**
+   *    USE CASE 1:
+   *    the GraphQL query return a single record of specific image item due the filter used inside the query.
+   *    In this case the result object contains also the breakpoints information of image
+   */
+
+  const hasDataBreakpointInfo = isNotUndefined(graphQLData?.[currentDevice])
+  if (hasDataBreakpointInfo) {
+    const edgesArray = graphQLData?.[currentDevice]?.edges
+
+    if (graphQLData?.[currentDevice]?.edges.length > 1) {
+      warn(
+        `setGatsbyFluidData`,
+        `The GraphQL query returns more than 1 item. Maybe you need to map the result or check the filter applied to the GraphQL query.`
+      )
+    }
+
+    return edgesArray[0].node?.childImageSharp?.fluid
+  }
+
+  /**
+   *    USE CASE 2:
+   *    the GraphQL query return a collection of images.
+   *    It requires mapping the data using the "mapGraphQLImageData" function,
+   *    in the callback function will be passed the single record of fluid data to the component.
+   */
+
+  const isFluidData = graphQLData.hasOwnProperty("aspectRatio") ? true : false
+  if (isFluidData) return graphQLData
 }

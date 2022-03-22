@@ -18,7 +18,6 @@ const DEFAULT_BOXSHADOW =
 
 const ImageQL = ({
   children,
-  dataWithBreakpoints, // used when the data passed from the GraphQL query contains the breakpoint information (laptop, tablet, mobile)
   data,
   wrapperStyle,
   imgStyle,
@@ -31,17 +30,6 @@ const ImageQL = ({
   ...props
 }) => {
   const { device } = useViewportInfo()
-
-  let _fluid = null
-
-  if (isNotUndefined(dataWithBreakpoints)) {
-    _fluid = setGatsbyFluidData(dataWithBreakpoints, device)
-  }
-
-  if (isNotUndefined(data)) {
-    _fluid = setGatsbyFluidData(data)
-  }
-
   function setWrapperStyle() {
     return {
       ...wrapperStyle,
@@ -53,6 +41,7 @@ const ImageQL = ({
   function setImageStyle() {
     return {
       ...imgStyle,
+      objectFit: "contain",
       ...resetGatsbyImageStyle(),
     }
   }
@@ -61,7 +50,7 @@ const ImageQL = ({
     <>
       {!help && (
         <Img
-          fluid={_fluid}
+          fluid={setGatsbyFluidData(data, device)}
           style={setWrapperStyle()}
           imgStyle={setImageStyle()}
           {...props}
@@ -74,18 +63,7 @@ const ImageQL = ({
 
 ImageQL.propTypes = {
   data: (props, propName, componentName) => {
-    if (
-      isUndefined(props[propName]) &&
-      isUndefined(props["dataWithBreakpoints"])
-    ) {
-      return error(
-        `${componentName}`,
-        `The ${propName} is required for the "${componentName}" component. The ${propName} is ${typeof propName}`
-      )
-    }
-  },
-  dataWithBreakpoints: (props, propName, componentName) => {
-    if (isUndefined(props[propName]) && isUndefined(props["data"])) {
+    if (isUndefined(props[propName])) {
       return error(
         `${componentName}`,
         `The ${propName} is required for the "${componentName}" component. The ${propName} is ${typeof propName}`

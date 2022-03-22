@@ -50,8 +50,6 @@ const AmbientesCarousel = () => {
     }
   `)
 
-  console.log(data)
-
   return (
     <GridFixedContainer columns="1fr" rows="1fr">
       <GridFixedContainer

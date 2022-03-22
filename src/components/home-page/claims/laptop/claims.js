@@ -19,6 +19,7 @@ const Claims = () => {
           centerY
           h="300"
           cWidth="200"
+          sticky
         >
           <GridFixedContainer
             columns="1fr"

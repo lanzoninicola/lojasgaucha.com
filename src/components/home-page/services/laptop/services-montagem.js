@@ -77,7 +77,7 @@ const ServicesMontagem = () => {
   return (
     <GridFluidContainer id="services-montagem" h="650">
       <GridFixedContainer columns="1fr 1fr" rows="1fr">
-        <ImageQL dataWithBreakpoints={data} />
+        <ImageQL data={data} />
         <GridFixedContainer columns="1fr" rows=".25fr 1fr">
           <Text
             weight="700"

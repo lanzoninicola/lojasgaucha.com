@@ -47,9 +47,11 @@ const Flex = styled.div`
     if (direction === "column") return `column` // it will deprecated
     return `column`
   }};
-  position: ${({ relative, absolute }) => {
+  position: ${({ relative, absolute, fixed, sticky }) => {
     if (relative) return `relative`
     if (absolute) return `absolute`
+    if (fixed) return `fixed`
+    if (sticky) return `sticky`
 
     return `relative`
   }};
